@@ -1,38 +1,39 @@
-// An array of links for navigation bar
+import { SITE } from "@/data_files/constants";
+
 const navBarLinks = [
-  { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
-  { name: "Blog", url: "/blog" },
-  { name: "Contact", url: "/contact" },
+  { name: "Accueil", url: "/fr" },
+  { name: "Produits", url: `${SITE.base}/fr/products` },
+  { name: "Services", url: `${SITE.base}/fr/services` },
+  { name: "Blog", url: `${SITE.base}/fr/blog` },
+  { name: "Contact", url:`${SITE.base}/fr/contact` },
 ];
-// An array of links for footer
+
 const footerLinks = [
   {
-    section: "Ecosystem",
+    section: "Écosystème",
     links: [
-      { name: "Documentation", url: "/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      { name: "Documentation", url: "/fr/welcome-to-docs/" },
+      { name: "Outils et Équipements", url: "/fr/products" },
+      { name: "Services de Construction", url: "/fr/services" },
     ],
   },
   {
-    section: "Company",
+    section: "Société",
     links: [
-      { name: "About us", url: "#" },
-      { name: "Blog", url: "/blog" },
-      { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
+      { name: "À propos de nous", url: "#" },
+      { name: "Blog", url: "/fr/blog" },
+      { name: "Carrières", url: "#" },
+      { name: "Clients", url: "#" },
     ],
   },
 ];
-// An object of links for social icons
+
 const socialLinks = {
-  facebook: "https://www.facebook.com/",
-  x: "https://twitter.com/",
+  facebook: "#",
+  x: "#",
   github: "https://github.com/mearashadowfax/ScrewFast",
-  google: "https://www.google.com/",
-  slack: "https://slack.com/",
+  google: "#",
+  slack: "#",
 };
 
 export default {
