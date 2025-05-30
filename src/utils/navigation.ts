@@ -1,4 +1,4 @@
-import { SITE } from "@/data_files/constants";
+import { externalLinks, SITE } from "@/data_files/constants";
 
 const navBarLinks = [
   { name: "Accueil", url: "/fr" },
@@ -8,32 +8,77 @@ const navBarLinks = [
   { name: "Contact", url: `${SITE.base}/fr/contact` },
 ];
 
-const footerLinks = [
+interface FooterLinks {
+  section: string;
+  links: FooterLink[];
+}
+
+interface FooterLink {
+  name: string;
+  url?: string;
+  openInNewTab?: boolean;
+}
+
+const footerLinks: FooterLinks[] = [
   {
-    section: "Écosystème",
+    section: "Liens pratiques",
     links: [
-      { name: "Documentation", url: "/fr/welcome-to-docs/" },
-      { name: "Outils et Équipements", url: "/fr/products" },
-      { name: "Services de Construction", url: "/fr/services" },
+      {
+        name: "Liste des inscrits 2024",
+        url: externalLinks.registrantsList,
+        openInNewTab: true,
+      },
+      {
+        name: "Réglement de course",
+        url: externalLinks.sportsRegulations,
+        openInNewTab: true,
+      },
+      {
+        name: "Parcours Prévention Santé (PPS)",
+        url: externalLinks.pps,
+        openInNewTab: true,
+      },
     ],
   },
   {
-    section: "Société",
+    section: "Documents",
     links: [
-      { name: "À propos de nous", url: "#" },
-      { name: "Blog", url: "/fr/blog" },
-      { name: "Carrières", url: "#" },
-      { name: "Clients", url: "#" },
+      {
+        name: "Bulletin d'inscription",
+        url: externalLinks.registrationForm,
+        openInNewTab: true,
+      },
+      {
+        name: "Questionnaire de santé",
+        url: externalLinks.healthQuestionnaire,
+        openInNewTab: true,
+      },
+      {
+        name: "Autorisation parentale",
+        url: externalLinks.parentalConsentForm,
+        openInNewTab: true,
+      },
+    ],
+  },
+  {
+    section: "Nous contacter",
+    links: [
+      {
+        name: "433 Rue du Maréchal Leclerc, 59262 Sainghin-en-Mélantois",
+      },
+      {
+        name: "contact@lescheminsdumelantois.fr",
+        url: "mailto:contact@lescheminsdumelantois.fr",
+      },
+      { name: "03 20 61 90 30", url: "tel:+33 3 20 61 90 30" },
     ],
   },
 ];
 
 const socialLinks = {
-  facebook: "#",
-  x: "#",
-  github: "https://github.com/mearashadowfax/ScrewFast",
-  google: "#",
-  slack: "#",
+  facebook: "https://www.facebook.com/lescheminsdumelantois",
+  instagram:
+    "https://www.instagram.com/lescheminsdumelantois?igsh=dnN3ZnBvMmJ5bW96",
 };
 
 export default {

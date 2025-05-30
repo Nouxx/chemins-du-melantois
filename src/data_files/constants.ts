@@ -5,6 +5,21 @@ import NordIconSvg from "../images/partners/nord-logo.svg?raw";
 import CreditMutuelIcon from "../images/partners/credit-mutuel-logo.svg?raw";
 import MatchLogoSvg from "../images/partners/match-logo.svg?raw";
 
+export const externalLinks = {
+  registration: "todo",
+  registrantsList:
+    "https://fr.milesrepublic.com/registrants/f263e60a-6018-40ac-901c-5ea0d01c5322",
+  sportsRegulations:
+    "https://drive.google.com/file/d/1wJoziwxjZGibpH6H8LGX2RFDFugI8jOb/view",
+  pps: "https://pps.athle.fr",
+  registrationForm:
+    "https://drive.google.com/file/d/1MQhT1DbQk1DuGpGzt6YBE3KQWzYrBPNq/view",
+  healthQuestionnaire:
+    "https://www.lescheminsdumelantois.fr/wp-content/uploads/2023/08/Questionnaire-sante-2023-1.pdf",
+  parentalConsentForm:
+    "https://drive.google.com/file/d/1E-FdgMfEByDnSmkPhzZmkz84Lsqq9zM6/view",
+} as const;
+
 export const SITE = {
   title: "Les Chemins du Mélantois",
   tagline: "Top-quality Hardware Tools",

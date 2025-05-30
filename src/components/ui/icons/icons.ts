@@ -139,8 +139,7 @@ export const Icons = {
         d: "m9 18 6-6-6-6",
       },
     ],
-    class:
-      "h-4 w-4 shrink-0 transition duration-300 group-hover:translate-x-1",
+    class: "h-4 w-4 shrink-0 transition duration-300 group-hover:translate-x-1",
     width: 24,
     height: 24,
     viewBox: "0 0 24 24",
@@ -177,6 +176,17 @@ export const Icons = {
       },
     ],
     class: "size-4 shrink-0 fill-current",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor",
+  },
+  instagramFooter: {
+    paths: [
+      {
+        d: "M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3",
+      },
+    ],
+    class:
+      "h-4 w-4 shrink-0 fill-current text-neutral-700 dark:text-neutral-400",
     viewBox: "0 0 24 24",
     stroke: "currentColor",
   },
@@ -354,8 +364,7 @@ export const Icons = {
         d: "M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z",
       },
     ],
-    class:
-      "mt-1.5 h-6 w-6 shrink-0 text-neutral-600 dark:text-neutral-400",
+    class: "mt-1.5 h-6 w-6 shrink-0 text-neutral-600 dark:text-neutral-400",
     viewBox: "0 0 24 24",
     fill: "none",
     strokeWidth: "1.5",
@@ -369,8 +378,7 @@ export const Icons = {
         d: "M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155",
       },
     ],
-    class:
-      "mt-1.5 h-6 w-6 shrink-0 text-neutral-600 dark:text-neutral-400",
+    class: "mt-1.5 h-6 w-6 shrink-0 text-neutral-600 dark:text-neutral-400",
     viewBox: "0 0 24 24",
     fill: "none",
     strokeWidth: "1.5",
@@ -387,8 +395,7 @@ export const Icons = {
         d: "M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z",
       },
     ],
-    class:
-      "mt-1.5 h-6 w-6 shrink-0 text-neutral-600 dark:text-neutral-400",
+    class: "mt-1.5 h-6 w-6 shrink-0 text-neutral-600 dark:text-neutral-400",
     viewBox: "0 0 24 24",
     fill: "none",
     strokeWidth: "1.5",
@@ -402,8 +409,7 @@ export const Icons = {
         d: "M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z",
       },
     ],
-    class:
-      "mt-1.5 h-6 w-6 shrink-0 text-neutral-600 dark:text-neutral-400",
+    class: "mt-1.5 h-6 w-6 shrink-0 text-neutral-600 dark:text-neutral-400",
     viewBox: "0 0 24 24",
     fill: "none",
     strokeWidth: "1.5",
@@ -522,5 +528,33 @@ export const Icons = {
     strokeLinecap: "round",
     strokeLinejoin: "round",
     stroke: "currentColor",
+  },
+  manRunning: {
+    paths: [
+      {
+        d: "M13 22v-5l-2.1-2l-.775 3.45q-.1.4-.437.613t-.738.137L4 18.2q-.425-.075-.65-.425T3.2 17t.425-.662t.775-.138l3.8.8l1.6-8.1l-1.8.7V12q0 .425-.288.713T7 13t-.712-.288T6 12V8.95q0-.3.163-.537T6.6 8.05L9.95 6.6q.875-.375 1.288-.487T12 6q.525 0 .975.275T13.7 7l1 1.6q.525.85 1.363 1.475T18 10.9q.425.075.713.375T19 12t-.288.7t-.687.225q-1.35-.2-2.525-.838t-2-1.587l-.6 3l1.8 1.7q.15.15.225.338t.075.387V22q0 .425-.288.713T14 23t-.712-.288T13 22m.5-16.5q-.825 0-1.412-.587T11.5 3.5t.588-1.412T13.5 1.5t1.413.588T15.5 3.5t-.587 1.413T13.5 5.5",
+      },
+    ],
+    class: "ms-2 size-8 shrink-0",
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+    strokeWidth: "0.5",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    stroke: "none",
+  },
+  manBiking: {
+    paths: [
+      {
+        d: "m8.5 10.5l-.6-.8a1 1 0 0 0 .153 1.694zm4 2l.99.141a1 1 0 0 0-.543-1.035zm-1.49 3.359a1 1 0 1 0 1.98.282zM12.5 7.5l.707-.707A1 1 0 0 0 11.9 6.7zM15 10l-.707.707A1 1 0 0 0 15 11zm2 1a1 1 0 1 0 0-2zm-9 5a2 2 0 0 1-2 2v2a4 4 0 0 0 4-4zm-2 2a2 2 0 0 1-2-2H2a4 4 0 0 0 4 4zm-2-2a2 2 0 0 1 2-2v-2a4 4 0 0 0-4 4zm2-2a2 2 0 0 1 2 2h2a4 4 0 0 0-4-4zm2.053-2.606l4 2l.894-1.788l-4-2zm3.457.965l-.5 3.5l1.98.282l.5-3.5zM9.1 11.3l4-3l-1.2-1.6l-4 3zm2.693-3.093l2.5 2.5l1.414-1.414l-2.5-2.5zM15 11h2V9h-2zm5 5a2 2 0 0 1-2 2v2a4 4 0 0 0 4-4zm-2 2a2 2 0 0 1-2-2h-2a4 4 0 0 0 4 4zm-2-2a2 2 0 0 1 2-2v-2a4 4 0 0 0-4 4zm2-2a2 2 0 0 1 2 2h2a4 4 0 0 0-4-4zm-3-9v2a2 2 0 0 0 2-2zm0 0h-2a2 2 0 0 0 2 2zm0 0V3a2 2 0 0 0-2 2zm0 0h2a2 2 0 0 0-2-2z",
+      },
+    ],
+    class: "ms-2 size-8 shrink-0",
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+    strokeWidth: "0.5",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    stroke: "none",
   },
 };
