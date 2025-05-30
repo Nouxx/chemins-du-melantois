@@ -1,22 +1,22 @@
 [
   {
-    "heading": "Équipes dédiées",
-    "content": "Bénéficiez de nos équipes engagées qui veillent à ce que votre réussite soit personnelle. Comptez sur un accompagnement expert et des résultats exceptionnels tout au long de votre parcours de projet.",
-    "svg": "groups"
+    "heading": "Course à pied - 10km",
+    "content": "La boucle de 10km traverse le Bois de la Noyelle, l’étang de pêche de Sainghin, jusqu’à effleurer les Marais de la Marque.",
+    "svg": "manRunning"
   },
   {
-    "heading": "Simplicité et accessibilité",
-    "content": "Trouvez des solutions faciles à utiliser et abordables avec la gamme d'outils et d'équipements de ScrewFast. Nos produits simplifient l'approvisionnement et permettent de respecter les budgets de projet.",
-    "svg": "verified"
+    "heading": "Course à pied - 5km",
+    "content": "Un parcours nature. Partez à la découverte des plus beaux paysages du Mélantois à travers la nature : Le Bois de la Noyelle Les rives de la Marque Profitez d’un parcours composé à 70 % de chemins plus proche du trail que de la course sur route",
+    "svg": "manRunning"
   },
   {
-    "heading": "Documentation complète",
-    "content": "Intégrez facilement grâce aux guides exhaustifs et aux bibliothèques de ScrewFast. Réalisez une adoption de produit sans faille avec notre ensemble complet de documentation conçu pour votre succès.",
-    "svg": "books"
+    "heading": "Courses à pied - 900m",
+    "content": "2 parcours de découverte familial, adapté pour les enfants et leurs familles souhaitant découvrir la course à pied à travers le village de Sainghin-en-Mélantois ou de Péronne-en-Mélantois.",
+    "svg": "manRunning"
   },
   {
-    "heading": "Conception centrée sur l'utilisateur",
-    "content": "Faites l'expérience de la différence avec la conception axée sur l'utilisateur de ScrewFast, où la fonctionnalité rencontre la praticité pour une expérience de travail améliorée.",
-    "svg": "frame"
+    "heading": "Run & Bike",
+    "content": "Une épreuve au départ de Péronne composée d’une équipe avec deux catégorie d’âge: un coureur à pied adulte, un ou une jeune cycliste qui joue le rôle de lièvre et supporte le coureur à pied. L’épreuve inter-générationnelle par nature.",
+    "svg": "manBiking"
   }
 ]
