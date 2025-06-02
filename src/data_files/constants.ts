@@ -6,7 +6,8 @@ import CreditMutuelIcon from "../images/partners/credit-mutuel-logo.svg?raw";
 import MatchLogoSvg from "../images/partners/match-logo.svg?raw";
 
 export const externalLinks = {
-  registration: "todo",
+  registration:
+    "https://fr.milesrepublic.com/event/les-chemins-du-melantois-2692",
   registrantsList:
     "https://fr.milesrepublic.com/registrants/f263e60a-6018-40ac-901c-5ea0d01c5322",
   sportsRegulations:

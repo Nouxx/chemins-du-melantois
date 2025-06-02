@@ -9,6 +9,7 @@ interface Feature {
   heading: string;
   content: string;
   svg: string;
+  price?: string;
 }
 
 interface Props {
@@ -81,7 +82,11 @@ const {
         {
           features &&
             features.map((feature) => (
-              <IconBlock heading={feature.heading} content={feature.content}>
+              <IconBlock
+                heading={feature.heading}
+                content={feature.content}
+                subHeading={feature.price}
+              >
                 <Icon name={feature.svg} fill="orange-400" />
               </IconBlock>
             ))

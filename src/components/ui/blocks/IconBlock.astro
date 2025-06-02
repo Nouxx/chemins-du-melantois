@@ -1,10 +1,13 @@
 ---
+import Icon from "@/components/ui/icons/Icon.astro";
+
 // Get heading and content from Astro props
-const { heading, content } = Astro.props;
+const { heading, content, subHeading } = Astro.props;
 // Define TypeScript interface for props
 interface Props {
   heading?: string;
   content?: string;
+  subHeading?: string;
 }
 // Define classes for heading and content
 const headingClasses =
@@ -22,6 +25,15 @@ const contentClasses =
     <h3 class={headingClasses}>
       {heading}
     </h3>
+    {
+      subHeading && (
+        <h2 class="text-neutral-500 dark:text-neutral-300">
+          <p class="inline-flex">
+            {subHeading}
+          </p>
+        </h2>
+      )
+    }
     <!-- Content text of the section -->
     <p class={contentClasses}>{content}</p>
   </div>

@@ -1,8 +1,7 @@
 ---
 // Import the necessary dependencies
 import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
-import { linkToRegistration } from "@/pages/fr/index.astro";
-import GithubBtn from "@components/ui/buttons/GithubBtn.astro";
+import { externalLinks } from "@/data_files/constants";
 
 // Define props from Astro
 const { title, subTitle, url, btnTitle } = Astro.props;
@@ -165,7 +164,7 @@ interface Props {
   {
     url && (
       <div class="mt-8 flex justify-center gap-3">
-        <PrimaryCTA url={linkToRegistration} title="Inscription" />
+        <PrimaryCTA url={externalLinks.registration} title="Inscription" />
       </div>
     )
   }

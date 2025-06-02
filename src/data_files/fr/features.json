@@ -1,21 +1,25 @@
 [
   {
     "heading": "Course à pied - 10km",
+    "price": "10€ par participant",
     "content": "La boucle de 10km traverse le Bois de la Noyelle, l’étang de pêche de Sainghin, jusqu’à effleurer les Marais de la Marque.",
     "svg": "manRunning"
   },
   {
     "heading": "Course à pied - 5km",
+    "price": "6€ par participant",
     "content": "Un parcours nature. Partez à la découverte des plus beaux paysages du Mélantois à travers la nature : Le Bois de la Noyelle Les rives de la Marque Profitez d’un parcours composé à 70 % de chemins plus proche du trail que de la course sur route",
     "svg": "manRunning"
   },
   {
     "heading": "Courses à pied - 900m",
+    "price": "Gratuit",
     "content": "2 parcours de découverte familial, adapté pour les enfants et leurs familles souhaitant découvrir la course à pied à travers le village de Sainghin-en-Mélantois ou de Péronne-en-Mélantois.",
     "svg": "manRunning"
   },
   {
     "heading": "Run & Bike",
+    "price": "8€ par participant",
     "content": "Une épreuve au départ de Péronne composée d’une équipe avec deux catégorie d’âge: un coureur à pied adulte, un ou une jeune cycliste qui joue le rôle de lièvre et supporte le coureur à pied. L’épreuve inter-générationnelle par nature.",
     "svg": "manBiking"
   }
