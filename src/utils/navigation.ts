@@ -1,38 +1,84 @@
-// An array of links for navigation bar
+import { externalLinks, SITE } from "@/data_files/constants";
+
 const navBarLinks = [
-  { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
-  { name: "Blog", url: "/blog" },
-  { name: "Contact", url: "/contact" },
+  { name: "Accueil", url: "/fr" },
+  { name: "Courses", url: `${SITE.base}/races` },
+  { name: "Services", url: `${SITE.base}/fr/services` },
+  { name: "Blog", url: `${SITE.base}/fr/blog` },
+  { name: "Contact", url: `${SITE.base}/fr/contact` },
 ];
-// An array of links for footer
-const footerLinks = [
+
+interface FooterLinks {
+  section: string;
+  links: FooterLink[];
+}
+
+interface FooterLink {
+  name: string;
+  url?: string;
+  openInNewTab?: boolean;
+}
+
+const footerLinks: FooterLinks[] = [
   {
-    section: "Ecosystem",
+    section: "Liens pratiques",
     links: [
-      { name: "Documentation", url: "/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      {
+        name: "Liste des inscrits 2024",
+        url: externalLinks.registrantsList,
+        openInNewTab: true,
+      },
+      {
+        name: "Réglement de course",
+        url: externalLinks.sportsRegulations,
+        openInNewTab: true,
+      },
+      {
+        name: "Parcours Prévention Santé (PPS)",
+        url: externalLinks.pps,
+        openInNewTab: true,
+      },
     ],
   },
   {
-    section: "Company",
+    section: "Documents",
     links: [
-      { name: "About us", url: "#" },
-      { name: "Blog", url: "/blog" },
-      { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
+      {
+        name: "Bulletin d'inscription",
+        url: externalLinks.registrationForm,
+        openInNewTab: true,
+      },
+      {
+        name: "Questionnaire de santé",
+        url: externalLinks.healthQuestionnaire,
+        openInNewTab: true,
+      },
+      {
+        name: "Autorisation parentale",
+        url: externalLinks.parentalConsentForm,
+        openInNewTab: true,
+      },
+    ],
+  },
+  {
+    section: "Nous contacter",
+    links: [
+      {
+        name: "433 Rue du Maréchal Leclerc, 59262 Sainghin-en-Mélantois",
+      },
+      {
+        name: "contact@lescheminsdumelantois.fr",
+        url: "mailto:contact@lescheminsdumelantois.fr",
+      },
+      { name: "03 20 61 90 30", url: "tel:+33 3 20 61 90 30" },
     ],
   },
 ];
-// An object of links for social icons
+
 const socialLinks = {
-  facebook: "https://www.facebook.com/",
-  x: "https://twitter.com/",
-  github: "https://github.com/mearashadowfax/ScrewFast",
-  google: "https://www.google.com/",
-  slack: "https://slack.com/",
+  facebook: "https://www.facebook.com/lescheminsdumelantois",
+  instagram:
+    "https://www.instagram.com/lescheminsdumelantois?igsh=dnN3ZnBvMmJ5bW96",
 };
 
 export default {

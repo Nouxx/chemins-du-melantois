@@ -1,13 +1,13 @@
 ---
-// Import necessary modules and utilities
 import { Image } from "astro:assets";
 import Icon from "@components/ui/icons/Icon.astro";
 import type { CollectionEntry } from "astro:content";
+import { SITE } from "@/data_files/constants";
 
 const { product, productLocale = "" } = Astro.props;
 
 interface Props {
-  product: CollectionEntry<"products">;
+  product: CollectionEntry<"races">;
   productLocale?: string;
 }
 
@@ -18,11 +18,9 @@ const imageClass =
 
 <!-- A clickable card that leads to the details of the product-->
 <a
-  href={productLocale && productLocale !== "en"
-    ? `/${productLocale}/products/${product.id.replace(/^fr\//, "")}/`
-    : `/products/${product.id.replace(/^en\//, "")}/`}
+  href={`${SITE.base}/races/${product.id.replace(/^fr\//, "")}`}
   data-astro-prefetch
-  class="group relative flex h-48 items-end overflow-hidden rounded-xl shadow-lg outline-hidden ring-zinc-500 focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden md:h-80"
+  class="group relative flex h-48 items-end overflow-hidden rounded-xl shadow-lg ring-zinc-500 outline-hidden focus-visible:ring-3 md:h-80 dark:ring-zinc-200 dark:focus:outline-hidden"
 >
   <!-- The product's main image -->
   <Image
@@ -40,6 +38,6 @@ const imageClass =
   <!-- The product's subtitle and the anchor SVG icon-->
   <span
     class="relative mb-3 ml-4 inline-block text-sm font-bold text-neutral-50 transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 md:ml-5 md:text-lg"
-    >{product.data.description} <Icon name="openInNew" />
+    >{product.data.title} <Icon name="openInNew" />
   </span>
 </a>

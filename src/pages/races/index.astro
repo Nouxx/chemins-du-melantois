@@ -1,0 +1,101 @@
+---
+// Importing necessary components
+import MainLayout from "@/layouts/MainLayout.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "@components/ui/cards/CardSmall.astro";
+import CardWide from "@components/ui/cards/CardWide.astro";
+import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
+import { RACES, type RacePage } from "./races.data";
+
+// Importing necessary functions from Astro
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { externalLinks, SITE } from "@data/constants";
+
+// Fetching all the product related content and sorting it by main.id
+const races: CollectionEntry<"races">[] = (
+  await getCollection("races", ({ id }) => {
+    return id.startsWith(`${Astro.currentLocale}/`);
+  })
+).sort(
+  (a: CollectionEntry<"races">, b: CollectionEntry<"races">) =>
+    a.data.main.id - b.data.main.id
+);
+
+const pageTitle: string = `Courses | ${SITE.title}`;
+const metaDescription =
+  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.";
+const ogTitle = "Hardware Tools | ScrewFast";
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://screwfast.uk/products",
+    url: "https://screwfast.uk/products",
+    name: "Hardware Tools | ScrewFast",
+    description:
+      "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://screwfast.uk",
+      name: "ScrewFast",
+      description:
+        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+    },
+    inLanguage: "fr-FR",
+  }}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
+        >
+          Nos courses
+        </h1>
+        <p
+          class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <PrimaryCTA title="Inscription" url={externalLinks.registration} />
+    </div>
+    {
+      /* Displaying products in alternating styles. Alternative product gets different card styling.
+    Maps through all product entries and displays them with either CardSmall or CardWide based on their position. */
+    }
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {
+        races.map((product, index) => {
+          const position = index % 4;
+          if (position === 0 || position === 3) {
+            return <CardSmall product={product} />;
+          } else {
+            return <CardWide product={product} />;
+          }
+        })
+      }
+    </section>
+  </div>
+  {/* Features statistics section */}
+  <FeaturesStatsAlt
+    title="Why Choose ScrewFast?"
+    subTitle="Transform your ideas into tangible results with ScrewFast tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
+    benefits={[
+      "Robust and reliable tools for long-lasting performance.",
+      "Innovative solutions tailored to modern construction needs.",
+      "Customer support dedicated to your project's success.",
+    ]}
+  />
+</MainLayout>

@@ -3,11 +3,13 @@
 import { Image } from "astro:assets";
 import IconBlock from "@components/ui/blocks/IconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
+import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
 
 interface Feature {
   heading: string;
   content: string;
   svg: string;
+  price?: string;
 }
 
 interface Props {
@@ -16,9 +18,19 @@ interface Props {
   features?: Feature[];
   src?: any;
   alt?: string;
+  callToActionLabel?: string;
+  callToActionLink?: string;
 }
-// Define props from Astro
-const { title, subTitle, src, alt, features } = Astro.props;
+
+const {
+  title,
+  subTitle,
+  src,
+  alt,
+  features,
+  callToActionLabel,
+  callToActionLink,
+} = Astro.props;
 ---
 
 <section
@@ -46,30 +58,38 @@ const { title, subTitle, src, alt, features } = Astro.props;
     <div class="lg:col-span-1">
       <!-- Rendering title -->
       <h2
-        class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
+        class="text-2xl font-bold text-balance text-neutral-800 md:text-3xl dark:text-neutral-200"
       >
         {title}
       </h2>
       <!-- Rendering subtitle -->
       {
         subTitle && (
-          <p class="mt-2 text-pretty text-neutral-600 dark:text-neutral-400 md:mt-4">
+          <p class="mt-2 text-pretty text-neutral-600 md:mt-4 dark:text-neutral-400">
             {subTitle}
           </p>
         )
       }
+      <div class="mt-5">
+        <PrimaryCTA title={callToActionLabel} url={callToActionLink} />
+      </div>
     </div>
 
     <!-- Block to display the IconBlock components -->
     <div class="lg:col-span-2">
       <div class="grid gap-8 sm:grid-cols-2 md:gap-12">
         <!-- Injecting IconBlock components with different properties -->
-        { features &&
-          features.map((feature) => (
-            <IconBlock heading={feature.heading} content={feature.content}>
-              <Icon name={feature.svg} />
-            </IconBlock>
-          ))
+        {
+          features &&
+            features.map((feature) => (
+              <IconBlock
+                heading={feature.heading}
+                content={feature.content}
+                subHeading={feature.price}
+              >
+                <Icon name={feature.svg} fill="orange-400" />
+              </IconBlock>
+            ))
         }
       </div>
     </div>
