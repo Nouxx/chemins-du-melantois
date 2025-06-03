@@ -31,7 +31,6 @@ const racesCollection = defineCollection({
         title: z.string(),
         subTitle: z.string(),
         buttonTitle: z.string(),
-        buttonURL: z.string(),
       }),
       descriptionItems: z.array(
         z.object({

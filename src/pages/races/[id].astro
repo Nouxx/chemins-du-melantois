@@ -5,9 +5,8 @@ import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { SITE } from "@data/constants";
+import { externalLinks, SITE } from "@data/constants";
 
-// Global declaration for gsap animation library
 declare global {
   interface Window {
     gsap: any;
@@ -117,24 +116,30 @@ const ogTitle = `${race.data.title} | Hardware Tools | ScrewFast`;
               <p class="mt-5">
                 <PrimaryCTA
                   title={race.data.longDescription.buttonTitle}
-                  url={race.data.longDescription.buttonURL}
+                  url={externalLinks.registration}
                 />
               </p>
             </div>
 
             <div class="space-y-6 lg:space-y-10">
               {
-                race.data.descriptionItems.map((list) => (
+                race.data.descriptionItems.map((item) => (
                   <div class="flex">
                     <div>
                       <h3 class="text-base font-bold text-neutral-800 sm:text-lg dark:text-neutral-200">
-                        {list.title}
+                        {item.title}
                       </h3>
-                      {list.subTitle && (
+                      {item.subTitle && (
                         <p class="mt-1 text-neutral-600 dark:text-neutral-400">
-                          {list.subTitle}
+                          {item.subTitle}
                         </p>
                       )}
+                      {item.list &&
+                        item.list.map((listItem) => (
+                          <p class="mt-1 text-neutral-600 dark:text-neutral-400">
+                            {listItem}
+                          </p>
+                        ))}
                     </div>
                   </div>
                 ))

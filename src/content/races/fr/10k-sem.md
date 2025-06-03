@@ -22,16 +22,18 @@ longDescription:
   subTitle: |
     La boucle de 10km traverse le Bois de la Noyelle, l’étang de pêche de Sainghin, jusqu’à effleurer les Marais de la Marque. Elle a été mesurée officiellement une première fois en 2011, puis en 2016 pour être labellisée au niveau départemental.
   buttonTitle: "Inscription au 10km de Sainghin"
-  buttonURL: "#"
 descriptionItems:
   - title: "Horaires"
     list:
       - "10h00 : Echauffement encadré face à l’église de Sainghin en Mélantois."
       - "10h15 : Départ face à l’église"
   - title: "Sac du coureur"
-    subTitle: "A chaque inscription vous est offert un sac du coureur avec : Le dossard, Un porte gourde aux couleurs de l’évènement."
+    subTitle: "A chaque inscription vous est offert un sac du coureur avec le dossard et un porte gourde aux couleurs de l’évènement."
   - title: "Récompenses"
-    subTitle: "La prime est de 100€ pour le 1er, 50€ pour le 2nd et 30€ pour le 3ème toute catégories confondues. Pour les coureurs nées avant 1988, les trois places du podium sont récompensés à hauteur de 30€. Pour les coureurs nées entre 2001 et 2007, seul le vainqueur obtient une récompense de 30€"
+    list:
+      - "La prime est de 100€ pour le 1er, 50€ pour le 2nd et 30€ pour le 3ème toute catégories confondues."
+      - "Pour les coureurs nées avant 1988, les trois places du podium sont récompensés à hauteur de 30€."
+      - "Pour les coureurs nées entre 2001 et 2007, seul le vainqueur obtient une récompense de 30€."
 termOfRegistration:
   leftSection:
     - title: "Inscription en ligne"
