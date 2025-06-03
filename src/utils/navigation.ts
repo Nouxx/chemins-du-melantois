@@ -2,7 +2,7 @@ import { externalLinks, SITE } from "@/data_files/constants";
 
 const navBarLinks = [
   { name: "Accueil", url: "/fr" },
-  { name: "Produits", url: `${SITE.base}/fr/products` },
+  { name: "Courses", url: `${SITE.base}/races` },
   { name: "Services", url: `${SITE.base}/fr/services` },
   { name: "Blog", url: `${SITE.base}/fr/blog` },
   { name: "Contact", url: `${SITE.base}/fr/contact` },
