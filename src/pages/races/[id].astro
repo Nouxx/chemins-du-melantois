@@ -6,6 +6,7 @@ import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { externalLinks, SITE } from "@data/constants";
+import Icon from "@/components/ui/icons/Icon.astro";
 
 declare global {
   interface Window {
@@ -143,6 +144,12 @@ const ogTitle = `${race.data.title} | Hardware Tools | ScrewFast`;
                           ))}
                         </ul>
                       )}
+                      {item.iconBlock && (
+                        <div class="mt-2 flex gap-2 text-neutral-600 dark:text-neutral-400">
+                          <Icon name={item.iconBlock.icon} />
+                          {item.iconBlock.label}
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))
@@ -174,11 +181,16 @@ const ogTitle = `${race.data.title} | Hardware Tools | ScrewFast`;
                         ))}
                       </ul>
                     )}
-                    {item.button && (
-                      <div class="mt-2">
-                        <PrimaryCTA title={item.button.label} />
-                      </div>
-                    )}
+                    {item.links &&
+                      item.links.map((link) => (
+                        <div class="mt-2">
+                          <PrimaryCTA
+                            title={link.label}
+                            url={link.url}
+                            openInNewTab={link.openInNewTab}
+                          />
+                        </div>
+                      ))}
                   </div>
                 ))
               }
@@ -203,15 +215,14 @@ const ogTitle = `${race.data.title} | Hardware Tools | ScrewFast`;
                           ))}
                         </ul>
                       )}
-                      {item.button && (
-                        <div class="mt-2">
-                          <PrimaryCTA title={item.button.label} />
-                        </div>
-                      )}
                       {item.links &&
                         item.links.map((link) => (
                           <div class="mt-2">
-                            <PrimaryCTA title={link.label} url={link.url} />
+                            <PrimaryCTA
+                              title={link.label}
+                              url={link.url}
+                              openInNewTab={link.openInNewTab}
+                            />
                           </div>
                         ))}
                     </div>

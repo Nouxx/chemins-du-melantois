@@ -37,6 +37,12 @@ const racesCollection = defineCollection({
           title: z.string(),
           subTitle: z.string().optional(),
           list: z.array(z.string()).optional(),
+          iconBlock: z
+            .object({
+              label: z.string(),
+              icon: z.string(),
+            })
+            .optional(),
         }),
       ),
       termOfRegistration: z.object({
@@ -50,6 +56,15 @@ const racesCollection = defineCollection({
                 label: z.string(),
                 url: z.string(),
               })
+              .optional(),
+            links: z
+              .array(
+                z.object({
+                  label: z.string(),
+                  url: z.string(),
+                  openInNewTab: z.boolean().default(false),
+                }),
+              )
               .optional(),
           }),
         ),
@@ -69,6 +84,7 @@ const racesCollection = defineCollection({
                 z.object({
                   label: z.string(),
                   url: z.string(),
+                  openInNewTab: z.boolean().default(false),
                 }),
               )
               .optional(),

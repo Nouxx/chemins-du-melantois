@@ -1,12 +1,12 @@
 ---
 title: "10km de Sainghin en Mélantois"
-description: "to do"
-date: "22 septembre 2025"
+description: "Participez aux 10km de Sainghin en Mélantois le 22 septembre 2025 ! Parcours nature certifié, échauffement, récompenses, inscription en ligne ou sur place. Tous les détails, horaires et modalités disponibles ici."
+date: "22 septembre 2025 - 10h"
 main:
   id: 1
   imgCard: "@/images/10km-sem-hero.jpg"
   imgMain: "@/images/10km-sem-hero.jpg"
-  imgAlt: "Maquettes de boîtes de vis à machine"
+  imgAlt: "Participants au départ du 10km de Sainghin en Mélantois, au centre du village"
 tabs:
   - id: "tabs-with-card-item-1"
     dataTab: "#tabs-with-card-1"
@@ -20,60 +20,86 @@ tabs:
 longDescription:
   title: "Un parcours axé trail"
   subTitle: |
-    La boucle de 10km traverse le Bois de la Noyelle, l’étang de pêche de Sainghin, jusqu’à effleurer les Marais de la Marque. Elle a été mesurée officiellement une première fois en 2011, puis en 2016 pour être labellisée au niveau départemental.
-  buttonTitle: "Inscription au 10km de Sainghin"
+    Le parcours de 10 km sillonne le Bois de la Noyelle, longe l’étang de pêche de Sainghin, et frôle les Marais de la Marque. Il a été officiellement mesuré en 2011, puis à nouveau en 2016, afin d’obtenir le label départemental.
+  buttonTitle: Inscription au 10km de Sainghin
   buttonURL: "{externalLinks.registration}"
 descriptionItems:
-  - title: "Horaires"
+  - title: Horaires
     list:
-      - "10h00 : Echauffement encadré face à l’église de Sainghin en Mélantois."
-      - "10h15 : Départ face à l’église"
+      - "10h00: Échauffement encadré"
+      - "10h15: Départ"
+    iconBlock:
+      label: |
+        Lieu de rendez-vous : Église Saint-Nicolas, 334-366 rue du Maréchal Leclerc, 59262 Sainghin en Mélantois.
+      icon: mapPin
   - title: "Sac du coureur"
-    subTitle: "A chaque inscription vous est offert un sac du coureur avec le dossard et un porte gourde aux couleurs de l’évènement."
+    subTitle: Chaque inscription donne droit à un sac du coureur contenant le dossard et un porte-gourde aux couleurs de l’événement.
   - title: "Récompenses"
     list:
-      - "La prime est de 100€ pour le 1er, 50€ pour le 2nd et 30€ pour le 3ème toute catégories confondues."
-      - "Pour les coureurs nées avant 1988, les trois places du podium sont récompensés à hauteur de 30€."
-      - "Pour les coureurs nées entre 2001 et 2007, seul le vainqueur obtient une récompense de 30€."
+      - "Toute catégories : 100€ pour le premier, 50€ pour le second et 30€ pour le troisième."
+      - "Master 1 (nées entre 1964 et 1988) : les trois places du podium sont récompensés de 30€."
+      - "Master 2 (nées en 1963 et avant) : les trois places du podium sont récompensés de 30€."
+      - "Espoirs, Juniors et Cadets (nées entre 2001 et 2007) : seul la première place obtient est récompensé de 30€."
 termOfRegistration:
   leftSection:
-    - title: "Inscription en ligne"
-      subTitle: "En ligne jusqu’au Samedi 21 septembre à 12h00"
-    - title: "Inscription sur place"
-      subTitle: "à la maison des associations de Sainghin (210 bd du Mal  Leclerc)  le samedi 21 septembre de 14h00 à 17h00,"
-    - title: "Inscription par voie postale"
-      subTitle: "Envoi ou dépose des dossiers aux Mairies de Sainghin ou Péronne  le mercredi 18 septembre dernier délai."
-    - title: "Retrait des dossards"
-      subTitle: "Retrait des dossards en mairie de Sainghin :"
+    - title: Inscription en ligne
+      subTitle: |
+        Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 21 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
+      links:
+        - label: Inscription
+          url: "{externalLinks.registration}"
+          openInNewTab: true
+    - title: Inscription sur place
+      subTitle: |
+        Vous pouvez également vous inscrire le samedi 21 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.
+    - title: Inscription par voie postale
+      subTitle: |
+        Il est possible d’envoyer ou de déposer votre dossier d’inscription aux mairies de Sainghin ou de Péronne. Attention : les dossiers doivent être reçus au plus tard le mercredi 18 septembre. Pensez à anticiper les délais postaux.
+    - title: Retrait des dossards
+      subTitle: "Les dossards sont à retirer en mairie de Sainghin, aux horaires suivants :"
       list:
-        - "Le samedi 21  septembre de 14h00 à 17h00"
-        - "Le dimanche 22 septembre de 7h30 à 9h45."
+        - "Samedi 21 septembre : de 14h00 à 17h00"
+        - "Dimanche 22 septembre : de 7h30 à 9h45"
     - title: "Règlement de course"
-      subTitle: "bla bla bla"
-      button:
-        label: Règlement de course
-        url: "{externalLink.sportsRegulations}"
+      subTitle: |
+        Avant de participer, merci de consulter le règlement officiel de la course, qui précise l’ensemble des modalités de participation, consignes de sécurité, et règles sportives.
+      links:
+        - label: Règlement de course
+          url: "{externalLink.sportsRegulations}"
+          openInNewTab: true
   rightSection:
-    - title: "Tarifs & Bulletin d’inscription"
-      subTitle: "10 € (par CB en ligne et en espèce ou chèque sur place)."
-      button:
-        label: Bulletin d’inscription
-        url: "#"
-    - title: "Pièces à fournir"
-      subTitle: "L'une des deux pièces suivante est nécessaire:"
+    - title: Tarifs & Bulletin d’inscription
+      subTitle: |
+        La participation au 10 km est fixée à 10 €, payable :
+      list:
+        - "par carte bancaire lors de l’inscription en ligne"
+        - "en espèces ou par chèque lors des inscriptions sur place"
+      links:
+        - label: Bulletin d’inscription
+          url: "{externalLinks.registrationForm}"
+          openInNewTab: true
+    - title: Pièces à fournir
+      subTitle: "Pour valider votre inscription, vous devez fournir l’un des deux documents suivants :"
       list:
         - Une Licence conforme et en cours de validité
-        - Un PPS (Parcours Prévention Santé), document déclaratif remplaçant le certificat médical.
-      button:
-        label: PPS (Parcours Prévention Santé)
-        url: https://pps.athle.fr
-    - title: "Pour les mineurs"
-      subTitle: "Les coureurs agées de moins de 18 ans doivent fournir une autorisation parentale ainsi qu'un questionnaire de santé ou certificat médical datant de moins de 6 mois."
+        - Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat médical pour les non licenciés.
       links:
-        - label: "Autorisation parentale"
+        - label: En savoir plus sur le PPS
+          url: https://pps.athle.fr
+          openInNewTab: true
+    - title: Pour les mineurs
+      subTitle: |
+        Les participants de moins de 18 ans doivent impérativement fournir :
+      list:
+        - "Une autorisation parentale signée"
+        - "Un questionnaire de santé ou un certificat médical de moins de 6 mois"
+      links:
+        - label: Autorisation parentale
           url: "{externalLinks.parentalConsentForm}"
-        - label: "Questionnaire de santé"
+          openInNewTab: true
+        - label: Questionnaire de santé
           url: "{externalLinks.healthQuestionnaire}"
+          openInNewTab: true
 maps:
   first: "@/images/10km-sem-map.jpeg"
 ---
