@@ -22,6 +22,7 @@ longDescription:
   subTitle: |
     La boucle de 10km traverse le Bois de la Noyelle, l’étang de pêche de Sainghin, jusqu’à effleurer les Marais de la Marque. Elle a été mesurée officiellement une première fois en 2011, puis en 2016 pour être labellisée au niveau départemental.
   buttonTitle: "Inscription au 10km de Sainghin"
+  buttonURL: "{externalLinks.registration}"
 descriptionItems:
   - title: "Horaires"
     list:
@@ -43,16 +44,36 @@ termOfRegistration:
     - title: "Inscription par voie postale"
       subTitle: "Envoi ou dépose des dossiers aux Mairies de Sainghin ou Péronne  le mercredi 18 septembre dernier délai."
     - title: "Retrait des dossards"
-      subTitle: "Retrait des dossards en mairie de Sainghin : Le samedi 21  septembre de 14h00 à 17h00, Le dimanche 22 septembre de 7h30 à 9h45."
+      subTitle: "Retrait des dossards en mairie de Sainghin :"
+      list:
+        - "Le samedi 21  septembre de 14h00 à 17h00"
+        - "Le dimanche 22 septembre de 7h30 à 9h45."
     - title: "Règlement de course"
-      subTitle: "Retrouvez notre règlement de course"
+      subTitle: "bla bla bla"
+      button:
+        label: Règlement de course
+        url: "{externalLink.sportsRegulations}"
   rightSection:
     - title: "Tarifs & Bulletin d’inscription"
-      subTitle: "10 € (par CB en ligne et en espèce ou chèque sur place). Bulletin d’inscription à télécharger ICI"
+      subTitle: "10 € (par CB en ligne et en espèce ou chèque sur place)."
+      button:
+        label: Bulletin d’inscription
+        url: "#"
     - title: "Pièces à fournir"
-      subTitle: "Une Licence conforme et en cours de validité ou un PPS (Parcours Prévention Santé), document déclaratif remplaçant le certificat médical. Ce document s’obtient depuis le lien suivant  https://pps.athle.fr. Il suffit de répondre au questionnaire et de télécharger une attestation de déclaration en fin de process. Il est à fournir lors de l’inscription."
+      subTitle: "L'une des deux pièces suivante est nécessaire:"
+      list:
+        - Une Licence conforme et en cours de validité
+        - Un PPS (Parcours Prévention Santé), document déclaratif remplaçant le certificat médical.
+      button:
+        label: PPS (Parcours Prévention Santé)
+        url: https://pps.athle.fr
     - title: "Pour les mineurs"
-      subTitle: "Autorisation parentale (à télécharger ICI). Questionnaire de santé (à télécharger ICI) ou certificat médical datant de moins de 6 mois"
+      subTitle: "Les coureurs agées de moins de 18 ans doivent fournir une autorisation parentale ainsi qu'un questionnaire de santé ou certificat médical datant de moins de 6 mois."
+      links:
+        - label: "Autorisation parentale"
+          url: "{externalLinks.parentalConsentForm}"
+        - label: "Questionnaire de santé"
+          url: "{externalLinks.healthQuestionnaire}"
 maps:
   first: "@/images/10km-sem-map.jpeg"
 ---
