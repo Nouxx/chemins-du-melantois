@@ -6,6 +6,7 @@ import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import { externalLinks, SITE } from "@data/constants";
+import Icon from "@/components/ui/icons/Icon.astro";
 
 declare global {
   interface Window {
@@ -116,7 +117,7 @@ const ogTitle = `${race.data.title} | Hardware Tools | ScrewFast`;
               <p class="mt-5">
                 <PrimaryCTA
                   title={race.data.longDescription.buttonTitle}
-                  url={externalLinks.registration}
+                  url={race.data.longDescription.buttonURL}
                 />
               </p>
             </div>
@@ -134,12 +135,21 @@ const ogTitle = `${race.data.title} | Hardware Tools | ScrewFast`;
                           {item.subTitle}
                         </p>
                       )}
-                      {item.list &&
-                        item.list.map((listItem) => (
-                          <p class="mt-1 text-neutral-600 dark:text-neutral-400">
-                            {listItem}
-                          </p>
-                        ))}
+                      {item.list && (
+                        <ul>
+                          {item.list.map((listItem) => (
+                            <li class="mt-1 list-inside list-disc text-neutral-600 dark:text-neutral-400">
+                              {listItem}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {item.iconBlock && (
+                        <div class="mt-2 flex gap-2 text-neutral-600 dark:text-neutral-400">
+                          <Icon name={item.iconBlock.icon} />
+                          {item.iconBlock.label}
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))
@@ -162,6 +172,25 @@ const ogTitle = `${race.data.title} | Hardware Tools | ScrewFast`;
                     <p class="text-neutral-600 dark:text-neutral-400">
                       {item.subTitle}
                     </p>
+                    {item.list && (
+                      <ul>
+                        {item.list.map((listItem) => (
+                          <li class="mt-1 list-inside list-disc text-neutral-600 dark:text-neutral-400">
+                            {listItem}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {item.links &&
+                      item.links.map((link) => (
+                        <div class="mt-2">
+                          <PrimaryCTA
+                            title={link.label}
+                            url={link.url}
+                            openInNewTab={link.openInNewTab}
+                          />
+                        </div>
+                      ))}
                   </div>
                 ))
               }
@@ -177,6 +206,25 @@ const ogTitle = `${race.data.title} | Hardware Tools | ScrewFast`;
                       <p class="text-neutral-600 dark:text-neutral-400">
                         {item.subTitle}
                       </p>
+                      {item.list && (
+                        <ul>
+                          {item.list.map((listItem) => (
+                            <li class="mt-1 list-inside list-disc text-neutral-600 dark:text-neutral-400">
+                              {listItem}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {item.links &&
+                        item.links.map((link) => (
+                          <div class="mt-2">
+                            <PrimaryCTA
+                              title={link.label}
+                              url={link.url}
+                              openInNewTab={link.openInNewTab}
+                            />
+                          </div>
+                        ))}
                     </div>
                   ))}
                 </div>

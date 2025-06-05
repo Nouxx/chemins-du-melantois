@@ -30,25 +30,64 @@ const racesCollection = defineCollection({
         title: z.string(),
         subTitle: z.string(),
         buttonTitle: z.string(),
+        buttonURL: z.string(),
       }),
       descriptionItems: z.array(
         z.object({
           title: z.string(),
           subTitle: z.string().optional(),
           list: z.array(z.string()).optional(),
+          iconBlock: z
+            .object({
+              label: z.string(),
+              icon: z.string(),
+            })
+            .optional(),
         }),
       ),
       termOfRegistration: z.object({
         leftSection: z.array(
           z.object({
             title: z.string(),
-            subTitle: z.string(),
+            subTitle: z.string().optional(),
+            list: z.array(z.string()).optional(),
+            button: z
+              .object({
+                label: z.string(),
+                url: z.string(),
+              })
+              .optional(),
+            links: z
+              .array(
+                z.object({
+                  label: z.string(),
+                  url: z.string(),
+                  openInNewTab: z.boolean().default(false),
+                }),
+              )
+              .optional(),
           }),
         ),
         rightSection: z.array(
           z.object({
             title: z.string(),
-            subTitle: z.string(),
+            subTitle: z.string().optional(),
+            list: z.array(z.string()).optional(),
+            button: z
+              .object({
+                label: z.string(),
+                url: z.string(),
+              })
+              .optional(),
+            links: z
+              .array(
+                z.object({
+                  label: z.string(),
+                  url: z.string(),
+                  openInNewTab: z.boolean().default(false),
+                }),
+              )
+              .optional(),
           }),
         ),
       }),

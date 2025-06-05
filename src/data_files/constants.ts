@@ -21,6 +21,8 @@ export const externalLinks = {
     "https://drive.google.com/file/d/1E-FdgMfEByDnSmkPhzZmkz84Lsqq9zM6/view",
 } as const;
 
+export type ExternalLinkKey = keyof typeof externalLinks;
+
 export const SITE = {
   title: "Les Chemins du Mélantois",
   tagline: "Top-quality Hardware Tools",
