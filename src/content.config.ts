@@ -31,6 +31,7 @@ const racesCollection = defineCollection({
         title: z.string(),
         subTitle: z.string(),
         buttonTitle: z.string(),
+        buttonURL: z.string(),
       }),
       descriptionItems: z.array(
         z.object({
@@ -43,13 +44,35 @@ const racesCollection = defineCollection({
         leftSection: z.array(
           z.object({
             title: z.string(),
-            subTitle: z.string(),
+            subTitle: z.string().optional(),
+            list: z.array(z.string()).optional(),
+            button: z
+              .object({
+                label: z.string(),
+                url: z.string(),
+              })
+              .optional(),
           }),
         ),
         rightSection: z.array(
           z.object({
             title: z.string(),
-            subTitle: z.string(),
+            subTitle: z.string().optional(),
+            list: z.array(z.string()).optional(),
+            button: z
+              .object({
+                label: z.string(),
+                url: z.string(),
+              })
+              .optional(),
+            links: z
+              .array(
+                z.object({
+                  label: z.string(),
+                  url: z.string(),
+                }),
+              )
+              .optional(),
           }),
         ),
       }),

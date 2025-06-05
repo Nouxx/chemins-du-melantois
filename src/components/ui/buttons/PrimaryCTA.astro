@@ -1,13 +1,30 @@
 ---
+import { externalLinks, type ExternalLinkKey } from "@/data_files/constants";
 import Icon from "@components/ui/icons/Icon.astro";
-// Destructure the properties from Astro.props
+
 const { title, url, noArrow, openInNewTab = false } = Astro.props;
-// Define TypeScript interface for the properties
+
 interface Props {
   title?: string;
   url?: string;
   noArrow?: boolean;
   openInNewTab?: boolean;
+}
+
+function isExternalLinkKey(key: string): key is ExternalLinkKey {
+  return key in externalLinks;
+}
+
+function isWrappedInCurlyBraces(url: string) {
+  return url.startsWith("{") && url.endsWith("}");
+}
+
+function parseUrl(url: string | undefined) {
+  if (url && isWrappedInCurlyBraces(url)) {
+    const key = url.slice(1, -1).split(".")[1];
+    return isExternalLinkKey(key) ? externalLinks[key] : url;
+  }
+  return url;
 }
 
 const target = openInNewTab ? "_blank" : "_self";
@@ -25,7 +42,7 @@ const ringClasses = "dark:ring-zinc-200";
 <!-- Link styled as a button, with dynamic title, URL, and optional arrow -->
 <a
   class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses}`}
-  href={url}
+  href={parseUrl(url)}
   target={target}
 >
   {title}
