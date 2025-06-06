@@ -5,7 +5,7 @@ import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { externalLinks, SITE } from "@data/constants";
+import { routes, SITE } from "@data/constants";
 import Icon from "@/components/ui/icons/Icon.astro";
 
 declare global {
@@ -266,6 +266,10 @@ const ogTitle = `${race.data.title} | Hardware Tools | ScrewFast`;
         }
       </div>
     </div>
+  </div>
+
+  <div class="flex justify-center py-6">
+    <PrimaryCTA title="Retour aux courses" url={routes.races} noArrow />
   </div>
 </MainLayout>
 

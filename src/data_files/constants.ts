@@ -5,6 +5,18 @@ import NordIconSvg from "../images/partners/nord-logo.svg?raw";
 import CreditMutuelIcon from "../images/partners/credit-mutuel-logo.svg?raw";
 import MatchLogoSvg from "../images/partners/match-logo.svg?raw";
 
+export const SITE = {
+  title: "Les Chemins du Mélantois",
+  tagline: "Top-quality Hardware Tools",
+  description:
+    "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
+  description_short:
+    "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+  url: "https://www.lescheminsdumelantois.fr",
+  author: "Association Les Chemins du Mélantois",
+  base: "/chemins-du-melantois", // base path for all routes (can be empty)
+};
+
 export const externalLinks = {
   registration:
     "https://fr.milesrepublic.com/event/les-chemins-du-melantois-2692",
@@ -23,16 +35,8 @@ export const externalLinks = {
 
 export type ExternalLinkKey = keyof typeof externalLinks;
 
-export const SITE = {
-  title: "Les Chemins du Mélantois",
-  tagline: "Top-quality Hardware Tools",
-  description:
-    "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
-  description_short:
-    "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
-  url: "https://www.lescheminsdumelantois.fr",
-  author: "Association Les Chemins du Mélantois",
-  base: "/chemins-du-melantois", // base path for all routes (can be empty)
+export const routes = {
+  races: `${SITE.base}/races`,
 };
 
 export const SEO = {
