@@ -4,10 +4,10 @@ description: |
   Participez aux 900m de Péronne en Mélantois le 22 septembre 2025 ! Parcours nature certifié, échauffement, récompenses, inscription en ligne ou sur place. Tous les détails, horaires et modalités disponibles ici.
 date: "22 septembre 2025 - 11h30"
 main:
-  id: 2
+  id: 5
   imgCard: "@/images/races/900m-peronne-hero.jpg"
   imgMain: "@/images/races/900m-peronne-hero.jpg"
-  imgAlt: "Participants au départ du 10km de Sainghin en Mélantois, au centre du village"
+  imgAlt: "Participants au départ du 900m de Péronne en Mélantois, au centre du village"
 tabs:
   - id: "tabs-with-card-item-1"
     dataTab: "#tabs-with-card-1"
@@ -26,7 +26,7 @@ longDescription:
   buttonURL: "{externalLinks.registration}"
 descriptionItems:
   - title: Horaires
-    subTitle: Départ 11h30 face à la Mairie.
+    subTitle: Départ 9h15 face à la Mairie.
     iconBlock:
       label: |
         Lieu de rendez-vous : 10 Rue du Marais, 59273 Péronne-en-Mélantois
