@@ -37,6 +37,7 @@ export type ExternalLinkKey = keyof typeof externalLinks;
 
 export const routes = {
   races: `${SITE.base}/races`,
+  resultsAndPictures: `${SITE.base}/services`,
 };
 
 export const SEO = {
