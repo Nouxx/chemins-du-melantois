@@ -1,10 +1,11 @@
 import { externalLinks, routes, SITE } from "@/data_files/constants";
 
 const navBarLinks = [
-  { name: "Accueil", url: routes.home },
+  { name: "Accueil", url: "/fr" },
   { name: "Courses", url: routes.races },
   { name: "Après-course", url: routes.resultsAndPictures },
-  { name: "Bénévoles", url: `${SITE.base}/blog` },
+  { name: "Bénévoles", url: `${SITE.base}/fr/blog` },
+  { name: "Contact", url: `${SITE.base}/fr/contact` },
 ];
 
 interface FooterLinks {
