@@ -9,9 +9,8 @@ import FAQ from "@components/sections/misc/FAQ.astro";
 import heroImage from "@images/hero-image.webp";
 import faqs from "@data/fr/faqs.json";
 import features from "@data/fr/features.json";
-import featureImage from "@images/features-image.avif";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { externalLinks, partnersData, SITE } from "@/data_files/constants";
+import { externalLinks, partnersData, routes, SITE } from "@/data_files/constants";
 import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
 ---
 
@@ -23,7 +22,7 @@ import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
     primaryBtnURL={externalLinks.registration}
     primaryBtnOpenInNewTab={true}
     secondaryBtn="Courses"
-    secondaryBtnURL={getRelativeLocaleUrl("fr", "contact")}
+    secondaryBtnURL={routes.races}
     src={heroImage}
     alt="Pile de boîtes de produits ScrewFast contenant des outils matériels assortis"
   />
@@ -58,11 +57,11 @@ import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
   <FeaturesGeneral
     title="Découvrez nos 5 courses"
     subTitle="Cette édition 2025 propose notre format habituel de cinq courses variées, parfait pour un événement familial où chacun peut venir et courir ensemble."
-    src={featureImage}
+    src={heroImage}
     alt="Produits ScrewFast dans des boîtes flottantes"
     features={features}
     callToActionLabel="Détails des courses"
-    callToActionLink=`${SITE.base}/fr/services`
+    callToActionLink={routes.races}
   />
 
   <FAQ title="Questions fréquemment posées" faqs={faqs} />

@@ -52,7 +52,7 @@ export const routes = {
   races: `${SITE.base}/races`,
   resultsAndPictures: `${SITE.base}/services`,
   volunteer: `${SITE.base}/volunteer`,
-};
+} as const ;
 
 export const SEO = {
   title: SITE.title,

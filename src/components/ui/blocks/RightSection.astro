@@ -11,8 +11,6 @@ const {
   imgTwo,
   imgTwoAlt,
   list,
-  photosLink,
-  resultsLink,
   links,
 } = Astro.props;
 
@@ -30,14 +28,13 @@ interface Props {
   imgOneAlt?: any;
   imgTwo?: any;
   imgTwoAlt?: any;
-  list: string[];
+  list?: string[];
   photosLink?: string;
   resultsLink?: string;
   links?: ButtonLink[];
 }
 ---
 
-<!-- Root section of the component -->
 <section
   class="mx-auto max-w-[85rem] items-center gap-16 px-4 py-10 sm:px-6 lg:grid lg:grid-cols-2 lg:px-8 lg:py-14 2xl:max-w-full"
 >
@@ -57,23 +54,25 @@ interface Props {
     <ul
       class="mb-4 max-w-prose font-normal text-pretty text-neutral-600 sm:text-lg dark:text-neutral-400"
     >
-      {list.map((item) => <li class="mb-2 list-inside list-disc">{item}</li>)}
+      {
+        list &&
+          list.map((item) => <li class="mb-2 list-inside list-disc">{item}</li>)
+      }
     </ul>
 
     {
-      links &&
-        links.length > 0 &&
-        links.map((link) => (
-          <PrimaryCTA
-            title={link.title}
-            url={link.url}
-            openInNewTab={link.openInNewTab}
-          />
-        ))
+      links && links.length > 0 && (
+        <div class="flex flex-row gap-2">
+          {links.map((link) => (
+            <PrimaryCTA
+              title={link.title}
+              url={link.url}
+              openInNewTab={link.openInNewTab}
+            />
+          ))}
+        </div>
+      )
     }
-<!-- 
-    {photosLink && <PrimaryCTA title="Photos" url={photosLink} openInNewTab />}
-    <PrimaryCTA title="Résultats" url={resultsLink} openInNewTab /> -->
   </div>
   {
     single ? (

@@ -7,6 +7,7 @@ import RightSection, {
 import tenKmSemHero from "@images/10km-sem-hero.jpg";
 import { externalLinks, SITE } from "@data/constants";
 
+// todo: rename type
 interface Article {
   isRightSection: boolean;
   title: string;
@@ -20,9 +21,12 @@ interface Article {
   imgTwo?: any;
   imgTwoAlt?: string;
   list?: string[];
-  photosLink?: string;
-  resultsLink?: string;
+  photosLink?: string; // todo: remove (use links instead)
+  resultsLink?: string; // todo: remove
 }
+
+const buttonTitleForPhotos: string = "Photos";
+const buttonTitleForResults: string = "Résultats";
 
 const articles: Article[] = [
   {
@@ -42,18 +46,16 @@ const articles: Article[] = [
     ],
     links: [
       {
-        title: "Résultats",
+        title: buttonTitleForResults,
         url: externalLinks.edition2024.aSportPage,
         openInNewTab: true,
       },
       {
-        title: "Photos",
+        title: buttonTitleForPhotos,
         url: externalLinks.edition2024.googlePhotoAlbum,
         openInNewTab: true,
       },
     ],
-    photosLink: externalLinks.edition2024.googlePhotoAlbum,
-    resultsLink: externalLinks.edition2024.aSportPage,
   },
   {
     isRightSection: true,
@@ -70,8 +72,18 @@ const articles: Article[] = [
       "14 Inscrits au Run & Bike",
       "105 Inscrits au 5km",
     ],
-    photosLink: externalLinks.event2023.googlePhotoAlbum,
-    resultsLink: externalLinks.event2023.aSportPage,
+    links: [
+      {
+        title: buttonTitleForResults,
+        url: externalLinks.event2023.aSportPage,
+        openInNewTab: true,
+      },
+      {
+        title: buttonTitleForPhotos,
+        url: externalLinks.event2023.googlePhotoAlbum,
+        openInNewTab: true,
+      },
+    ],
   },
   {
     isRightSection: true,
@@ -88,13 +100,19 @@ const articles: Article[] = [
       "14 Inscrits au 1,5km",
       "78 Inscrits au 5km",
     ],
-    resultsLink: externalLinks.event2022.proLiveSportPage,
+    links: [
+      {
+        title: buttonTitleForResults,
+        url: externalLinks.event2022.proLiveSportPage,
+        openInNewTab: true,
+      },
+    ],
   },
   {
     isRightSection: true,
     title: "Édition 2019",
     subTitle:
-      "L'édition 2022 des chemins du Mélantois a eu lieu le XX septembre 2022 et a regroupé un total de 677 participants.",
+      "L'édition 2019 des chemins du Mélantois a eu lieu le XX septembre 2019 et a regroupé un total de 677 participants.",
     single: true,
     imgOne: tenKmSemHero,
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
@@ -147,6 +165,7 @@ const ogTitle = "Expert Consultation Services | ScrewFast";
           imgOne={article.imgOne}
           imgOneAlt={article.imgOneAlt}
           list={article.list || []}
+          links={article.links}
           photosLink={article.photosLink ?? ""}
           resultsLink={article.resultsLink ?? ""}
         />
