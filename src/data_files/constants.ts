@@ -7,14 +7,14 @@ import MatchLogoSvg from "../images/partners/match-logo.svg?raw";
 
 export const SITE = {
   title: "Les Chemins du Mélantois",
-  tagline: "Top-quality Hardware Tools",
+  tagline: "Courses nature et conviviales pour tous",
   description:
-    "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs. Start exploring and contact our sales team for superior quality and reliability.",
+    "Les Chemins du Mélantois proposent une série de courses accessibles à tous, dans un cadre naturel au cœur du Mélantois. De 900 m à 10 km, venez courir, encourager ou participer à l'organisation dans une ambiance festive et solidaire.",
   description_short:
-    "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+    "Courses nature au cœur du Mélantois pour petits et grands dans une ambiance conviviale.",
   url: "https://www.lescheminsdumelantois.fr",
   author: "Association Les Chemins du Mélantois",
-  base: "/chemins-du-melantois", // base path for all routes (can be empty)
+  base: "/chemins-du-melantois",
 };
 
 export const externalLinks = {
@@ -50,9 +50,9 @@ export type ExternalLinkKey = keyof typeof externalLinks;
 
 export const routes = {
   home: `${SITE.base}`,
-  races: `${SITE.base}/races`,
-  resultsAndPictures: `${SITE.base}/services`,
-  volunteer: `${SITE.base}/volunteer`,
+  races: `${SITE.base}/courses`,
+  resultsAndPictures: `${SITE.base}/resultats`,
+  volunteer: `${SITE.base}/benevoles`,
 } as const;
 
 export const SEO = {
@@ -61,7 +61,7 @@ export const SEO = {
   structuredData: {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    inLanguage: "en-US",
+    inLanguage: "fr-FR",
     "@id": SITE.url,
     url: SITE.url,
     name: SITE.title,

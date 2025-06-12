@@ -1,68 +1,27 @@
 ---
-// Import necessary components, modules and types
 import MainLayout from "@/layouts/MainLayout.astro";
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
-import { externalLinks, SITE } from "@data/constants";
 import FeaturesStatsAlt from "@/components/sections/features/FeaturesStatsAlt.astro";
 import RightSection from "@/components/ui/blocks/RightSection.astro";
 import imgVolonteerThree from "@images/volunteer_3.jpg";
-// Get all blogs post in English and sort them based on publish date
+import {
+  getPageTitle,
+  getStructuredDataForPage,
+} from "@/utils/structured-data";
 
-const englishBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("en/");
-});
-
-const englishInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("en/");
-});
-
-const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
-  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
-    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
-// Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
-
-// Separate the most recent post from others
-const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
-
-// Define variables for page content
-const title: string = "Cet évènement est possible grâce à vous";
-const subTitle: string =
-  "Grâce à votre énergie, votre bonne humeur et votre présence sur le terrain, cet évènement devient bien plus qu’une simple course : c’est un rendez-vous chaleureux, animé par le sourire des bénévoles, où se mêlent entraide, fierté collective et joie de faire vivre notre village. Sans vous, rien de tout cela ne serait possible.";
-const secondTitle: string = "Insights";
-const secondSubTitle: string =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
-
-const pageTitle: string = `Blog | ${SITE.title}`;
 const metaDescription =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.";
-const ogTitle = "Construction Industry Blog | ScrewFast";
+  "Participez à l’organisation de notre course en rejoignant l’équipe de bénévoles ! Votre aide est précieuse pour faire de cet événement un moment chaleureux, solidaire et inoubliable pour tous.";
+
+const ogTitle = "Devenez bénévole pour l’événement | Chemins du Mélantois";
+
+const pd =
+  "Participez à l’organisation de notre course en rejoignant l’équipe de bénévoles ! Votre aide est précieuse pour faire de cet événement un moment chaleureux, solidaire et inoubliable pour tous.";
 ---
 
 <MainLayout
-  title={pageTitle}
+  title={getPageTitle("Bénévoles")}
   customDescription={metaDescription}
   customOgTitle={ogTitle}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://screwfast.uk/blog",
-    url: "https://screwfast.uk/blog",
-    name: "Blog | ScrewFast",
-    description:
-      "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
-    isPartOf: {
-      "@type": "WebSite",
-      url: "https://screwfast.uk",
-      name: "ScrewFast",
-      description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
-    },
-    inLanguage: "en-US",
-  }}
+  structuredData={getStructuredDataForPage(pd)}
 >
   <section
     class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
@@ -71,13 +30,17 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
       <h1
         class="block text-4xl font-bold tracking-tight text-balance text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
       >
-        {title}
+        Cet évènement est possible grâce à vous
       </h1>
 
       <p
         class="mt-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400"
       >
-        {subTitle}
+        Grâce à votre énergie, votre bonne humeur et votre présence sur le
+        terrain, cet évènement devient bien plus qu’une simple course : c’est un
+        rendez-vous chaleureux, animé par le sourire des bénévoles, où se mêlent
+        entraide, fierté collective et joie de faire vivre notre village. Sans
+        vous, rien de tout cela ne serait possible.
       </p>
 
       <FeaturesStatsAlt
@@ -124,7 +87,6 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
       single={true}
       imgOne={imgVolonteerThree}
       imgOneAlt="Volontaires lors de l'édition 2024 des Chemins du Mélantois"
-      list={[]}
       links={[
         {
           title: "Par mail",

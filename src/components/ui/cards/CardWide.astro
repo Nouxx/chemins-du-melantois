@@ -5,11 +5,10 @@ import Icon from "@components/ui/icons/Icon.astro";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@/data_files/constants";
 
-const { product: race, productLocale = "" } = Astro.props;
+const { product: race } = Astro.props;
 
 interface Props {
   product: CollectionEntry<"races">;
-  productLocale?: string;
 }
 
 // Define classes to be used with the Image component
