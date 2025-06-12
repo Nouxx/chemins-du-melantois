@@ -6,10 +6,12 @@ import RightSection, {
 
 import tenKmSemHero from "@images/10km-sem-hero.jpg";
 import { externalLinks, SITE } from "@data/constants";
+import {
+  getPageTitle,
+  getStructuredDataForPage,
+} from "@/utils/structured-data";
 
-// todo: rename type
-interface Article {
-  isRightSection: boolean;
+interface EventHighlightData {
   title: string;
   subTitle: string;
   links?: ButtonLink[];
@@ -21,21 +23,18 @@ interface Article {
   imgTwo?: any;
   imgTwoAlt?: string;
   list?: string[];
-  photosLink?: string; // todo: remove (use links instead)
-  resultsLink?: string; // todo: remove
 }
 
 const buttonTitleForPhotos: string = "Photos";
 const buttonTitleForResults: string = "Résultats";
 
-const articles: Article[] = [
+const eventsHighlights: EventHighlightData[] = [
   {
-    isRightSection: true,
     title: "Édition 2024",
     subTitle:
       "L'édition 2024 des chemins du Mélantois a eu lieu le 24 septembre 2024 et a regroupé un total de 784 participants soit le plus grand nombre d’inscrits depuis 8 ans !",
     single: true,
-    imgOne: tenKmSemHero,
+    imgOne: tenKmSemHero, // todo: use another image
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
     list: [
       "349 participants au 10km",
@@ -58,12 +57,11 @@ const articles: Article[] = [
     ],
   },
   {
-    isRightSection: true,
     title: "Édition 2023",
     subTitle:
       "L'édition 2023 des chemins du Mélantois a eu lieu le 17 septembre 2023 et a regroupé un total de 653 participants.",
     single: true,
-    imgOne: tenKmSemHero,
+    imgOne: tenKmSemHero, // todo: use another image
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
     list: [
       "261 Inscrits au 10km",
@@ -86,12 +84,11 @@ const articles: Article[] = [
     ],
   },
   {
-    isRightSection: true,
     title: "Édition 2022",
     subTitle:
       "L'édition 2022 des chemins du Mélantois a eu lieu le XX septembre 2022 et a regroupé un total de 677 participants.",
     single: true,
-    imgOne: tenKmSemHero,
+    imgOne: tenKmSemHero, // todo: use another image
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
     list: [
       "311 Inscrits au 10km",
@@ -109,12 +106,11 @@ const articles: Article[] = [
     ],
   },
   {
-    isRightSection: true,
     title: "Édition 2019",
     subTitle:
       "L'édition 2019 des chemins du Mélantois a eu lieu le XX septembre 2019 et a regroupé un total de 677 participants.",
     single: true,
-    imgOne: tenKmSemHero,
+    imgOne: tenKmSemHero, // todo: use another image
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
     list: [
       "311 Inscrits au 10km",
@@ -123,51 +119,39 @@ const articles: Article[] = [
       "14 Inscrits au 1,5km",
       "78 Inscrits au 5km",
     ],
-    resultsLink: externalLinks.event2022.proLiveSportPage,
+    links: [
+      {
+        title: buttonTitleForResults,
+        url: "#", // todo: export image to google drive
+        openInNewTab: true,
+      },
+    ],
   },
 ];
 
-const pageTitle: string = `Services | ${SITE.title}`;
-const metaDescription =
-  "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.";
-const ogTitle = "Expert Consultation Services | ScrewFast";
+const pageTitle = getPageTitle("Résultats & Photos");
+
+const pageDescription =
+  "Revivez les éditions précédentes des Chemins du Mélantois à travers les résultats des courses et les albums photos. Découvrez les moments forts, les performances et l’ambiance festive de chaque année.";
 ---
 
 <MainLayout
   title={pageTitle}
-  customDescription={metaDescription}
-  customOgTitle={ogTitle}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://screwfast.uk/services",
-    url: "https://screwfast.uk/services",
-    name: "Expert Consultation Services | ScrewFast",
-    description:
-      "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
-    isPartOf: {
-      "@type": "WebSite",
-      url: "https://screwfast.uk",
-      name: "ScrewFast",
-      description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
-    },
-    inLanguage: "en-US",
-  }}
+  customDescription={pageDescription}
+  customOgTitle={pageTitle}
+  structuredData={getStructuredDataForPage(pageDescription)}
 >
   {
-    articles.map((article) => {
+    eventsHighlights.map((eventHighlight) => {
       return (
         <RightSection
-          title={article.title}
-          subTitle={article.subTitle}
-          single={article.single}
-          imgOne={article.imgOne}
-          imgOneAlt={article.imgOneAlt}
-          list={article.list || []}
-          links={article.links}
-          photosLink={article.photosLink ?? ""}
-          resultsLink={article.resultsLink ?? ""}
+          title={eventHighlight.title}
+          subTitle={eventHighlight.subTitle}
+          single={eventHighlight.single}
+          imgOne={eventHighlight.imgOne}
+          imgOneAlt={eventHighlight.imgOneAlt}
+          list={eventHighlight.list || []}
+          links={eventHighlight.links}
         />
       );
     })
