@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import Icon from "@components/ui/icons/Icon.astro";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "@/data_files/constants";
+import { routes } from "@/data_files/constants";
 
 const { product } = Astro.props;
 
@@ -10,14 +10,16 @@ interface Props {
   product: CollectionEntry<"races">;
 }
 
-// Define classes to be used with the Image component
 const imageClass =
   "absolute inset-0 h-full w-full object-cover object-center transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110";
+
+const raceId = product.id.replace(/^fr\//, "");
+const url = routes.raceDetails(raceId);
 ---
 
 <!-- A clickable card that leads to the details of the product-->
 <a
-  href={`${SITE.base}/races/${product.id.replace(/^fr\//, "")}`}
+  href={url}
   data-astro-prefetch
   class="group relative flex h-48 items-end overflow-hidden rounded-xl shadow-lg ring-zinc-500 outline-hidden focus-visible:ring-3 md:h-80 dark:ring-zinc-200 dark:focus:outline-hidden"
 >

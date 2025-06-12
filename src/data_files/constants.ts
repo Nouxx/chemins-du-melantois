@@ -51,6 +51,7 @@ export type ExternalLinkKey = keyof typeof externalLinks;
 export const routes = {
   home: `${SITE.base}`,
   races: `${SITE.base}/courses`,
+  raceDetails: (id: string) => `${routes.races}/${id}`,
   resultsAndPictures: `${SITE.base}/resultats`,
   volunteer: `${SITE.base}/benevoles`,
 } as const;
