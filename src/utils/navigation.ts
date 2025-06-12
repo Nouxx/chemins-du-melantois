@@ -4,7 +4,7 @@ const navBarLinks = [
   { name: "Accueil", url: routes.home },
   { name: "Courses", url: routes.races },
   { name: "Après-course", url: routes.resultsAndPictures },
-  { name: "Bénévoles", url: `${SITE.base}/blog` },
+  { name: "Bénévoles", url: routes.volunteer },
 ];
 
 interface FooterLinks {
