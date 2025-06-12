@@ -1,13 +1,12 @@
 ---
 // Import necessary components, modules and types
 import MainLayout from "@/layouts/MainLayout.astro";
-import CardBlog from "@components/ui/cards/CardBlog.astro";
-import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
-import CardInsight from "@components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { SITE } from "@data/constants";
-
+import { externalLinks, SITE } from "@data/constants";
+import FeaturesStatsAlt from "@/components/sections/features/FeaturesStatsAlt.astro";
+import RightSection from "@/components/ui/blocks/RightSection.astro";
+import imgVolonteerThree from "@images/volunteer_3.jpg";
 // Get all blogs post in English and sort them based on publish date
 
 const englishBlogEntries = await getCollection("blog", ({ id }) => {
@@ -30,9 +29,9 @@ const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
+const title: string = "Cet évènement est possible grâce à vous";
 const subTitle: string =
-  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
+  "Grâce à votre énergie, votre bonne humeur et votre présence sur le terrain, cet évènement devient bien plus qu’une simple course : c’est un rendez-vous chaleureux, animé par le sourire des bénévoles, où se mêlent entraide, fierté collective et joie de faire vivre notre village. Sans vous, rien de tout cela ne serait possible.";
 const secondTitle: string = "Insights";
 const secondSubTitle: string =
   "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
@@ -68,8 +67,7 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
   <section
     class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
   >
-    {/* Page header */}
-    <div class="mx-auto max-w-3xl text-left sm:text-center">
+    <div class="mx-auto text-left sm:text-center">
       <h1
         class="block text-4xl font-bold tracking-tight text-balance text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
       >
@@ -81,43 +79,59 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
       >
         {subTitle}
       </p>
-    </div>
-  </section>
 
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    {/* Blog posts grid */}
-    <div class="grid gap-6 lg:grid-cols-2">
-      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
+      <FeaturesStatsAlt
+        title="Trouvez le rôle qui vous correspond"
+        subTitle="Pour que l’événement soit une réussite, chaque aide compte : des postes variés, accessibles à tous, vous attendent. Que vous soyez disponible une heure ou toute la journée, il y a une mission faite pour vous."
+        benefits={[
+          {
+            title: "Signaleur",
+            subTitle:
+              "je suis positionné sur un point du parcours pour indiquer la direction aux coureurs ou sécuriser un carrefour.",
+            icon: "mapPin",
+          },
+          {
+            title: "Ravitaillement",
+            subTitle:
+              "je prépare et distribue eau et encas aux coureurs sur les points de ravitaillement.",
+            icon: "glassOfWater",
+          },
+          {
+            title: "Photographe",
+            subTitle:
+              "je capture les moments forts de la course : départs, arrivées, sourires, efforts et émotions.",
+            icon: "photoCamera",
+          },
+          {
+            title: "Moto médicale",
+            subTitle:
+              "je fais équipe avec les secours pour intervenir rapidement en cas de besoin tout au long du parcours.",
+            icon: "motorcycle",
+          },
+          {
+            title: "Installation",
+            subTitle:
+              "j’aide à mettre en place et démonter les équipements : barrières, signalétique, zones de départ et d’arrivée.",
+            icon: "hammer",
+          },
+        ]}
+      />
     </div>
-  </section>
-  {/* Most recent blog post */}
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <CardBlogRecent blogEntry={mostRecentPost} />
-  </section>
-  {/* Insights section */}
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
-      <h2
-        class="text-2xl font-bold text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
-      >
-        {secondTitle}
-      </h2>
-      <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
-        {secondSubTitle}
-      </p>
-    </div>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        insightPosts.map((insightEntry) => (
-          <CardInsight insightEntry={insightEntry} />
-        ))
-      }
-    </div>
+
+    <RightSection
+      title="Comment devenir bénévole ?"
+      subTitle="L'aventure vous tente ? Contactez-nous !"
+      single={true}
+      imgOne={imgVolonteerThree}
+      imgOneAlt="Volontaires lors de l'édition 2024 des Chemins du Mélantois"
+      list={[]}
+      links={[
+        {
+          title: "Par mail",
+          url: "mailto:contact@screwfast.uk",
+        },
+      ]}
+      ,
+    />
   </section>
 </MainLayout>
