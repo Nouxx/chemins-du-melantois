@@ -33,7 +33,7 @@ export const externalLinks = {
     "https://drive.google.com/file/d/1E-FdgMfEByDnSmkPhzZmkz84Lsqq9zM6/view",
   edition2024: {
     googlePhotoAlbum: "https://photos.app.goo.gl/1d8b3c5Z7g2f4z6aA",
-    aSportPage: "http://asport-timing.com/live/chemins-melantois-2024"
+    aSportPage: "http://asport-timing.com/live/chemins-melantois-2024",
   },
   event2023: {
     googlePhotoAlbum: "https://photos.app.goo.gl/2qFFEmykrpoDL6R9A",
@@ -41,8 +41,9 @@ export const externalLinks = {
   },
   event2022: {
     googlePhotoAlbum: "https://photos.app.goo.gl/3d8b3c5Z7g2f4z6aA",
-    proLiveSportPage: "https://www.prolivesport.fr/index.php?chap=event&sub=liveV3&eventId=807",
-  }
+    proLiveSportPage:
+      "https://www.prolivesport.fr/index.php?chap=event&sub=liveV3&eventId=807",
+  },
 } as const;
 
 export type ExternalLinkKey = keyof typeof externalLinks;
@@ -52,7 +53,7 @@ export const routes = {
   races: `${SITE.base}/races`,
   resultsAndPictures: `${SITE.base}/services`,
   volunteer: `${SITE.base}/volunteer`,
-} as const ;
+} as const;
 
 export const SEO = {
   title: SITE.title,
