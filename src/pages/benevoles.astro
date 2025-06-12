@@ -2,26 +2,23 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import FeaturesStatsAlt from "@/components/sections/features/FeaturesStatsAlt.astro";
 import RightSection from "@/components/ui/blocks/RightSection.astro";
-import imgVolonteerThree from "@images/volunteer_3.jpg";
+import imgVolunteerThree from "@images/volunteer_3.jpg";
 import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
 
-const metaDescription =
-  "Participez à l’organisation de notre course en rejoignant l’équipe de bénévoles ! Votre aide est précieuse pour faire de cet événement un moment chaleureux, solidaire et inoubliable pour tous.";
+const pageTitle = getPageTitle("Bénévoles");
 
-const ogTitle = "Devenez bénévole pour l’événement | Chemins du Mélantois";
-
-const pd =
+const pageDescription =
   "Participez à l’organisation de notre course en rejoignant l’équipe de bénévoles ! Votre aide est précieuse pour faire de cet événement un moment chaleureux, solidaire et inoubliable pour tous.";
 ---
 
 <MainLayout
-  title={getPageTitle("Bénévoles")}
-  customDescription={metaDescription}
-  customOgTitle={ogTitle}
-  structuredData={getStructuredDataForPage(pd)}
+  title={pageTitle}
+  customDescription={pageDescription}
+  customOgTitle={pageTitle}
+  structuredData={getStructuredDataForPage(pageDescription)}
 >
   <section
     class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
@@ -85,7 +82,7 @@ const pd =
       title="Comment devenir bénévole ?"
       subTitle="L'aventure vous tente ? Contactez-nous !"
       single={true}
-      imgOne={imgVolonteerThree}
+      imgOne={imgVolunteerThree}
       imgOneAlt="Volontaires lors de l'édition 2024 des Chemins du Mélantois"
       links={[
         {
