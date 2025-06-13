@@ -32,18 +32,28 @@ export const externalLinks = {
   parentalConsentForm:
     "https://drive.google.com/file/d/1E-FdgMfEByDnSmkPhzZmkz84Lsqq9zM6/view",
   edition2024: {
-    googlePhotoAlbum: "https://photos.app.goo.gl/1d8b3c5Z7g2f4z6aA",
-    aSportPage: "http://asport-timing.com/live/chemins-melantois-2024",
+    googlePhotoAlbum: "https://photos.app.goo.gl/3Q6nZiEE1nganQ2G8",
+    aSportPage: "http://asport-timing.com/live/chemins-melantois-2024"
   },
   event2023: {
     googlePhotoAlbum: "https://photos.app.goo.gl/2qFFEmykrpoDL6R9A",
     aSportPage: "http://asport-timing.com/live/chemins-melantois-2023",
   },
   event2022: {
-    googlePhotoAlbum: "https://photos.app.goo.gl/3d8b3c5Z7g2f4z6aA",
-    proLiveSportPage:
-      "https://www.prolivesport.fr/index.php?chap=event&sub=liveV3&eventId=807",
+    proLiveSportPage: "https://www.prolivesport.fr/index.php?chap=event&sub=liveV3&eventId=807",
   },
+  event2019: {
+    googlePhotoAlbum: "https://photos.app.goo.gl/a4T2keL3KJbHG9yw5",
+    googleDriveLink: "https://drive.google.com/file/d/17yTd18cnWKm_kuXSySaw0T-OYukFAgBQ/view",
+  },
+  event2018: {
+    googlePhotoAlbum: "https://photos.app.goo.gl/D7Mzsf99KEkMPkXg9",
+    googleDriveLink: "",
+  },
+  event2017: {
+    googlePhotoAlbum: "https://photos.app.goo.gl/41c8kvRGvkvwvVbAA",
+    googleDriveLink: "",
+  }
 } as const;
 
 export type ExternalLinkKey = keyof typeof externalLinks;
