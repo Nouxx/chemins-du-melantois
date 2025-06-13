@@ -48,11 +48,11 @@ export const externalLinks = {
   },
   event2018: {
     googlePhotoAlbum: "https://photos.app.goo.gl/D7Mzsf99KEkMPkXg9",
-    googleDriveLink: "",
+    googleDriveLink: "https://drive.google.com/file/d/1iQrx-swxy37J-8IabnzNJ7p3BQjAYPBx/view",
   },
   event2017: {
     googlePhotoAlbum: "https://photos.app.goo.gl/41c8kvRGvkvwvVbAA",
-    googleDriveLink: "",
+    googleDriveLink: "https://drive.google.com/file/d/13V7VPyPgNhWXiqFAfOOt-LXpBvS0cAXv/view",
   }
 } as const;
 
