@@ -1,12 +1,15 @@
 ---
-// Import section components
 import MainLayout from "@/layouts/MainLayout.astro";
 import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-import { routes, SITE } from "@data/constants";
+import { routes } from "@data/constants";
 import Icon from "@/components/ui/icons/Icon.astro";
+import {
+  getPageTitle,
+  getStructuredDataForPage,
+} from "@/utils/structured-data";
 
 declare global {
   interface Window {
@@ -28,26 +31,16 @@ export async function getStaticPaths() {
 }
 const { race } = Astro.props;
 
-const pageTitle: string = `${race.data.title} | ${SITE.title}`;
-const metaDescription = race.data.description;
-const ogTitle = `${race.data.title} | Hardware Tools | ScrewFast`;
+const pageTitle = getPageTitle(race.data.title);
+
+const pageDescription = race.data.description;
 ---
 
 <MainLayout
   title={pageTitle}
-  customDescription={metaDescription}
-  customOgTitle={ogTitle}
-  structuredData={{
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": `https://screwfast.uk/products/${race.data.title.toLowerCase().replace(/\s+/g, "-")}`,
-    name: race.data.title,
-    description: race.data.description,
-    brand: {
-      "@type": "Brand",
-      name: "ScrewFast",
-    },
-  }}
+  customDescription={pageDescription}
+  customOgTitle={pageTitle}
+  structuredData={getStructuredDataForPage(pageDescription)}
 >
   <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
   </div>

@@ -1,9 +1,8 @@
-import ogImageSrc from "@images/social.png";
-
 import MelIconSvg from "../images/partners/mel-logo.svg?raw";
 import NordIconSvg from "../images/partners/nord-logo.svg?raw";
 import CreditMutuelIcon from "../images/partners/credit-mutuel-logo.svg?raw";
 import MatchLogoSvg from "../images/partners/match-logo.svg?raw";
+import edition2023Hero from "../images/races/2023-edition-hero.webp";
 
 export const SITE = {
   title: "Les Chemins du Mélantois",
@@ -33,27 +32,31 @@ export const externalLinks = {
     "https://drive.google.com/file/d/1E-FdgMfEByDnSmkPhzZmkz84Lsqq9zM6/view",
   edition2024: {
     googlePhotoAlbum: "https://photos.app.goo.gl/3Q6nZiEE1nganQ2G8",
-    aSportPage: "http://asport-timing.com/live/chemins-melantois-2024"
+    aSportPage: "http://asport-timing.com/live/chemins-melantois-2024",
   },
   event2023: {
     googlePhotoAlbum: "https://photos.app.goo.gl/2qFFEmykrpoDL6R9A",
     aSportPage: "http://asport-timing.com/live/chemins-melantois-2023",
   },
   event2022: {
-    proLiveSportPage: "https://www.prolivesport.fr/index.php?chap=event&sub=liveV3&eventId=807",
+    proLiveSportPage:
+      "https://www.prolivesport.fr/index.php?chap=event&sub=liveV3&eventId=807",
   },
   event2019: {
     googlePhotoAlbum: "https://photos.app.goo.gl/a4T2keL3KJbHG9yw5",
-    googleDriveLink: "https://drive.google.com/file/d/17yTd18cnWKm_kuXSySaw0T-OYukFAgBQ/view",
+    googleDriveLink:
+      "https://drive.google.com/file/d/17yTd18cnWKm_kuXSySaw0T-OYukFAgBQ/view",
   },
   event2018: {
     googlePhotoAlbum: "https://photos.app.goo.gl/D7Mzsf99KEkMPkXg9",
-    googleDriveLink: "https://drive.google.com/file/d/1iQrx-swxy37J-8IabnzNJ7p3BQjAYPBx/view",
+    googleDriveLink:
+      "https://drive.google.com/file/d/1iQrx-swxy37J-8IabnzNJ7p3BQjAYPBx/view",
   },
   event2017: {
     googlePhotoAlbum: "https://photos.app.goo.gl/41c8kvRGvkvwvVbAA",
-    googleDriveLink: "https://drive.google.com/file/d/13V7VPyPgNhWXiqFAfOOt-LXpBvS0cAXv/view",
-  }
+    googleDriveLink:
+      "https://drive.google.com/file/d/13V7VPyPgNhWXiqFAfOOt-LXpBvS0cAXv/view",
+  },
 } as const;
 
 export type ExternalLinkKey = keyof typeof externalLinks;
@@ -93,7 +96,7 @@ export const OG = {
   title: `${SITE.title}: : Hardware Tools & Construction Services`,
   description:
     "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
-  image: ogImageSrc,
+  image: edition2023Hero,
 };
 
 export const partnersData = [
