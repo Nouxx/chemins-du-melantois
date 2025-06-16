@@ -5,8 +5,8 @@ description: |
 date: "22 septembre 2025 - 9h45"
 main:
   id: 4
-  imgCard: "@/images/races/900m-sem-hero.jpg"
-  imgMain: "@/images/races/900m-sem-hero.jpg"
+  imgCard: "@/images/races/900m-sem-hero.webp"
+  imgMain: "@/images/races/900m-sem-hero.webp"
   imgAlt: "Participants au départ du 900m de Sainghin en Mélantois, au centre du village"
 tabs:
   - id: "tabs-with-card-item-1"
@@ -86,5 +86,5 @@ termOfRegistration:
           url: "{externalLinks.healthQuestionnaire}"
           openInNewTab: true
 maps:
-  first: "@/images/races/900m-sem-map.png"
+  first: "@/images/races/900m-sem-map.webp"
 ---

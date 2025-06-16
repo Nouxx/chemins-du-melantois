@@ -5,8 +5,8 @@ description: |
 date: "22 septembre 2025 - 9h"
 main:
   id: 2
-  imgCard: "@/images/races/run-bike-peronne-hero.jpg"
-  imgMain: "@/images/races/run-bike-peronne-hero.jpg"
+  imgCard: "@/images/races/run-bike-peronne-hero.webp"
+  imgMain: "@/images/races/run-bike-peronne-hero.webp"
   imgAlt: "Participants au départ du Run & Bike de Péronne en Mélantois, au centre du village"
 tabs:
   - id: "tabs-with-card-item-1"
@@ -87,5 +87,5 @@ termOfRegistration:
           url: "{externalLinks.healthQuestionnaire}"
           openInNewTab: true
 maps:
-  first: "@/images/races/run-bike-peronne-map.jpg"
+  first: "@/images/races/run-bike-peronne-map.webp"
 ---
