@@ -8,7 +8,7 @@ import edition2024Hero from "@images/races/2024-edition-hero.webp";
 import edition2022Hero from "@images/races/2022-edition-hero.webp";
 import edition2023Hero from "@images/races/2023-edition-hero.webp";
 import edition2019Hero from "@images/races/2019-edition-hero.webp";
-import { externalLinks, SITE } from "@data/constants";
+import { externalLinks } from "@data/constants";
 import {
   getPageTitle,
   getStructuredDataForPage,
@@ -35,16 +35,17 @@ const eventsHighlights: EventHighlightData[] = [
   {
     title: "Édition 2024",
     subTitle:
-      "L'édition 2024 des chemins du Mélantois a eu lieu le 24 septembre 2024 et a regroupé un total de 784 participants soit le plus grand nombre d’inscrits depuis 8 ans !",
+      "L'édition 2024 des chemins du Mélantois a eu lieu le 24 septembre 2024 et a rassemblé 790 participants, soit le plus grand nombre d’inscrits depuis 8 ans !",
     single: true,
     imgOne: edition2024Hero,
-    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgOneAlt:
+      "Départ de la course 2024 à Sainghin-en-Mélantois : des centaines de coureurs réunis sous l’arche jaune dans une ambiance festive et conviviale.",
     list: [
-      "349 participants au 10km",
-      "184 participants au 900m de Sainghin",
-      "72 participants au 900m de Péronne",
+      "349 participants au 10 km",
+      "190 participants au 900 m de Sainghin",
+      "54 participants au 900 m de Péronne",
       "35 participants au Run & Bike",
-      "162 participants au 5km",
+      "162 participants au 5 km",
     ],
     links: [
       {
@@ -62,26 +63,27 @@ const eventsHighlights: EventHighlightData[] = [
   {
     title: "Édition 2023",
     subTitle:
-      "L'édition 2023 des chemins du Mélantois a eu lieu le 17 septembre 2023 et a regroupé un total de 653 participants.",
+      "L'édition 2023 des chemins du Mélantois s’est tenue le 17 septembre 2023 et a regroupé un total de 653 participants.",
     single: true,
     imgOne: edition2023Hero,
-    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgOneAlt:
+      "Participants des Chemins du Mélantois 2024 posant fièrement devant l’église de Sainghin-en-Mélantois avant le départ de la course.",
     list: [
-      "261 Inscrits au 10km",
-      "201 Inscrits au 900mde Sainghin",
-      "72 Inscrits au 900m de Péronne",
-      "14 Inscrits au Run & Bike",
-      "105 Inscrits au 5km",
+      "261 participants au 10 km",
+      "201 participants au 900 m de Sainghin",
+      "72 participants au 900 m de Péronne",
+      "14 participants au Run & Bike",
+      "105 participants au 5 km",
     ],
     links: [
       {
         title: buttonTitleForResults,
-        url: externalLinks.event2023.aSportPage,
+        url: externalLinks.edition2023.aSportPage,
         openInNewTab: true,
       },
       {
         title: buttonTitleForPhotos,
-        url: externalLinks.event2023.googlePhotoAlbum,
+        url: externalLinks.edition2023.googlePhotoAlbum,
         openInNewTab: true,
       },
     ],
@@ -89,21 +91,22 @@ const eventsHighlights: EventHighlightData[] = [
   {
     title: "Édition 2022",
     subTitle:
-      "L'édition 2022 des chemins du Mélantois a eu lieu le XX septembre 2022 et a regroupé un total de 677 participants.",
+      "L'édition 2022 des chemins du Mélantois a eu lieu le 18 septembre 2022 et a regroupé un total de 677 participants.",
     single: true,
     imgOne: edition2022Hero,
-    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgOneAlt:
+      "Un coureur souriant portant un enfant dans ses bras après sa course lors des Chemins du Mélantois, entouré de spectateurs.",
     list: [
-      "311 Inscrits au 10km",
-      "201 Inscrits au 900m de Sainghin",
-      "73 Inscrits au 900m de Péronne",
-      "14 Inscrits au 1,5km",
-      "78 Inscrits au 5km",
+      "311 participants au 10 km",
+      "201 participants au 900 m de Sainghin",
+      "73 participants au 900 m de Péronne",
+      "14 participants au 1,5 km",
+      "78 participants au 5 km",
     ],
     links: [
       {
         title: buttonTitleForResults,
-        url: externalLinks.event2022.proLiveSportPage,
+        url: externalLinks.edition2022.proLiveSportPage,
         openInNewTab: true,
       },
     ],
@@ -111,21 +114,22 @@ const eventsHighlights: EventHighlightData[] = [
   {
     title: "Édition 2019",
     subTitle:
-      "L'édition 2019 des chemins du Mélantois a eu lieu le XX septembre 2019 et a regroupé un total de 677 participants.",
+      "L'édition 2019 des chemins du Mélantois a eu lieu le 15 septembre 2019 et a regroupé un total de 661 participants.",
     single: true,
     imgOne: edition2019Hero,
-    imgOneAlt: "Blueprints and digital tablet with construction plans.",
+    imgOneAlt:
+      "Des enfants attendant le départ de la course des Chemins du Mélantois sur la ligne de départ.",
     list: [
-      "311 Inscrits au 10km",
-      "201 Inscrits au 900m de Sainghin",
-      "73 Inscrits au 900m de Péronne",
-      "14 Inscrits au 1,5km",
-      "78 Inscrits au 5km",
+      "418 participants au 10 km",
+      "125 participants au 900 m de Sainghin",
+      "20 participants au 900 m de Péronne",
+      "16 participants au 1,5 km",
+      "82 participants au 5 km",
     ],
     links: [
       {
         title: buttonTitleForResults,
-        url: "#", // todo: export image to google drive
+        url: externalLinks.edition2019.googleDriveResultsFile,
         openInNewTab: true,
       },
     ],
