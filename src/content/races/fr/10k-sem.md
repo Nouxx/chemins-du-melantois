@@ -5,8 +5,8 @@ description: |
 date: "22 septembre 2025 - 10h"
 main:
   id: 1
-  imgCard: "@/images/10km-sem-hero.jpg"
-  imgMain: "@/images/10km-sem-hero.jpg"
+  imgCard: "@/images/races/10km-sem-hero.jpg"
+  imgMain: "@/images/races/10km-sem-hero.jpg"
   imgAlt: "Participants au départ du 10km de Sainghin en Mélantois, au centre du village"
 tabs:
   - id: "tabs-with-card-item-1"
