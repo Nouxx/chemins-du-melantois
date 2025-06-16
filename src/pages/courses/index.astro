@@ -1,0 +1,75 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
+import CardSmall from "@components/ui/cards/CardSmall.astro";
+import CardWide from "@components/ui/cards/CardWide.astro";
+
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { externalLinks, SITE } from "@data/constants";
+import {
+  getPageTitle,
+  getStructuredDataForPage,
+} from "@/utils/structured-data";
+
+const races: CollectionEntry<"races">[] = (
+  await getCollection("races", ({ id }) => {
+    return id.startsWith(`${Astro.currentLocale}/`);
+  })
+).sort(
+  (a: CollectionEntry<"races">, b: CollectionEntry<"races">) =>
+    a.data.main.id - b.data.main.id
+);
+
+const pageTitle = getPageTitle("Courses");
+
+const pageDescription =
+  "Découvrez les différentes épreuves des Chemins du Mélantois : du 900 m au 10 km, des courses accessibles, conviviales et ouvertes à tous les profils, dans un cadre naturel et chaleureux.";
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={pageDescription}
+  customOgTitle={pageTitle}
+  structuredData={getStructuredDataForPage(pageDescription)}
+>
+  <div
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+  >
+    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+      <div class="flex items-center gap-12">
+        <h1
+          class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
+        >
+          Nos courses
+        </h1>
+        <p
+          class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400"
+        >
+          5 distances, 5 ambiances, une même passion ! Que vous soyez
+          coureur aguerri, amateur de nature ou en famille, nos parcours
+          s’adaptent à tous les profils. Découvrez les paysages du Mélantois à
+          travers des épreuves conviviales, accessibles et bien encadrées.
+        </p>
+      </div>
+      <PrimaryCTA
+        title="Inscription"
+        url={externalLinks.registration}
+        openInNewTab
+      />
+    </div>
+
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+      {
+        races.map((race, index) => {
+          const position = index % 4;
+          if (position !== 1) {
+            return <CardSmall product={race} />;
+          } else {
+            return <CardWide product={race} />;
+          }
+        })
+      }
+    </section>
+  </div>
+</MainLayout>

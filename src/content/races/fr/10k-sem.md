@@ -1,12 +1,12 @@
 ---
-title: 10km de Sainghin en Mélantois
+title: 10 km de Sainghin en Mélantois
 description: |
   Participez aux 10km de Sainghin en Mélantois le 22 septembre 2025 ! Parcours nature certifié, échauffement, récompenses, inscription en ligne ou sur place. Tous les détails, horaires et modalités disponibles ici.
 date: "22 septembre 2025 - 10h"
 main:
   id: 1
-  imgCard: "@/images/10km-sem-hero.jpg"
-  imgMain: "@/images/10km-sem-hero.jpg"
+  imgCard: "@/images/races/10km-sem-hero.webp"
+  imgMain: "@/images/races/10km-sem-hero.webp"
   imgAlt: "Participants au départ du 10km de Sainghin en Mélantois, au centre du village"
 tabs:
   - id: "tabs-with-card-item-1"
@@ -102,5 +102,5 @@ termOfRegistration:
           url: "{externalLinks.healthQuestionnaire}"
           openInNewTab: true
 maps:
-  first: "@/images/races/5km-sem-map.jpg"
+  first: "@/images/races/5km-sem-map.webp"
 ---
