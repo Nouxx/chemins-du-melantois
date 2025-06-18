@@ -1,6 +1,5 @@
 ---
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
-import { externalLinks } from "@/data_files/constants";
+import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
 
 const { title, subTitle, url, btnTitle } = Astro.props;
 
@@ -31,11 +30,7 @@ interface Props {
       )
     }
   </div>
-  {
-    url && (
-      <div class="mt-8 flex justify-center gap-3">
-        <PrimaryCTA url={externalLinks.registration} title="Inscription" />
-      </div>
-    )
-  }
+  <div class="mt-8 flex justify-center gap-3">
+    <RegisterButton />
+  </div>
 </section>

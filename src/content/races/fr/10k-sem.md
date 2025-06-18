@@ -1,8 +1,8 @@
 ---
 title: 10 km de Sainghin en Mélantois
 description: |
-  Participez aux 10km de Sainghin en Mélantois le 22 septembre 2025 ! Parcours nature certifié, échauffement, récompenses, inscription en ligne ou sur place. Tous les détails, horaires et modalités disponibles ici.
-date: "22 septembre 2025 - 10h"
+  Participez aux 10km de Sainghin en Mélantois le 21 septembre 2025 ! Parcours nature certifié, échauffement, récompenses, inscription en ligne ou sur place. Tous les détails, horaires et modalités disponibles ici.
+date: "21 septembre 2025 - 10h"
 main:
   id: 1
   imgCard: "@/images/races/10km-sem-hero.webp"
@@ -21,9 +21,7 @@ tabs:
 longDescription:
   title: Un parcours axé trail
   subTitle: |
-    Le parcours de 10 km sillonne le Bois de la Noyelle, longe l’étang de pêche de Sainghin, et frôle les Marais de la Marque. Il a été officiellement mesuré en 2011, puis à nouveau en 2016, afin d’obtenir le label départemental.
-  buttonTitle: Inscription au 10km de Sainghin
-  buttonURL: "{externalLinks.registration}"
+    Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l’étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l’objet d’une nouvelle labellisation en 2025.
 descriptionItems:
   - title: Horaires
     list:
@@ -34,7 +32,7 @@ descriptionItems:
         Lieu de rendez-vous : Église Saint-Nicolas, 334-366 rue du Maréchal Leclerc, 59262 Sainghin en Mélantois.
       icon: mapPin
   - title: "Sac du coureur"
-    subTitle: Chaque inscription donne droit à un sac du coureur contenant le dossard et un porte-gourde aux couleurs de l’événement.
+    subTitle: Pour chaque inscription, vous recevrez un goodie.
   - title: "Récompenses"
     list:
       - "Toute catégories : 100€ pour le premier, 50€ pour le second et 30€ pour le troisième."
@@ -45,22 +43,15 @@ termOfRegistration:
   leftSection:
     - title: Inscription en ligne
       subTitle: |
-        Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 21 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
-      links:
-        - label: Inscription
-          url: "{externalLinks.registration}"
-          openInNewTab: true
+        Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 20 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
     - title: Inscription sur place
       subTitle: |
-        Vous pouvez également vous inscrire le samedi 21 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.
-    - title: Inscription par voie postale
-      subTitle: |
-        Il est possible d’envoyer ou de déposer votre dossier d’inscription aux mairies de Sainghin ou de Péronne en Mélantois. Attention : les dossiers doivent être reçus au plus tard le mercredi 18 septembre. Pensez à anticiper les délais postaux.
+        Vous pouvez également vous inscrire le samedi 20 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.
     - title: Retrait des dossards
       subTitle: "Les dossards sont à retirer en mairie de Sainghin, aux horaires suivants :"
       list:
-        - "Samedi 21 septembre : de 14h00 à 17h00"
-        - "Dimanche 22 septembre : de 7h30 à 9h45"
+        - "Samedi 20 septembre : de 14h00 à 17h00"
+        - "Dimanche 21 septembre : de 7h30 à 9h45"
     - title: "Règlement de course"
       subTitle: |
         Avant de participer, merci de consulter le règlement officiel de la course, qui précise l’ensemble des modalités de participation, consignes de sécurité, et règles sportives.
@@ -71,7 +62,7 @@ termOfRegistration:
   rightSection:
     - title: Tarifs & Bulletin d’inscription
       subTitle: |
-        La participation au 10 km est fixée à 10€, payable :
+        La participation au 10 km est fixée à 11€, payable :
       list:
         - "par carte bancaire lors de l’inscription en ligne"
         - "en espèces ou par chèque lors des inscriptions sur place"

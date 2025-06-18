@@ -1,8 +1,8 @@
 ---
 title: 5km de Sainghin en Mélantois
 description: |
-  Participez aux 5km de Sainghin en Mélantois le 22 septembre 2025 ! Parcours nature certifié, échauffement, récompenses, inscription en ligne ou sur place. Tous les détails, horaires et modalités disponibles ici.
-date: "22 septembre 2025 - 10h"
+  Participez aux 5km de Sainghin en Mélantois le 21 septembre 2025 ! Parcours nature certifié, échauffement, récompenses, inscription en ligne ou sur place. Tous les détails, horaires et modalités disponibles ici.
+date: "21 septembre 2025 - 10h"
 main:
   id: 3
   imgCard: "@/images/races/5km-sem-hero.webp"
@@ -22,8 +22,6 @@ longDescription:
   title: Un parcours nature
   subTitle: |
     Découvrez les paysages emblématiques du Mélantois en empruntant un itinéraire nature qui vous mène à travers le Bois de la Noyelle et le long des rives paisibles de la Marque. Composé à 70 % de sentiers, ce parcours se rapproche davantage de l’esprit trail que de la course sur route classique.
-  buttonTitle: Inscription au 5km de Sainghin
-  buttonURL: "{externalLinks.registration}"
 descriptionItems:
   - title: Horaires
     list:
@@ -34,7 +32,7 @@ descriptionItems:
         Lieu de rendez-vous : Église Saint-Nicolas, 334-366 rue du Maréchal Leclerc, 59262 Sainghin en Mélantois.
       icon: mapPin
   - title: "Sac du coureur"
-    subTitle: Chaque inscription donne droit à un sac du coureur contenant le dossard et un porte-gourde aux couleurs de l’événement.
+    subTitle: Pour chaque inscription, vous recevrez un goodie.
   - title: "Récompenses"
     list:
       - "Toute catégories : 40€ pour la première place."
@@ -44,22 +42,15 @@ termOfRegistration:
   leftSection:
     - title: Inscription en ligne
       subTitle: |
-        Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 21 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
-      links:
-        - label: Inscription
-          url: "{externalLinks.registration}"
-          openInNewTab: true
+        Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au Samedi 20 Septembre 20h. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
     - title: Inscription sur place
       subTitle: |
-        Vous pouvez également vous inscrire le samedi 21 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.
-    - title: Inscription par voie postale
-      subTitle: |
-        Il est possible d’envoyer ou de déposer votre dossier d’inscription aux mairies de Sainghin ou de Péronne en Mélantois. Attention : les dossiers doivent être reçus au plus tard le mercredi 18 septembre. Pensez à anticiper les délais postaux.
+        Vous pouvez également vous inscrire le Samedi 20 Septembre 20h, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.
     - title: Retrait des dossards
       subTitle: "Les dossards sont à retirer en mairie de Sainghin, aux horaires suivants :"
       list:
-        - "Samedi 21 septembre : de 14h00 à 17h00"
-        - "Dimanche 22 septembre : de 7h30 à 9h45"
+        - "Samedi 20 septembre : de 14h00 à 17h00"
+        - "Dimanche 21 septembre : de 7h30 à 9h45"
     - title: "Règlement de course"
       subTitle: |
         Avant de participer, merci de consulter le règlement officiel de la course, qui précise l’ensemble des modalités de participation, consignes de sécurité, et règles sportives.
@@ -70,7 +61,7 @@ termOfRegistration:
   rightSection:
     - title: Tarifs & Bulletin d’inscription
       subTitle: |
-        La participation au 5 km est fixée à 6€, payable :
+        La participation au 5 km est fixée à 7€, payable :
       list:
         - "par carte bancaire lors de l’inscription en ligne"
         - "en espèces ou par chèque lors des inscriptions sur place"
