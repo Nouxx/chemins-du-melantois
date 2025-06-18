@@ -32,7 +32,7 @@ descriptionItems:
         Lieu de rendez-vous : Église Saint-Nicolas, 334-366 rue du Maréchal Leclerc, 59262 Sainghin en Mélantois.
       icon: mapPin
   - title: "Sac du coureur"
-    subTitle: Chaque inscription donne droit à un sac du coureur contenant le dossard et un porte-gourde aux couleurs de l’événement.
+    subTitle: Pour chaque inscription, vous recevrez un goodie.
   - title: "Récompenses"
     list:
       - "Toute catégories : 40€ pour la première place."

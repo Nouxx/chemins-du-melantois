@@ -30,7 +30,7 @@ descriptionItems:
         Lieu de rendez-vous : 10 Rue du Marais, 59273 Péronne-en-Mélantois
       icon: mapPin
   - title: "Sac du coureur"
-    subTitle: Chaque inscription donne droit à un sac du coureur contenant le dossard et un porte-gourde aux couleurs de l’événement.
+    subTitle: Pour chaque inscription, vous recevrez un goodie.
 termOfRegistration:
   leftSection:
     - title: Inscription en ligne
