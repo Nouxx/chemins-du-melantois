@@ -21,7 +21,7 @@ tabs:
 longDescription:
   title: Un parcours axé trail
   subTitle: |
-    Le parcours de 10 km sillonne le Bois de la Noyelle, longe l’étang de pêche de Sainghin, et frôle les Marais de la Marque. Il a été officiellement mesuré en 2011, puis à nouveau en 2016, afin d’obtenir le label départemental.
+    Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l’étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l’objet d’une nouvelle labellisation en 2025.
 descriptionItems:
   - title: Horaires
     list:
@@ -32,7 +32,7 @@ descriptionItems:
         Lieu de rendez-vous : Église Saint-Nicolas, 334-366 rue du Maréchal Leclerc, 59262 Sainghin en Mélantois.
       icon: mapPin
   - title: "Sac du coureur"
-    subTitle: Chaque inscription donne droit à un sac du coureur contenant le dossard et un porte-gourde aux couleurs de l’événement.
+    subTitle: Pour chaque inscription, vous recevrez un goodie.
   - title: "Récompenses"
     list:
       - "Toute catégories : 100€ pour le premier, 50€ pour le second et 30€ pour le troisième."
