@@ -22,8 +22,6 @@ longDescription:
   title: Un parcours nature
   subTitle: |
     Découvrez les paysages emblématiques du Mélantois en empruntant un itinéraire nature qui vous mène à travers le Bois de la Noyelle et le long des rives paisibles de la Marque. Composé à 70 % de sentiers, ce parcours se rapproche davantage de l’esprit trail que de la course sur route classique.
-  buttonTitle: Inscription au 5km de Sainghin
-  buttonURL: "{externalLinks.registration}"
 descriptionItems:
   - title: Horaires
     list:
@@ -45,10 +43,6 @@ termOfRegistration:
     - title: Inscription en ligne
       subTitle: |
         Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 21 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
-      links:
-        - label: Inscription
-          url: "{externalLinks.registration}"
-          openInNewTab: true
     - title: Inscription sur place
       subTitle: |
         Vous pouvez également vous inscrire le samedi 21 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.

@@ -2,13 +2,20 @@
 import { externalLinks, type ExternalLinkKey } from "@/data_files/constants";
 import Icon from "@components/ui/icons/Icon.astro";
 
-const { title, url, noArrow, openInNewTab = false } = Astro.props;
+const {
+  title,
+  url,
+  noArrow,
+  openInNewTab = false,
+  disabled = false,
+} = Astro.props;
 
 interface Props {
   title?: string;
   url?: string;
   noArrow?: boolean;
   openInNewTab?: boolean;
+  disabled?: boolean;
 }
 
 function isExternalLinkKey(key: string): key is ExternalLinkKey {
@@ -43,7 +50,7 @@ const baseClasses =
 const borderClasses = "border border-transparent";
 const bgColorClasses =
   "bg-orange-400 hover:bg-orange-500 active:bg-orange-500 dark:focus:outline-hidden";
-const disableClasses = "disabled:pointer-events-none disabled:opacity-50";
+const disableClasses = disabled ? "pointer-events-none opacity-50" : undefined;
 const fontSizeClasses = "2xl:text-base";
 const ringClasses = "dark:ring-zinc-200";
 ---

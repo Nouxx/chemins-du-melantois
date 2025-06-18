@@ -107,12 +107,17 @@ const pageDescription = race.data.description;
               >
                 {race.data.longDescription.subTitle}
               </p>
-              <p class="mt-5">
-                <PrimaryCTA
-                  title={race.data.longDescription.buttonTitle}
-                  url={race.data.longDescription.buttonURL}
-                />
-              </p>
+              {
+                race.data.longDescription.buttonTitle && (
+                  <p class="mt-5">
+                    <PrimaryCTA
+                      title={race.data.longDescription.buttonTitle}
+                      url={race.data.longDescription.buttonURL}
+                      disabled
+                    />
+                  </p>
+                )
+              }
             </div>
 
             <div class="space-y-6 lg:space-y-10">

@@ -22,8 +22,6 @@ longDescription:
   title: Un parcours nature
   subTitle: |
     Ce parcours a été spécialement conçu pour les enfants et leurs familles désireux de s’initier à la course à pied dans une ambiance conviviale et accessible. À travers les rues paisibles et le cadre champêtre du village de Péronne, cette course familiale offre une belle occasion de partager un moment sportif, ludique et intergénérationnel, tout en découvrant le plaisir de courir ensemble, quel que soit son niveau.
-  buttonTitle: Inscription au 900m de Péronne
-  buttonURL: "{externalLinks.registration}"
 descriptionItems:
   - title: Horaires
     subTitle: Départ 9h15 face à la Mairie.
@@ -40,10 +38,6 @@ termOfRegistration:
     - title: Inscription en ligne
       subTitle: |
         Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 21 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
-      links:
-        - label: Inscription
-          url: "{externalLinks.registration}"
-          openInNewTab: true
     - title: Inscription sur place
       subTitle: |
         Vous pouvez également vous inscrire le samedi 21 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.

@@ -1,0 +1,18 @@
+---
+import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import { externalLinks } from "@/data_files/constants";
+
+interface Props {
+  title?: string;
+  url?: string;
+  noArrow?: boolean;
+  openInNewTab?: boolean;
+}
+---
+
+<PrimaryCTA
+  title="Inscription (à venir)"
+  url={externalLinks.registration}
+  openInNewTab
+  disabled
+/>

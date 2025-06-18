@@ -22,8 +22,6 @@ longDescription:
   title: Un parcours axé trail
   subTitle: |
     Le parcours de 10 km sillonne le Bois de la Noyelle, longe l’étang de pêche de Sainghin, et frôle les Marais de la Marque. Il a été officiellement mesuré en 2011, puis à nouveau en 2016, afin d’obtenir le label départemental.
-  buttonTitle: Inscription au 10km de Sainghin
-  buttonURL: "{externalLinks.registration}"
 descriptionItems:
   - title: Horaires
     list:
@@ -46,10 +44,6 @@ termOfRegistration:
     - title: Inscription en ligne
       subTitle: |
         Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 21 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
-      links:
-        - label: Inscription
-          url: "{externalLinks.registration}"
-          openInNewTab: true
     - title: Inscription sur place
       subTitle: |
         Vous pouvez également vous inscrire le samedi 21 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.

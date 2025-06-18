@@ -22,8 +22,6 @@ longDescription:
   title: Un parcours axé trail
   subTitle: |
     L’édition 2024 confirme le retour de cette épreuve originale, placée sous le signe du partage et de la transmission. Composée d’un binôme intergénérationnel, elle associe un coureur adulte (parent, grand frère ou sœur, cousin, proche…) et un jeune cycliste, qui ouvre la voie et joue le rôle de lièvre. Le jeune à vélo guide et encourage le coureur à pied, tout au long d’un parcours adapté et sécurisé à travers le village. Une belle manière de vivre la course autrement : en duo, en famille, et dans une ambiance joyeuse et bienveillante.
-  buttonTitle: Inscription au 10km de Sainghin
-  buttonURL: "{externalLinks.registration}"
 descriptionItems:
   - title: Horaires
     subTitle: Départ 9h15 face à la Mairie.
@@ -38,10 +36,6 @@ termOfRegistration:
     - title: Inscription en ligne
       subTitle: |
         Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 21 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
-      links:
-        - label: Inscription
-          url: "{externalLinks.registration}"
-          openInNewTab: true
     - title: Inscription sur place
       subTitle: |
         Vous pouvez également vous inscrire le samedi 21 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.

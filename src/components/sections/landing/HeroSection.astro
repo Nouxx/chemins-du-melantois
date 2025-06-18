@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
 import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
+import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
 
 const {
   title,
@@ -56,15 +57,7 @@ interface Props {
       )
     }
     <div class="mt-7 grid w-full gap-3 sm:inline-flex">
-      {
-        primaryBtn && (
-          <PrimaryCTA
-            title={primaryBtn}
-            url={primaryBtnURL}
-            openInNewTab={primaryBtnOpenInNewTab}
-          />
-        )
-      }
+      <RegisterButton />
       {
         secondaryBtn && (
           <SecondaryCTA title={secondaryBtn} url={secondaryBtnURL} />

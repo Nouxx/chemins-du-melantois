@@ -22,8 +22,6 @@ longDescription:
   title: Un parcours de découverte familial
   subTitle: |
     Un parcours court, ludique et sécurisé, idéal pour les enfants et leurs familles souhaitant s’initier à la course à pied dans une ambiance conviviale. À travers les rues du village de Sainghin, cette boucle accessible met l’accent sur le plaisir de courir ensemble, sans pression de performance. C’est l’occasion parfaite de partager un moment sportif intergénérationnel, dans un cadre chaleureux et festif.
-  buttonTitle: Inscription au 900m de Sainghin
-  buttonURL: "{externalLinks.registration}"
 descriptionItems:
   - title: Horaires
     subTitle: Départ 9h45 face à l'Église.
@@ -40,10 +38,6 @@ termOfRegistration:
     - title: Inscription en ligne
       subTitle: |
         Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 21 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
-      links:
-        - label: Inscription
-          url: "{externalLinks.registration}"
-          openInNewTab: true
     - title: Inscription sur place
       subTitle: |
         Vous pouvez également vous inscrire le samedi 21 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.
