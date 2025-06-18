@@ -47,9 +47,6 @@ termOfRegistration:
     - title: Inscription sur place
       subTitle: |
         Vous pouvez également vous inscrire le samedi 20 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.
-    - title: Inscription par voie postale
-      subTitle: |
-        Il est possible d’envoyer ou de déposer votre dossier d’inscription aux mairies de Sainghin ou de Péronne en Mélantois. Attention : les dossiers doivent être reçus au plus tard le mercredi 18 septembre. Pensez à anticiper les délais postaux.
     - title: Retrait des dossards
       subTitle: "Les dossards sont à retirer en mairie de Sainghin, aux horaires suivants :"
       list:
