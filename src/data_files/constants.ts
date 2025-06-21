@@ -14,6 +14,7 @@ export const SITE = {
   url: "https://www.lescheminsdumelantois.fr",
   author: "Association Les Chemins du Mélantois",
   base: "/chemins-du-melantois",
+  contactEmail: "contact@lescheminsdumelantois.fr",
 };
 
 export const externalLinks = {

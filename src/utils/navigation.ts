@@ -66,8 +66,8 @@ const footerLinks: FooterLinks[] = [
         name: "433 Rue du Maréchal Leclerc, 59262 Sainghin-en-Mélantois",
       },
       {
-        name: "contact@lescheminsdumelantois.fr",
-        url: "mailto:contact@lescheminsdumelantois.fr",
+        name: SITE.contactEmail,
+        url: `mailto:${SITE.contactEmail}`,
       },
       { name: "03 20 61 90 30", url: "tel:+33 3 20 61 90 30" },
     ],

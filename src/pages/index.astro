@@ -10,6 +10,7 @@ import faqs from "@data/fr/faqs.json";
 import features from "@data/fr/features.json";
 import { externalLinks, partnersData, routes } from "@/data_files/constants";
 import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
+import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
 ---
 
 <MainLayout lang="fr">
@@ -73,7 +74,7 @@ import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
   <HeroSectionAlt
     title="Inscrivez-vous dés maintenant"
     subTitle="Rejoignez l’aventure des Chemins du Mélantois et prenez le départ d’une course conviviale, familiale et 100 % nature !"
-    url={externalLinks.registration}
-    btnTitle="Inscription"
-  />
+  >
+    <RegisterButton />
+  </HeroSectionAlt>
 </MainLayout>
