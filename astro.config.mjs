@@ -27,9 +27,8 @@ export default defineConfig({
   integrations: [
     sitemap({
       i18n: {
-        defaultLocale: "fr", // All urls that don't contain `fr` after `https://screwfast.uk/` will be treated as default locale, i.e. `en`
+        defaultLocale: "fr",
         locales: {
-          // en: "en", // The `defaultLocale` value must present in `locales` keys
           fr: "fr",
         },
       },

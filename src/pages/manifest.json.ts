@@ -4,7 +4,7 @@ import icon from "@images/icon.png";
 import maskableIcon from "@images/icon-maskable.png";
 
 interface Favicon {
-  purpose: 'any' | 'maskable' | 'monochrome';
+  purpose: "any" | "maskable" | "monochrome";
   src: ImageMetadata;
   sizes: number[];
 }
@@ -12,15 +12,15 @@ interface Favicon {
 const sizes = [192, 512];
 const favicons: Favicon[] = [
   {
-    purpose: 'any',
+    purpose: "any",
     src: icon,
     sizes,
   },
   {
-    purpose: 'maskable',
+    purpose: "maskable",
     src: maskableIcon,
     sizes,
-   },
+  },
 ];
 
 export const GET: APIRoute = async () => {
@@ -44,14 +44,14 @@ export const GET: APIRoute = async () => {
   );
 
   const manifest = {
-    short_name: "ScrewFast",
-    name: "ScrewFast",
+    short_name: "Chemins du Mélantois",
+    name: "Les Chemins du Mélantois",
     icons,
     display: "minimal-ui",
     id: "/",
     start_url: "/",
-    theme_color: "#FFEDD5",
-    background_color: "#262626",
+    theme_color: "#e14d0b", // orange-500
+    background_color: "#e5e5e5", // neutral-200
   };
 
   return new Response(JSON.stringify(manifest));

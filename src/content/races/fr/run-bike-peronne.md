@@ -78,5 +78,6 @@ termOfRegistration:
           url: "{externalLinks.healthQuestionnaire}"
           openInNewTab: true
 maps:
-  first: "@/images/races/run-bike-peronne-map.webp"
+  first: "@/images/races/maps/run-bike-running.webp"
+  second: "@/images/races/maps/run-bike-cycling.webp"
 ---

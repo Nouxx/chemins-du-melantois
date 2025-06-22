@@ -93,5 +93,6 @@ termOfRegistration:
           url: "{externalLinks.healthQuestionnaire}"
           openInNewTab: true
 maps:
-  first: "@/images/races/5km-sem-map.webp"
+  first: "@/images/races/maps/10km-map.webp"
+  firstAlt: "Plan du parcours du 10 km"
 ---
