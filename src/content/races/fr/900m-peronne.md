@@ -77,5 +77,6 @@ termOfRegistration:
           url: "{externalLinks.healthQuestionnaire}"
           openInNewTab: true
 maps:
-  first: "@/images/races/900m-peronne-map.webp"
+  first: "@/images/races/maps/900m-peronne-map.webp"
+  firstAlt: "Plan du parcours du 900 m"
 ---

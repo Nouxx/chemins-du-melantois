@@ -91,7 +91,9 @@ const racesCollection = defineCollection({
       }),
       maps: z.object({
         first: image().optional(),
+        firstAlt: z.string().optional(),
         second: image().optional(),
+        secondAlt: z.string().optional(),
       }),
     }),
 });

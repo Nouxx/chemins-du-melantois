@@ -232,34 +232,33 @@ const pageDescription = race.data.description;
   </div>
 
   <div id="tabs-with-card-3" class="hidden" role="tabpanel">
-    <div class="mx-auto mb-20 flex w-full justify-center md:mb-28 2xl:w-4/5">
-      <div
-        class="relative top-12 left-12 z-10 overflow-hidden rounded-xl shadow-lg md:top-16 md:left-12 md:-ml-12 lg:ml-0"
-      >
-        {
-          race.data.maps.first && (
+    <div
+      class="mx-auto mb-5 flex w-full flex-col justify-center gap-2 md:flex-row 2xl:w-4/5"
+    >
+      {
+        race.data.maps.first && (
+          <div class="z-10 rounded-xl shadow-lg">
             <Image
               src={race.data.maps.first}
               class="h-full w-full object-cover object-center"
-              alt="Blueprint Illustration"
+              alt={race.data.maps.firstAlt ?? "Plan du parcours"}
               format={"avif"}
             />
-          )
-        }
-      </div>
-
-      <div class="relative right-12 overflow-hidden rounded-xl shadow-xl">
-        {
-          race.data.maps.second && (
+          </div>
+        )
+      }
+      {
+        race.data.maps.second && (
+          <div class="z-10 rounded-xl shadow-lg">
             <Image
               src={race.data.maps.second}
               class="h-full w-full object-cover object-center"
-              alt="Blueprint Illustration"
+              alt={race.data.maps.secondAlt ?? "Plan du parcours"}
               format={"avif"}
             />
-          )
-        }
-      </div>
+          </div>
+        )
+      }
     </div>
   </div>
 
