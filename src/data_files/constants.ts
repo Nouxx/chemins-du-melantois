@@ -91,12 +91,11 @@ export const SEO = {
 };
 
 export const OG = {
-  locale: "en_US",
+  locale: "fr_FR",
   type: "website",
   url: SITE.url,
-  title: `${SITE.title}: : Hardware Tools & Construction Services`,
-  description:
-    "Equip your projects with ScrewFast's top-quality hardware tools and expert construction services. Trusted by industry leaders, ScrewFast offers simplicity, affordability, and reliability. Experience the difference with user-centric design and cutting-edge tools. Start exploring now!",
+  title: `${SITE.title}: : ${SITE.tagline}`,
+  description: SITE.description,
   image: edition2023Hero,
 };
 
