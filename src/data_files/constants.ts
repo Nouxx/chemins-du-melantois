@@ -2,7 +2,7 @@ import MelIconSvg from "../images/partners/mel-logo.svg?raw";
 import NordIconSvg from "../images/partners/nord-logo.svg?raw";
 import CreditMutuelIcon from "../images/partners/credit-mutuel-logo.svg?raw";
 import MatchLogoSvg from "../images/partners/match-logo.svg?raw";
-import edition2023Hero from "../images/races/2023-edition-hero.webp";
+import edition2024Hero from "../images/races/2024-edition-hero.jpg";
 
 export const SITE = {
   title: "Les Chemins du Mélantois",
@@ -93,10 +93,12 @@ export const SEO = {
 export const OG = {
   locale: "fr_FR",
   type: "website",
-  url: SITE.url,
-  title: `${SITE.title}: : ${SITE.tagline}`,
+  url: `${SITE.url}${SITE.base}`,
+  title: `${SITE.title} - ${SITE.tagline}`,
   description: SITE.description,
-  image: edition2023Hero,
+  image: edition2024Hero,
+  imageAlt:
+    "Une vue en hauteur du départ de la course 2024 des Chemins du Mélantois",
 };
 
 export const partnersData = [
