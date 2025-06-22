@@ -2,24 +2,24 @@
   "subTitle": "Trouvez rapidement des réponses aux questions que l'on nous pose chaque année.",
   "faqs": [
     {
-      "question": "Les courses sont-elles labélisés?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius, nibh quis pulvinar sodales, lectus arcu sagittis velit, eu viverra est nunc eu enim. Nam ut libero vitae risus tempor commodo quis feugiat enim. Vivamus sit amet tristique tortor, sed efficitur tortor."
+      "question": "Les courses sont-elles labellisées ?",
+      "answer": "Seule la course du 10 km bénéficie d’un label départemental. Les autres formats ne sont pas labellisés."
     },
     {
-      "question": "Quid des ravitallements?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius, nibh quis pulvinar sodales, lectus arcu sagittis velit, eu viverra est nunc eu enim. Nam ut libero vitae risus tempor commodo quis feugiat enim. Vivamus sit amet tristique tortor, sed efficitur tortor."
+      "question": "Quelle est la fréquence des ravitaillements ?",
+      "answer": "Le parcours du 10 km propose 4 points de ravitaillement répartis équitablement. Le 5 km dispose d’un point unique. Les autres courses n’ont pas de ravitaillement prévu."
     },
     {
-      "question": "Vais-je trouver de la place pour me garer?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius, nibh quis pulvinar sodales, lectus arcu sagittis velit, eu viverra est nunc eu enim. Nam ut libero vitae risus tempor commodo quis feugiat enim. Vivamus sit amet tristique tortor, sed efficitur tortor."
+      "question": "Où puis-je me garer ?",
+      "answer": "Le stationnement est interdit dans le centre de Sainghin-en-Mélantois, mais le parking du stade est accessible avant 9h."
     },
     {
-      "question": "Que contient le sac du coureur qui m'est remis avant le départ ?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius, nibh quis pulvinar sodales, lectus arcu sagittis velit, eu viverra est nunc eu enim. Nam ut libero vitae risus tempor commodo quis feugiat enim. Vivamus sit amet tristique tortor, sed efficitur tortor."
+      "question": "Que contient le sac coureur remis avant le départ ?",
+      "answer": "Chaque participant reçoit un petit cadeau surprise au moment de la remise des dossards. Les enfants inscrits aux courses de 900 m repartent quant à eux avec une médaille."
     },
     {
-      "question": "Ou puis-je trouver mes résultats après la course?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus varius, nibh quis pulvinar sodales, lectus arcu sagittis velit, eu viverra est nunc eu enim. Nam ut libero vitae risus tempor commodo quis feugiat enim. Vivamus sit amet tristique tortor, sed efficitur tortor."
+      "question": "Où puis-je consulter mes résultats après la course ?",
+      "answer": "Les résultats seront publiés sur notre site dans la rubrique « Après-course » et accessibles via notre site partenaire."
     }
   ]
 }
