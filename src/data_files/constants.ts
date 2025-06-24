@@ -13,7 +13,7 @@ export const SITE = {
     "Courses nature au cœur du Mélantois pour petits et grands dans une ambiance conviviale.",
   url: "https://www.lescheminsdumelantois.fr",
   author: "Association Les Chemins du Mélantois",
-  base: "",
+  base: "", // must match the base path in astro.config.mjs
   contactEmail: "contact@lescheminsdumelantois.fr",
 };
 
@@ -63,7 +63,7 @@ export const externalLinks = {
 export type ExternalLinkKey = keyof typeof externalLinks;
 
 export const routes = {
-  home: `${SITE.base}`,
+  home: `/`,
   races: `${SITE.base}/courses`,
   raceDetails: (id: string) => `${routes.races}/${id}`,
   resultsAndPictures: `${SITE.base}/resultats`,
