@@ -9,7 +9,7 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://Nouxx.github.io", // todo: update to "https://www.lescheminsdumelantois.fr"
-  base: "/chemins-du-melantois",
+  base: "/",
   image: {
     domains: ["images.unsplash.com"],
   },

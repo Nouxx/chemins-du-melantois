@@ -13,7 +13,7 @@ export const SITE = {
     "Courses nature au cœur du Mélantois pour petits et grands dans une ambiance conviviale.",
   url: "https://www.lescheminsdumelantois.fr",
   author: "Association Les Chemins du Mélantois",
-  base: "/chemins-du-melantois",
+  base: "/",
   contactEmail: "contact@lescheminsdumelantois.fr",
 };
 
