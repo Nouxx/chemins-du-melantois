@@ -19,7 +19,7 @@ tabs:
     dataTab: "#tabs-with-card-3"
     title: "Plan du parcours"
 longDescription:
-  title: Un parcours axé trail
+  title: un parcours dans le village
   subTitle: |
     L’édition 2024 confirme le retour de cette épreuve originale, placée sous le signe du partage et de la transmission. Composée d’un binôme intergénérationnel, elle associe un coureur adulte (parent, grand frère ou sœur, cousin, proche…) et un jeune cycliste, qui ouvre la voie et joue le rôle de lièvre. Le jeune à vélo guide et encourage le coureur à pied, tout au long d’un parcours adapté et sécurisé à travers le village. Une belle manière de vivre la course autrement : en duo, en famille, et dans une ambiance joyeuse et bienveillante.
 descriptionItems:
