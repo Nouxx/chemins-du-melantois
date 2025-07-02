@@ -39,6 +39,8 @@ function parseUrl(url: string | undefined): string | undefined {
     if (typeof value === "object") {
       return undefined;
     }
+
+    return value
   }
 
   return url;

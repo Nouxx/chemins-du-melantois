@@ -23,14 +23,14 @@ export const externalLinks = {
   registrantsList:
     "https://fr.milesrepublic.com/registrants/f263e60a-6018-40ac-901c-5ea0d01c5322",
   sportsRegulations:
-    "https://drive.google.com/file/d/1wJoziwxjZGibpH6H8LGX2RFDFugI8jOb/view",
+    "https://drive.google.com/file/d/1Vsg-6oMnoK4aV6WU4SKiGCQtKMf9U6YP/view",
   pps: "https://pps.athle.fr",
   registrationForm:
-    "https://drive.google.com/file/d/1MQhT1DbQk1DuGpGzt6YBE3KQWzYrBPNq/view",
+    "https://drive.google.com/file/d/1jSWdNn1mdBcu7uIX36LZ2IO5DKhvHaNx/view",
   healthQuestionnaire:
-    "https://www.lescheminsdumelantois.fr/wp-content/uploads/2023/08/Questionnaire-sante-2023-1.pdf",
+    "https://drive.google.com/file/d/1Do0APrhF2uyEtuNfBvApSosbLSQaqN6h/view",
   parentalConsentForm:
-    "https://drive.google.com/file/d/1E-FdgMfEByDnSmkPhzZmkz84Lsqq9zM6/view",
+    "https://drive.google.com/file/d/1Dzo98Z8ux2bZa1uR2D8lDSd2tXnNp70B/view",
   edition2024: {
     googlePhotoAlbum: "https://photos.app.goo.gl/3Q6nZiEE1nganQ2G8",
     aSportPage: "http://asport-timing.com/live/chemins-melantois-2024",
