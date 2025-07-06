@@ -1,39 +1,40 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import ProductTabBtn from "@components/ui/buttons/ProductTabBtn.astro";
-import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-import { routes } from "@data/constants";
-import Icon from "@/components/ui/icons/Icon.astro";
+import RaceRegulations from "@/components/sections/races/RaceRegulations.astro";
+import Registration from "@/components/sections/races/Registration/Registration.astro";
+import Schedule from "@/components/sections/races/Schedule.astro";
+import Rewards from "@/components/sections/races/Rewards.astro";
+import Bib from "@/components/sections/races/Bib.astro";
+import RegistrationDetails from "@/components/sections/races/RegistrationDetails/RegistrationDetails.astro";
 import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
+import heroImage from "@/images/races/10km-sem-hero.webp";
+import { races, type Race } from "@/data_files/constants";
+import RaceDescription from "@/components/sections/races/RaceDescription.astro";
+import OnlineRegistrationText from "@/components/sections/races/Registration/OnlineRegistrationText.astro";
+import OnSiteRegistrationText from "@/components/sections/races/Registration/OnSiteRegistrationText.astro";
+import AdultRegistrationText from "@/components/sections/races/RegistrationDetails/AdultRegistrationText.astro";
+import NoAdultRegistrationText from "@/components/sections/races/RegistrationDetails/NoAdultRegistrationText.astro";
 
-declare global {
-  interface Window {
-    gsap: any;
-  }
+export function getStaticPaths() {
+  return races.map((race) => ({
+    params: { id: race.id },
+    props: { race },
+  }));
 }
 
-export async function getStaticPaths() {
-  const racesEntries = await getCollection("races", ({ id }) =>
-    id.startsWith(`fr/`)
-  );
-  return racesEntries.map((race) => {
-    const idWithoutLang = race.id.replace(/^fr\//, "");
-    return {
-      params: { id: idWithoutLang },
-      props: { race },
-    };
-  });
+interface Props {
+  race: Race;
 }
+
 const { race } = Astro.props;
 
-const pageTitle = getPageTitle(race.data.title);
-
-const pageDescription = race.data.description;
+const isFree = !race.price;
+const pageTitle = getPageTitle(race.title);
+const pageDescription = race.description;
 ---
 
 <MainLayout
@@ -42,367 +43,300 @@ const pageDescription = race.data.description;
   customOgTitle={pageTitle}
   structuredData={getStructuredDataForPage(pageDescription)}
 >
-  <div id="overlay" class="fixed inset-0 bg-neutral-200 dark:bg-neutral-800">
-  </div>
+  <section class="py-6 sm:py-8 lg:py-12">
+    <div class="mx-auto max-w-(--breakpoint-xl) px-4 md:px-8">
+      <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
+        <div>
+          <div class="h-64 overflow-hidden rounded-lg shadow-lg md:h-auto">
+            <Image
+              class="h-full w-full object-cover object-center"
+              src={heroImage}
+              alt="10kn"
+              draggable={"false"}
+              format={"avif"}
+            />
+          </div>
+          <div
+            id="progress-mobile"
+            class="fixed top-0 left-0 h-2 w-full bg-linear-to-r from-orange-400/30 to-orange-400 md:hidden"
+          >
+          </div>
+          <div id="pin" class="mt-10 hidden space-y-4 md:block">
+            <div
+              class="h-px w-full overflow-hidden bg-neutral-300 dark:bg-neutral-700"
+            >
+              <div
+                id="progress"
+                class="h-px w-full bg-linear-to-r from-orange-400/30 to-orange-400"
+              >
+              </div>
+            </div>
+            <p class="text-sm text-pretty text-neutral-500">Liens rapides:</p>
+            <div id="toc" class="">
+              <ul
+                class="space-y-2 text-base text-pretty text-neutral-700 transition duration-300 dark:text-neutral-400"
+              >
+              </ul>
+            </div>
+          </div>
+        </div>
 
-  <section
-    class="mx-auto flex max-w-[85rem] flex-col px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <div
-      class="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0"
-    >
-      <div id="fadeInUp">
-        <h1
-          class="block text-4xl font-bold tracking-tighter text-neutral-800 sm:text-5xl md:text-6xl lg:text-7xl dark:text-neutral-200"
-        >
-          {race.data.title}
-        </h1>
-      </div>
-      <div>
-        <Image
-          id="fadeInMoveRight"
-          src={race.data.main.imgMain}
-          class="w-[600px] rounded-md"
-          alt={race.data.main.imgAlt}
-          format={"avif"}
-          loading={"eager"}
-        />
+        <div class="md:pt-8">
+          <h1
+            class="mb-4 text-center text-2xl font-bold text-balance text-neutral-800 sm:text-3xl md:mb-6 md:text-left dark:text-neutral-200"
+          >
+            {race.title}
+          </h1>
+
+          <article
+            class="race__content text-lg text-pretty text-neutral-700 dark:text-neutral-300"
+          >
+            <p class="text-xl">
+              {race.date} - {
+                isFree ? "Gratuit" : `${race.price}€ par participant`
+              }
+            </p>
+
+            <RaceDescription
+              text={race.description}
+              traceLink={race.traceLink}
+            />
+
+            <Schedule
+              addressLines={race.meetingPointAddressLines}
+              additionalInfo={race.additionalScheduleInformation}
+              startTime={race.startTime}
+            />
+
+            {
+              race.rewardsSummary && (
+                <Rewards
+                  text={race.rewardsSummary}
+                  displayLink={race.displayRewardsSummaryLink}
+                />
+              )
+            }
+
+            <Registration>
+              <OnlineRegistrationText
+                slot="online-registration-text"
+                isRaceFree={isFree}
+              />
+              <OnSiteRegistrationText slot="on-site-registration-text" />
+            </Registration>
+
+            <Bib />
+
+            <RegistrationDetails>
+              {
+                race.adultRegistrationRequirement ? (
+                  <AdultRegistrationText slot="adult-registration-text" />
+                ) : (
+                  <NoAdultRegistrationText slot="adult-registration-text" />
+                )
+              }
+            </RegistrationDetails>
+
+            <RaceRegulations />
+          </article>
+        </div>
       </div>
     </div>
   </section>
-
-  <div class="mx-auto max-w-[85rem] px-4 pt-10 sm:px-6 lg:px-8 lg:pt-14">
-    <nav
-      class="mx-auto grid max-w-6xl gap-y-px sm:flex sm:gap-x-4 sm:gap-y-0"
-      aria-label="Tabs"
-      role="tablist"
-    >
-      {
-        race.data.tabs.map((tab, index) => (
-          <ProductTabBtn
-            title={tab.title}
-            id={tab.id}
-            dataTab={tab.dataTab}
-            first={index === 0}
-          />
-        ))
-      }
-    </nav>
-
-    <div class="mt-12 md:mt-16">
-      <div id="tabs-with-card-1" role="tabpanel">
-        <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
-          <div class="grid gap-12 md:grid-cols-2">
-            <div class="lg:w-3/4">
-              <h2
-                class="text-3xl font-bold tracking-tight text-balance text-neutral-800 md:leading-tight lg:text-4xl dark:text-neutral-200"
-              >
-                {race.data.longDescription.title}
-              </h2>
-              <p
-                class="mt-3 text-pretty text-neutral-600 dark:text-neutral-400"
-              >
-                {race.data.longDescription.subTitle}
-              </p>
-              {
-                race.data.longDescription.buttonTitle && (
-                  <p class="mt-5">
-                    <PrimaryCTA
-                      title={race.data.longDescription.buttonTitle}
-                      url={race.data.longDescription.buttonURL}
-                      disabled
-                    />
-                  </p>
-                )
-              }
-            </div>
-
-            <div class="space-y-6 lg:space-y-10">
-              {
-                race.data.descriptionItems.map((item) => (
-                  <div class="flex">
-                    <div>
-                      <h3 class="text-base font-bold text-neutral-800 sm:text-lg dark:text-neutral-200">
-                        {item.title}
-                      </h3>
-                      {item.subTitle && (
-                        <p class="mt-1 text-neutral-600 dark:text-neutral-400">
-                          {item.subTitle}
-                        </p>
-                      )}
-                      {item.list && (
-                        <ul>
-                          {item.list.map((listItem) => (
-                            <li class="mt-1 list-inside list-disc text-neutral-600 dark:text-neutral-400">
-                              {listItem}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {item.iconBlock && (
-                        <div class="mt-2 flex gap-2 text-neutral-600 dark:text-neutral-400">
-                          <Icon name={item.iconBlock.icon} />
-                          {item.iconBlock.label}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="tabs-with-card-2" class="hidden" role="tabpanel">
-        <div class="mx-auto max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14">
-          <div class="grid w-full grid-cols-1 gap-x-16 md:grid-cols-2">
-            <div class="max-w-md space-y-6">
-              {
-                race.data.termOfRegistration.leftSection.map((item) => (
-                  <div>
-                    <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
-                      {item.title}
-                    </h3>
-                    <p class="text-neutral-600 dark:text-neutral-400">
-                      {item.subTitle}
-                    </p>
-                    {item.list && (
-                      <ul>
-                        {item.list.map((listItem) => (
-                          <li class="mt-1 list-inside list-disc text-neutral-600 dark:text-neutral-400">
-                            {listItem}
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                    {item.links &&
-                      item.links.map((link) => (
-                        <div class="mt-2">
-                          <PrimaryCTA
-                            title={link.label}
-                            url={link.url}
-                            openInNewTab={link.openInNewTab}
-                          />
-                        </div>
-                      ))}
-                  </div>
-                ))
-              }
-            </div>
-            {
-              race.data.termOfRegistration.rightSection ? (
-                <div class="mt-6 max-w-md space-y-6 md:mt-0 md:ml-auto">
-                  {race.data.termOfRegistration.rightSection?.map((item) => (
-                    <div>
-                      <h3 class="block font-bold text-neutral-800 dark:text-neutral-200">
-                        {item.title}
-                      </h3>
-                      <p class="text-neutral-600 dark:text-neutral-400">
-                        {item.subTitle}
-                      </p>
-                      {item.list && (
-                        <ul>
-                          {item.list.map((listItem) => (
-                            <li class="mt-1 list-inside list-disc text-neutral-600 dark:text-neutral-400">
-                              {listItem}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {item.links &&
-                        item.links.map((link) => (
-                          <div class="mt-2">
-                            <PrimaryCTA
-                              title={link.label}
-                              url={link.url}
-                              openInNewTab={link.openInNewTab}
-                            />
-                          </div>
-                        ))}
-                    </div>
-                  ))}
-                </div>
-              ) : null
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="tabs-with-card-3" class="hidden" role="tabpanel">
-    <div
-      class="mx-auto mb-5 flex w-full flex-col justify-center gap-2 md:flex-row 2xl:w-4/5"
-    >
-      {
-        race.data.maps.first && (
-          <div class="z-10 rounded-xl shadow-lg">
-            <Image
-              src={race.data.maps.first}
-              class="h-full w-full object-cover object-center"
-              alt={race.data.maps.firstAlt ?? "Plan du parcours"}
-              format={"avif"}
-            />
-          </div>
-        )
-      }
-      {
-        race.data.maps.second && (
-          <div class="z-10 rounded-xl shadow-lg">
-            <Image
-              src={race.data.maps.second}
-              class="h-full w-full object-cover object-center"
-              alt={race.data.maps.secondAlt ?? "Plan du parcours"}
-              format={"avif"}
-            />
-          </div>
-        )
-      }
-    </div>
-  </div>
-
-  <div class="flex justify-center py-6">
-    <PrimaryCTA title="Retour aux courses" url={routes.races} noArrow />
-  </div>
 </MainLayout>
 
-<script>
-  import { gsap } from "gsap";
-
-  type AnimationSettings = {
-    autoAlpha?: number;
-    y?: number;
-    x?: number;
-    willChange?: string;
-  };
-
-  function setElementAnimationDefaults(
-    id: string,
-    settings: AnimationSettings
-  ) {
-    gsap.set(id, settings);
+<style is:global>
+  :root {
+    --transition-cubic: cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  setElementAnimationDefaults("#fadeText", {
-    autoAlpha: 0,
-    y: 50,
-    willChange: "transform, opacity",
+  html {
+    scroll-behavior: smooth;
+  }
+
+  article h2,
+  article h3,
+  article h4,
+  article h5,
+  article h6 {
+    font-weight: bold;
+    margin-top: 2.5rem;
+    scroll-margin-top: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  p,
+  ul {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  li {
+    list-style: disc;
+    list-style-position: inside;
+  }
+
+  article > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #toc li {
+    display: flex;
+    align-items: center;
+    opacity: 0.8;
+    transition: all 300ms var(--transition-cubic);
+  }
+
+  #toc li.selected {
+    opacity: 1;
+  }
+
+  #toc li svg {
+    width: 0;
+    height: 0;
+    transition:
+      height 400ms var(--transition-cubic),
+      width 400ms var(--transition-cubic);
+  }
+
+  #toc li.selected svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.3rem;
+  }
+</style>
+
+<script>
+  const onScroll = (): void => {
+    const article = document.querySelector("article");
+    if (!article) return;
+
+    const articleHeight = article.offsetHeight;
+    const articleOffsetTop = article.offsetTop;
+
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (articleHeight && articleOffsetTop && scrollTop) {
+      const progress =
+        ((scrollTop - articleOffsetTop) /
+          (articleHeight - window.innerHeight)) *
+        100;
+
+      const progressBar = document.getElementById("progress");
+      const progressBarMobile = document.getElementById("progress-mobile");
+
+      if (progressBar && progressBarMobile) {
+        progressBar.style.width = `${progress}%`;
+        progressBarMobile.style.width = `${progress}%`;
+      }
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", (event) => {
+    window.onscroll = onScroll;
+
+    // Set initial width of progress bar
+    const progressBar = document.getElementById("progress");
+    const progressBarMobile = document.getElementById("progress-mobile");
+
+    if (progressBar && progressBarMobile) {
+      progressBar.style.width = "0%";
+      progressBarMobile.style.width = "0%";
+    }
   });
-
-  setElementAnimationDefaults("#fadeInUp", {
-    autoAlpha: 0,
-    y: 50,
-    willChange: "transform, opacity",
-  });
-
-  setElementAnimationDefaults("#fadeInMoveRight", {
-    autoAlpha: 0,
-    x: 300,
-    willChange: "transform, opacity",
-  });
-
-  let timeline = gsap.timeline({ defaults: { overwrite: "auto" } });
-
-  timeline.to("#fadeText", {
-    duration: 1.5,
-    autoAlpha: 1,
-    y: 0,
-    delay: 1,
-    ease: "power2.out",
-  });
-
-  timeline.to(
-    "#fadeInUp",
-    { duration: 1.5, autoAlpha: 1, y: 0, ease: "power2.out" },
-    "-=1.2"
-  );
-
-  timeline.to(
-    "#fadeInMoveRight",
-    { duration: 1.5, autoAlpha: 1, x: 0, ease: "power2.inOut" },
-    "-=1.4"
-  );
-
-  timeline.to("#overlay", { duration: 1, autoAlpha: 0, delay: 0.2 });
 </script>
 <script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.timeline({
+    scrollTrigger: {
+      scrub: 1,
+      pin: true,
+      trigger: "#pin",
+      start: "top 20%",
+      endTrigger: "footer",
+      end: "top bottom",
+    },
+  });
+
+  const SVG_HTML_STRING =
+    '<svg class="w-0 h-0 flex-none" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fa5a15"><path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></svg>';
+
+  function setActiveLinkById(id: string | null) {
+    const listItems = document.querySelectorAll("#toc li");
+    listItems.forEach((item) => item.classList.remove("selected"));
+
+    if (!id) return;
+
+    const activeLink = document.querySelector(`#toc a[href="#${id}"]`);
+
+    if (!activeLink) return;
+
+    const listItem = activeLink.parentElement;
+    listItem?.classList.add("selected");
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
-    function setButtonInactive(btn: any, activeButton: any) {
-      if (btn !== activeButton) {
-        btn.classList.remove(
-          "active",
-          "bg-neutral-100",
-          "hover:border-transparent",
-          "dark:bg-white/[.05]"
-        );
+    // The article element that contains the Markdown content
+    const article: HTMLElement | null = document.querySelector("article");
+    // The ToC container <ul> element
+    const tocList: HTMLElement | null = document.querySelector("#toc ul");
 
-        const tabId = btn.getAttribute("data-target");
-        if (tabId) {
-          const contentElement = document.querySelector(tabId);
-          if (contentElement) {
-            contentElement.classList.add("hidden");
-          }
-        }
+    const headings: NodeListOf<HTMLElement> | [] = article
+      ? article.querySelectorAll("h2")
+      : [];
 
-        changeHeadingStyle(
-          btn,
-          ["text-neutral-800", "dark:text-neutral-200"],
-          ["text-orange-400", "dark:text-orange-300"]
-        );
+    headings.forEach((heading, i) => {
+      console.log("heading", heading.id);
+
+      if (heading instanceof HTMLElement) {
+        const listItem = document.createElement("li");
+        listItem.className = "toc-level-" + heading.tagName.toLowerCase();
+
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = SVG_HTML_STRING;
+
+        const svg = tempDiv.firstChild;
+        listItem.appendChild(svg as Node);
+
+        const link = document.createElement("a");
+        link.href = "#" + heading.id;
+        link.textContent = heading.textContent;
+        listItem.appendChild(link);
+
+        tocList?.appendChild(listItem);
+
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: heading,
+            start: "top 20%",
+            end: () =>
+              `bottom top+=${i === headings.length - 1 ? 0 : (headings[i + 1] as HTMLElement).getBoundingClientRect().height}`,
+            onEnter: () => setActiveLinkById(heading.id),
+            onLeaveBack: () =>
+              setActiveLinkById((headings[i - 1] as HTMLElement)?.id),
+          },
+        });
       }
-    }
-
-    function activateButton(button: any) {
-      button.classList.add(
-        "active",
-        "bg-neutral-100",
-        ",hover:border-transparent",
-        "dark:bg-white/[.05]"
-      );
-
-      const tabId = button.getAttribute("data-target");
-      if (tabId) {
-        const contentElementToShow = document.querySelector(tabId);
-        if (contentElementToShow) {
-          contentElementToShow.classList.remove("hidden");
-        }
-      }
-
-      changeHeadingStyle(
-        button,
-        ["text-orange-400", "dark:text-orange-300"],
-        ["text-neutral-800", "dark:text-neutral-200"]
-      );
-    }
-
-    function changeHeadingStyle(
-      button: any,
-      addClasses: any,
-      removeClasses: any
-    ) {
-      let heading = button.querySelector("span");
-      if (heading) {
-        heading.classList.remove(...removeClasses);
-        heading.classList.add(...addClasses);
-      }
-    }
-
-    const tabButtons = document.querySelectorAll("[data-target]");
-
-    if (tabButtons.length > 0) {
-      changeHeadingStyle(
-        tabButtons[0],
-        ["text-orange-400", "dark:text-orange-300"],
-        []
-      );
-    }
-
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        tabButtons.forEach((btn) => setButtonInactive(btn, button));
-        activateButton(button);
-      });
     });
   });
 </script>

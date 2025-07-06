@@ -1,19 +1,18 @@
 ---
 import { Image } from "astro:assets";
 import Icon from "@components/ui/icons/Icon.astro";
-import type { CollectionEntry } from "astro:content";
-import { routes, SITE } from "@/data_files/constants";
+import { routes } from "@/data_files/constants";
 
-const { product: race } = Astro.props;
+const { race } = Astro.props;
 
 interface Props {
-  product: CollectionEntry<"races">;
+  race: any; // todo
 }
 
 const imageClass =
   "absolute inset-0 h-full w-full object-cover object-center transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110";
 
-const raceId = race.id.replace(/^fr\//, "");
+const raceId = race.id;
 const url = routes.raceDetails(raceId);
 ---
 
@@ -23,8 +22,8 @@ const url = routes.raceDetails(raceId);
   class="group relative flex h-48 items-end overflow-hidden rounded-lg shadow-xl ring-zinc-500 outline-hidden focus-visible:ring-3 md:col-span-2 md:h-80 dark:ring-zinc-200 dark:focus:outline-hidden"
 >
   <Image
-    src={race.data.main.imgCard}
-    alt={race.data.main.imgAlt}
+    src={race.hero.image}
+    alt={race.hero.alt}
     draggable={"false"}
     class={imageClass}
     format={"avif"}
@@ -35,6 +34,6 @@ const url = routes.raceDetails(raceId);
   </div>
   <span
     class="relative mb-3 ml-4 inline-block text-sm font-bold text-neutral-50 transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 md:ml-5 md:text-lg"
-    >{race.data.title} <Icon name="openInNew" /></span
+    >{race.title} <Icon name="openInNew" /></span
   >
 </a>

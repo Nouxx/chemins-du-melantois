@@ -1,0 +1,19 @@
+---
+import TextLink from "@/components/ui/race/TextLink.astro";
+import { externalLinks } from "@/data_files/constants";
+---
+
+<p>
+  Pour valider votre inscription, vous devez fournir l'un des deux documents
+  suivants :
+</p>
+
+<ul>
+  <li>Une Licence conforme et en cours de validité</li>
+  <li>
+    Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat
+    médical pour les non licenciés.
+  </li>
+</ul>
+
+<TextLink label="En savoir plus sur le PPS" href={externalLinks.pps} />

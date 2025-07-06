@@ -1,0 +1,17 @@
+---
+import Heading from "@/components/ui/race/Heading.astro";
+import TextLink from "@/components/ui/race/TextLink.astro";
+
+interface Props {
+  text: string;
+  traceLink: string;
+}
+
+const { text, traceLink } = Astro.props;
+---
+
+<Heading label="Parcours" />
+
+<p>{text}</p>
+
+<TextLink label="Lien vers le parcours" href={traceLink} />

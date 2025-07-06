@@ -21,7 +21,7 @@ tabs:
 longDescription:
   title: Un parcours axé trail
   subTitle: |
-    Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l’étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l’objet d’une nouvelle labellisation en 2025.
+    Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l'étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l'objet d'une nouvelle labellisation en 2025.
 descriptionItems:
   - title: Horaires
     list:
@@ -43,7 +43,7 @@ termOfRegistration:
   leftSection:
     - title: Inscription en ligne
       subTitle: |
-        Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 20 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
+        Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu'au samedi 20 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l'avance, depuis chez vous.
     - title: Inscription sur place
       subTitle: |
         Vous pouvez également vous inscrire le samedi 20 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.
@@ -54,24 +54,24 @@ termOfRegistration:
         - "Dimanche 21 septembre : de 7h30 à 9h45"
     - title: "Règlement de course"
       subTitle: |
-        Avant de participer, merci de consulter le règlement officiel de la course, qui précise l’ensemble des modalités de participation, consignes de sécurité, et règles sportives.
+        Avant de participer, merci de consulter le règlement officiel de la course, qui précise l'ensemble des modalités de participation, consignes de sécurité, et règles sportives.
       links:
         - label: Règlement de course
           url: "{externalLink.sportsRegulations}"
           openInNewTab: true
   rightSection:
-    - title: Tarifs & Bulletin d’inscription
+    - title: Tarifs & Bulletin d'inscription
       subTitle: |
         La participation au 10 km est fixée à 11€, payable :
       list:
-        - "par carte bancaire lors de l’inscription en ligne"
+        - "par carte bancaire lors de l'inscription en ligne"
         - "en espèces ou par chèque lors des inscriptions sur place"
       links:
-        - label: Bulletin d’inscription
+        - label: Bulletin d'inscription
           url: "{externalLinks.registrationForm}"
           openInNewTab: true
     - title: Pièces à fournir
-      subTitle: "Pour valider votre inscription, vous devez fournir l’un des deux documents suivants :"
+      subTitle: "Pour valider votre inscription, vous devez fournir l'un des deux documents suivants :"
       list:
         - Une Licence conforme et en cours de validité
         - Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat médical pour les non licenciés.

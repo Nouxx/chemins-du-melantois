@@ -21,7 +21,7 @@ tabs:
 longDescription:
   title: un parcours dans le village
   subTitle: |
-    L’édition 2024 confirme le retour de cette épreuve originale, placée sous le signe du partage et de la transmission. Composée d’un binôme intergénérationnel, elle associe un coureur adulte (parent, grand frère ou sœur, cousin, proche…) et un jeune cycliste, qui ouvre la voie et joue le rôle de lièvre. Le jeune à vélo guide et encourage le coureur à pied, tout au long d’un parcours adapté et sécurisé à travers le village. Une belle manière de vivre la course autrement : en duo, en famille, et dans une ambiance joyeuse et bienveillante.
+    L'édition 2024 confirme le retour de cette épreuve originale, placée sous le signe du partage et de la transmission. Composée d'un binôme intergénérationnel, elle associe un coureur adulte (parent, grand frère ou sœur, cousin, proche…) et un jeune cycliste, qui ouvre la voie et joue le rôle de lièvre. Le jeune à vélo guide et encourage le coureur à pied, tout au long d'un parcours adapté et sécurisé à travers le village. Une belle manière de vivre la course autrement : en duo, en famille, et dans une ambiance joyeuse et bienveillante.
 descriptionItems:
   - title: Horaires
     subTitle: Départ 9h15 face à la Mairie.
@@ -35,7 +35,7 @@ termOfRegistration:
   leftSection:
     - title: Inscription en ligne
       subTitle: |
-        Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu’au samedi 20 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l’avance, depuis chez vous.
+        Profitez de la simplicité et de la rapidité de l'inscription en ligne, accessible jusqu'au samedi 20 septembre à 12h00. Gagnez du temps le jour J en vous inscrivant à l'avance, depuis chez vous.
     - title: Inscription sur place
       subTitle: |
         Vous pouvez également vous inscrire le samedi 20 septembre, de 14h00 à 17h00, directement à la Maison des Associations de Sainghin (210 boulevard du Maréchal Leclerc). Veillez à venir muni des documents requis pour finaliser votre inscription.
@@ -46,22 +46,22 @@ termOfRegistration:
         - "Dimanche 21 septembre : de 7h30 à 9h45"
     - title: "Règlement de course"
       subTitle: |
-        Avant de participer, merci de consulter le règlement officiel de la course, qui précise l’ensemble des modalités de participation, consignes de sécurité, et règles sportives.
+        Avant de participer, merci de consulter le règlement officiel de la course, qui précise l'ensemble des modalités de participation, consignes de sécurité, et règles sportives.
       links:
         - label: Règlement de course
           url: "{externalLink.sportsRegulations}"
           openInNewTab: true
   rightSection:
-    - title: Tarifs & Bulletin d’inscription
+    - title: Tarifs & Bulletin d'inscription
       subTitle: |
         La participation au Run & Bike est fixée à 9€, payable :
       list:
-        - "par carte bancaire lors de l’inscription en ligne"
+        - "par carte bancaire lors de l'inscription en ligne"
         - "en espèces ou par chèque lors des inscriptions sur place"
     - title: Pièces à fournir
       subTitle: "Seul le bulletin d'inscription est nécessaire."
       links:
-        - label: Bulletin d’inscription
+        - label: Bulletin d'inscription
           url: "{externalLinks.registrationForm}"
           openInNewTab: true
     - title: Pour les mineurs
