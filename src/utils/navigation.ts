@@ -20,27 +20,7 @@ interface FooterLink {
 
 const footerLinks: FooterLinks[] = [
   {
-    section: "Liens pratiques",
-    links: [
-      {
-        name: "Liste des inscrits 2024",
-        url: externalLinks.registrantsList,
-        openInNewTab: true,
-      },
-      {
-        name: "Réglement de course",
-        url: externalLinks.sportsRegulations,
-        openInNewTab: true,
-      },
-      {
-        name: "Parcours Prévention Santé (PPS)",
-        url: externalLinks.pps,
-        openInNewTab: true,
-      },
-    ],
-  },
-  {
-    section: "Documents",
+    section: "Liens Pratiques",
     links: [
       {
         name: "Bulletin d'inscription",
@@ -63,13 +43,10 @@ const footerLinks: FooterLinks[] = [
     section: "Nous contacter",
     links: [
       {
-        name: "433 Rue du Maréchal Leclerc, 59262 Sainghin-en-Mélantois",
-      },
-      {
-        name: SITE.contactEmail,
+        name: "Par email",
         url: `mailto:${SITE.contactEmail}`,
       },
-      { name: "03 20 61 90 30", url: "tel:+33 3 20 61 90 30" },
+      { name: "Devenir bénévole", url: routes.volunteer },
     ],
   },
 ];
