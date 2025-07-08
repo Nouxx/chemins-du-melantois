@@ -1,0 +1,37 @@
+---
+import Heading from "@/components/ui/race/Heading.astro";
+import { eventDate, type Race } from "@/data_files/constants";
+
+interface Props {
+  addressLines: Race["meetingPointAddressLines"];
+  additionalInfo: Race["additionalScheduleInformation"];
+  startTime: Race["startTime"];
+}
+
+const { addressLines, additionalInfo, startTime } = Astro.props;
+---
+
+<Heading label="Départ et horaires" />
+
+<p>
+  La course a lieu le <span class="font-bold">{eventDate}</span> et le départ sera
+  lancé à <span class="font-bold">{startTime}</span>.
+</p>
+
+<p>Le point de rendez-vous est le suivant :</p>
+
+<div class="address">
+  {addressLines.map((addressLine) => <p>{addressLine}</p>)}
+</div>
+
+{additionalInfo && <p>{additionalInfo}</p>}
+
+<style>
+  .address {
+    margin-top: 1.5rem;
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+</style>

@@ -1,0 +1,24 @@
+---
+import Heading from "@/components/ui/race/Heading.astro";
+import TextLink from "@/components/ui/race/TextLink.astro";
+import { externalLinks } from "@/data_files/constants";
+
+const { onlineRegistrationText, onSiteRegistrationText } = Astro.props;
+
+// todo: modalités d'inscription id as props
+---
+
+<Heading label="Inscription" />
+
+<h3>En ligne</h3>
+
+<slot name="online-registration-text" />
+
+<h3>Sur place</h3>
+
+<slot name="on-site-registration-text" />
+
+<TextLink
+  label="Lien vers le bulletin d'inscription"
+  href={externalLinks.registrationForm}
+/>

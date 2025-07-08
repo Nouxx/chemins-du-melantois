@@ -1,0 +1,22 @@
+---
+import Icon from "@/components/ui/icons/Icon.astro";
+
+interface Props {
+  label: string;
+  href: string;
+}
+
+const { label, href } = Astro.props;
+---
+
+<a href={href} target="_blank" class="link__text font-bold">
+  {label}
+  <Icon name="openInNew" />
+</a>
+
+<style>
+  .link__text:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>
