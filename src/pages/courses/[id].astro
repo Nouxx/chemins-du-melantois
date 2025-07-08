@@ -298,9 +298,7 @@ const pageDescription = race.description;
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    // The article element that contains the Markdown content
     const article: HTMLElement | null = document.querySelector("article");
-    // The ToC container <ul> element
     const tocList: HTMLElement | null = document.querySelector("#toc ul");
 
     const headings: NodeListOf<HTMLElement> | [] = article
