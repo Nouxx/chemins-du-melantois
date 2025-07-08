@@ -93,7 +93,9 @@ const pageDescription = race.description;
           >
             <p class="text-xl">
               {race.date} - {
-                isFree ? "Gratuit" : `${race.price}€ par participant`
+                isFree
+                  ? "Gratuit"
+                  : `${race.price}€ par ${race.pricePerTeam ? "équipe" : "participant"}`
               }
             </p>
 
