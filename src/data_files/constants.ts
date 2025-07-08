@@ -10,9 +10,6 @@ import runAndBikeHero from "../images/races/run-bike-peronne-hero.webp";
 import nineHundredPeronneHero from "../images/races/900m-peronne-hero.webp";
 import nineHundredSainghinHero from "../images/races/900m-sem-hero.webp";
 
-// #ff7d00 orange
-// #283618 green
-
 export const SITE = {
   title: "Les Chemins du Mélantois",
   tagline: "Courses nature et conviviales pour tous",
@@ -44,7 +41,15 @@ export const externalLinks = {
     "https://drive.google.com/file/d/1Dzo98Z8ux2bZa1uR2D8lDSd2tXnNp70B/view",
   edition2025: {
     trace900mPeronne:
-      "https://drive.google.com/file/d/1Mksj7pxZaEpf5xsh8hnz1FDG0mJjn7VL/view",
+      "https://drive.google.com/file/d/1k49m8EhDZEVyvSmPLekSd5AyeuZrK7T-/view",
+    trace900mSainghin:
+      "https://drive.google.com/file/d/19UOg6khBYYQgmZEIRdQgxvGMq-aE-V8C/view",
+    trace10km:
+      "https://drive.google.com/file/d/1Qz-piBjGoQ7jHu6FxfO30TLAn8JATZru/view",
+    trace5km:
+      "https://drive.google.com/file/d/1ziGUKrEfpMk1LaMxYXpmCl48_JZPySYu/view",
+    traceRunAndBike:
+      "https://drive.google.com/file/d/1N4POCdKh9YlkTZTJHRrQBbUJv2enp1Ar/view",
   },
   edition2024: {
     googlePhotoAlbum: "https://photos.app.goo.gl/3Q6nZiEE1nganQ2G8",
@@ -151,7 +156,7 @@ export type Race = {
   additionalScheduleInformation?: string;
   price?: string;
   description: string;
-  traceLink?: string;
+  traceLink: string;
   meetingPointAddressLines: string[];
   rewardsSummary?: string;
   displayRewardsSummaryLink?: boolean;
@@ -190,6 +195,7 @@ export const races: Race[] = [
     description:
       "Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l’étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l’objet d’une nouvelle labellisation en 2025.",
     meetingPointAddressLines: egliseSaintNicolasAddressLines,
+    traceLink: externalLinks.edition2025.trace10km,
     adultRegistrationRequirement: true,
     rewardsSummary:
       "Les récompenses vont jusqu'à 100€ pour le vainqueur du 10 km. Veuillez trouvez le détail des prix en suivant le lien ci dessous.",
@@ -202,6 +208,7 @@ export const races: Race[] = [
       alt: "Participants au départ du Run & Bike de Péronne en Mélantois, au centre du village",
     },
     date: eventDate,
+    traceLink: externalLinks.edition2025.traceRunAndBike,
     startTime: "9h15",
     price: "9",
     description:
@@ -217,6 +224,7 @@ export const races: Race[] = [
       alt: "Participants au départ du 5km de Sainghin en Mélantois, au centre du village",
     },
     date: eventDate,
+    traceLink: externalLinks.edition2025.trace5km,
     price: "7",
     startTime: "9h00",
     description:
@@ -234,6 +242,7 @@ export const races: Race[] = [
       alt: "Participants au départ du 900m de Sainghin en Mélantois, au centre du village",
     },
     date: eventDate,
+    traceLink: externalLinks.edition2025.trace900mSainghin,
     startTime: "9h45",
     description:
       "Un parcours court, ludique et sécurisé, idéal pour les enfants et leurs familles souhaitant s’initier à la course à pied dans une ambiance conviviale. À travers les rues du village de Sainghin, cette boucle accessible met l’accent sur le plaisir de courir ensemble, sans pression de performance. C’est l’occasion parfaite de partager un moment sportif intergénérationnel, dans un cadre chaleureux et festif.",
