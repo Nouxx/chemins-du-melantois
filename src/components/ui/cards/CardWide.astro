@@ -1,12 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import Icon from "@components/ui/icons/Icon.astro";
-import { routes } from "@/data_files/constants";
+import { routes, type Race } from "@/data_files/constants";
 
 const { race } = Astro.props;
 
 interface Props {
-  race: any; // todo
+  race: Race;
 }
 
 const imageClass =

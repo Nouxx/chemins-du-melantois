@@ -9,15 +9,6 @@ import {
 import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
 import { races } from "@/data_files/constants";
 
-// const races: CollectionEntry<"races">[] = (
-//   await getCollection("races", ({ id }) => {
-//     return id.startsWith(`${Astro.currentLocale}/`);
-//   })
-// ).sort(
-//   (a: CollectionEntry<"races">, b: CollectionEntry<"races">) =>
-//     a.data.main.id - b.data.main.id
-// );
-
 const pageTitle = getPageTitle("Courses");
 
 const pageDescription =
