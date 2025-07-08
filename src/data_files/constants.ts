@@ -144,6 +144,7 @@ export const partnersData = [
   },
 ];
 
+// todo: use zod
 export type Race = {
   id: string;
   title: string;
@@ -160,7 +161,7 @@ export type Race = {
   meetingPointAddressLines: string[];
   rewardsSummary?: string;
   displayRewardsSummaryLink?: boolean;
-  adultRegistrationRequirement?: boolean; // default true
+  adultRegistrationRequirement?: boolean; // default true (with zod)
 };
 
 export const eventDate = "21 septembre 2025";
