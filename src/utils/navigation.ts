@@ -28,13 +28,13 @@ const footerLinks: FooterLinks[] = [
         openInNewTab: true,
       },
       {
-        name: "Questionnaire de santé",
-        url: externalLinks.healthQuestionnaire,
+        name: "Liste des inscrits 2025",
+        url: externalLinks.registrantsList,
         openInNewTab: true,
       },
       {
-        name: "Autorisation parentale",
-        url: externalLinks.parentalConsentForm,
+        name: "PPS",
+        url: externalLinks.pps,
         openInNewTab: true,
       },
     ],
