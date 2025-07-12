@@ -24,12 +24,12 @@ interface Props {
 >
   <div class="full-width mb-8 text-left">
     <h2
-      class="text-left text-2xl font-bold text-balance text-neutral-800 sm:text-3xl lg:text-4xl dark:text-neutral-200"
+      class="text-left text-2xl font-extrabold text-balance text-neutral-800 sm:text-3xl lg:text-4xl dark:text-neutral-200"
     >
       {title}
     </h2>
   </div>
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+  <div class="grid gap-6 sm:grid-cols-2">
     {
       testimonials.map((testimonial) => (
         <div class="flex h-auto">
@@ -40,6 +40,7 @@ interface Props {
                 src={testimonial.img}
                 alt={testimonial.imgAlt}
                 format={"avif"}
+                sizes="(max-width: 640px) 100vw, (max-width: 1536px) 50vw, 642px"
               />
             </div>
 
