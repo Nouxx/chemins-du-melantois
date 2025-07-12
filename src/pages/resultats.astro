@@ -18,11 +18,10 @@ interface EventHighlightData {
   title: string;
   subTitle: string;
   links?: ButtonLink[];
-  single?: boolean;
   img?: any;
   imgAlt?: string;
   imgOne?: any;
-  imgOneAlt?: string;
+  imgOneAlt: string;
   imgTwo?: any;
   imgTwoAlt?: string;
   list?: string[];
@@ -36,7 +35,6 @@ const eventsHighlights: EventHighlightData[] = [
     title: "Édition 2024",
     subTitle:
       "L'édition 2024 des chemins du Mélantois a eu lieu le 24 septembre 2024 et a rassemblé 790 participants, soit le plus grand nombre d'inscrits depuis 8 ans !",
-    single: true,
     imgOne: edition2024Hero,
     imgOneAlt:
       "Départ de la course 2024 à Sainghin-en-Mélantois : des centaines de coureurs réunis sous l'arche jaune dans une ambiance festive et conviviale.",
@@ -64,7 +62,6 @@ const eventsHighlights: EventHighlightData[] = [
     title: "Édition 2023",
     subTitle:
       "L'édition 2023 des chemins du Mélantois s'est tenue le 17 septembre 2023 et a regroupé un total de 653 participants.",
-    single: true,
     imgOne: edition2023Hero,
     imgOneAlt:
       "Participants des Chemins du Mélantois 2024 posant fièrement devant l'église de Sainghin-en-Mélantois avant le départ de la course.",
@@ -92,7 +89,6 @@ const eventsHighlights: EventHighlightData[] = [
     title: "Édition 2022",
     subTitle:
       "L'édition 2022 des chemins du Mélantois a eu lieu le 18 septembre 2022 et a regroupé un total de 677 participants.",
-    single: true,
     imgOne: edition2022Hero,
     imgOneAlt:
       "Un coureur souriant portant un enfant dans ses bras après sa course lors des Chemins du Mélantois, entouré de spectateurs.",
@@ -115,7 +111,6 @@ const eventsHighlights: EventHighlightData[] = [
     title: "Édition 2019",
     subTitle:
       "L'édition 2019 des chemins du Mélantois a eu lieu le 15 septembre 2019 et a regroupé un total de 661 participants.",
-    single: true,
     imgOne: edition2019Hero,
     imgOneAlt:
       "Des enfants attendant le départ de la course des Chemins du Mélantois sur la ligne de départ.",
@@ -154,9 +149,8 @@ const pageDescription =
         <RightSection
           title={eventHighlight.title}
           subTitle={eventHighlight.subTitle}
-          single={eventHighlight.single}
-          imgOne={eventHighlight.imgOne}
-          imgOneAlt={eventHighlight.imgOneAlt}
+          image={eventHighlight.imgOne}
+          imageAlt={eventHighlight.imgOneAlt}
           list={eventHighlight.list || []}
           links={eventHighlight.links}
         />
