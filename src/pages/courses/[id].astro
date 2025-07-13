@@ -11,7 +11,6 @@ import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
-import heroImage from "@/images/races/10km-sem-hero.webp";
 import { races, type Race } from "@/data_files/constants";
 import RaceDescription from "@/components/sections/races/RaceDescription.astro";
 import OnlineRegistrationText from "@/components/sections/races/Registration/OnlineRegistrationText.astro";
@@ -50,8 +49,8 @@ const pageDescription = race.description;
           <div class="h-64 overflow-hidden rounded-lg shadow-lg md:h-auto">
             <Image
               class="h-full w-full object-cover object-center"
-              src={heroImage}
-              alt="10kn"
+              src={race.hero.image}
+              alt={race.hero.alt}
               draggable={"false"}
               format={"avif"}
             />
