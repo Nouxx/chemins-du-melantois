@@ -20,7 +20,7 @@ interface FooterLink {
 
 const footerLinks: FooterLinks[] = [
   {
-    section: "Liens Pratiques",
+    section: "Liens Rapides",
     links: [
       {
         name: "Bulletin d'inscription",
