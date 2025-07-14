@@ -37,11 +37,11 @@ interface Props {
 ---
 
 <section
-  class="mx-auto grid max-w-[85rem] gap-4 px-4 py-14 sm:px-6 md:grid-cols-2 md:items-center md:gap-8 lg:px-8 2xl:max-w-full"
+  class="mx-auto flex max-w-[85rem] flex-col items-stretch gap-4 px-4 py-14 sm:px-6 md:flex-row md:gap-8 lg:px-8 2xl:max-w-full"
 >
-  <div>
+  <div class="md:max-w-[50%]">
     <h1
-      class="block text-3xl font-bold tracking-tight text-balance text-neutral-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-neutral-200"
+      class="text-3xl font-bold tracking-tight text-balance text-neutral-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-neutral-200"
     >
       <Fragment set:html={title} />
     </h1>
@@ -52,7 +52,7 @@ interface Props {
         </p>
       )
     }
-    <div class="mt-7 grid w-full gap-3 sm:inline-flex">
+    <div class="mt-7 grid w-full gap-3 md:inline-flex">
       <RegisterButton />
       {
         secondaryBtn && (
@@ -74,20 +74,21 @@ interface Props {
       )
     }
   </div>
-  <div class="flex h-full w-full">
-    <div class="top-12 overflow-hidden rounded-md">
-      {
-        src && alt && (
-          <Image
-            src={src}
-            alt={alt}
-            class="h-full w-full scale-110 object-cover object-center"
-            draggable={"false"}
-            loading={"eager"}
-            format={"avif"}
-          />
-        )
-      }
-    </div>
+  <div class="overflow-hidden rounded-md">
+    {
+      src && alt && (
+        <Image
+          src={src}
+          alt={alt}
+          class="w-full scale-110 object-cover object-center"
+          draggable={"false"}
+          format={"avif"}
+          style={{
+            height: "100%",
+          }}
+          sizes="(max-width: 640px) 100vw, (max-width: 1536px) 50vw, 438px"
+        />
+      )
+    }
   </div>
 </section>
