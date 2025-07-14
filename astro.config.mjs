@@ -11,7 +11,8 @@ export default defineConfig({
   site: "https://Nouxx.github.io", // todo: update to "https://www.lescheminsdumelantois.fr"
   base: "",
   image: {
-    domains: ["images.unsplash.com"],
+    responsiveStyles: true,
+    layout: "full-width",
   },
   i18n: {
     defaultLocale: "fr",

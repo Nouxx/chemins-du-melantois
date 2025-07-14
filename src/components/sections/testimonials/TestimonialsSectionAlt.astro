@@ -1,7 +1,7 @@
 ---
 import Image from "astro/components/Image.astro";
 
-const { title, testimonials } = Astro.props;
+const { title, subTitle, testimonials } = Astro.props;
 
 interface Testimonial {
   content: string;
@@ -14,6 +14,7 @@ interface Testimonial {
 
 interface Props {
   title: string;
+  subTitle: string;
   testimonials: Testimonial[];
 }
 ---
@@ -24,12 +25,18 @@ interface Props {
 >
   <div class="full-width mb-8 text-left">
     <h2
-      class="text-left text-2xl font-bold text-balance text-neutral-800 sm:text-3xl lg:text-4xl dark:text-neutral-200"
+      class="mb-4 text-left text-2xl font-extrabold text-balance text-neutral-800 sm:text-3xl lg:text-4xl dark:text-neutral-200"
     >
       {title}
     </h2>
+
+    <p
+      class="mb-4 max-w-prose font-normal text-pretty text-neutral-600 sm:text-lg dark:text-neutral-400"
+    >
+      {subTitle}
+    </p>
   </div>
-  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+  <div class="grid gap-6 sm:grid-cols-2">
     {
       testimonials.map((testimonial) => (
         <div class="flex h-auto">
@@ -40,6 +47,7 @@ interface Props {
                 src={testimonial.img}
                 alt={testimonial.imgAlt}
                 format={"avif"}
+                sizes="(max-width: 640px) 100vw, (max-width: 1536px) 50vw, 642px"
               />
             </div>
 

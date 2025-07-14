@@ -1,13 +1,13 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
 import RightSection from "@/components/ui/blocks/RightSection.astro";
-import imgVolunteersRegistration from "@images/volunteers/volunteer-2.webp";
-import imgVolunteersFood from "@images/volunteers/volunteer-13.webp";
-import imgVolunteersManCycling from "@images/volunteers/volunteer-15.webp";
-import imgVolunteersManTakingAPicture from "@images/volunteers/volunteer-17.webp";
-import imgVolunteersInstallations from "@images/volunteers/volunteer-18.webp";
-import imgVolunteersManGivingRewards from "@images/volunteers/volunteer-6.webp";
-import imgVolunteersMensSmiling from "@images/volunteers/volunteer-4.webp";
+import imgVolunteersRegistration from "@images/volunteers/women-at-the-registration-desk.webp";
+import imgVolunteersFood from "@images/volunteers/women-preparing-food.webp";
+import imgVolunteersManCycling from "@images/volunteers/man-cycling-on-the-road.webp";
+import imgVolunteersManTakingAPicture from "@images/volunteers/man-taking-pictures.webp";
+import imgVolunteersInstallations from "@images/volunteers/finish-line-before-the-race.webp";
+import imgVolunteersManCyclingInTheWoods from "@images/volunteers/man-cycling-in-the-woods.webp";
+import imgVolunteersPosing from "@images/volunteers/volunteers-and-participant-posing.webp";
 import {
   getPageTitle,
   getStructuredDataForPage,
@@ -62,7 +62,7 @@ const testimonials = [
     content:
       "Vous avez une autre compétence et envie de participer ? Nous avons sûrement un rôle pour vous !",
     role: "Et bien plus !",
-    img: imgVolunteersMensSmiling,
+    img: imgVolunteersPosing,
     imgAlt: "Bénévoles souriants avec un jeune coureur.",
   },
 ];
@@ -79,14 +79,14 @@ const pageDescription =
 >
   <RightSection
     title="Cet évènement est possible grâce à vous"
-    subTitle="Grâce à votre énergie, votre bonne humeur et votre présence sur le terrain, cet évènement devient bien plus qu'une simple course : c'est un rendez-vous chaleureux, animé par le sourire des bénévoles, où se mêlent entraide, fierté collective et joie de faire vivre notre village. Sans vous, rien de tout cela ne serait possible."
-    single
-    imgOne={imgVolunteersManGivingRewards}
-    imgOneAlt="Bénévole remettant une récompense à un jeune coureur entouré de sa famille."
+    subTitle="Grâce à votre énergie, votre bonne humeur et votre présence sur le terrain, cet évènement devient bien plus qu'une simple course : c'est un rendez-vous chaleureux, animé par le sourire des bénévoles, où se mêlent entraide, fierté collective et joie de faire vivre notre village. Sans vous, rien de tout cela ne serait possible."
+    image={imgVolunteersManCyclingInTheWoods}
+    imageAlt="Bénévole remettant une récompense à un jeune coureur entouré de sa famille."
   />
 
   <TestimonialsSectionAlt
     title="Trouvez le rôle qui vous correspond"
+    subTitle=" Découvrez les différentes missions et choisissez celle qui vous ressemble. Chaque geste compte pour faire de cet évènement un moment inoubliable."
     testimonials={testimonials}
   />
 

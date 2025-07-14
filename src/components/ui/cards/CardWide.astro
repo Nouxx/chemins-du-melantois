@@ -27,6 +27,9 @@ const url = routes.raceDetails(raceId);
     draggable={"false"}
     class={imageClass}
     format={"avif"}
+    style={{
+      height: "100%",
+    }}
   />
   <div
     class="pointer-events-none absolute inset-0 bg-linear-to-t from-neutral-800 via-transparent to-transparent opacity-50"
@@ -34,6 +37,8 @@ const url = routes.raceDetails(raceId);
   </div>
   <span
     class="relative mb-3 ml-4 inline-block text-sm font-bold text-neutral-50 transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 md:ml-5 md:text-lg"
-    >{race.title} <Icon name="openInNew" /></span
   >
+    {race.title}
+    <Icon name="openInNew" />
+  </span>
 </a>

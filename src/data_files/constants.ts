@@ -2,7 +2,7 @@ import MelIconSvg from "../images/partners/mel-logo.svg?raw";
 import NordIconSvg from "../images/partners/nord-logo.svg?raw";
 import CreditMutuelIcon from "../images/partners/credit-mutuel-logo.svg?raw";
 import MatchLogoSvg from "../images/partners/match-logo.svg?raw";
-import edition2024Hero from "../images/races/2024-edition-hero.jpg";
+import edition2024Hero from "../images/races/2024-edition-hero.webp";
 // images
 import tenKilometerHero from "../images/races/10km-sem-hero.webp";
 import fiveKilometerHero from "../images/races/5km-sem-hero.webp";
@@ -165,6 +165,9 @@ export type Race = {
   adultRegistrationRequirement?: boolean; // default true (with zod)
 };
 
+const getMapAltText = (raceName: string) =>
+  `Tracé du parcours du ${raceName} des Chemins du Mélantois, édition 2025`;
+
 export const eventDate = "21 septembre 2025";
 
 export const registrationDetailsId = "modalites-d-inscription"; // technical id for anchor link
@@ -187,7 +190,7 @@ export const races: Race[] = [
     title: "10 km de Sainghin en Mélantois",
     hero: {
       image: tenKilometerHero,
-      alt: "Participants au départ du 10km de Sainghin en Mélantois, au centre du village",
+      alt: getMapAltText("10 km de Sainghin en Mélantois"),
     },
     date: eventDate,
     startTime: "10h15",
@@ -207,7 +210,7 @@ export const races: Race[] = [
     title: "Run & Bike de Péronne en Mélantois",
     hero: {
       image: runAndBikeHero,
-      alt: "Participants au départ du Run & Bike de Péronne en Mélantois, au centre du village",
+      alt: getMapAltText("Run and Bike de Péronne en Mélantois"),
     },
     date: eventDate,
     traceLink: externalLinks.edition2025.traceRunAndBike,
@@ -224,7 +227,7 @@ export const races: Race[] = [
     title: "5 km de Sainghin en Mélantois",
     hero: {
       image: fiveKilometerHero,
-      alt: "Participants au départ du 5km de Sainghin en Mélantois, au centre du village",
+      alt: getMapAltText("5 km de Sainghin en Mélantois"),
     },
     date: eventDate,
     traceLink: externalLinks.edition2025.trace5km,
@@ -242,7 +245,7 @@ export const races: Race[] = [
     title: "900 m de Sainghin en Mélantois",
     hero: {
       image: nineHundredSainghinHero,
-      alt: "Participants au départ du 900m de Sainghin en Mélantois, au centre du village",
+      alt: getMapAltText("900 m de Sainghin en Mélantois"),
     },
     date: eventDate,
     traceLink: externalLinks.edition2025.trace900mSainghin,
@@ -258,7 +261,7 @@ export const races: Race[] = [
     title: "900 m de Péronne en Mélantois",
     hero: {
       image: nineHundredPeronneHero,
-      alt: "Participants au départ du 900m de Péronne en Mélantois, au centre du village",
+      alt: getMapAltText("900 m de Péronne en Mélantois"),
     },
     date: eventDate,
     startTime: "9h15",
