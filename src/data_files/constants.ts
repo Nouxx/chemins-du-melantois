@@ -121,25 +121,31 @@ export const OG = {
     "Une vue en hauteur du départ de la course 2024 des Chemins du Mélantois",
 };
 
-export const partnersData = [
+export interface Partner {
+  icon: any;
+  name: string;
+  href: string;
+}
+
+export const partnersData: Partner[] = [
   {
     icon: MelIconSvg, // todo: clean svg inner padding
-    name: "MEL Métropole Européene de Lille",
+    name: "Logo de la MEL: Métropole Européenne de Lille",
     href: "https://www.lillemetropole.fr",
   },
   {
     icon: NordIconSvg,
-    name: "Département du Nord",
+    name: "Logo du Département du Nord",
     href: "https://lenord.fr",
   },
   {
     icon: CreditMutuelIcon,
-    name: "Crédit Mutuel",
+    name: "Logo du Crédit Mutuel",
     href: "https://www.creditmutuel.fr",
   },
   {
     icon: MatchLogoSvg,
-    name: "Supermarchés Match",
+    name: "Logo du Supermarchés Match",
     href: "https://www.supermarchesmatch.fr",
   },
 ];
