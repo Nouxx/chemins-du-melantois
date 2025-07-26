@@ -52,6 +52,7 @@ export const externalLinks = {
       "https://drive.google.com/file/d/1N4POCdKh9YlkTZTJHRrQBbUJv2enp1Ar/view",
   },
   edition2024: {
+    youtubeVideo: "https://youtu.be/JSbhbnNtyr8?si=1WUyL2MXtpcpsgbP",
     googlePhotoAlbum: "https://photos.app.goo.gl/3Q6nZiEE1nganQ2G8",
     aSportPage: "http://asport-timing.com/live/chemins-melantois-2024",
   },

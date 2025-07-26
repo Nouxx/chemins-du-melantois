@@ -11,6 +11,7 @@ import features from "@data/fr/features.json";
 import { externalLinks, partnersData, routes } from "@/data_files/constants";
 import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
 import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
+import VideoLink from "@/components/sections/landing/VideoLink.astro";
 ---
 
 <MainLayout lang="fr">
@@ -52,6 +53,8 @@ import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
     title="Un grand merci à nos partenaires"
     partners={partnersData}
   />
+
+  <VideoLink />
 
   <iframe
     class="mx-auto aspect-video w-full max-w-5xl rounded-lg border border-neutral-200 sm:mb-5 lg:mb-10 dark:border-neutral-700"

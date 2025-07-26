@@ -1,0 +1,15 @@
+---
+import CardWide from "@/components/ui/cards/CardWide.astro";
+import { externalLinks } from "@/data_files/constants";
+import heroImage from "@images/hero-image.webp";
+---
+
+<div class="p-8">
+  <CardWide
+    title="Découvrez la video de l'édition 2024"
+    url={externalLinks.edition2024.youtubeVideo}
+    openInNewTab
+    image={heroImage}
+    imageAlt="yoo"
+  />
+</div>
