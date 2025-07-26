@@ -1,13 +1,12 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import CardSmall from "@components/ui/cards/CardSmall.astro";
-import CardWide from "@components/ui/cards/CardWide.astro";
 import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
 import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
 import { races } from "@/data_files/constants";
+import RaceCard from "@/components/sections/races/RaceCard.astro";
 
 const pageTitle = getPageTitle("Courses");
 
@@ -48,9 +47,9 @@ const pageDescription =
         races.map((race, index) => {
           const position = index % 4;
           if (position !== 1) {
-            return <CardSmall race={race} />;
+            return <RaceCard race={race} size="small" />;
           } else {
-            return <CardWide race={race} />;
+            return <RaceCard race={race} size="wide" />;
           }
         })
       }
