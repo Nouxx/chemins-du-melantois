@@ -49,23 +49,14 @@ import VideoLink from "@/components/sections/landing/VideoLink.astro";
     ]}
   />
 
-  <ClientsSection
-    title="Un grand merci à nos partenaires"
-    partners={partnersData}
+  <VideoLink
+    title="Découvrez la vidéo de l'édition 2024 !"
+    videoUrl={externalLinks.edition2024.youtubeVideo}
+    image={heroImage}
   />
 
-  <VideoLink />
-
-  <iframe
-    class="mx-auto aspect-video w-full max-w-5xl rounded-lg border border-neutral-200 sm:mb-5 lg:mb-10 dark:border-neutral-700"
-    src="https://www.youtube.com/embed/JSbhbnNtyr8?si=JyrEOCp_UIq1yINI"
-    title="YouTube video player"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen></iframe>
-
   <FeaturesGeneral
-    title="Découvrez nos 5 courses"
+    title="Nos 5 courses"
     subTitle="Cette édition 2025 propose notre format habituel de 5 courses variées, parfait pour un événement familial où chacun peut venir et courir ensemble."
     features={features}
     callToActionLabel="Détails des courses"
@@ -73,6 +64,11 @@ import VideoLink from "@/components/sections/landing/VideoLink.astro";
   />
 
   <FAQ title="Questions fréquemment posées" faqs={faqs} />
+
+  <ClientsSection
+    title="Un grand merci à nos partenaires"
+    partners={partnersData}
+  />
 
   <HeroSectionAlt
     title="Inscrivez-vous dès maintenant"
