@@ -151,6 +151,7 @@ export const partnersData: Partner[] = [
 ];
 
 // todo: use zod
+// todo: make sure id can be converted in a URL safe string
 export type Race = {
   id: string;
   title: string;
@@ -229,7 +230,7 @@ export const races: Race[] = [
     adultRegistrationRequirement: true,
   },
   {
-    id: "5-km-sainghin-en-mepplantois",
+    id: "5-km-sainghin-en-melantois",
     title: "5 km de Sainghin en Mélantois",
     hero: {
       image: fiveKilometerHero,
@@ -247,7 +248,7 @@ export const races: Race[] = [
       "Les récompenses vont jusqu'à 40€ pour le vainqueur du 5 km. Veuillez trouvez le détail des prix en suivant le lien ci dessous.",
   },
   {
-    id: "900-m-sainghin-en-mélantois",
+    id: "900-m-sainghin-en-melantois",
     title: "900 m de Sainghin en Mélantois",
     hero: {
       image: nineHundredSainghinHero,
@@ -263,7 +264,7 @@ export const races: Race[] = [
     displayRewardsSummaryLink: false,
   },
   {
-    id: "900-m-peronne-en-mélantois",
+    id: "900-m-peronne-en-melantois",
     title: "900 m de Péronne en Mélantois",
     hero: {
       image: nineHundredPeronneHero,
