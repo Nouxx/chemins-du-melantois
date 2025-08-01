@@ -6,6 +6,7 @@ import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
 import heroImage from "@images/hero-image.webp";
+import videoPreviewImage from "@images/video-preview.webp";
 import faqs from "@data/fr/faqs.json";
 import features from "@data/fr/features.json";
 import { externalLinks, partnersData, routes } from "@/data_files/constants";
@@ -50,9 +51,9 @@ import VideoLink from "@/components/sections/landing/VideoLink.astro";
   />
 
   <VideoLink
-    title="Découvrez la vidéo de l'édition 2024 !"
+    title="Retour en images sur l’édition 2024 !"
     videoUrl={externalLinks.edition2024.youtubeVideo}
-    image={heroImage}
+    image={videoPreviewImage}
   />
 
   <FeaturesGeneral
