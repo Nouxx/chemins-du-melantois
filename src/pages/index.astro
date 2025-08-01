@@ -6,11 +6,13 @@ import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
 import heroImage from "@images/hero-image.webp";
+import videoPreviewImage from "@images/video-preview.webp";
 import faqs from "@data/fr/faqs.json";
 import features from "@data/fr/features.json";
 import { externalLinks, partnersData, routes } from "@/data_files/constants";
 import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
 import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
+import VideoLink from "@/components/sections/landing/VideoLink.astro";
 ---
 
 <MainLayout lang="fr">
@@ -48,21 +50,14 @@ import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
     ]}
   />
 
-  <ClientsSection
-    title="Un grand merci à nos partenaires"
-    partners={partnersData}
+  <VideoLink
+    title="Retour en images sur l’édition 2024 !"
+    videoUrl={externalLinks.edition2024.youtubeVideo}
+    image={videoPreviewImage}
   />
 
-  <iframe
-    class="mx-auto aspect-video w-full max-w-5xl rounded-lg border border-neutral-200 sm:mb-5 lg:mb-10 dark:border-neutral-700"
-    src="https://www.youtube.com/embed/JSbhbnNtyr8?si=JyrEOCp_UIq1yINI"
-    title="YouTube video player"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen></iframe>
-
   <FeaturesGeneral
-    title="Découvrez nos 5 courses"
+    title="Nos 5 courses"
     subTitle="Cette édition 2025 propose notre format habituel de 5 courses variées, parfait pour un événement familial où chacun peut venir et courir ensemble."
     features={features}
     callToActionLabel="Détails des courses"
@@ -70,6 +65,11 @@ import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
   />
 
   <FAQ title="Questions fréquemment posées" faqs={faqs} />
+
+  <ClientsSection
+    title="Un grand merci à nos partenaires"
+    partners={partnersData}
+  />
 
   <HeroSectionAlt
     title="Inscrivez-vous dès maintenant"

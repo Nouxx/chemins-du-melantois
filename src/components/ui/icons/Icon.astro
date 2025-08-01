@@ -6,7 +6,13 @@ interface Path {
   class?: string;
 }
 
-const { name, fill } = Astro.props;
+interface Props {
+  name: string;
+  fill?: string;
+  className?: string;
+}
+
+const { name, fill, className } = Astro.props;
 
 let icon = (Icons as any)[name] || {};
 
@@ -16,7 +22,7 @@ let paths: Path[] = icon.paths || [];
 {
   icon ? (
     <svg
-      class={`${icon.class} fill-${fill}`}
+      class={`${className} ${icon.class} fill-${fill}`}
       height={icon.height}
       viewBox={icon.viewBox}
       width={icon.width}
