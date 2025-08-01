@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 
 import type { ImageMetadata } from "astro";
+import Icon from "@/components/ui/icons/Icon.astro";
 
 interface Props {
   title: string;
@@ -42,17 +43,11 @@ const imageClass =
       <div
         class="absolute inset-0 flex items-center justify-center bg-black/40 transition-colors group-hover:bg-black/60"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          class="h-20 w-20 transform text-white transition-transform group-hover:scale-110"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.647c1.295.742 1.295 2.545 0 3.286L7.279 20.99c-1.25.717-2.779-.217-2.779-1.643V5.653z"
-            clip-rule="evenodd"></path>
-        </svg>
+        <Icon
+          name="play"
+          fill="white"
+          className="h-18 w-18 transform text-white transition-transform group-hover:scale-110"
+        />
       </div>
     </a>
   </div>
