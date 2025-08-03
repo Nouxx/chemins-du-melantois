@@ -4,14 +4,17 @@ import TextLink from "@/components/ui/race/TextLink.astro";
 
 interface Props {
   text: string;
-  traceLink: string;
+  traceLinkPDF: string;
+  traceLinkMaps: string;
 }
 
-const { text, traceLink } = Astro.props;
+const { text, traceLinkPDF, traceLinkMaps } = Astro.props;
 ---
 
 <Heading label="Parcours" />
 
 <p>{text}</p>
 
-<TextLink label="Lien vers le parcours" href={traceLink} />
+<TextLink label="Lien vers le tracé (PDF)" href={traceLinkPDF} />
+
+<TextLink label="Lien vers les tracé interactif (Maps)" href={traceLinkMaps} />

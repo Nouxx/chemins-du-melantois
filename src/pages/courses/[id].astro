@@ -11,7 +11,7 @@ import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
-import { races, type Race } from "@/data_files/constants";
+import { externalLinks, races, type Race } from "@/data_files/constants";
 import RaceDescription from "@/components/sections/races/RaceDescription.astro";
 import OnlineRegistrationText from "@/components/sections/races/Registration/OnlineRegistrationText.astro";
 import OnSiteRegistrationText from "@/components/sections/races/Registration/OnSiteRegistrationText.astro";
@@ -100,7 +100,8 @@ const pageDescription = race.description;
 
             <RaceDescription
               text={race.description}
-              traceLink={race.traceLink}
+              traceLinkPDF={race.traceLink}
+              traceLinkMaps={externalLinks.edition2025.traceMaps}
             />
 
             <Schedule
