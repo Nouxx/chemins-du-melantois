@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'preline/variants.css';
+@import "tailwindcss";
+@import "preline/variants.css";
 @plugin '@tailwindcss/forms';
 
 @custom-variant dark (&:is(.dark *));
@@ -60,18 +60,21 @@
   --color-yellow-900: oklch(0.421 0.095 57.708);
   --color-yellow-950: oklch(0.286 0.066 53.813);
 
-  --color-orange-50:  oklch(0.975 0.02 51.746);
-  --color-orange-100: oklch(0.940 0.045 51.746);
-  --color-orange-200: oklch(0.880 0.085 51.746);
-  --color-orange-300: oklch(0.800 0.130 51.746);
-  --color-orange-400: oklch(0.760 0.160 51.746);
+  --color-orange-50: oklch(0.975 0.02 51.746);
+  --color-orange-100: oklch(0.94 0.045 51.746);
+  --color-orange-200: oklch(0.88 0.085 51.746);
+  --color-orange-300: oklch(0.8 0.13 51.746);
+  --color-orange-400: oklch(0.76 0.16 51.746);
   --color-orange-500: oklch(0.7274 0.1877 51.746);
-  --color-orange-600: oklch(0.640 0.175 51.746);
-  --color-orange-700: oklch(0.540 0.145 51.746);
-  --color-orange-800: oklch(0.440 0.110 51.746);
-  --color-orange-900: oklch(0.340 0.075 51.746);
-  --color-orange-950: oklch(0.240 0.045 51.746);
+  --color-orange-600: oklch(0.64 0.175 51.746);
+  --color-orange-700: oklch(0.54 0.145 51.746);
+  --color-orange-800: oklch(0.44 0.11 51.746);
+  --color-orange-900: oklch(0.34 0.075 51.746);
+  --color-orange-950: oklch(0.24 0.045 51.746);
 
+  --color-brand-light-green: oklch(0.5081 0.0773 119.72);
+  --color-brand-dark-green: oklch(0.3118 0.0529 129.56);
+  --color-brand-orange: oklch(0.7274 0.1877 51.746);
 
   --color-red-50: oklch(0.971 0.013 17.38);
   --color-red-100: oklch(0.936 0.032 17.717);
