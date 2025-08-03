@@ -1,23 +1,25 @@
 ---
-const { url, name } = Astro.props;
-
 interface Props {
   url: string;
   name: string;
+  isCurrent: boolean;
 }
+
+const { url, name, isCurrent } = Astro.props;
+
+const baseClass =
+  "rounded-lg text-base font-medium ring-zinc-500 outline-hidden focus-visible:ring-3 md:py-3 md:text-sm 2xl:text-base dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-hidden";
+
+const currentClass = isCurrent
+  ? "text-brand-light-green underline underline-offset-3"
+  : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-500";
 ---
 
-<!--
-Re-usable link component for navigation bar. Highlights the active link
-by comparing the current URL with the href of each link.
-We assign an ID matching the URL for easy reference in our script.
-If URL is '/' (home page), assign ID as 'home' 
--->
 <a
-  id={url === "/" ? "home" : url.replace("/", "")}
   href={url}
   data-astro-prefetch
-  class="rounded-lg text-base font-medium text-neutral-600 ring-zinc-500 outline-hidden hover:text-neutral-500 focus-visible:ring-3 md:py-3 md:text-sm 2xl:text-base dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-hidden"
+  class={`${baseClass} ${currentClass}`}
+  aria-current={isCurrent ? "page" : undefined}
 >
   {name}
 </a>

@@ -6,6 +6,8 @@ import { SITE } from "@/data_files/constants";
 
 const strings = frStrings;
 const homeUrl = `${SITE.base}`;
+
+const currentPath = Astro.url.pathname;
 ---
 
 <header
@@ -72,15 +74,13 @@ const homeUrl = `${SITE.base}`;
       >
         {
           strings.navBarLinks.map((link) => (
-            <NavLink url={link.url} name={link.name} />
+            <NavLink
+              url={link.url}
+              name={link.name}
+              isCurrent={currentPath === link.url}
+            />
           ))
         }
-
-        <!-- <Authentication /> -->
-        <!-- <LanguagePicker /> -->
-        <!-- <span class="hidden md:inline-block">
-          <ThemeIcon />
-        </span> -->
       </div>
     </div>
   </nav>
