@@ -50,6 +50,8 @@ export const externalLinks = {
       "https://drive.google.com/file/d/1ziGUKrEfpMk1LaMxYXpmCl48_JZPySYu/view",
     traceRunAndBike:
       "https://drive.google.com/file/d/1N4POCdKh9YlkTZTJHRrQBbUJv2enp1Ar/view",
+    traceMaps:
+      "https://www.google.fr/maps/d/u/0/edit?mid=1YDOG0-5eHR_vzE_yyXufJq-fc0YbTdA",
   },
   edition2024: {
     youtubeVideo: "https://youtu.be/JSbhbnNtyr8?si=1WUyL2MXtpcpsgbP",

@@ -9,10 +9,12 @@ interface Props {
 const { label, href } = Astro.props;
 ---
 
-<a href={href} target="_blank" class="link__text font-bold">
-  {label}
-  <Icon name="openInNew" />
-</a>
+<p>
+  <a href={href} target="_blank" class="link__text font-bold">
+    {label}
+    <Icon name="openInNew" />
+  </a>
+</p>
 
 <style>
   .link__text:hover {
