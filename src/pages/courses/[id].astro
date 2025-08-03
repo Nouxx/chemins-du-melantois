@@ -306,8 +306,6 @@ const pageDescription = race.description;
       : [];
 
     headings.forEach((heading, i) => {
-      console.log("heading", heading.id);
-
       if (heading instanceof HTMLElement) {
         const listItem = document.createElement("li");
         listItem.className = "toc-level-" + heading.tagName.toLowerCase();

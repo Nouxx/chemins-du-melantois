@@ -3,9 +3,12 @@ import NavLink from "@components/ui/links/NavLink.astro";
 import frStrings from "@/utils/navigation";
 import BrandLogo from "@components/BrandLogo.astro";
 import { SITE } from "@/data_files/constants";
+import { removeTrailingSlash } from "@/utils/utils";
 
 const strings = frStrings;
 const homeUrl = `${SITE.base}`;
+
+const currentPath = removeTrailingSlash(Astro.url.pathname);
 ---
 
 <header
@@ -72,15 +75,13 @@ const homeUrl = `${SITE.base}`;
       >
         {
           strings.navBarLinks.map((link) => (
-            <NavLink url={link.url} name={link.name} />
+            <NavLink
+              url={link.url}
+              name={link.name}
+              isCurrent={link.url === currentPath}
+            />
           ))
         }
-
-        <!-- <Authentication /> -->
-        <!-- <LanguagePicker /> -->
-        <!-- <span class="hidden md:inline-block">
-          <ThemeIcon />
-        </span> -->
       </div>
     </div>
   </nav>

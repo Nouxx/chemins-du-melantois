@@ -21,7 +21,7 @@ export const SITE = {
   author: "Association Les Chemins du Mélantois",
   base: "", // must match the base path in astro.config.mjs
   contactEmail: "contact@lescheminsdumelantois.fr",
-};
+} as const;
 
 export const externalLinks = {
   registration:

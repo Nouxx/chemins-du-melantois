@@ -4,11 +4,12 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
+    "prod": "npm run build && npm run preview",
     "build": "astro check && astro build && node process-html.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "format:fix": "prettier --write ."
+    "format:fix": "prettier --write .",
+    "nuke": "rm -rf dist && rm -rf .astro && rm -rf node_modules && npm ci"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
