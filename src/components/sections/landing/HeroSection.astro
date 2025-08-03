@@ -1,22 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
-import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
 import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
 
-const {
-  title,
-  subTitle,
-  secondaryBtn,
-  secondaryBtnURL,
-  withReview = false,
-  avatars,
-  starCount,
-  rating,
-  reviews,
-  src,
-  alt,
-} = Astro.props;
+const { subTitle, secondaryBtn, secondaryBtnURL, src, alt } = Astro.props;
 
 interface Props {
   title: string;

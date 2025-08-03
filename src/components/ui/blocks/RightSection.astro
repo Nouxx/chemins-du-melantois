@@ -3,8 +3,6 @@ import { Image } from "astro:assets";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import type { ImageMetadata } from "astro";
 
-const { title, subTitle, image, imageAlt, list, links } = Astro.props;
-
 export interface ButtonLink {
   title: string;
   url: string;
@@ -16,9 +14,13 @@ interface Props {
   subTitle: string;
   image: ImageMetadata;
   imageAlt: string;
+  imageLoading?: HTMLImageElement["loading"];
   list?: string[];
   links?: ButtonLink[];
 }
+
+const { title, subTitle, image, imageAlt, imageLoading, list, links } =
+  Astro.props;
 ---
 
 <section
@@ -68,6 +70,7 @@ interface Props {
       alt={imageAlt}
       format={"avif"}
       sizes="(max-width: 1023px) 100vw, (max-width: 1536px) 50vw, 672px"
+      loading={imageLoading || "lazy"}
     />
   </div>
 </section>
