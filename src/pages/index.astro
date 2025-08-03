@@ -26,7 +26,13 @@ import VideoLink from "@/components/sections/landing/VideoLink.astro";
     secondaryBtnURL={routes.races}
     src={heroImage}
     alt="Coureurs au départ de la course des Chemins du Mélantois"
-  />
+  >
+    <p slot="title">
+      Bienvenue aux Chemins du <span
+        class="text-brand-light-green">Mélantois</span
+      >
+    </p>
+  </HeroSection>
 
   <FeaturesStats
     title="En quelques chiffres"

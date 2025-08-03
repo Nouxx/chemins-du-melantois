@@ -17,12 +17,14 @@ const { name, fill, className } = Astro.props;
 let icon = (Icons as any)[name] || {};
 
 let paths: Path[] = icon.paths || [];
+
+const fillClass = fill ? `text-${fill}` : "";
 ---
 
 {
   icon ? (
     <svg
-      class={`${className} ${icon.class} fill-${fill}`}
+      class={`${className ?? ""} ${icon.class} fill-${fill} ${fillClass}`}
       height={icon.height}
       viewBox={icon.viewBox}
       width={icon.width}

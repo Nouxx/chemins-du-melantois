@@ -1,22 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
-import ReviewComponent from "@components/ui/blocks/ReviewComponent.astro";
 import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
 
-const {
-  title,
-  subTitle,
-  secondaryBtn,
-  secondaryBtnURL,
-  withReview = false,
-  avatars,
-  starCount,
-  rating,
-  reviews,
-  src,
-  alt,
-} = Astro.props;
+const { subTitle, secondaryBtn, secondaryBtnURL, src, alt } = Astro.props;
 
 interface Props {
   title: string;
@@ -43,7 +30,7 @@ interface Props {
     <h1
       class="text-3xl font-bold tracking-tight text-balance text-neutral-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-neutral-200"
     >
-      <Fragment set:html={title} />
+      <slot name="title" />
     </h1>
     {
       subTitle && (
@@ -60,21 +47,8 @@ interface Props {
         )
       }
     </div>
-
-    {
-      withReview ? (
-        <ReviewComponent
-          avatars={avatars}
-          starCount={starCount}
-          rating={rating}
-          reviews={reviews}
-        />
-      ) : (
-        ""
-      )
-    }
   </div>
-  <div class="image__placeholder overflow-hidden rounded-md w-full">
+  <div class="image__placeholder w-full overflow-hidden rounded-md">
     {
       (
         <Image

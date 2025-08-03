@@ -52,16 +52,12 @@ const {
 
   <div class="mt-5 grid gap-8 lg:mt-16 lg:grid-cols-3 lg:gap-12">
     <div class="lg:col-span-1">
-      <h2
-        class="text-2xl font-bold text-balance text-neutral-800 md:text-3xl dark:text-neutral-200"
-      >
+      <h2 class="text-2xl font-bold text-balance text-neutral-800 md:text-3xl">
         {title}
       </h2>
       {
         subTitle && (
-          <p class="mt-2 text-pretty text-neutral-600 md:mt-4 dark:text-neutral-400">
-            {subTitle}
-          </p>
+          <p class="mt-2 text-pretty text-neutral-600 md:mt-4">{subTitle}</p>
         )
       }
       <div class="mt-5">
@@ -79,7 +75,7 @@ const {
                 content={feature.content}
                 subHeading={feature.price}
               >
-                <Icon name={feature.svg} fill="orange-400" />
+                <Icon name={feature.svg} fill="brand-orange" />
               </IconBlock>
             ))
         }
