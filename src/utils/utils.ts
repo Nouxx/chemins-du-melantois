@@ -16,9 +16,4 @@ function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function removeTrailingSlash(url: string): string {
-  if (url.length === 1 && url.startsWith("/")) return url;
-  return url.endsWith("/") ? url.slice(0, -1) : url;
-}
-
-export { formatDate, capitalize, removeTrailingSlash };
+export { formatDate, capitalize };

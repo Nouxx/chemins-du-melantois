@@ -5,6 +5,7 @@ on:
 
 jobs:
   build:
+    name: Build & Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,3 +21,6 @@ jobs:
 
       - name: Build app
         run: npm run build
+
+      - name: Test
+        run: npm run test

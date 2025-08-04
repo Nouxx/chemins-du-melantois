@@ -8,6 +8,7 @@
     "build": "astro check && astro build && node process-html.mjs",
     "preview": "astro preview",
     "astro": "astro",
+    "test": "vitest",
     "format:fix": "prettier --write .",
     "nuke": "rm -rf dist && rm -rf .astro && rm -rf node_modules && npm ci"
   },
@@ -36,6 +37,7 @@
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
   }
 }
