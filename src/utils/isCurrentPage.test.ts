@@ -1,4 +1,4 @@
-import { isCurrentPage } from "./isCurrentPage";
+import { isCurrentPath } from "./isCurrentPage";
 import { expect, it } from "vitest";
 
 const testCases = [
@@ -15,6 +15,6 @@ const testCases = [
 it.each(testCases)(
   "should return $expected for current $currentUri and target $targetUri",
   ({ currentUri, targetUri, expected }) => {
-    expect(isCurrentPage(currentUri, targetUri)).toBe(expected);
+    expect(isCurrentPath(currentUri, targetUri)).toBe(expected);
   },
 );

@@ -1,20 +1,26 @@
-import { removeTrailingSlash } from "./utils";
+import { removeTrailingSlash } from "./removeTrailingSlash";
 
-// must be called with path/URI only
-// return `true` if the target URI is or is a parent of current URI
-// usage: current URI comes from the browser `Astro.url` and target URI from a internal link const list
-// build + whole app crashes so it's ok to throw
-export function isCurrentPage(currentUri: string, targetUri: string): boolean {
-  if (!currentUri.startsWith("/") || !targetUri.startsWith("/")) {
+/**
+ * return `true` if `targetPath` is `currentPath` or its parent
+ *
+ * Usage: current should be `Astro.url.pathname` to compare with existing routes (e.g. `/myroute`)
+ *
+ */
+export function isCurrentPath(
+  currentPath: string,
+  targetPath: string,
+): boolean {
+  if (!currentPath.startsWith("/") || !targetPath.startsWith("/")) {
+    // error will fail the build, so it's safe to throw
     throw Error(
-      `isCurrentPage was invoked with an invalid path: current=${currentUri} path=${targetUri}`,
+      `isCurrentPage was invoked with an invalid path: current=${currentPath} path=${targetPath}`,
     );
   }
-  if (currentUri === "/") {
-    return targetUri === "/";
+  if (currentPath === "/") {
+    return targetPath === "/";
   }
-  if (targetUri === "/") {
-    return currentUri === "/";
+  if (targetPath === "/") {
+    return currentPath === "/";
   }
-  return removeTrailingSlash(currentUri).startsWith(targetUri);
+  return removeTrailingSlash(currentPath).startsWith(targetPath);
 }
