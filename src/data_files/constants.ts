@@ -85,6 +85,7 @@ export const externalLinks = {
 
 export type ExternalLinkKey = keyof typeof externalLinks;
 
+// todo: zod validation (must start with '/')
 export const routes = {
   home: `/`,
   races: `${SITE.base}/courses`,

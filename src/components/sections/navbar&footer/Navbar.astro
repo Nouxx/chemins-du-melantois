@@ -4,6 +4,7 @@ import frStrings from "@/utils/navigation";
 import BrandLogo from "@components/BrandLogo.astro";
 import { SITE } from "@/data_files/constants";
 import { removeTrailingSlash } from "@/utils/utils";
+import { isCurrentPage } from "@/utils/isCurrentPage";
 
 const strings = frStrings;
 const homeUrl = `${SITE.base}`;
@@ -78,7 +79,7 @@ const currentPath = removeTrailingSlash(Astro.url.pathname);
             <NavLink
               url={link.url}
               name={link.name}
-              isCurrent={link.url === currentPath}
+              isCurrent={isCurrentPage(currentPath, link.url)}
             />
           ))
         }
