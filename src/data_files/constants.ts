@@ -2,6 +2,7 @@ import MelIconSvg from "../images/partners/mel-logo.svg?raw";
 import NordIconSvg from "../images/partners/nord-logo.svg?raw";
 import CreditMutuelIcon from "../images/partners/credit-mutuel-logo.svg?raw";
 import MatchLogoSvg from "../images/partners/match-logo.svg?raw";
+import ReKeepLogoSvg from "../images/partners/rekeep-logo.svg?raw";
 import edition2024Hero from "../images/races/2024-edition-hero.webp";
 // images
 import tenKilometerHero from "../images/races/10km-sem-hero.webp";
@@ -151,6 +152,11 @@ export const partnersData: Partner[] = [
     icon: MatchLogoSvg,
     name: "Logo du Supermarchés Match",
     href: "https://www.supermarchesmatch.fr",
+  },
+  {
+    icon: ReKeepLogoSvg,
+    name: "Logo de l'entreprise Rekeep",
+    href: "https://rekeepfrance.com",
   },
 ];
 
