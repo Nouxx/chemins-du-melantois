@@ -2,17 +2,18 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSection from "@components/sections/landing/HeroSection.astro";
 import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
-import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
 import heroImage from "@images/hero-image.webp";
 import videoPreviewImage from "@images/video-preview.webp";
 import faqs from "@data/fr/faqs.json";
 import features from "@data/fr/features.json";
-import { externalLinks, partnersData, routes } from "@/data_files/constants";
+import { externalLinks, routes } from "@/data_files/constants";
 import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
 import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
 import VideoLink from "@/components/sections/landing/VideoLink.astro";
+import SponsorsSection from "@/components/sections/landing/SponsorsSection.astro";
+import { sponsorsData } from "@/data_files/sponsors";
 ---
 
 <MainLayout lang="fr">
@@ -28,8 +29,8 @@ import VideoLink from "@/components/sections/landing/VideoLink.astro";
     alt="Coureurs au départ de la course des Chemins du Mélantois"
   >
     <p slot="title">
-      Bienvenue aux Chemins du <span
-        class="text-brand-light-green">Mélantois</span
+      Bienvenue aux Chemins du <span class="text-brand-light-green"
+        >Mélantois</span
       >
     </p>
   </HeroSection>
@@ -72,10 +73,7 @@ import VideoLink from "@/components/sections/landing/VideoLink.astro";
 
   <FAQ title="Questions fréquemment posées" faqs={faqs} />
 
-  <ClientsSection
-    title="Un grand merci à nos partenaires"
-    partners={partnersData}
-  />
+  <SponsorsSection />
 
   <HeroSectionAlt
     title="Inscrivez-vous dès maintenant"

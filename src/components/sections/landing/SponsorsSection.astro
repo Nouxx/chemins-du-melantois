@@ -1,0 +1,27 @@
+---
+import FeaturedLogos from "@/components/ui/organism/FeaturedLogos.astro";
+import { sponsorsData, type Sponsor } from "@/data_files/sponsors";
+import type { SvgLogoLink } from "@/data_files/types";
+
+function adaptPartner(partner: Sponsor): SvgLogoLink {
+  return {
+    link: {
+      href: partner.href,
+      name: partner.name,
+      openInNewTab: true,
+    },
+    svg: partner.icon,
+  };
+}
+
+const adaptedSponsors = sponsorsData.map((sponsor) => adaptPartner(sponsor));
+---
+
+<section
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
+>
+  <FeaturedLogos
+    title="Un grand merci à nos partenaires"
+    logoLinks={adaptedSponsors}
+  />
+</section>

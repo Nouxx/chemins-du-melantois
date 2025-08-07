@@ -1,7 +1,3 @@
-import MelIconSvg from "../images/partners/mel-logo.svg?raw";
-import NordIconSvg from "../images/partners/nord-logo.svg?raw";
-import CreditMutuelIcon from "../images/partners/credit-mutuel-logo.svg?raw";
-import MatchLogoSvg from "../images/partners/match-logo.svg?raw";
 import edition2024Hero from "../images/races/2024-edition-hero.webp";
 // images
 import tenKilometerHero from "../images/races/10km-sem-hero.webp";
@@ -124,35 +120,6 @@ export const OG = {
   imageAlt:
     "Une vue en hauteur du départ de la course 2024 des Chemins du Mélantois",
 };
-
-export interface Partner {
-  icon: any;
-  name: string;
-  href: string;
-}
-
-export const partnersData: Partner[] = [
-  {
-    icon: MelIconSvg, // todo: clean svg inner padding
-    name: "Logo de la MEL: Métropole Européenne de Lille",
-    href: "https://www.lillemetropole.fr",
-  },
-  {
-    icon: NordIconSvg,
-    name: "Logo du Département du Nord",
-    href: "https://lenord.fr",
-  },
-  {
-    icon: CreditMutuelIcon,
-    name: "Logo du Crédit Mutuel",
-    href: "https://www.creditmutuel.fr",
-  },
-  {
-    icon: MatchLogoSvg,
-    name: "Logo du Supermarchés Match",
-    href: "https://www.supermarchesmatch.fr",
-  },
-];
 
 // todo: use zod
 // todo: make sure id can be converted in a URL safe string
