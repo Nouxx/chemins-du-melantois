@@ -1,0 +1,44 @@
+---
+import { cva } from "class-variance-authority";
+
+interface Props {
+  id?: string;
+  tag?: string;
+  size?: ValidSize;
+}
+
+type ValidSize = "lg";
+
+type ValidTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+const VALID_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
+
+function isValidTag(string: string | undefined): string is ValidTag {
+  if (!string) return false;
+  return VALID_TAGS.includes(string);
+}
+
+const { id, tag, size } = Astro.props;
+
+const Tag: ValidTag = isValidTag(tag) ? tag : "h2";
+
+const heading = cva(
+  ["font-bold tracking-tight text-balance lg:leading-tight"],
+  {
+    variants: {
+      size: {
+        lg: "text-3xl sm:text-4xl lg:text-6xl",
+      },
+      color: {
+        default: "text-neutral-800",
+      },
+    },
+  }
+);
+
+const classes = heading({ size: size ?? "lg" });
+---
+
+<Tag id={id} class={classes}>
+  <slot />
+</Tag>

@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
 import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
 
 const { subTitle, secondaryBtn, secondaryBtnURL, src, alt } = Astro.props;
 
@@ -27,11 +28,9 @@ interface Props {
   class="mx-auto flex max-w-[85rem] flex-col items-stretch gap-4 px-4 py-14 sm:px-6 md:flex-row md:gap-8 lg:px-8 2xl:max-w-full"
 >
   <div class="md:max-w-[50%]">
-    <h1
-      class="text-3xl font-bold tracking-tight text-balance text-neutral-800 sm:text-4xl lg:text-6xl lg:leading-tight dark:text-neutral-200"
-    >
+    <Heading tag="h1">
       <slot name="title" />
-    </h1>
+    </Heading>
     {
       subTitle && (
         <p class="mt-3 text-lg leading-relaxed text-pretty text-neutral-700 lg:w-4/5 dark:text-neutral-400">
