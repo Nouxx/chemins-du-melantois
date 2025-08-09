@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import SecondaryCTA from "@components/ui/buttons/SecondaryCTA.astro";
 import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
+import Section from "@/components/ui/atoms/Section.astro";
 
 const { subTitle, secondaryBtn, secondaryBtnURL, src, alt } = Astro.props;
 
@@ -24,9 +25,7 @@ interface Props {
 }
 ---
 
-<section
-  class="mx-auto flex max-w-[85rem] flex-col items-stretch gap-4 px-4 py-14 sm:px-6 md:flex-row md:gap-8 lg:px-8 2xl:max-w-full"
->
+<Section>
   <div class="md:max-w-[50%]">
     <Heading tag="h1">
       <slot name="title" />
@@ -63,4 +62,4 @@ interface Props {
       )
     }
   </div>
-</section>
+</Section>
