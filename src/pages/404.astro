@@ -1,10 +1,9 @@
 ---
 // Import section components
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import PrimaryCTA from "@/components/functional/PrimaryCTA.astro";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { getPageTitle } from "@/utils/structured-data";
-import Btn404 from "@components/ui/buttons/Btn404.astro";
-import { routes, SITE } from "@data/constants";
+import { routes } from "@data/constants";
 
 // Define types for translations
 type TranslationKeys = "en" | "fr";
@@ -41,7 +40,7 @@ const pageTitle = getPageTitle("Page Introuvable");
         >
           Pas de panique, même les meilleurs peuvent faire un petit détour.
         </p>
-        <PrimaryCTA title="Retour vers l'accueil" url={routes.home} />
+        <PrimaryCTA label="Retour vers l'accueil" url={routes.home} />
       </div>
     </div>
   </section>

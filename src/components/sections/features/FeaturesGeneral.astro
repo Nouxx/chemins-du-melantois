@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import IconBlock from "@components/ui/blocks/IconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import PrimaryCTA from "@/components/functional/PrimaryCTA.astro";
 
 interface Feature {
   heading: string;
@@ -61,7 +61,11 @@ const {
         )
       }
       <div class="mt-5">
-        <PrimaryCTA title={callToActionLabel} url={callToActionLink} />
+        {
+          callToActionLink && callToActionLabel && (
+            <PrimaryCTA label={callToActionLabel} url={callToActionLink} />
+          )
+        }
       </div>
     </div>
 

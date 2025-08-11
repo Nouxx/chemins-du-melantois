@@ -1,5 +1,5 @@
 ---
-import PrimaryCTA from "@/components/ui/buttons/PrimaryCTA.astro";
+import PrimaryCTA from "@/components/functional/PrimaryCTA.astro";
 import { externalLinks } from "@/data_files/constants";
 
 interface Props {
@@ -10,4 +10,9 @@ interface Props {
 }
 ---
 
-<PrimaryCTA title="Inscription" url={externalLinks.registration} openInNewTab />
+<PrimaryCTA
+  label="Inscription"
+  url={externalLinks.registration}
+  openInNewTab
+  arrow
+/>

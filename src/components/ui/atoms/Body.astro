@@ -1,0 +1,31 @@
+---
+import { cva } from "class-variance-authority";
+
+interface Props {
+  size?: undefined; // todo: add size variants
+  className?: string;
+}
+
+const { size, className } = Astro.props;
+
+const body = cva(["leading-relaxed text-pretty", className], {
+  variants: {
+    size: {
+      lg: "text-lg",
+    },
+    color: {
+      neutral: "text-neutral-700",
+    },
+  },
+  defaultVariants: {
+    size: "lg",
+    color: "neutral",
+  },
+});
+
+const classes = body({ size });
+---
+
+<p class={classes}>
+  <slot />
+</p>
