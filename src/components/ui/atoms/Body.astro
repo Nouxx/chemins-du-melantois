@@ -1,29 +1,42 @@
 ---
-import { cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 
-interface Props {
-  size?: undefined; // todo: add size variants
-  className?: string;
-}
+const { size, className, fontStyle, color } = Astro.props;
 
-const { size, className } = Astro.props;
-
-const body = cva(["leading-relaxed text-pretty", className], {
+const body = cva(["text-pretty", className], {
   variants: {
+    // todo: refactor this when all currently used sizes are defined
     size: {
-      lg: "text-lg",
+      lg: "text-lg sm:text-xl",
+      "6xl": "text-6xl",
+      "3xl": "text-3xl",
     },
     color: {
-      neutral: "text-neutral-700",
+      neutral: "text-neutral-600",
+      brandLightGreen: "text-brand-light-green",
+    },
+    fontStyle: {
+      normal: "font-normal",
+      bold: "font-bold",
     },
   },
   defaultVariants: {
     size: "lg",
     color: "neutral",
+    fontStyle: "normal",
   },
 });
 
-const classes = body({ size });
+type BodyVariants = VariantProps<typeof body>; // todo: move this up?
+
+interface Props {
+  size?: BodyVariants["size"];
+  className?: string;
+  fontStyle?: BodyVariants["fontStyle"];
+  color?: BodyVariants["color"];
+}
+
+const classes = body({ size, fontStyle, color });
 ---
 
 <p class={classes}>

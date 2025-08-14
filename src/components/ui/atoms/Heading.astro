@@ -5,6 +5,7 @@ interface Props {
   id?: string;
   tag?: string;
   size?: ValidSize;
+  classNames?: string;
 }
 
 type ValidSize = "lg";
@@ -18,12 +19,18 @@ function isValidTag(string: string | undefined): string is ValidTag {
   return VALID_TAGS.includes(string);
 }
 
-const { id, tag, size } = Astro.props;
+const { id, tag, size, classNames } = Astro.props;
 
 const Tag: ValidTag = isValidTag(tag) ? tag : "h2";
 
 const heading = cva(
-  ["font-bold", "tracking-tight", "text-balance", "lg:leading-tight"],
+  [
+    "font-bold",
+    "tracking-tight",
+    "text-balance",
+    "lg:leading-tight",
+    classNames,
+  ],
   {
     variants: {
       size: {

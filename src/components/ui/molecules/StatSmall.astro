@@ -1,0 +1,15 @@
+---
+import Body from "@/components/ui/atoms/Body.astro";
+
+interface Props {
+  title: string;
+  subTitle: string;
+}
+
+const { title, subTitle } = Astro.props;
+---
+
+<div>
+  <Body color="brandLightGreen" size="3xl" fontStyle="bold">{title}</Body>
+  <Body className="mt-1">{subTitle}</Body>
+</div>

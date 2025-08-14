@@ -1,0 +1,38 @@
+---
+import Body from "@/components/ui/atoms/Body.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
+import Section from "@/components/ui/atoms/Section.astro";
+import StatBig from "@/components/ui/molecules/StatBig.astro";
+import StatSmall from "@/components/ui/molecules/StatSmall.astro";
+---
+
+<Section>
+  <div class="max-w-(--breakpoint-md)">
+    <Heading tag="h2" classNames="mb-4">En quelques chiffres</Heading>
+
+    <Body className="mb-16 max-w-prose leading-relaxed">
+      Cet évènement est organisé par l'association « Les chemins du Mélantois »
+      sous l'impulsion des communes de Sainghin-en-Mélantois et
+      Péronne-en-Mélantois, et est entièrement bénévole. Il a pour but de
+      promouvoir la pratique du sport en milieu naturel, de faire découvrir le
+      Mélantois et de récolter des fonds pour des associations locales.
+    </Body>
+  </div>
+
+  <div class="grid items-center gap-6 lg:grid-cols-12 lg:gap-12">
+    <div class="lg:col-span-4">
+      <StatBig title="3200" subTitle="participants depuis sa création" />
+    </div>
+    <div
+      class="relative lg:col-span-8 lg:before:absolute lg:before:-start-12 lg:before:top-0 lg:before:h-full lg:before:w-px lg:before:bg-neutral-300"
+    >
+      <div
+        class="grid grid-cols-2 gap-6 sm:gap-8 md:grid-cols-4 lg:grid-cols-3"
+      >
+        <StatSmall title="14ème" subTitle="édition depuis 2011" />
+        <StatSmall title="5" subTitle="formats disponible" />
+        <StatSmall title="10min" subTitle="en voiture depuis Lille" />
+      </div>
+    </div>
+  </div>
+</Section>

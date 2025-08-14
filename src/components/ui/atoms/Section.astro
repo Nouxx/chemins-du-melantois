@@ -1,5 +1,17 @@
+---
+import { undefined } from "astro:schema";
+
+interface Props {
+  flex?: boolean;
+}
+
+const { flex = false } = Astro.props;
+
+const flexClasses = flex ? "flex flex-col md:flex-row" : undefined;
+---
+
 <section
-  class="mx-auto flex max-w-[85rem] flex-col items-stretch gap-4 px-4 py-14 sm:px-6 md:flex-row md:gap-8 lg:px-8 2xl:max-w-full"
+  class=`mx-auto max-w-[85rem] items-stretch gap-4 px-4 py-14 sm:px-6 md:gap-8 lg:px-8 2xl:max-w-full ${flexClasses}`
 >
   <slot />
 </section>

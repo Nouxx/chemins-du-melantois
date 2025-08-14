@@ -8,37 +8,17 @@ import videoPreviewImage from "@images/video-preview.webp";
 import faqs from "@data/fr/faqs.json";
 import features from "@data/fr/features.json";
 import { externalLinks, routes } from "@/data_files/constants";
-import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
 import VideoLink from "@/components/sections/landing/VideoLink.astro";
 import SponsorsSection from "@/components/sections/landing/SponsorsSection.astro";
 import RegisterButton from "@/components/functional/RegisterButton.astro";
 import HeroSection from "@/components/functional/HeroSection.astro";
+import EventStats from "@/components/functional/EventStats.astro";
 ---
 
 <MainLayout lang="fr">
   <HeroSection />
 
-  <FeaturesStats
-    title="En quelques chiffres"
-    subTitle="Cet évènement est organisé par l'association « Les chemins du Mélantois » sous l'impulsion des communes de Sainghin-en-Mélantois et Péronne-en-Mélantois, \
-    et est entièrement bénévole. Il a pour but de promouvoir la pratique du sport en milieu naturel, de faire découvrir le Mélantois et de récolter des fonds pour des associations locales."
-    mainStatTitle="3200"
-    mainStatSubTitle="participants depuis sa création"
-    stats={[
-      {
-        stat: "15ème",
-        description: "édition depuis 2011",
-      },
-      {
-        stat: "5",
-        description: "formats disponible",
-      },
-      {
-        stat: "10min",
-        description: "en voiture depuis Lille",
-      },
-    ]}
-  />
+  <EventStats />
 
   <VideoLink
     title="Retour en images sur l’édition 2024 !"
@@ -47,8 +27,8 @@ import HeroSection from "@/components/functional/HeroSection.astro";
   />
 
   <FeaturesGeneral
-    title="Nos courses de 2025"
-    subTitle="Cette édition 2025 a proposé notre format habituel de 5 courses variées, parfait pour un événement familial où chacun peut venir et courir ensemble."
+    title="Nos 5 courses"
+    subTitle="Cette édition 2025 propose notre format habituel de 5 courses variées, parfait pour un événement familial où chacun peut venir et courir ensemble."
     features={features}
     callToActionLabel="Détails des courses"
     callToActionLink={routes.races}
@@ -59,7 +39,9 @@ import HeroSection from "@/components/functional/HeroSection.astro";
   <SponsorsSection />
 
   <HeroSectionAlt
-    title="Rendez-vous en 2026 !"
-    subTitle="Venez vibrer à nouveau en 2026 sur des parcours conviviaux et 100 % nature !"
-  />
+    title="Inscrivez-vous dès maintenant"
+    subTitle="Rejoignez l'aventure des Chemins du Mélantois et prenez le départ d'une course conviviale, familiale et 100 % nature !"
+  >
+    <RegisterButton />
+  </HeroSectionAlt>
 </MainLayout>
