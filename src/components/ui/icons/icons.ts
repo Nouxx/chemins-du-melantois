@@ -1,3 +1,5 @@
+import type { SvgIcon } from "@/components/ui/icons/schema";
+
 export const svgIcons = {
   arrowRight: {
     paths: [
@@ -128,4 +130,4 @@ export const svgIcons = {
     viewBox: "0 0 24 24",
     fill: "currentColor",
   },
-};
+} satisfies Record<string, SvgIcon>;
