@@ -1,14 +1,5 @@
 ---
-import { cva } from "class-variance-authority";
-
-interface Props {
-  id?: string;
-  tag?: string;
-  size?: ValidSize;
-  classNames?: string;
-}
-
-type ValidSize = "lg";
+import { cva, type VariantProps } from "class-variance-authority";
 
 type ValidTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
@@ -24,30 +15,34 @@ const { id, tag, size, classNames } = Astro.props;
 const Tag: ValidTag = isValidTag(tag) ? tag : "h2";
 
 const heading = cva(
-  [
-    "font-bold",
-    "tracking-tight",
-    "text-balance",
-    "lg:leading-tight",
-    classNames,
-  ],
+  ["font-bold", "tracking-tight", "text-balance", "leading-tight", classNames],
   {
     variants: {
       size: {
-        lg: "text-3xl sm:text-4xl lg:text-6xl",
+        medium: "text-3xl sm:text-4xl lg:text-5xl",
+        large: "text-3xl sm:text-4xl lg:text-6xl",
       },
       color: {
         neutral: "text-neutral-800",
       },
     },
     defaultVariants: {
-      size: "lg",
+      size: "large",
       color: "neutral",
     },
   }
 );
 
-const classes = heading({ size: size ?? "lg" });
+type Variants = VariantProps<typeof heading>; // todo: move this up?
+
+interface Props {
+  id?: string;
+  tag?: string;
+  size?: Variants["size"];
+  classNames?: string;
+}
+
+const classes = heading({ size });
 ---
 
 <Tag id={id} class={classes}>

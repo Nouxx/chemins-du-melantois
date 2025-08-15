@@ -7,7 +7,7 @@ import FAQ from "@components/sections/misc/FAQ.astro";
 import videoPreviewImage from "@images/video-preview.webp";
 import faqs from "@data/fr/faqs.json";
 import features from "@data/fr/features.json";
-import { externalLinks, routes } from "@/data_files/constants";
+import { routes } from "@/data_files/constants";
 import VideoLink from "@/components/sections/landing/VideoLink.astro";
 import SponsorsSection from "@/components/sections/landing/SponsorsSection.astro";
 import RegisterButton from "@/components/functional/RegisterButton.astro";
@@ -20,11 +20,7 @@ import EventStats from "@/components/functional/EventStats.astro";
 
   <EventStats />
 
-  <VideoLink
-    title="Retour en images sur l’édition 2024 !"
-    videoUrl={externalLinks.edition2024.youtubeVideo}
-    image={videoPreviewImage}
-  />
+  <VideoLink />
 
   <FeaturesGeneral
     title="Nos 5 courses"
