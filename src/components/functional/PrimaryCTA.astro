@@ -4,18 +4,11 @@ import LinkButton from "@/components/ui/atoms/LinkButton.astro";
 interface Props {
   label: string;
   url: string;
-  arrow?: boolean;
   openInNewTab?: boolean;
   disabled?: boolean;
 }
 
-const {
-  label,
-  url,
-  arrow = false,
-  openInNewTab = false,
-  disabled = false,
-} = Astro.props;
+const { label, url, openInNewTab = false, disabled = false } = Astro.props;
 
 const target = openInNewTab ? "_blank" : "_self";
 ---
@@ -24,7 +17,7 @@ const target = openInNewTab ? "_blank" : "_self";
   label={label}
   url={url}
   color="green"
-  icon={arrow}
+  icon
   target={target}
   disabled={disabled}
 />
