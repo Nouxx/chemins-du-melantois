@@ -48,5 +48,5 @@ const classes = iconClasses({ className, color, size });
   aria-hidden={icon.title ? "false" : "true"}
 >
   <title>{icon.title}</title>
-  {icon.paths.map((path) => <path d={path.d} class={path.class || ""} />)}
+  {icon.paths.map((path) => <path d={path.d} class={path.class} />)}
 </svg>
