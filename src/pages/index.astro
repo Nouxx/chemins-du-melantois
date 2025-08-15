@@ -1,18 +1,15 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
 import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
-import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
 
-import videoPreviewImage from "@images/video-preview.webp";
 import faqs from "@data/fr/faqs.json";
-import features from "@data/fr/features.json";
-import { routes } from "@/data_files/constants";
 import VideoLink from "@/components/sections/landing/VideoLink.astro";
 import SponsorsSection from "@/components/sections/landing/SponsorsSection.astro";
 import RegisterButton from "@/components/functional/RegisterButton.astro";
 import HeroSection from "@/components/functional/HeroSection.astro";
 import EventStats from "@/components/functional/EventStats.astro";
+import RacesOverview from "@/components/functional/RacesOverview.astro";
 ---
 
 <MainLayout lang="fr">
@@ -22,13 +19,7 @@ import EventStats from "@/components/functional/EventStats.astro";
 
   <VideoLink />
 
-  <FeaturesGeneral
-    title="Nos 5 courses"
-    subTitle="Cette édition 2025 propose notre format habituel de 5 courses variées, parfait pour un événement familial où chacun peut venir et courir ensemble."
-    features={features}
-    callToActionLabel="Détails des courses"
-    callToActionLink={routes.races}
-  />
+  <RacesOverview />
 
   <FAQ title="Questions fréquemment posées" faqs={faqs} />
 

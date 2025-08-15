@@ -1,0 +1,29 @@
+---
+import Body from "@/components/ui/atoms/Body.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
+import Icon, { type IconColor } from "@/components/ui/icons/Icon.astro";
+import type { SvgIconName } from "@/components/ui/icons/schema";
+
+interface Props {
+  title: string;
+  subTitle: string;
+  body: string;
+  iconName: SvgIconName;
+  iconColor: IconColor;
+}
+const { title, subTitle, body, iconName, iconColor } = Astro.props;
+---
+
+<div class="flex gap-x-5">
+  <Icon name={iconName} size="large" color={iconColor} />
+
+  <div class="flex grow flex-col gap-2">
+    <Heading size="xsmall" tag="h2">
+      {title}
+    </Heading>
+
+    <Body>{subTitle}</Body>
+
+    <Body size="small">{body}</Body>
+  </div>
+</div>

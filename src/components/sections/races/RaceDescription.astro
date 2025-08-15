@@ -1,5 +1,5 @@
 ---
-import Heading from "@/components/ui/race/Heading.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
 import TextLink from "@/components/ui/race/TextLink.astro";
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 const { text, traceLinkPDF, traceLinkMaps } = Astro.props;
 ---
 
-<Heading label="Parcours" />
+<Heading>Parcours</Heading>
 
 <p>{text}</p>
 

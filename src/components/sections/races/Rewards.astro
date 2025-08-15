@@ -1,5 +1,5 @@
 ---
-import Heading from "@/components/ui/race/Heading.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
 import TextLink from "@/components/ui/race/TextLink.astro";
 import { externalLinks } from "@/data_files/constants";
 
@@ -11,7 +11,7 @@ interface Props {
 const { text, displayLink = true } = Astro.props;
 ---
 
-<Heading label="Récompenses" />
+<Heading>Récompenses</Heading>
 
 <p>{text}</p>
 

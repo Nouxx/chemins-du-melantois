@@ -1,16 +1,16 @@
 ---
-import Heading from "@/components/ui/race/Heading.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
 import TextLink from "@/components/ui/race/TextLink.astro";
 import { externalLinks, registrationDetailsId } from "@/data_files/constants";
 ---
 
-<Heading label="Modalités d'inscription" id={registrationDetailsId} />
+<Heading id={registrationDetailsId}>Modalités d'inscription</Heading>
 
-<Heading tag="h3" label="Pour les majeurs" />
+<Heading tag="h3">Pour les majeurs</Heading>
 
 <slot name="adult-registration-text" />
 
-<Heading tag="h3" label="Pour les mineurs" />
+<Heading tag="h3">Pour les mineurs</Heading>
 
 <p>
   Les participants de moins de 18 ans doivent impérativement fournir les 2

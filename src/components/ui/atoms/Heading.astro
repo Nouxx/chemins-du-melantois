@@ -12,13 +12,15 @@ function isValidTag(string: string | undefined): string is ValidTag {
 
 const { id, tag, size, classNames } = Astro.props;
 
-const Tag: ValidTag = isValidTag(tag) ? tag : "h2";
+const Tag: ValidTag = isValidTag(tag) ? tag : "h1";
 
 const heading = cva(
   ["font-bold", "tracking-tight", "text-balance", "leading-tight", classNames],
   {
     variants: {
       size: {
+        xsmall: "text-2xl",
+        small: "text-3xl sm:text-4xl",
         medium: "text-3xl sm:text-4xl lg:text-5xl",
         large: "text-3xl sm:text-4xl lg:text-6xl",
       },

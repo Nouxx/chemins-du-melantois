@@ -1,5 +1,5 @@
 ---
-import Heading from "@/components/ui/race/Heading.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
 import { eventDate, type Race } from "@/data_files/constants";
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 const { addressLines, additionalInfo, startTime } = Astro.props;
 ---
 
-<Heading label="Départ et horaires" />
+<Heading>Départ et horaires</Heading>
 
 <p>
   La course a lieu le <span class="font-bold">{eventDate}</span> et le départ sera

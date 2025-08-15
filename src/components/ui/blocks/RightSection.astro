@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import type { ImageMetadata } from "astro";
+import PrimaryCTA from "@/components/functional/PrimaryCTA.astro";
 
 export interface ButtonLink {
   title: string;
@@ -53,7 +53,7 @@ const { title, subTitle, image, imageAlt, imageLoading, list, links } =
         <div class="flex flex-row flex-wrap gap-2">
           {links.map((link) => (
             <PrimaryCTA
-              title={link.title}
+              label={link.title}
               url={link.url}
               openInNewTab={link.openInNewTab}
             />
