@@ -1,4 +1,5 @@
 ---
+import Section from "@/components/ui/atoms/Section.astro";
 import FeaturedLogos from "@/components/ui/organism/FeaturedLogos.astro";
 import { sponsorsData, type Sponsor } from "@/data_files/sponsors";
 import type { SvgLogoLink } from "@/data_files/types";
@@ -17,11 +18,9 @@ function adaptPartner(partner: Sponsor): SvgLogoLink {
 const adaptedSponsors = sponsorsData.map((sponsor) => adaptPartner(sponsor));
 ---
 
-<section
-  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
->
+<Section>
   <FeaturedLogos
     title="Un grand merci à nos partenaires"
     logoLinks={adaptedSponsors}
   />
-</section>
+</Section>

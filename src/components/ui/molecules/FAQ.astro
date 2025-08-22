@@ -1,0 +1,53 @@
+---
+import Section from "@/components/ui/atoms/Section.astro";
+import AccordionItem from "@/components/ui/molecules/AccordionItem.astro";
+import type { FrequentlyAskedQuestion } from "@/data_files/faq/schema";
+
+const { faqs } = Astro.props;
+
+interface Props {
+  faqs: FrequentlyAskedQuestion[];
+}
+
+const makeId = (base: any, index: any) => `${base}${index + 1}`;
+---
+
+<Section>
+  <div class="grid gap-10 md:grid-cols-5">
+    <div class="md:col-span-2">
+      <div class="flex max-w-xs flex-col gap-4">
+        <slot name="heading" />
+
+        <slot name="subTitle" />
+      </div>
+    </div>
+
+    <div class="md:col-span-3">
+      <div
+        class="hs-accordion-group divide-y divide-neutral-200 dark:divide-neutral-700"
+      >
+        {
+          faqs.map((question, i) => {
+            let id = makeId(
+              "hs-basic-with-title-and-arrow-stretched-heading-",
+              i
+            );
+            let collapseId = makeId(
+              "hs-basic-with-title-and-arrow-stretched-collapse",
+              i
+            );
+
+            return (
+              <AccordionItem
+                {...question}
+                id={id}
+                collapseId={collapseId}
+                first={i === 0}
+              />
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</Section>

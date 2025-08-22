@@ -1,15 +1,12 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
-import FAQ from "@components/sections/misc/FAQ.astro";
-
-import faqs from "@data/fr/faqs.json";
 import VideoLink from "@/components/sections/landing/VideoLink.astro";
 import SponsorsSection from "@/components/sections/landing/SponsorsSection.astro";
-import RegisterButton from "@/components/functional/RegisterButton.astro";
 import HeroSection from "@/components/functional/HeroSection.astro";
 import EventStats from "@/components/functional/EventStats.astro";
 import RacesOverview from "@/components/functional/RacesOverview.astro";
+import EventFAQ from "@/components/functional/EventFAQ.astro";
+import RegisterCTA from "@/components/functional/RegisterCTA.astro";
 ---
 
 <MainLayout lang="fr">
@@ -21,14 +18,9 @@ import RacesOverview from "@/components/functional/RacesOverview.astro";
 
   <RacesOverview />
 
-  <FAQ title="Questions fréquemment posées" faqs={faqs} />
+  <EventFAQ />
 
   <SponsorsSection />
 
-  <HeroSectionAlt
-    title="Inscrivez-vous dès maintenant"
-    subTitle="Rejoignez l'aventure des Chemins du Mélantois et prenez le départ d'une course conviviale, familiale et 100 % nature !"
-  >
-    <RegisterButton />
-  </HeroSectionAlt>
+  <RegisterCTA />
 </MainLayout>
