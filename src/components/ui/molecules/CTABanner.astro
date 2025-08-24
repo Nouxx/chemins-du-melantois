@@ -1,13 +1,9 @@
----
-import RegisterButton from "@/components/functional/RegisterButton.astro";
----
-
 <div
-  class="mb-4 flex flex-col items-center justify-between gap-8 sm:mb-8 lg:flex-row md:mb-12"
+  class="mb-8 flex flex-col items-center justify-between gap-8 sm:mb-8 md:mb-12 lg:flex-row"
 >
   <slot name="heading" />
 
   <slot name="subTitle" />
 
-  <RegisterButton />
+  <slot name="ctaButton" />
 </div>

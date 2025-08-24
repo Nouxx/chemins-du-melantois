@@ -4,11 +4,9 @@ import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
-import { races } from "@/data_files/constants";
-import RaceCard from "@/components/sections/races/RaceCard.astro";
-import RegisterButton from "@/components/functional/RegisterButton.astro";
-import CTABanner from "@/components/ui/molecules/CTABanner.astro";
 import RaceBanner from "@/components/functional/RaceBanner.astro";
+import RaceCardGrid from "@/components/functional/RaceCardGrid.astro";
+import Section from "@/components/ui/atoms/Section.astro";
 
 const pageTitle = getPageTitle("Courses");
 
@@ -22,22 +20,9 @@ const pageDescription =
   customOgTitle={pageTitle}
   structuredData={getStructuredDataForPage(pageDescription)}
 >
-  <div
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
+  <Section>
     <RaceBanner />
 
-    <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-      {
-        races.map((race, index) => {
-          const position = index % 4;
-          if (position !== 1) {
-            return <RaceCard race={race} size="small" />;
-          } else {
-            return <RaceCard race={race} size="wide" />;
-          }
-        })
-      }
-    </section>
-  </div>
+    <RaceCardGrid />
+  </Section>
 </MainLayout>

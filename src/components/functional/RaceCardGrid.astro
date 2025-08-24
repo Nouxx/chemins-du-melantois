@@ -1,0 +1,16 @@
+---
+import RaceCard from "@/components/functional/RaceCard.astro";
+import { races } from "@/data_files/constants";
+---
+
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+  {
+    races.map((race, index) => {
+      if (index !== 1) {
+        return <RaceCard race={race} size="small" />;
+      } else {
+        return <RaceCard race={race} size="wide" />;
+      }
+    })
+  }
+</div>
