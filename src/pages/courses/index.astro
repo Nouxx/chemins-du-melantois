@@ -7,6 +7,8 @@ import {
 import { races } from "@/data_files/constants";
 import RaceCard from "@/components/sections/races/RaceCard.astro";
 import RegisterButton from "@/components/functional/RegisterButton.astro";
+import CTABanner from "@/components/ui/molecules/CTABanner.astro";
+import RaceBanner from "@/components/functional/RaceBanner.astro";
 
 const pageTitle = getPageTitle("Courses");
 
@@ -23,24 +25,7 @@ const pageDescription =
   <div
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    <div class="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-      <div class="flex items-center gap-12">
-        <h1
-          class="text-2xl font-bold tracking-tight text-balance text-neutral-800 md:text-4xl md:leading-tight dark:text-neutral-200"
-        >
-          Nos courses
-        </h1>
-        <p
-          class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400"
-        >
-          5 distances, 5 ambiances, une même passion ! Que vous soyez coureur
-          aguerri, amateur de nature ou en famille, nos parcours s'adaptent à
-          tous les profils. Découvrez les paysages du Mélantois à travers des
-          épreuves conviviales, accessibles et bien encadrées.
-        </p>
-      </div>
-      <RegisterButton />
-    </div>
+    <RaceBanner />
 
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {

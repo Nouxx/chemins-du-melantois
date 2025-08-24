@@ -1,0 +1,13 @@
+---
+import RegisterButton from "@/components/functional/RegisterButton.astro";
+---
+
+<div
+  class="mb-4 flex flex-col items-center justify-between gap-8 sm:mb-8 lg:flex-row md:mb-12"
+>
+  <slot name="heading" />
+
+  <slot name="subTitle" />
+
+  <RegisterButton />
+</div>
