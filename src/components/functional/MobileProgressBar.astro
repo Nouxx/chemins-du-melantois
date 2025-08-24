@@ -1,0 +1,16 @@
+<div
+  id="progress-mobile"
+  class="fixed top-0 left-0 h-2 w-full bg-linear-to-r from-orange-400/30 to-orange-400 md:hidden"
+>
+</div>
+
+<script>
+  import { updateProgressBar } from "@/utils/updateProgressBar";
+  import { initProgressBar } from "@/utils/initProgressBar";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    window.onscroll = () => updateProgressBar("progress-mobile");
+
+    initProgressBar("progress-mobile");
+  });
+</script>

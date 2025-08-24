@@ -1,0 +1,18 @@
+<div class="h-px w-full overflow-hidden bg-neutral-300 dark:bg-neutral-700">
+  <div
+    id="progress"
+    class="h-px w-full bg-linear-to-r from-orange-400/30 to-orange-400"
+  >
+  </div>
+</div>
+
+<script>
+  import { updateProgressBar } from "@/utils/updateProgressBar";
+  import { initProgressBar } from "@/utils/initProgressBar";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    window.onscroll = () => updateProgressBar("progress");
+
+    initProgressBar("progress");
+  });
+</script>
