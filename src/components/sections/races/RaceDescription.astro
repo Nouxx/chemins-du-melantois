@@ -1,23 +1,26 @@
 ---
+import Body from "@/components/ui/atoms/Body.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import TextLink from "@/components/ui/race/TextLink.astro";
+import { externalLinks, type Race } from "@/data_files/constants";
+import { findSectionById } from "@/utils/findSectionById";
 
 interface Props {
-  text: string;
-  traceLinkPDF: string;
-  traceLinkMaps: string;
+  race: Race;
 }
 
-const { text, traceLinkPDF, traceLinkMaps } = Astro.props;
+const { race } = Astro.props;
+const { description, traceLink } = race;
+
+const section = findSectionById(race, "description");
 ---
 
-<Heading id="parcours" tag="h2">Parcours</Heading>
+<Heading tag="h2" id={section.anchorId}>{section.title}</Heading>
 
-<p>{text}</p>
+<Body size="small">{description}</Body>
 
-<TextLink label="Lien vers le tracé (PDF)" href={traceLinkPDF} />
+<TextLink href={traceLink}>Lien vers le tracé (PDF)</TextLink>
 
-<TextLink
-  label="Lien vers les tracés interactifs (Maps)"
-  href={traceLinkMaps}
-/>
+<TextLink href={externalLinks.edition2025.traceMaps}>
+  Lien vers les tracés interactifs (Maps)
+</TextLink>

@@ -1,30 +1,35 @@
 ---
+import Body from "@/components/ui/atoms/Body.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import { eventDate, type Race } from "@/data_files/constants";
+import { findSectionById } from "@/utils/findSectionById";
 
 interface Props {
-  addressLines: Race["meetingPointAddressLines"];
-  additionalInfo: Race["additionalScheduleInformation"];
-  startTime: Race["startTime"];
+  race: Race;
 }
 
-const { addressLines, additionalInfo, startTime } = Astro.props;
+const { race } = Astro.props;
+
+const { meetingPointAddressLines, additionalScheduleInformation, startTime } =
+  race;
+
+const section = findSectionById(race, "schedule");
 ---
 
-<Heading id="depart-et-horaires" tag="h2">Départ et horaires</Heading>
+<Heading id={section.anchorId} tag="h2">{section.title}</Heading>
 
-<p>
+<Body size="small">
   La course a lieu le <span class="font-bold">{eventDate}</span> et le départ sera
   lancé à <span class="font-bold">{startTime}</span>.
-</p>
+</Body>
 
 <p>Le point de rendez-vous est le suivant :</p>
 
 <div class="address">
-  {addressLines.map((addressLine) => <p>{addressLine}</p>)}
+  {meetingPointAddressLines.map((addressLine) => <p>{addressLine}</p>)}
 </div>
 
-{additionalInfo && <p>{additionalInfo}</p>}
+{additionalScheduleInformation && <p>{additionalScheduleInformation}</p>}
 
 <style>
   .address {

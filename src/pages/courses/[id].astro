@@ -2,7 +2,6 @@
 import MainLayout from "@/layouts/MainLayout.astro";
 import RaceRegulations from "@/components/sections/races/RaceRegulations.astro";
 import Registration from "@/components/sections/races/Registration/Registration.astro";
-import Schedule from "@/components/sections/races/Schedule.astro";
 import Rewards from "@/components/sections/races/Rewards.astro";
 import Bib from "@/components/sections/races/Bib.astro";
 import RegistrationDetails from "@/components/sections/races/RegistrationDetails/RegistrationDetails.astro";
@@ -23,6 +22,8 @@ import RaceMapImage from "@/components/functional/RaceMapImage.astro";
 import MobileProgressBar from "@/components/functional/MobileProgressBar.astro";
 import DesktopProgressBar from "@/components/functional/DesktopProgressBar.astro";
 import RaceTOC from "@/components/functional/RaceTOC.astro";
+import RacePrice from "@/components/sections/races/RacePrice.astro";
+import RaceSchedule from "@/components/sections/races/RaceSchedule.astro";
 
 export function getStaticPaths() {
   return races.map((race) => ({
@@ -58,7 +59,7 @@ const pageDescription = race.description;
         <div id="pin" class="mt-10 hidden space-y-4 md:block">
           <DesktopProgressBar />
 
-          <RaceTOC />
+          <RaceTOC race={race} />
         </div>
       </div>
 
@@ -68,25 +69,11 @@ const pageDescription = race.description;
         <article
           class="race__content text-lg text-pretty text-neutral-700 dark:text-neutral-300"
         >
-          <p class="text-xl">
-            {race.date} - {
-              isFree
-                ? "Gratuit"
-                : `${race.price}€ par ${race.pricePerTeam ? "équipe" : "participant"}`
-            }
-          </p>
+          <RacePrice race={race} />
 
-          <RaceDescription
-            text={race.description}
-            traceLinkPDF={race.traceLink}
-            traceLinkMaps={externalLinks.edition2025.traceMaps}
-          />
+          <RaceDescription race={race} />
 
-          <Schedule
-            addressLines={race.meetingPointAddressLines}
-            additionalInfo={race.additionalScheduleInformation}
-            startTime={race.startTime}
-          />
+          <RaceSchedule race={race} />
 
           {
             race.rewardsSummary && (

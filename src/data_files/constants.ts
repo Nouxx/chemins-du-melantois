@@ -133,6 +133,7 @@ export const OG = {
 export type Race = {
   id: string;
   title: string;
+  sections: { title: string; anchorId: string; id: SectionId }[];
   hero: {
     image: ImageMetadata;
     alt: string;
@@ -169,9 +170,67 @@ const mairieDePeronneAddressLines: Race["meetingPointAddressLines"] = [
   "59273 Péronne-en-Mélantois",
 ];
 
+export type SectionId =
+  | "description"
+  | "schedule"
+  | "rewards"
+  | "registration"
+  | "bib"
+  | "registrationDetails"
+  | "raceRegulations";
+
+type Section = {
+  id: SectionId;
+  title: string;
+  anchorId: string;
+};
+
+const allSections: Section[] = [
+  {
+    id: "description",
+    title: "Parcours",
+    anchorId: "parcours",
+  },
+  {
+    id: "schedule",
+    title: "Départ et horaires",
+    anchorId: "depart-et-horaires",
+  },
+  {
+    id: "rewards",
+    title: "Récompenses",
+    anchorId: "recompenses",
+  },
+  {
+    id: "registration",
+    title: "Inscription",
+    anchorId: "inscription",
+  },
+  {
+    id: "bib",
+    title: "Retrait des dossards",
+    anchorId: "retrait-des-dossards",
+  },
+  {
+    id: "registrationDetails",
+    title: "Modalités d'inscription",
+    anchorId: "modalites-d-inscription",
+  },
+  {
+    id: "raceRegulations",
+    title: "Règlement de course",
+    anchorId: "reglement-de-course",
+  },
+];
+
+const noRewardsSection = allSections.filter(
+  (section) => section.id !== "rewards",
+);
+
 export const races: Race[] = [
   {
     id: "10-km-sainghin-en-melantois",
+    sections: allSections,
     title: "10 km de Sainghin en Mélantois",
     hero: {
       image: tenKilometerHero,
@@ -192,6 +251,7 @@ export const races: Race[] = [
   },
   {
     id: "run-and-bike-peronne-en-melantois",
+    sections: noRewardsSection,
     title: "Run & Bike de Péronne en Mélantois",
     hero: {
       image: runAndBikeHero,
@@ -209,6 +269,7 @@ export const races: Race[] = [
   },
   {
     id: "5-km-sainghin-en-melantois",
+    sections: allSections,
     title: "5 km de Sainghin en Mélantois",
     hero: {
       image: fiveKilometerHero,
@@ -227,6 +288,7 @@ export const races: Race[] = [
   },
   {
     id: "900-m-sainghin-en-melantois",
+    sections: allSections,
     title: "900 m de Sainghin en Mélantois",
     hero: {
       image: nineHundredSainghinHero,
@@ -243,6 +305,7 @@ export const races: Race[] = [
   },
   {
     id: "900-m-peronne-en-melantois",
+    sections: allSections,
     title: "900 m de Péronne en Mélantois",
     hero: {
       image: nineHundredPeronneHero,

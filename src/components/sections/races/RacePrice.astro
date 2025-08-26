@@ -1,0 +1,19 @@
+---
+import Body from "@/components/ui/atoms/Body.astro";
+import type { Race } from "@/data_files/constants";
+
+interface Props {
+  race: Race;
+}
+
+const { race } = Astro.props;
+const isFree = !race.price;
+---
+
+<Body>
+  {race.date} - {
+    isFree
+      ? "Gratuit"
+      : `${race.price}€ par ${race.pricePerTeam ? "équipe" : "participant"}`
+  }
+</Body>
