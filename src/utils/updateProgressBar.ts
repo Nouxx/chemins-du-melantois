@@ -1,4 +1,5 @@
 export const updateProgressBar = (id: string): void => {
+  console.log("updateProgressBar for", id);
   const article = document.querySelector("article");
 
   if (!article) {
@@ -6,9 +7,9 @@ export const updateProgressBar = (id: string): void => {
     return;
   }
 
-  const progressBarMobile = document.getElementById(id);
+  const progressBarElement = document.getElementById(id);
 
-  if (!progressBarMobile) {
+  if (!progressBarElement) {
     console.error("Progress bar element not found");
     return;
   }
@@ -18,11 +19,16 @@ export const updateProgressBar = (id: string): void => {
 
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
+  console.log({ articleHeight, articleOffsetTop, scrollTop });
+
   if (articleHeight && articleOffsetTop && scrollTop) {
     const progress =
       ((scrollTop - articleOffsetTop) / (articleHeight - window.innerHeight)) *
       100;
 
-    progressBarMobile.style.width = `${progress}%`;
+    console.log("progress", progress);
+    console.log("progressBarElement", progressBarElement);
+
+    progressBarElement.style.width = `${progress}%`;
   }
 };

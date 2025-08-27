@@ -1,0 +1,26 @@
+---
+import RaceDetailSection from "@/components/sections/races/RaceDetailSection.astro";
+import Body from "@/components/ui/atoms/Body.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
+import type { Race } from "@/data_files/constants";
+import { isRaceFree } from "@/utils/isRaceFree";
+
+interface Props {
+  race: Race;
+}
+
+const { race } = Astro.props;
+const isFree = isRaceFree(race);
+---
+
+<RaceDetailSection>
+  <Heading size="medium">{race.title}</Heading>
+
+  <Body>
+    {race.date} - {
+      isFree
+        ? "Gratuit"
+        : `${race.price}€ par ${race.pricePerTeam ? "équipe" : "participant"}`
+    }
+  </Body>
+</RaceDetailSection>

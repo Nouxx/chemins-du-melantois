@@ -14,7 +14,6 @@ import RaceMapImage from "@/components/functional/RaceMapImage.astro";
 import MobileProgressBar from "@/components/functional/MobileProgressBar.astro";
 import DesktopProgressBar from "@/components/functional/DesktopProgressBar.astro";
 import RaceTOC from "@/components/functional/RaceTOC.astro";
-import RacePrice from "@/components/sections/races/RacePrice.astro";
 import RaceSchedule from "@/components/sections/races/RaceSchedule.astro";
 import RaceRewards from "@/components/sections/races/RaceRewards.astro";
 import RaceRegistration from "@/components/sections/races/Registration/RaceRegistration.astro";
@@ -22,7 +21,7 @@ import RaceBib from "@/components/sections/races/RaceBib.astro";
 import RaceRegistrationDetails from "@/components/sections/races/RegistrationDetails/RaceRegistrationDetails.astro";
 import AdultRegistrationNotRequired from "@/components/sections/races/RegistrationDetails/AdultRegistrationNotRequired.astro";
 import AdultRegistrationDetails from "@/components/sections/races/RegistrationDetails/AdultRegistrationDetails.astro";
-import RaceDetailSection from "@/components/sections/races/RaceDetailSection.astro";
+import RaceHeading from "@/components/sections/races/RaceHeading.astro";
 
 export function getStaticPaths() {
   return races.map((race) => ({
@@ -63,10 +62,7 @@ const pageDescription = race.description;
 
       <div slot="right">
         <article class="flex flex-col gap-14">
-          <RaceDetailSection>
-            <Heading size="medium">{race.title}</Heading>
-            <RacePrice race={race} />
-          </RaceDetailSection>
+          <RaceHeading race={race} />
 
           <RaceDescription race={race} />
 
