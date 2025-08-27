@@ -1,13 +1,6 @@
 ---
 import PrimaryCTA from "@/components/functional/PrimaryCTA.astro";
 import { externalLinks } from "@/data_files/constants";
-
-interface Props {
-  title?: string;
-  url?: string;
-  noArrow?: boolean;
-  openInNewTab?: boolean;
-}
 ---
 
 <PrimaryCTA label="Inscription" url={externalLinks.registration} openInNewTab />
