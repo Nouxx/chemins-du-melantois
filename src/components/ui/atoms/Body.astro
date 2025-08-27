@@ -1,11 +1,15 @@
 ---
 import { cva, type VariantProps } from "class-variance-authority";
 
-const { size, className, fontStyle, color } = Astro.props;
+const defineHtmlTags = <T extends keyof HTMLElementTagNameMap>(tags: T[]) =>
+  tags;
 
-const body = cva(["text-pretty", className], {
+const validTags = defineHtmlTags(["p", "li"]);
+
+type ValidTag = (typeof validTags)[number];
+
+const body = cva(["text-pretty"], {
   variants: {
-    // todo: refactor this when all currently used sizes are defined
     size: {
       small: "text-md sm:text-lg",
       lg: "text-lg sm:text-xl",
@@ -22,25 +26,26 @@ const body = cva(["text-pretty", className], {
       bold: "font-bold",
     },
   },
-  defaultVariants: {
-    size: "lg",
-    color: "neutral",
-    fontStyle: "normal",
-  },
+  defaultVariants: { size: "lg", color: "neutral", fontStyle: "normal" },
 });
 
-type BodyVariants = VariantProps<typeof body>; // todo: move this up?
+type BodyVariants = VariantProps<typeof body>;
 
 interface Props {
   size?: BodyVariants["size"];
   className?: string;
   fontStyle?: BodyVariants["fontStyle"];
   color?: BodyVariants["color"];
+  tag?: ValidTag; // "as" prop name breaks the Props interface recognition (https://github.com/withastro/compiler/issues/927)
 }
 
-const classes = body({ size, fontStyle, color });
+const { size, className, fontStyle, color, tag = "p" } = Astro.props;
+
+const classes = [body({ size, fontStyle, color }), className].join(" ");
+
+const Tag = tag;
 ---
 
-<p class={classes}>
+<Tag class={classes}>
   <slot />
-</p>
+</Tag>
