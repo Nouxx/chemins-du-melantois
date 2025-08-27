@@ -1,4 +1,5 @@
 ---
+import RaceDetailSection from "@/components/sections/races/RaceDetailSection.astro";
 import Body from "@/components/ui/atoms/Body.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import { eventDate, type Race } from "@/data_files/constants";
@@ -16,31 +17,33 @@ const { meetingPointAddressLines, additionalScheduleInformation, startTime } =
 const section = findSectionById(race, "schedule");
 ---
 
-<Heading size="small" id={section.anchorId} tag="h2">{section.title}</Heading>
+<RaceDetailSection>
+  <Heading size="small" id={section.anchorId} tag="h2">{section.title}</Heading>
 
-<Body size="small">
-  La course a lieu le <span class="font-bold">{eventDate}</span> et le départ sera
-  lancé à <span class="font-bold">{startTime}</span>.
-</Body>
+  <Body size="small">
+    La course a lieu le <span class="font-bold">{eventDate}</span> et le départ sera
+    lancé à <span class="font-bold">{startTime}</span>.
+  </Body>
 
-<Body size="small">Le point de rendez-vous est le suivant :</Body>
+  <Body size="small">Le point de rendez-vous est le suivant :</Body>
 
-<div class="address">
+  <div class="address">
+    {
+      meetingPointAddressLines.map((addressLine, index) => (
+        <Body
+          size="small"
+          className="my-0"
+          fontStyle={index === 0 ? "bold" : "normal"}
+        >
+          {addressLine}
+        </Body>
+      ))
+    }
+  </div>
+
   {
-    meetingPointAddressLines.map((addressLine, index) => (
-      <Body
-        size="small"
-        className="my-0"
-        fontStyle={index === 0 ? "bold" : "normal"}
-      >
-        {addressLine}
-      </Body>
-    ))
+    additionalScheduleInformation && (
+      <Body size="small">{additionalScheduleInformation}</Body>
+    )
   }
-</div>
-
-{
-  additionalScheduleInformation && (
-    <Body size="small">{additionalScheduleInformation}</Body>
-  )
-}
+</RaceDetailSection>

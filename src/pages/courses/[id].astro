@@ -68,45 +68,27 @@ const pageDescription = race.description;
             <RacePrice race={race} />
           </RaceDetailSection>
 
-          <RaceDetailSection>
-            <RaceDescription race={race} />
-          </RaceDetailSection>
+          <RaceDescription race={race} />
 
-          <RaceDetailSection>
-            <RaceSchedule race={race} />
-          </RaceDetailSection>
+          <RaceSchedule race={race} />
 
-          {
-            race.rewardsSummary && (
-              <RaceDetailSection>
-                <RaceRewards race={race} />
-              </RaceDetailSection>
-            )
-          }
+          {race.rewardsSummary && <RaceRewards race={race} />}
 
-          <RaceDetailSection gap={8}>
-            <RaceRegistration race={race} />
-          </RaceDetailSection>
+          <RaceRegistration race={race} />
 
-          <RaceDetailSection>
-            <RaceBib />
-          </RaceDetailSection>
+          <RaceBib />
 
-          <RaceDetailSection gap={8}>
-            <RaceRegistrationDetails>
-              {
-                race.adultRegistrationRequirement ? (
-                  <AdultRegistrationDetails slot="adult-registration-text" />
-                ) : (
-                  <AdultRegistrationNotRequired slot="adult-registration-text" />
-                )
-              }
-            </RaceRegistrationDetails>
-          </RaceDetailSection>
+          <RaceRegistrationDetails>
+            {
+              race.adultRegistrationRequirement ? (
+                <AdultRegistrationDetails slot="adult-registration-text" />
+              ) : (
+                <AdultRegistrationNotRequired slot="adult-registration-text" />
+              )
+            }
+          </RaceRegistrationDetails>
 
-          <RaceDetailSection>
-            <RaceRegulations />
-          </RaceDetailSection>
+          <RaceRegulations />
         </article>
       </div>
     </TwoColumnsLayout>

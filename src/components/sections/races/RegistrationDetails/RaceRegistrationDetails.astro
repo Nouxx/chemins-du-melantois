@@ -6,37 +6,39 @@ import TextLink from "@/components/ui/race/TextLink.astro";
 import { externalLinks, registrationDetailsId } from "@/data_files/constants";
 ---
 
-<Heading size="small" id={registrationDetailsId} tag="h2">
-  Modalités d'inscription
-</Heading>
+<RaceDetailSection gap={8}>
+  <Heading size="small" id={registrationDetailsId} tag="h2">
+    Modalités d'inscription
+  </Heading>
 
-<RaceDetailSection>
-  <Heading size="xsmall" tag="h3">Pour les majeurs</Heading>
+  <RaceDetailSection>
+    <Heading size="xsmall" tag="h3">Pour les majeurs</Heading>
 
-  <slot name="adult-registration-text" />
-</RaceDetailSection>
+    <slot name="adult-registration-text" />
+  </RaceDetailSection>
 
-<RaceDetailSection>
-  <Heading size="xsmall" tag="h3">Pour les mineurs</Heading>
+  <RaceDetailSection>
+    <Heading size="xsmall" tag="h3">Pour les mineurs</Heading>
 
-  <Body size="small">
-    Les participants de moins de 18 ans doivent impérativement fournir les 2
-    documents suivants :
-  </Body>
-
-  <ul>
-    <Body as="li" size="small">Une autorisation parentale signée</Body>
-    <Body as="li" size="small">
-      Un questionnaire de santé <span class="font-bold">ou</span> un certificat médical
-      de moins de 6 mois
+    <Body size="small">
+      Les participants de moins de 18 ans doivent impérativement fournir les 2
+      documents suivants :
     </Body>
-  </ul>
 
-  <TextLink href={externalLinks.parentalConsentForm}>
-    Lien vers l'autorisation parentale
-  </TextLink>
+    <ul>
+      <Body tag="li" size="small">Une autorisation parentale signée</Body>
+      <Body tag="li" size="small">
+        Un questionnaire de santé <span class="font-bold">ou</span> un certificat
+        médical de moins de 6 mois
+      </Body>
+    </ul>
 
-  <TextLink href={externalLinks.healthQuestionnaire}>
-    Lien vers le questionnaire de santé
-  </TextLink>
+    <TextLink href={externalLinks.parentalConsentForm}>
+      Lien vers l'autorisation parentale
+    </TextLink>
+
+    <TextLink href={externalLinks.healthQuestionnaire}>
+      Lien vers le questionnaire de santé
+    </TextLink>
+  </RaceDetailSection>
 </RaceDetailSection>

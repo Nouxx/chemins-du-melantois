@@ -1,17 +1,20 @@
 ---
+import RaceDetailSection from "@/components/sections/races/RaceDetailSection.astro";
 import Body from "@/components/ui/atoms/Body.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 ---
 
-<Heading size="small" tag="h2" id="retrait-des-dossards"
-  >Retrait des dossards</Heading
->
+<RaceDetailSection>
+  <Heading size="small" tag="h2" id="retrait-des-dossards">
+    Retrait des dossards
+  </Heading>
 
-<Body size="small">
-  Les dossards sont à retirer à la mairie de Sainghin, aux horaires suivants :
-</Body>
+  <Body size="small">
+    Les dossards sont à retirer à la mairie de Sainghin, aux horaires suivants :
+  </Body>
 
-<ul>
-  <Body as="li" size="small">Samedi 20 septembre : de 14h00 à 17h00</Body>
-  <Body as="li" size="small">Dimanche 21 septembre : de 7h30 à 9h45</Body>
-</ul>
+  <ul>
+    <Body tag="li" size="small">Samedi 20 septembre : de 14h00 à 17h00</Body>
+    <Body tag="li" size="small">Dimanche 21 septembre : de 7h30 à 9h45</Body>
+  </ul>
+</RaceDetailSection>

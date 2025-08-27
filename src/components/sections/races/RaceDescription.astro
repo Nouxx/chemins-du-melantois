@@ -16,12 +16,14 @@ const { description, traceLink } = race;
 const section = findSectionById(race, "description");
 ---
 
-<Heading size="small" tag="h2" id={section.anchorId}>{section.title}</Heading>
+<RaceDetailSection>
+  <Heading size="small" tag="h2" id={section.anchorId}>{section.title}</Heading>
 
-<Body size="small">{description}</Body>
+  <Body size="small">{description}</Body>
 
-<TextLink href={traceLink}>Lien vers le tracé (PDF)</TextLink>
+  <TextLink href={traceLink}>Lien vers le tracé (PDF)</TextLink>
 
-<TextLink href={externalLinks.edition2025.traceMaps}>
-  Lien vers les tracés interactifs (Maps)
-</TextLink>
+  <TextLink href={externalLinks.edition2025.traceMaps}>
+    Lien vers les tracés interactifs (Maps)
+  </TextLink>
+</RaceDetailSection>

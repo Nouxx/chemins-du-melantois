@@ -14,47 +14,49 @@ interface Props {
 const { race } = Astro.props;
 ---
 
-<Heading size="small" id="inscription" tag="h2">Inscription</Heading>
+<RaceDetailSection gap={8}>
+  <Heading size="small" id="inscription" tag="h2">Inscription</Heading>
 
-<RaceDetailSection marginY={4}>
-  <Heading size="xsmall" tag="h3">En ligne</Heading>
+  <RaceDetailSection>
+    <Heading size="xsmall" tag="h3">En ligne</Heading>
 
-  <Body size="small">
-    Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00
-    via notre plateforme partenaire
-    <span class="font-bold italic">Miles Republic</span>.
-  </Body>
+    <Body size="small">
+      Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à
+      12h00 via notre plateforme partenaire
+      <span class="font-bold italic">Miles Republic</span>.
+    </Body>
 
-  {
-    !isRaceFree(race) && (
-      <Body size="small">
-        Le paiement s'effectue également sur cette plateforme.
-      </Body>
-    )
-  }
+    {
+      !isRaceFree(race) && (
+        <Body size="small">
+          Le paiement s'effectue également sur cette plateforme.
+        </Body>
+      )
+    }
 
-  <TextLink href={externalLinks.registration}>
-    Lien vers l'inscription en ligne
-  </TextLink>
-</RaceDetailSection>
+    <TextLink href={externalLinks.registration}>
+      Lien vers l'inscription en ligne
+    </TextLink>
+  </RaceDetailSection>
 
-<RaceDetailSection marginY={4}>
-  <Heading size="xsmall" tag="h3">Sur place</Heading>
+  <RaceDetailSection>
+    <Heading size="xsmall" tag="h3">Sur place</Heading>
 
-  <Body size="small">
-    Vous pouvez également vous inscrire à la Maison des Associations de Sainghin
-    en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à venir muni
-    de votre bulletin d'inscription rempli ainsi que tous les documents requis
-    pour finaliser votre inscription (voir les
-    <a class="link__text font-bold" href={`#${registrationDetailsId}`}>
-      Modalités d'inscriptions
-    </a>
-    plus bas).
-  </Body>
+    <Body size="small">
+      Vous pouvez également vous inscrire à la Maison des Associations de
+      Sainghin en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à
+      venir muni de votre bulletin d'inscription rempli ainsi que tous les
+      documents requis pour finaliser votre inscription (voir les
+      <a class="link__text font-bold" href={`#${registrationDetailsId}`}>
+        Modalités d'inscriptions
+      </a>
+      plus bas).
+    </Body>
 
-  <TextLink href={externalLinks.registrationForm}>
-    Lien vers le bulletin d'inscription
-  </TextLink>
+    <TextLink href={externalLinks.registrationForm}>
+      Lien vers le bulletin d'inscription
+    </TextLink>
+  </RaceDetailSection>
 </RaceDetailSection>
 
 <style>
