@@ -16,31 +16,31 @@ const { meetingPointAddressLines, additionalScheduleInformation, startTime } =
 const section = findSectionById(race, "schedule");
 ---
 
-<Heading id={section.anchorId} tag="h2">{section.title}</Heading>
+<Heading size="small" id={section.anchorId} tag="h2">{section.title}</Heading>
 
 <Body size="small">
   La course a lieu le <span class="font-bold">{eventDate}</span> et le départ sera
   lancé à <span class="font-bold">{startTime}</span>.
 </Body>
 
-<p>Le point de rendez-vous est le suivant :</p>
+<Body size="small">Le point de rendez-vous est le suivant :</Body>
 
 <div class="address">
-  {meetingPointAddressLines.map((addressLine) => <p>{addressLine}</p>)}
+  {
+    meetingPointAddressLines.map((addressLine, index) => (
+      <Body
+        size="small"
+        className="my-0"
+        fontStyle={index === 0 ? "bold" : "normal"}
+      >
+        {addressLine}
+      </Body>
+    ))
+  }
 </div>
 
-{additionalScheduleInformation && <p>{additionalScheduleInformation}</p>}
-
-<style>
-  .address {
-    margin-top: 1.5rem;
-    p {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
-    p:first-child {
-      font-weight: bold;
-    }
-  }
-</style>
+{
+  additionalScheduleInformation && (
+    <Body size="small">{additionalScheduleInformation}</Body>
+  )
+}

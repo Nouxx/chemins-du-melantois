@@ -1,19 +1,20 @@
 ---
+import Body from "@/components/ui/atoms/Body.astro";
 import TextLink from "@/components/ui/race/TextLink.astro";
 import { externalLinks } from "@/data_files/constants";
 ---
 
-<p>
+<Body size="small">
   Pour valider votre inscription, vous devez fournir l'un des deux documents
   suivants :
-</p>
+</Body>
 
 <ul>
-  <li>Une Licence conforme et en cours de validité</li>
-  <li>
+  <Body as="li" size="small">Une Licence conforme et en cours de validité</Body>
+  <Body as="li" size="small">
     Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat
     médical pour les non licenciés.
-  </li>
+  </Body>
 </ul>
 
-<TextLink label="En savoir plus sur le PPS" href={externalLinks.pps} />
+<TextLink href={externalLinks.pps}>En savoir plus sur le PPS</TextLink>

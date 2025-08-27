@@ -1,0 +1,11 @@
+---
+interface Props {
+  gap?: number;
+}
+
+const { gap = 4 } = Astro.props;
+---
+
+<section class=`flex flex-col gap-${gap}`>
+  <slot />
+</section>

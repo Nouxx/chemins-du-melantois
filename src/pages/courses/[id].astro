@@ -1,20 +1,12 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
 import RaceRegulations from "@/components/sections/races/RaceRegulations.astro";
-import Registration from "@/components/sections/races/Registration/Registration.astro";
-import Rewards from "@/components/sections/races/Rewards.astro";
-import Bib from "@/components/sections/races/Bib.astro";
-import RegistrationDetails from "@/components/sections/races/RegistrationDetails/RegistrationDetails.astro";
 import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
-import { externalLinks, races, type Race } from "@/data_files/constants";
+import { races, type Race } from "@/data_files/constants";
 import RaceDescription from "@/components/sections/races/RaceDescription.astro";
-import OnlineRegistrationText from "@/components/sections/races/Registration/OnlineRegistrationText.astro";
-import OnSiteRegistrationText from "@/components/sections/races/Registration/OnSiteRegistrationText.astro";
-import AdultRegistrationText from "@/components/sections/races/RegistrationDetails/AdultRegistrationText.astro";
-import NoAdultRegistrationText from "@/components/sections/races/RegistrationDetails/NoAdultRegistrationText.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import TwoColumnsLayout from "@/components/ui/atoms/TwoColumnsLayout.astro";
 import Section from "@/components/ui/atoms/Section.astro";
@@ -24,6 +16,13 @@ import DesktopProgressBar from "@/components/functional/DesktopProgressBar.astro
 import RaceTOC from "@/components/functional/RaceTOC.astro";
 import RacePrice from "@/components/sections/races/RacePrice.astro";
 import RaceSchedule from "@/components/sections/races/RaceSchedule.astro";
+import RaceRewards from "@/components/sections/races/RaceRewards.astro";
+import RaceRegistration from "@/components/sections/races/Registration/RaceRegistration.astro";
+import RaceBib from "@/components/sections/races/RaceBib.astro";
+import RaceRegistrationDetails from "@/components/sections/races/RegistrationDetails/RaceRegistrationDetails.astro";
+import AdultRegistrationNotRequired from "@/components/sections/races/RegistrationDetails/AdultRegistrationNotRequired.astro";
+import AdultRegistrationDetails from "@/components/sections/races/RegistrationDetails/AdultRegistrationDetails.astro";
+import RaceDetailSection from "@/components/sections/races/RaceDetailSection.astro";
 
 export function getStaticPaths() {
   return races.map((race) => ({
@@ -38,7 +37,6 @@ interface Props {
 
 const { race } = Astro.props;
 
-const isFree = !race.price;
 const pageTitle = getPageTitle(race.title);
 const pageDescription = race.description;
 ---
@@ -63,48 +61,52 @@ const pageDescription = race.description;
         </div>
       </div>
 
-      <div slot="right" class="md:pt-8">
-        <Heading size="small">{race.title}</Heading>
+      <div slot="right">
+        <article class="flex flex-col gap-14">
+          <RaceDetailSection>
+            <Heading size="medium">{race.title}</Heading>
+            <RacePrice race={race} />
+          </RaceDetailSection>
 
-        <article
-          class="race__content text-lg text-pretty text-neutral-700 dark:text-neutral-300"
-        >
-          <RacePrice race={race} />
+          <RaceDetailSection>
+            <RaceDescription race={race} />
+          </RaceDetailSection>
 
-          <RaceDescription race={race} />
-
-          <RaceSchedule race={race} />
+          <RaceDetailSection>
+            <RaceSchedule race={race} />
+          </RaceDetailSection>
 
           {
             race.rewardsSummary && (
-              <Rewards
-                text={race.rewardsSummary}
-                displayLink={race.displayRewardsSummaryLink}
-              />
+              <RaceDetailSection>
+                <RaceRewards race={race} />
+              </RaceDetailSection>
             )
           }
 
-          <Registration>
-            <OnlineRegistrationText
-              slot="online-registration-text"
-              isRaceFree={isFree}
-            />
-            <OnSiteRegistrationText slot="on-site-registration-text" />
-          </Registration>
+          <RaceDetailSection gap={8}>
+            <RaceRegistration race={race} />
+          </RaceDetailSection>
 
-          <Bib />
+          <RaceDetailSection>
+            <RaceBib />
+          </RaceDetailSection>
 
-          <RegistrationDetails>
-            {
-              race.adultRegistrationRequirement ? (
-                <AdultRegistrationText slot="adult-registration-text" />
-              ) : (
-                <NoAdultRegistrationText slot="adult-registration-text" />
-              )
-            }
-          </RegistrationDetails>
+          <RaceDetailSection gap={8}>
+            <RaceRegistrationDetails>
+              {
+                race.adultRegistrationRequirement ? (
+                  <AdultRegistrationDetails slot="adult-registration-text" />
+                ) : (
+                  <AdultRegistrationNotRequired slot="adult-registration-text" />
+                )
+              }
+            </RaceRegistrationDetails>
+          </RaceDetailSection>
 
-          <RaceRegulations />
+          <RaceDetailSection>
+            <RaceRegulations />
+          </RaceDetailSection>
         </article>
       </div>
     </TwoColumnsLayout>
@@ -125,41 +127,12 @@ const pageDescription = race.description;
   article h4,
   article h5,
   article h6 {
-    font-weight: bold;
-    margin-top: 2.5rem;
     scroll-margin-top: 3rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  h4 {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
-  p,
-  ul {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
   }
 
   li {
     list-style: disc;
     list-style-position: inside;
-  }
-
-  article > ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
   }
 
   #toc li {

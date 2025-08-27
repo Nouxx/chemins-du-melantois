@@ -1,18 +1,18 @@
 ---
+import Body from "@/components/ui/atoms/Body.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import TextLink from "@/components/ui/race/TextLink.astro";
 import { externalLinks } from "@/data_files/constants";
 ---
 
-<Heading tag="h2" id="reglement-de-course">Règlement de course</Heading>
+<Heading size="small" tag="h2" id="reglement-de-course">Règlement de course</Heading>
 
-<p>
+<Body size="small">
   Avant de participer, merci de consulter le règlement officiel de la course,
   qui précise l'ensemble des modalités de participation, consignes de sécurité,
   et règles sportives.
-</p>
+</Body>
 
-<TextLink
-  label="Lien vers le réglement de course"
-  href={externalLinks.sportsRegulations}
-/>
+<TextLink href={externalLinks.sportsRegulations}>
+  Lien vers le réglement de course
+</TextLink>

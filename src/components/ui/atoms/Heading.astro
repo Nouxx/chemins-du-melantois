@@ -11,6 +11,14 @@ function isValidTag(string: string | undefined): string is ValidTag {
   return VALID_TAGS.includes(string);
 }
 
+// todo: astro props must be declared before destructure
+interface Props {
+  id?: string;
+  tag?: string;
+  size?: Variants["size"];
+  classNames?: string;
+}
+
 const { id, tag, size, classNames } = Astro.props;
 
 const Tag: ValidTag = isValidTag(tag) ? tag : "h1";
@@ -37,13 +45,6 @@ const heading = cva(
 );
 
 type Variants = VariantProps<typeof heading>; // todo: move this up?
-
-interface Props {
-  id?: string;
-  tag?: string;
-  size?: Variants["size"];
-  classNames?: string;
-}
 
 const classes = heading({ size });
 ---

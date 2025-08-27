@@ -1,4 +1,5 @@
 ---
+import RaceDetailSection from "@/components/sections/races/RaceDetailSection.astro";
 import Body from "@/components/ui/atoms/Body.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import TextLink from "@/components/ui/race/TextLink.astro";
@@ -15,7 +16,7 @@ const { description, traceLink } = race;
 const section = findSectionById(race, "description");
 ---
 
-<Heading tag="h2" id={section.anchorId}>{section.title}</Heading>
+<Heading size="small" tag="h2" id={section.anchorId}>{section.title}</Heading>
 
 <Body size="small">{description}</Body>
 
