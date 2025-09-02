@@ -2,6 +2,8 @@
 import RaceDetailSection from "@/components/sections/races/RaceDetailSection.astro";
 import Body from "@/components/ui/atoms/Body.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
+import List from "@/components/ui/molecules/List.astro";
+import ListItem from "@/components/ui/molecules/ListItem.astro";
 import TextLink from "@/components/ui/race/TextLink.astro";
 import { externalLinks, registrationDetailsId } from "@/data_files/constants";
 ---
@@ -25,13 +27,13 @@ import { externalLinks, registrationDetailsId } from "@/data_files/constants";
       documents suivants :
     </Body>
 
-    <ul>
-      <Body tag="li" size="small">Une autorisation parentale signée</Body>
-      <Body tag="li" size="small">
+    <List>
+      <ListItem>Une autorisation parentale signée</ListItem>
+      <ListItem>
         Un questionnaire de santé <span class="font-bold">ou</span> un certificat
         médical de moins de 6 mois
-      </Body>
-    </ul>
+      </ListItem>
+    </List>
 
     <TextLink href={externalLinks.parentalConsentForm}>
       Lien vers l'autorisation parentale

@@ -1,5 +1,7 @@
 ---
 import Body from "@/components/ui/atoms/Body.astro";
+import List from "@/components/ui/molecules/List.astro";
+import ListItem from "@/components/ui/molecules/ListItem.astro";
 import TextLink from "@/components/ui/race/TextLink.astro";
 import { externalLinks } from "@/data_files/constants";
 ---
@@ -9,12 +11,12 @@ import { externalLinks } from "@/data_files/constants";
   suivants :
 </Body>
 
-<ul>
-  <Body as="li" size="small">Une Licence conforme et en cours de validité</Body>
-  <Body as="li" size="small">
+<List>
+  <ListItem>Une Licence conforme et en cours de validité</ListItem>
+  <ListItem>
     Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat
     médical pour les non licenciés.
-  </Body>
-</ul>
+  </ListItem>
+</List>
 
 <TextLink href={externalLinks.pps}>En savoir plus sur le PPS</TextLink>
