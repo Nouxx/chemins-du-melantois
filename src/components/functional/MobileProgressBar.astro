@@ -9,8 +9,7 @@
   import { initProgressBar } from "@/utils/initProgressBar";
 
   document.addEventListener("DOMContentLoaded", () => {
-    window.onscroll = () => updateProgressBar("progress-mobile");
-    // todo: this is not called
+    window.addEventListener("scroll", () => updateProgressBar("progress-mobile"));
 
     initProgressBar("progress-mobile");
   });

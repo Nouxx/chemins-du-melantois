@@ -1,5 +1,4 @@
 export const updateProgressBar = (id: string): void => {
-  console.log("updateProgressBar for", id);
   const article = document.querySelector("article");
 
   if (!article) {
@@ -19,15 +18,10 @@ export const updateProgressBar = (id: string): void => {
 
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-  console.log({ articleHeight, articleOffsetTop, scrollTop });
-
   if (articleHeight && articleOffsetTop && scrollTop) {
     const progress =
       ((scrollTop - articleOffsetTop) / (articleHeight - window.innerHeight)) *
       100;
-
-    console.log("progress", progress);
-    console.log("progressBarElement", progressBarElement);
 
     progressBarElement.style.width = `${progress}%`;
   }

@@ -11,7 +11,7 @@
   import { initProgressBar } from "@/utils/initProgressBar";
 
   document.addEventListener("DOMContentLoaded", () => {
-    window.onscroll = () => updateProgressBar("progress");
+    window.addEventListener("scroll", () => updateProgressBar("progress"));
 
     initProgressBar("progress");
   });
