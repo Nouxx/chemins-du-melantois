@@ -1,7 +1,13 @@
 ---
 import Body from "@/components/ui/atoms/Body.astro";
+
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
 ---
 
-<Body tag="li" size="small" className="list-inside list-disc">
+<Body tag="li" size="small" className=`list-inside list-disc ${className}`>
   <slot />
 </Body>
