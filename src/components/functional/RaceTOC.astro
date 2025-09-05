@@ -1,4 +1,5 @@
 ---
+import DesktopProgressBar from "@/components/functional/DesktopProgressBar.astro";
 import Body from "@/components/ui/atoms/Body.astro";
 import Icon from "@/components/ui/icons/Icon.astro";
 import List from "@/components/ui/molecules/List.astro";
@@ -12,24 +13,28 @@ interface Props {
 const { race } = Astro.props;
 ---
 
-<Body size="small">Liens rapides</Body>
+<div id="pin" class="mt-10 hidden space-y-4 md:block">
+  <DesktopProgressBar />
 
-<div id="toc" class="">
-  <List className="transition duration-300">
-    {
-      race.sections.map((section) => (
-        <ListItem className="group flex items-center opacity-80 transition-opacity duration-300 ease-cubic group-[.selected-js]:opacity-100">
-          {/* the icon has no size by default, then resized with client JavaScript */}
-          <Icon
-            name="circledArrowRight"
-            color="brandOrange"
-            className="transition-all duration-300 ease-cubic h-0 w-0 group-[.selected-js]:w-5 group-[.selected-js]:h-5 group-[.selected-js]:mr-[0.3rem]"
-          />
-          <a href={`#${section.anchorId}`}>{section.title}</a>
-        </ListItem>
-      ))
-    }
-  </List>
+  <Body size="small">Liens rapides</Body>
+
+  <div id="toc">
+    <List className="transition duration-300">
+      {
+        race.sections.map((section) => (
+          <ListItem className="group flex items-center opacity-80 transition-opacity duration-300 ease-cubic group-[.selected-js]:opacity-100">
+            {/* the icon has no size by default, it's resized with client side JavaScript */}
+            <Icon
+              name="circledArrowRight"
+              color="brandOrange"
+              className="transition-all duration-300 ease-cubic h-0 w-0 group-[.selected-js]:w-5 group-[.selected-js]:h-5 group-[.selected-js]:mr-[0.3rem]"
+            />
+            <a href={`#${section.anchorId}`}>{section.title}</a>
+          </ListItem>
+        ))
+      }
+    </List>
+  </div>
 </div>
 
 <script>
