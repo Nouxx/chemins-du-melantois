@@ -4,7 +4,11 @@ import runAndBikeHero from "../../images/races/run-bike-peronne-hero.webp";
 import nineHundredPeronneHero from "../../images/races/900m-peronne-hero.webp";
 import nineHundredSainghinHero from "../../images/races/900m-sem-hero.webp";
 import { externalLinks } from "@/data_files/constants";
-import type { RaceLink, RacePageData } from "@/data_files/races/schema";
+import {
+  RacePageDataSchema,
+  type RaceLink,
+  type RacePageData,
+} from "@/data_files/races/schema";
 
 const getMapAltText = (raceName: string) =>
   `Tracé du parcours du ${raceName} des Chemins du Mélantois, édition 2025`;
@@ -79,7 +83,7 @@ const registrationDetailsSectionSharedData = {
       "Les participants de moins de 18 ans doivent impérativement fournir les 2 documents suivants :",
     requiredDocumentsLines: [
       "Une autorisation parentale signée",
-      `Un questionnaire de santé <span class="font-bold">ou</span> un certificat médical de moins de 6 mois`,
+      `Un questionnaire de santé ou un certificat médical de moins de 6 mois`,
     ],
     healthQuestionnaireLink: {
       label: "Lien vers l'autorisation parentale ",
@@ -118,13 +122,14 @@ const noRegistrationForAdultData: RacePageData["registrationDetailsSection"]["fo
 export const registrationDetailsId =
   registrationDetailsSectionSharedData.anchorId;
 
+export const milesRepublicPhrase = "Miles Republic";
+
 const registrationSectionData = {
   title: "Inscription",
   anchorId: "inscription",
   onlineRegistration: {
     title: "En ligne",
-    description:
-      "Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00 via notre plateforme partenaire <span class=\"font-bold italic\">Miles Republic</span>. Le paiement s'effectue également sur cette plateforme.",
+    partner: milesRepublicPhrase,
     link: {
       label: "Lien vers l'inscription en ligne",
       url: externalLinks.registration,
@@ -132,14 +137,6 @@ const registrationSectionData = {
   },
   onSiteRegistration: {
     title: "Sur place",
-    description: `Vous pouvez également vous inscrire à la Maison des Associations de
-      Sainghin en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à
-      venir muni de votre bulletin d'inscription rempli ainsi que tous les
-      documents requis pour finaliser votre inscription (voir les
-      <a class="link__text font-bold" href={#${registrationDetailsId}}>
-        Modalités d'inscriptions
-      </a>
-      plus bas).`,
     registrationFormLink: {
       label: "Lien vers le bulletin d'inscription",
       url: externalLinks.registrationForm,
@@ -160,7 +157,7 @@ const raceRegulationData = {
 
 const rewardForEveryonePhrase = "Une médaille est remise à chaque participant.";
 
-const tenKilometerRacePageData: RacePageData = {
+const tenKilometerRacePageData = RacePageDataSchema.parse({
   urlSlug: "10-km-sainghin-en-melantois",
   featuredImage: {
     image: tenKilometerHero,
@@ -196,7 +193,7 @@ const tenKilometerRacePageData: RacePageData = {
     forAdults: adultRegistrationDetailsSectionData,
   },
   regulationSection: raceRegulationData,
-};
+});
 
 const runAndBikeRacePageData: RacePageData = {
   urlSlug: "run-and-bike-peronne-en-melantois",
@@ -232,7 +229,7 @@ const runAndBikeRacePageData: RacePageData = {
   regulationSection: raceRegulationData,
 };
 
-const fiveKilometerRacePageData: RacePageData = {
+const fiveKilometerRacePageData = RacePageDataSchema.parse({
   urlSlug: "5-km-sainghin-en-melantois",
   featuredImage: {
     image: fiveKilometerHero,
@@ -266,9 +263,9 @@ const fiveKilometerRacePageData: RacePageData = {
     forAdults: adultRegistrationDetailsSectionData,
   },
   regulationSection: raceRegulationData,
-};
+});
 
-const nineHundredSainghinRacePageData: RacePageData = {
+const nineHundredSainghinRacePageData = RacePageDataSchema.parse({
   urlSlug: "900-m-sainghin-en-melantois",
   featuredImage: {
     image: nineHundredSainghinHero,
@@ -300,9 +297,9 @@ const nineHundredSainghinRacePageData: RacePageData = {
     forAdults: noRegistrationForAdultData,
   },
   regulationSection: raceRegulationData,
-};
+});
 
-const nineHundredPeronneRacePageData: RacePageData = {
+const nineHundredPeronneRacePageData = RacePageDataSchema.parse({
   urlSlug: "900-m-peronne-en-melantois",
   featuredImage: {
     image: nineHundredPeronneHero,
@@ -334,7 +331,7 @@ const nineHundredPeronneRacePageData: RacePageData = {
     forAdults: noRegistrationForAdultData,
   },
   regulationSection: raceRegulationData,
-};
+});
 
 export const racesPageData: RacePageData[] = [
   tenKilometerRacePageData,

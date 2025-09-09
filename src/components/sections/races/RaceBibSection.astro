@@ -25,9 +25,9 @@ const { title, anchorId, description, pickupScheduleLines } =
 
   <List>
     {
-      pickupScheduleLines.map((scheduleLine) => {
-        <ListItem>{scheduleLine}</ListItem>;
-      })
+      pickupScheduleLines.map((scheduleLine) => (
+        <ListItem>{scheduleLine}</ListItem>
+      ))
     }
   </List>
 </RaceDetailSection>

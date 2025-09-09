@@ -25,11 +25,11 @@ const { title, description, requiredDocumentsLines, ppsLink } =
   </Body>
 
   {
-    requiredDocumentsLines && (
+    requiredDocumentsLines?.length && (
       <List>
-        {requiredDocumentsLines.map((documentLine) => {
-          <ListItem>{documentLine}</ListItem>;
-        })}
+        {requiredDocumentsLines.map((documentLine) => (
+          <ListItem>{documentLine}</ListItem>
+        ))}
       </List>
     )
   }

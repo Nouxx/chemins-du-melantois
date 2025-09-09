@@ -9,8 +9,7 @@ interface Props {
   sectionData: RacePageData["registrationSection"]["onlineRegistration"];
 }
 
-const { title, description, additionalDescription, link } =
-  Astro.props.sectionData;
+const { title, partner, additionalDescription, link } = Astro.props.sectionData;
 ---
 
 <RaceDetailSection>
@@ -19,7 +18,10 @@ const { title, description, additionalDescription, link } =
   </Heading>
 
   <Body size="small">
-    {description}
+    Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00
+    via notre plateforme partenaire
+    <span class="font-bold italic">{partner}</span>. Le paiement s'effectue
+    également sur cette plateforme.
   </Body>
 
   {additionalDescription && <Body size="small">{additionalDescription}</Body>}

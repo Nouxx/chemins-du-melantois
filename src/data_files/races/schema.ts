@@ -11,7 +11,7 @@ const RacePageSectionMandatoryFields = z.strictObject({
   title: z.string(),
 });
 
-const RacePageDataSchema = z.strictObject({
+export const RacePageDataSchema = z.strictObject({
   urlSlug: z.string(), // todo: make sure id can be converted in a URL safe string
   featuredImage: z.strictObject({
     image: z.custom<ImageMetadata>(),
@@ -44,13 +44,12 @@ const RacePageDataSchema = z.strictObject({
     ...RacePageSectionMandatoryFields.shape,
     onlineRegistration: z.strictObject({
       title: z.string(),
-      description: z.string(),
+      partner: z.string(),
       additionalDescription: z.string().optional(),
       link: RaceLink,
     }),
     onSiteRegistration: z.strictObject({
       title: z.string(),
-      description: z.string(),
       registrationFormLink: RaceLink,
     }),
   }),
