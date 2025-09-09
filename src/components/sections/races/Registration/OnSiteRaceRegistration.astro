@@ -1,0 +1,34 @@
+---
+import RaceDetailSection from "@/components/sections/races/RaceDetailSection.astro";
+import Body from "@/components/ui/atoms/Body.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
+import TextLink from "@/components/ui/race/TextLink.astro";
+import type { RacePageData } from "@/data_files/races/schema";
+
+interface Props {
+  sectionData: RacePageData["registrationSection"]["onSiteRegistration"];
+}
+
+const { title, description, registrationFormLink } = Astro.props.sectionData;
+---
+
+<RaceDetailSection>
+  <Heading size="xsmall" tag="h3">
+    {title}
+  </Heading>
+
+  <Body size="small">
+    {description}
+  </Body>
+
+  <TextLink href={registrationFormLink.url}>
+    {registrationFormLink.label}
+  </TextLink>
+</RaceDetailSection>
+
+<style>
+  .link__text:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

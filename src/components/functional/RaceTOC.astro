@@ -4,13 +4,31 @@ import Body from "@/components/ui/atoms/Body.astro";
 import Icon from "@/components/ui/icons/Icon.astro";
 import List from "@/components/ui/molecules/List.astro";
 import ListItem from "@/components/ui/molecules/ListItem.astro";
-import type { Race } from "@/data_files/constants";
+import type { RacePageData, RacePageSection } from "@/data_files/races/schema";
 
 interface Props {
-  race: Race;
+  racePageData: RacePageData;
 }
 
-const { race } = Astro.props;
+const {
+  routeSection,
+  scheduleSection,
+  rewardsSection,
+  registrationSection,
+  bibSection,
+  registrationDetailsSection,
+  regulationSection,
+} = Astro.props.racePageData;
+
+const sections: RacePageSection[] = [
+  routeSection,
+  scheduleSection,
+  ...(rewardsSection ? [rewardsSection] : []),
+  registrationSection,
+  bibSection,
+  registrationDetailsSection,
+  regulationSection,
+].map((section) => ({ title: section.title, anchorId: section.anchorId }));
 ---
 
 <div id="pin" class="mt-10 hidden space-y-4 md:block">
@@ -21,7 +39,7 @@ const { race } = Astro.props;
   <div id="toc">
     <List className="transition duration-300">
       {
-        race.sections.map((section) => (
+        sections.map((section) => (
           <ListItem className="group flex items-center opacity-80 transition-opacity duration-300 ease-cubic group-[.selected-js]:opacity-100">
             {/* the icon has no size by default, it's resized with client side JavaScript */}
             <Icon

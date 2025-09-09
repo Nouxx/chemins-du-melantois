@@ -28,20 +28,24 @@ const RacePageDataSchema = z.strictObject({
   }),
   scheduleSection: z.strictObject({
     ...RacePageSectionMandatoryFields.shape,
-    description: z.string(),
+    eventDate: z.string(),
+    startTime: z.string(),
     meetingPointAddressLines: z.array(z.string()).max(3),
     additionalScheduleInformation: z.string().optional(),
   }),
-  rewardsSection: z.strictObject({
-    ...RacePageSectionMandatoryFields.shape,
-    description: z.string(),
-    rewardsLink: RaceLink.optional(),
-  }),
+  rewardsSection: z
+    .strictObject({
+      ...RacePageSectionMandatoryFields.shape,
+      description: z.string(),
+      rewardsLink: RaceLink.optional(),
+    })
+    .optional(),
   registrationSection: z.strictObject({
     ...RacePageSectionMandatoryFields.shape,
     onlineRegistration: z.strictObject({
       title: z.string(),
       description: z.string(),
+      additionalDescription: z.string().optional(),
       link: RaceLink,
     }),
     onSiteRegistration: z.strictObject({
@@ -58,11 +62,13 @@ const RacePageDataSchema = z.strictObject({
   registrationDetailsSection: z.strictObject({
     ...RacePageSectionMandatoryFields.shape,
     forAdults: z.strictObject({
+      title: z.string(),
       description: z.string(),
       requiredDocumentsLines: z.array(z.string()).optional(),
       ppsLink: RaceLink.optional(),
     }),
     forChildren: z.strictObject({
+      title: z.string(),
       description: z.string(),
       requiredDocumentsLines: z.array(z.string()),
       parentalConstentLink: RaceLink,
@@ -77,5 +83,7 @@ const RacePageDataSchema = z.strictObject({
 });
 
 export type RaceLink = z.input<typeof RaceLink>;
+
+export type RacePageSection = z.input<typeof RacePageSectionMandatoryFields>;
 
 export type RacePageData = z.input<typeof RacePageDataSchema>;

@@ -1,25 +1,26 @@
 ---
 import CardSmall from "@/components/ui/cards/CardSmall.astro";
 import CardWide from "@/components/ui/cards/CardWide.astro";
-import { routes, type Race } from "@/data_files/constants";
+import { routes } from "@/data_files/constants";
+import type { RacePageData } from "@/data_files/races/schema";
 
 interface Props {
-  race: Race;
+  racePageData: RacePageData;
   size: "small" | "wide";
 }
 
-const { race, size } = Astro.props;
+const { racePageData: race, size } = Astro.props;
 
-const url = routes.raceDetails(race.id);
+const url = routes.raceDetails(race.urlSlug);
 ---
 
 {
   size === "small" && (
     <CardSmall
-      title={race.title}
+      title={race.pageTitle}
       url={url}
-      image={race.hero.image}
-      imageAlt={race.hero.alt}
+      image={race.featuredImage.image}
+      imageAlt={race.featuredImage.alt}
     />
   )
 }
@@ -27,10 +28,10 @@ const url = routes.raceDetails(race.id);
 {
   size === "wide" && (
     <CardWide
-      title={race.title}
+      title={race.pageTitle}
       url={url}
-      image={race.hero.image}
-      imageAlt={race.hero.alt}
+      image={race.featuredImage.image}
+      imageAlt={race.featuredImage.alt}
     />
   )
 }

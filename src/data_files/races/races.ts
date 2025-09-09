@@ -1,8 +1,8 @@
-import tenKilometerHero from "../images/races/10km-sem-hero.webp";
-import fiveKilometerHero from "../images/races/5km-sem-hero.webp";
-import runAndBikeHero from "../images/races/run-bike-peronne-hero.webp";
-import nineHundredPeronneHero from "../images/races/900m-peronne-hero.webp";
-import nineHundredSainghinHero from "../images/races/900m-sem-hero.webp";
+import tenKilometerHero from "../../images/races/10km-sem-hero.webp";
+import fiveKilometerHero from "../../images/races/5km-sem-hero.webp";
+import runAndBikeHero from "../../images/races/run-bike-peronne-hero.webp";
+import nineHundredPeronneHero from "../../images/races/900m-peronne-hero.webp";
+import nineHundredSainghinHero from "../../images/races/900m-sem-hero.webp";
 import { externalLinks } from "@/data_files/constants";
 import type { RaceLink, RacePageData } from "@/data_files/races/schema";
 
@@ -67,6 +67,57 @@ const rewardsSectionSharedData = {
   anchorId: "recompenses",
 };
 
+const getScheduleSectionDescription = (time: string) =>
+  `La course a lieu le ${eventDate} et le départ sera lancé à ${time}.`;
+
+const registrationDetailsSectionSharedData = {
+  title: "Modalités d'inscription",
+  anchorId: "modalites-d-inscription",
+  forChildren: {
+    title: "Pour les mineurs",
+    description:
+      "Les participants de moins de 18 ans doivent impérativement fournir les 2 documents suivants :",
+    requiredDocumentsLines: [
+      "Une autorisation parentale signée",
+      `Un questionnaire de santé <span class="font-bold">ou</span> un certificat médical de moins de 6 mois`,
+    ],
+    healthQuestionnaireLink: {
+      label: "Lien vers l'autorisation parentale ",
+      url: externalLinks.healthQuestionnaire,
+    },
+    parentalConstentLink: {
+      label: "Lien vers le questionnaire de santé",
+      url: externalLinks.parentalConsentForm,
+    },
+  },
+};
+
+const adultRegistrationDetailsSectionData: RacePageData["registrationDetailsSection"]["forAdults"] =
+  {
+    title: "Pour les majeurs",
+    description:
+      "Pour valider votre inscription, vous devez fournir l'un des deux documents suivants :",
+    requiredDocumentsLines: [
+      "Une Licence conforme et en cours de validité",
+      "Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat médical pour les non licenciés",
+    ],
+    ppsLink: {
+      label: "En savoir plus sur le PPS",
+      url: externalLinks.pps,
+    },
+  };
+
+const noRegistrationForAdultData: RacePageData["registrationDetailsSection"]["forAdults"] =
+  {
+    title: "Pour les majeurs",
+    description:
+      "Hormis le bulletin d'inscription si vous souhaitez vous inscrire sur place, aucun document n'est requis.",
+  };
+
+// todo: rename anchor id
+export const registrationDetailsId =
+  registrationDetailsSectionSharedData.anchorId;
+
 const registrationSectionData = {
   title: "Inscription",
   anchorId: "inscription",
@@ -96,33 +147,6 @@ const registrationSectionData = {
   },
 };
 
-const getScheduleSectionDescription = (time: string) =>
-  `La course a lieu le ${eventDate} et le départ sera lancé à ${time}.`;
-
-const registrationDetailsSectionSharedData = {
-  title: "Modalités d'inscription",
-  anchorId: "modalites-d-inscription",
-  forChildren: {
-    description:
-      "Les participants de moins de 18 ans doivent impérativement fournir les 2 documents suivants :",
-    requiredDocumentsLines: [
-      "Une autorisation parentale signée",
-      `Un questionnaire de santé <span class="font-bold">ou</span> un certificat médical de moins de 6 mois`,
-    ],
-    healthQuestionnaireLink: {
-      label: "Lien vers l'autorisation parentale ",
-      url: externalLinks.healthQuestionnaire,
-    },
-    parentalConstentLink: {
-      label: "Lien vers le questionnaire de santé",
-      url: externalLinks.parentalConsentForm,
-    },
-  },
-};
-
-export const registrationDetailsId =
-  registrationDetailsSectionSharedData.anchorId; // technical id for anchor link
-
 const raceRegulationData = {
   title: "Règlement de course",
   anchorId: "reglement-de-course",
@@ -133,6 +157,8 @@ const raceRegulationData = {
     url: externalLinks.sportsRegulations,
   },
 };
+
+const rewardForEveryonePhrase = "Une médaille est remise à chaque participant.";
 
 const tenKilometerRacePageData: RacePageData = {
   urlSlug: "10-km-sainghin-en-melantois",
@@ -151,7 +177,8 @@ const tenKilometerRacePageData: RacePageData = {
   },
   scheduleSection: {
     ...scheduleSectionSharedData,
-    description: getScheduleSectionDescription("10h15"),
+    eventDate: eventDate,
+    startTime: "10h15",
     meetingPointAddressLines: egliseSaintNicolasAddressLines,
     additionalScheduleInformation:
       "Un échauffement encadré est proposé à 10h00.",
@@ -166,18 +193,7 @@ const tenKilometerRacePageData: RacePageData = {
   bibSection: bibSectionData,
   registrationDetailsSection: {
     ...registrationDetailsSectionSharedData,
-    forAdults: {
-      description:
-        "Pour valider votre inscription, vous devez fournir l'un des deux documents suivants :",
-      requiredDocumentsLines: [
-        "Une Licence conforme et en cours de validité",
-        "Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat médical pour les non licenciés",
-      ],
-      ppsLink: {
-        label: "En savoir plus sur le PPS",
-        url: externalLinks.pps,
-      },
-    },
+    forAdults: adultRegistrationDetailsSectionData,
   },
   regulationSection: raceRegulationData,
 };
@@ -199,21 +215,19 @@ const runAndBikeRacePageData: RacePageData = {
   },
   scheduleSection: {
     ...scheduleSectionSharedData,
-    description: getScheduleSectionDescription("9h45"),
+    eventDate: eventDate,
+    startTime: "9h45",
     meetingPointAddressLines: mairieDePeronneAddressLines,
   },
   rewardsSection: {
     ...rewardsSectionSharedData,
-    description: "Une médaille est remise à chaque participant.",
+    description: rewardForEveryonePhrase,
   },
   registrationSection: registrationSectionData,
   bibSection: bibSectionData,
   registrationDetailsSection: {
     ...registrationDetailsSectionSharedData,
-    forAdults: {
-      description:
-        "Hormis le bulletin d'inscription si vous souhaitez vous inscrire sur place, aucun document n'est requis.",
-    },
+    forAdults: noRegistrationForAdultData,
   },
   regulationSection: raceRegulationData,
 };
@@ -235,7 +249,8 @@ const fiveKilometerRacePageData: RacePageData = {
   },
   scheduleSection: {
     ...scheduleSectionSharedData,
-    description: getScheduleSectionDescription("9h00"),
+    eventDate: eventDate,
+    startTime: "9h00",
     meetingPointAddressLines: egliseSaintNicolasAddressLines,
   },
   rewardsSection: {
@@ -248,61 +263,83 @@ const fiveKilometerRacePageData: RacePageData = {
   bibSection: bibSectionData,
   registrationDetailsSection: {
     ...registrationDetailsSectionSharedData,
-    forAdults: {
-      description:
-        "Pour valider votre inscription, vous devez fournir l'un des deux documents suivants :",
-      requiredDocumentsLines: [
-        "Une Licence conforme et en cours de validité",
-        "Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat médical pour les non licenciés",
-      ],
-      ppsLink: {
-        label: "En savoir plus sur le PPS",
-        url: externalLinks.pps,
-      },
-    },
+    forAdults: adultRegistrationDetailsSectionData,
   },
   regulationSection: raceRegulationData,
 };
 
-export const racesData: RacePageData[] = [
+const nineHundredSainghinRacePageData: RacePageData = {
+  urlSlug: "900-m-sainghin-en-melantois",
+  featuredImage: {
+    image: nineHundredSainghinHero,
+    alt: getMapAltText("900 m de Sainghin en Mélantois"),
+  },
+  pageTitle: "900 m de Sainghin en Mélantois",
+  date: eventDate,
+  price: "Gratuit",
+  routeSection: {
+    ...routeSectionSharedData,
+    description:
+      "Un parcours court, ludique et sécurisé, idéal pour les enfants et leurs familles souhaitant s’initier à la course à pied dans une ambiance conviviale. À travers les rues du village de Sainghin, cette boucle accessible met l’accent sur le plaisir de courir ensemble, sans pression de performance. C’est l’occasion parfaite de partager un moment sportif intergénérationnel, dans un cadre chaleureux et festif.",
+    tracePDFLink: getTraceLink(externalLinks.edition2025.trace900mSainghin),
+  },
+  scheduleSection: {
+    ...scheduleSectionSharedData,
+    eventDate: eventDate,
+    startTime: "9h45",
+    meetingPointAddressLines: egliseSaintNicolasAddressLines,
+  },
+  rewardsSection: {
+    ...rewardsSectionSharedData,
+    description: rewardForEveryonePhrase,
+  },
+  registrationSection: registrationSectionData,
+  bibSection: bibSectionData,
+  registrationDetailsSection: {
+    ...registrationDetailsSectionSharedData,
+    forAdults: noRegistrationForAdultData,
+  },
+  regulationSection: raceRegulationData,
+};
+
+const nineHundredPeronneRacePageData: RacePageData = {
+  urlSlug: "900-m-peronne-en-melantois",
+  featuredImage: {
+    image: nineHundredPeronneHero,
+    alt: getMapAltText("900 m de Péronne en Mélantois"),
+  },
+  pageTitle: "900 m de Péronne en Mélantoi",
+  date: eventDate,
+  price: "Gratuit",
+  routeSection: {
+    ...routeSectionSharedData,
+    description:
+      "Ce parcours a été spécialement conçu pour les enfants et leurs familles désireux de s'initier à la course à pied dans une ambiance conviviale et accessible. À travers les rues paisibles et le cadre champêtre du village de Péronne, cette course familiale offre une belle occasion de partager un moment sportif, ludique et intergénérationnel, tout en découvrant le plaisir de courir ensemble, quel que soit son niveau.",
+    tracePDFLink: getTraceLink(externalLinks.edition2025.trace900mPeronne),
+  },
+  scheduleSection: {
+    ...scheduleSectionSharedData,
+    eventDate: eventDate,
+    startTime: "9h15",
+    meetingPointAddressLines: mairieDePeronneAddressLines,
+  },
+  rewardsSection: {
+    ...rewardsSectionSharedData,
+    description: rewardForEveryonePhrase,
+  },
+  registrationSection: registrationSectionData,
+  bibSection: bibSectionData,
+  registrationDetailsSection: {
+    ...registrationDetailsSectionSharedData,
+    forAdults: noRegistrationForAdultData,
+  },
+  regulationSection: raceRegulationData,
+};
+
+export const racesPageData: RacePageData[] = [
   tenKilometerRacePageData,
   runAndBikeRacePageData,
   fiveKilometerRacePageData,
-];
-
-export const races: Race[] = [
-  {
-    id: "900-m-sainghin-en-melantois",
-    sections: allSections,
-    title: "900 m de Sainghin en Mélantois",
-    hero: {
-      image: nineHundredSainghinHero,
-      alt: getMapAltText("900 m de Sainghin en Mélantois"),
-    },
-    date: eventDate,
-    traceLink: externalLinks.edition2025.trace900mSainghin,
-    startTime: "9h45",
-    description:
-      "Un parcours court, ludique et sécurisé, idéal pour les enfants et leurs familles souhaitant s’initier à la course à pied dans une ambiance conviviale. À travers les rues du village de Sainghin, cette boucle accessible met l’accent sur le plaisir de courir ensemble, sans pression de performance. C’est l’occasion parfaite de partager un moment sportif intergénérationnel, dans un cadre chaleureux et festif.",
-    meetingPointAddressLines: egliseSaintNicolasAddressLines,
-    rewardsSummary: "Une médaille est remise à chaque participant.",
-    displayRewardsSummaryLink: false,
-  },
-  {
-    id: "900-m-peronne-en-melantois",
-    sections: allSections,
-    title: "900 m de Péronne en Mélantois",
-    hero: {
-      image: nineHundredPeronneHero,
-      alt: getMapAltText("900 m de Péronne en Mélantois"),
-    },
-    date: eventDate,
-    startTime: "9h15",
-    description:
-      "Ce parcours a été spécialement conçu pour les enfants et leurs familles désireux de s’initier à la course à pied dans une ambiance conviviale et accessible. À travers les rues paisibles et le cadre champêtre du village de Péronne, cette course familiale offre une belle occasion de partager un moment sportif, ludique et intergénérationnel, tout en découvrant le plaisir de courir ensemble, quel que soit son niveau.",
-    traceLink: externalLinks.edition2025.trace900mPeronne,
-    meetingPointAddressLines: mairieDePeronneAddressLines,
-    displayRewardsSummaryLink: false,
-    rewardsSummary: "Une médaille est remise à chaque participant.",
-  },
+  nineHundredSainghinRacePageData,
+  nineHundredPeronneRacePageData,
 ];

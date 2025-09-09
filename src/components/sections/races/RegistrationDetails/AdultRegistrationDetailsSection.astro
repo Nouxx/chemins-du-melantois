@@ -1,0 +1,38 @@
+---
+import RaceDetailSection from "@/components/sections/races/RaceDetailSection.astro";
+import Body from "@/components/ui/atoms/Body.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
+import List from "@/components/ui/molecules/List.astro";
+import ListItem from "@/components/ui/molecules/ListItem.astro";
+import TextLink from "@/components/ui/race/TextLink.astro";
+import type { RacePageData } from "@/data_files/races/schema";
+
+interface Props {
+  sectionData: RacePageData["registrationDetailsSection"]["forAdults"];
+}
+
+const { title, description, requiredDocumentsLines, ppsLink } =
+  Astro.props.sectionData;
+---
+
+<RaceDetailSection>
+  <Heading size="xsmall" tag="h3">
+    {title}
+  </Heading>
+
+  <Body size="small">
+    {description}
+  </Body>
+
+  {
+    requiredDocumentsLines && (
+      <List>
+        {requiredDocumentsLines.map((documentLine) => {
+          <ListItem>{documentLine}</ListItem>;
+        })}
+      </List>
+    )
+  }
+
+  {ppsLink && <TextLink href={ppsLink.url}>{ppsLink.label}</TextLink>}
+</RaceDetailSection>

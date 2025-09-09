@@ -4,19 +4,30 @@ import Body from "@/components/ui/atoms/Body.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import List from "@/components/ui/molecules/List.astro";
 import ListItem from "@/components/ui/molecules/ListItem.astro";
+import type { RacePageData } from "@/data_files/races/schema";
+
+interface Props {
+  sectionData: RacePageData["bibSection"];
+}
+
+const { title, anchorId, description, pickupScheduleLines } =
+  Astro.props.sectionData;
 ---
 
 <RaceDetailSection>
-  <Heading size="small" tag="h2" id="retrait-des-dossards">
-    Retrait des dossards
+  <Heading size="small" tag="h2" id={anchorId}>
+    {title}
   </Heading>
 
   <Body size="small">
-    Les dossards sont à retirer à la mairie de Sainghin, aux horaires suivants :
+    {description}
   </Body>
 
   <List>
-    <ListItem>Samedi 20 septembre : de 14h00 à 17h00</ListItem>
-    <ListItem>Dimanche 21 septembre : de 7h30 à 9h45</ListItem>
+    {
+      pickupScheduleLines.map((scheduleLine) => {
+        <ListItem>{scheduleLine}</ListItem>;
+      })
+    }
   </List>
 </RaceDetailSection>

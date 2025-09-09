@@ -1,41 +1,40 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import RaceRegulations from "@/components/sections/races/RaceRegulations.astro";
 import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
-import { races, type Race } from "@/data_files/constants";
-import RaceDescription from "@/components/sections/races/RaceDescription.astro";
 import TwoColumnsLayout from "@/components/ui/atoms/TwoColumnsLayout.astro";
 import Section from "@/components/ui/atoms/Section.astro";
 import RaceMapImage from "@/components/functional/RaceMapImage.astro";
 import MobileProgressBar from "@/components/functional/MobileProgressBar.astro";
 import RaceTOC from "@/components/functional/RaceTOC.astro";
-import RaceSchedule from "@/components/sections/races/RaceSchedule.astro";
-import RaceRewards from "@/components/sections/races/RaceRewards.astro";
-import RaceRegistration from "@/components/sections/races/Registration/RaceRegistration.astro";
-import RaceBib from "@/components/sections/races/RaceBib.astro";
-import RaceRegistrationDetails from "@/components/sections/races/RegistrationDetails/RaceRegistrationDetails.astro";
-import AdultRegistrationNotRequired from "@/components/sections/races/RegistrationDetails/AdultRegistrationNotRequired.astro";
-import AdultRegistrationDetails from "@/components/sections/races/RegistrationDetails/AdultRegistrationDetails.astro";
+import RaceRegistrationSection from "@/components/sections/races/Registration/RaceRegistrationSection.astro";
 import RaceHeading from "@/components/sections/races/RaceHeading.astro";
+import { racesPageData } from "@/data_files/races/races";
+import type { RacePageData } from "@/data_files/races/schema";
+import RaceRewardsSection from "@/components/sections/races/RaceRewardsSection.astro";
+import RaceBibSection from "@/components/sections/races/RaceBibSection.astro";
+import RaceRegistrationDetailsSection from "@/components/sections/races/RegistrationDetails/RaceRegistrationDetailsSection.astro";
+import RaceRegulationsSection from "@/components/sections/races/RaceRegulationsSection.astro";
+import RaceScheduleSection from "@/components/sections/races/RaceScheduleSection.astro";
+import RaceDescriptionSection from "@/components/sections/races/RaceDescriptionSection.astro";
 
 export function getStaticPaths() {
-  return races.map((race) => ({
-    params: { id: race.id },
-    props: { race },
+  return racesPageData.map((racePageData) => ({
+    params: { id: racePageData.urlSlug },
+    props: { racePageData },
   }));
 }
 
 interface Props {
-  race: Race;
+  racePageData: RacePageData;
 }
 
-const { race } = Astro.props;
+const { racePageData } = Astro.props;
 
-const pageTitle = getPageTitle(race.title);
-const pageDescription = race.description;
+const pageTitle = getPageTitle(racePageData.pageTitle);
+const pageDescription = racePageData.routeSection.description;
 ---
 
 <MainLayout
@@ -47,38 +46,39 @@ const pageDescription = race.description;
   <Section>
     <TwoColumnsLayout>
       <div slot="left">
-        <RaceMapImage image={race.hero.image} alt={race.hero.alt} />
+        <RaceMapImage
+          image={racePageData.featuredImage.image}
+          alt={racePageData.featuredImage.alt}
+        />
 
         <MobileProgressBar />
 
-        <RaceTOC race={race} />
+        <RaceTOC racePageData={racePageData} />
       </div>
 
       <div slot="right">
         <article class="flex flex-col gap-14">
-          <RaceHeading race={race} />
+          <RaceHeading racePageData={racePageData} />
 
-          <RaceDescription race={race} />
+          <RaceDescriptionSection sectionData={racePageData.routeSection} />
 
-          <RaceSchedule race={race} />
+          <RaceScheduleSection sectionData={racePageData.scheduleSection} />
 
-          {race.rewardsSummary && <RaceRewards race={race} />}
+          <RaceRewardsSection sectionData={racePageData.rewardsSection} />
 
-          <RaceRegistration race={race} />
+          <RaceRegistrationSection
+            sectionData={racePageData.registrationSection}
+          />
 
-          <RaceBib />
+          <RaceBibSection sectionData={racePageData.bibSection} />
 
-          <RaceRegistrationDetails>
-            {
-              race.adultRegistrationRequirement ? (
-                <AdultRegistrationDetails slot="adult-registration-text" />
-              ) : (
-                <AdultRegistrationNotRequired slot="adult-registration-text" />
-              )
-            }
-          </RaceRegistrationDetails>
+          <RaceRegistrationDetailsSection
+            sectionData={racePageData.registrationDetailsSection}
+          />
 
-          <RaceRegulations />
+          <RaceRegulationsSection
+            sectionData={racePageData.regulationSection}
+          />
         </article>
       </div>
     </TwoColumnsLayout>

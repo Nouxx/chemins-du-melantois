@@ -1,0 +1,29 @@
+---
+import RaceDetailSection from "@/components/sections/races/RaceDetailSection.astro";
+import Body from "@/components/ui/atoms/Body.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
+import TextLink from "@/components/ui/race/TextLink.astro";
+import type { RacePageData } from "@/data_files/races/schema";
+
+interface Props {
+  sectionData: RacePageData["rewardsSection"];
+}
+
+const { sectionData } = Astro.props; // todo: do this instead
+
+if (!sectionData) return undefined;
+
+const { title, anchorId, description, rewardsLink } = sectionData;
+---
+
+<RaceDetailSection>
+  <Heading size="small" id={anchorId} tag="h2">{title}</Heading>
+
+  <Body size="small">{description}</Body>
+
+  {
+    rewardsLink && (
+      <TextLink href={rewardsLink.url}>{rewardsLink.label}</TextLink>
+    )
+  }
+</RaceDetailSection>
