@@ -1,0 +1,46 @@
+---
+import RightSection, {
+  type ButtonLink,
+} from "@/components/ui/blocks/RightSection.astro";
+import type { RaceHighlightData } from "@/data_files/raceHighlights/schema";
+import type { RaceLink } from "@/data_files/races/schema";
+
+interface Props {
+  raceHighlightData: RaceHighlightData;
+}
+
+export function mapToButtonLink(
+  data: RaceLink | undefined
+): ButtonLink | undefined {
+  if (!data) return undefined;
+  return {
+    title: data.label,
+    url: data.url,
+    openInNewTab: true,
+  };
+}
+
+const {
+  title,
+  subline,
+  featuredImage,
+  participantsLines,
+  resultsLink,
+  picturesLinks,
+} = Astro.props.raceHighlightData;
+
+const listItems: string[] = participantsLines.map(
+  (line) => `${line.participantsCount} participants au ${line.raceName}.`
+);
+
+const links = [resultsLink, picturesLinks].map((link) => mapToButtonLink(link));
+---
+
+<RightSection
+  title={title}
+  subTitle={subline}
+  image={featuredImage.image}
+  imageAlt={featuredImage.alt}
+  list={listItems}
+  links={eventHighlight.links}
+/>
