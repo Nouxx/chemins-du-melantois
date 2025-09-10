@@ -1,13 +1,11 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import RightSection from "@components/ui/blocks/RightSection.astro";
 import { eventsHighlights } from "@/data_files/raceHighlights/raceHighlights";
 import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
 import RaceHighligtSection from "@/components/functional/RaceHighligtSection.astro";
-import Section from "@/components/ui/atoms/Section.astro";
 
 const pageTitle = getPageTitle("Résultats & Photos");
 
@@ -23,11 +21,7 @@ const pageDescription =
 >
   {
     eventsHighlights.map((eventHighlight) => {
-      return (
-        <Section>
-          <RaceHighligtSection raceHighlightData={eventHighlight} />
-        </Section>
-      );
+      return <RaceHighligtSection raceHighlightData={eventHighlight} />;
     })
   }
 </MainLayout>

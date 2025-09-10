@@ -1,15 +1,39 @@
 ---
+import { cva, cx, type VariantProps } from "class-variance-authority";
+
 interface Props {
-  flex?: boolean;
+  flex?: Variants["flex"];
+  className?: string;
 }
 
-const { flex = false } = Astro.props;
+const { flex, className } = Astro.props;
 
-const flexClasses = flex ? "flex flex-col md:flex-row" : undefined;
+const section = cva(
+  [
+    "items-stretch",
+    "mx-auto",
+    "max-w-[85rem]",
+    "2xl:max-w-full",
+    "px-4",
+    "sm:px-6",
+    "py-14",
+    "gap-4",
+  ],
+  {
+    variants: {
+      flex: {
+        col: "flex flex-col",
+        row: "flex flex-row",
+        none: undefined,
+      },
+    },
+    defaultVariants: { flex: "none" },
+  }
+);
+
+type Variants = VariantProps<typeof section>;
 ---
 
-<section
-  class=`mx-auto max-w-[85rem] items-stretch gap-4 px-4 py-14 sm:px-6 md:gap-8 lg:px-8 2xl:max-w-full ${flexClasses}`
->
+<section class={cx(section({ flex }), className)}>
   <slot />
 </section>

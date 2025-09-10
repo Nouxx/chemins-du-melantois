@@ -1,71 +1,14 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import RightSection from "@/components/ui/blocks/RightSection.astro";
-import imgVolunteersRegistration from "@images/volunteers/women-at-the-registration-desk.webp";
-import imgVolunteersFood from "@images/volunteers/women-preparing-food.webp";
-import imgVolunteersManCycling from "@images/volunteers/man-cycling-on-the-road.webp";
-import imgVolunteersManTakingAPicture from "@images/volunteers/man-taking-pictures.webp";
-import imgVolunteersInstallations from "@images/volunteers/finish-line-before-the-race.webp";
-import imgVolunteersManCyclingInTheWoods from "@images/volunteers/man-cycling-in-the-woods.webp";
-import imgVolunteersPosing from "@images/volunteers/volunteers-and-participant-posing.webp";
 import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
-import TestimonialsSectionAlt from "@/components/sections/testimonials/TestimonialsSectionAlt.astro";
-import HeroSectionAlt from "@/components/sections/landing/HeroSectionAlt.astro";
-import { SITE } from "@/data_files/constants";
-import PrimaryCTA from "@/components/functional/PrimaryCTA.astro";
+import VolunteerRolesGrid from "@/components/sections/testimonials/VolunteerRolesGrid.astro";
+import VolunteerSection from "@/components/functional/VolunteerSection.astro";
+import VolunteerCTA from "@/components/functional/VolunteerCTA.astro";
 
 const pageTitle = getPageTitle("Bénévoles");
-
-const testimonials = [
-  {
-    content:
-      "Je suis positionné sur un point du parcours pour indiquer la direction aux coureurs ou sécuriser un carrefour.",
-    role: "Signaleur",
-    img: imgVolunteersManCycling,
-    imgAlt:
-      "Bénevole en vélo sur le parcours, vêtu d'un gilet orange, indiquant la direction aux coureurs.",
-  },
-  {
-    content:
-      "Je prépare et distribue eau et encas aux coureurs sur les points de ravitaillement.",
-    role: "Ravitaillement",
-    img: imgVolunteersFood,
-    imgAlt: "Trois bénévoles préparant gobelets et encas pour les coureurs.",
-  },
-  {
-    content:
-      "J'aide à mettre en place et démonter les équipements : barrières, signalétique, zones de départ et d'arrivée.",
-    role: "Installation",
-    img: imgVolunteersInstallations,
-    imgAlt:
-      "Entrée du village de course à Sainghin-en-Mélantois préparée par les bénévoles.",
-  },
-  {
-    content:
-      "J'aide les coureurs à s'inscrire, à récupérer leurs dossards et à répondre à leurs questions.",
-    role: "Inscription",
-    img: imgVolunteersRegistration,
-    imgAlt:
-      "Quatre bénévoles à la table d'inscription, souriantes et accueillantes.",
-  },
-  {
-    content:
-      "Je capture les moments forts de la course : départs, arrivées, sourires, efforts et émotions.",
-    role: "Photographe",
-    img: imgVolunteersManTakingAPicture,
-    imgAlt: "Photographe postée sur un balcon prenant des photos de la course.",
-  },
-  {
-    content:
-      "Vous avez une autre compétence et envie de participer ? Nous avons sûrement un rôle pour vous !",
-    role: "Et bien plus !",
-    img: imgVolunteersPosing,
-    imgAlt: "Bénévoles souriants avec un jeune coureur.",
-  },
-];
 
 const pageDescription =
   "Participez à l'organisation de notre course en rejoignant l'équipe de bénévoles ! Votre aide est précieuse pour faire de cet événement un moment chaleureux, solidaire et inoubliable pour tous.";
@@ -77,26 +20,9 @@ const pageDescription =
   customOgTitle={pageTitle}
   structuredData={getStructuredDataForPage(pageDescription)}
 >
-  <RightSection
-    title="Cet évènement est possible grâce à vous"
-    subTitle="Grâce à votre énergie, votre bonne humeur et votre présence sur le terrain, cet évènement devient bien plus qu'une simple course : c'est un rendez-vous chaleureux, animé par le sourire des bénévoles, où se mêlent entraide, fierté collective et joie de faire vivre notre village. Sans vous, rien de tout cela ne serait possible."
-    image={imgVolunteersManCyclingInTheWoods}
-    imageAlt="Bénévole remettant une récompense à un jeune coureur entouré de sa famille."
-  />
+  <VolunteerSection />
 
-  <TestimonialsSectionAlt
-    title="Trouvez le rôle qui vous correspond"
-    subTitle=" Découvrez les différentes missions et choisissez celle qui vous ressemble. Chaque geste compte pour faire de cet évènement un moment inoubliable."
-    testimonials={testimonials}
-  />
+  <VolunteerRolesGrid />
 
-  <HeroSectionAlt
-    title="Comment devenir bénévole ?"
-    subTitle="L'aventure vous tente ? Contactez-nous !"
-  >
-    <PrimaryCTA
-      label={`${SITE.contactEmail}`}
-      url={`mailto:${SITE.contactEmail}`}
-    />
-  </HeroSectionAlt>
+  <VolunteerCTA />
 </MainLayout>
