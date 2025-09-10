@@ -33,7 +33,9 @@ const listItems: string[] = participantsLines.map(
   (line) => `${line.participantsCount} participants au ${line.raceName}.`
 );
 
-const links = [resultsLink, picturesLinks].map((link) => mapToButtonLink(link));
+const links = [resultsLink, picturesLinks]
+  .map((link) => mapToButtonLink(link))
+  .filter((link): link is ButtonLink => link !== undefined);
 ---
 
 <RightSection
@@ -42,5 +44,5 @@ const links = [resultsLink, picturesLinks].map((link) => mapToButtonLink(link));
   image={featuredImage.image}
   imageAlt={featuredImage.alt}
   list={listItems}
-  links={eventHighlight.links}
+  links={links}
 />

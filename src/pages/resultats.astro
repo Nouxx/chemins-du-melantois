@@ -6,6 +6,8 @@ import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
+import RaceHighligtSection from "@/components/functional/RaceHighligtSection.astro";
+import Section from "@/components/ui/atoms/Section.astro";
 
 const pageTitle = getPageTitle("Résultats & Photos");
 
@@ -22,14 +24,9 @@ const pageDescription =
   {
     eventsHighlights.map((eventHighlight) => {
       return (
-        <RightSection
-          title={eventHighlight.title}
-          subTitle={eventHighlight.subline}
-          image={eventHighlight.featuredImage.image}
-          imageAlt={eventHighlight.featuredImage.alt}
-          list={eventHighlight.par || []}
-          links={eventHighlight.links}
-        />
+        <Section>
+          <RaceHighligtSection raceHighlightData={eventHighlight} />
+        </Section>
       );
     })
   }
