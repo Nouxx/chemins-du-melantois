@@ -1,7 +1,7 @@
 import { z } from "astro/zod";
 
 // todo: move to a global type
-const RaceLink = z.strictObject({
+export const RaceLink = z.strictObject({
   label: z.string(),
   url: z.string(),
 });
