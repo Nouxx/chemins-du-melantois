@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import { cva } from "class-variance-authority";
+
+interface Props {
+  image: ImageMetadata;
+  imageAlt: string;
+  imageLoading?: HTMLImageElement["loading"];
+  sizes?: string;
+  className?: string;
+  rounded?: boolean;
+}
+
+const {
+  image,
+  imageAlt,
+  imageLoading = "lazy",
+  className,
+  sizes,
+  rounded,
+} = Astro.props;
+
+const imageWrapper = cva("", {
+  variants: {
+    rounded: {
+      true: "rounded-lg",
+      false: "",
+    },
+  },
+  defaultVariants: {
+    rounded: false,
+  },
+});
+
+const imageWrapperClasses = imageWrapper({
+  rounded: rounded ?? false,
+});
+---
+
+<div class={`image-wrapper ${className} ${imageWrapperClasses}`}>
+  <Image
+    src={image}
+    alt={imageAlt}
+    format={"avif"}
+    sizes={sizes}
+    loading={imageLoading}
+  />
+</div>
+
+<style>
+  .image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+</style>
