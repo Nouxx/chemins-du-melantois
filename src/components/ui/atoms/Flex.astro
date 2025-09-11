@@ -1,0 +1,13 @@
+---
+interface Props {
+  direction: "col" | "row";
+  gap: number;
+  className?: string;
+}
+
+const { direction = "row", gap = 0, className = "" } = Astro.props;
+---
+
+<div class=`flex flex-${direction} gap-${gap} ${className}`>
+  <slot />
+</div>

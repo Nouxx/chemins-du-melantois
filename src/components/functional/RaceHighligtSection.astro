@@ -1,7 +1,13 @@
 ---
-import RightSection, {
-  type ButtonLink,
-} from "@/components/ui/blocks/RightSection.astro";
+import PrimaryCTA from "@/components/functional/PrimaryCTA.astro";
+import Body from "@/components/ui/atoms/Body.astro";
+import Flex from "@/components/ui/atoms/Flex.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
+import ImageWrapper from "@/components/ui/atoms/ImageWrapper.astro";
+import RightSection from "@/components/ui/atoms/RightSection.astro";
+import List from "@/components/ui/molecules/List.astro";
+import ListItem from "@/components/ui/molecules/ListItem.astro";
+import type { ButtonLink } from "@/components/ui/types";
 import type { RaceHighlightData } from "@/data_files/raceHighlights/schema";
 import type { RaceLink } from "@/data_files/races/schema";
 
@@ -45,4 +51,34 @@ const links = [resultsLink, picturesLinks]
   imageAlt={featuredImage.alt}
   list={listItems}
   links={links}
-/>
+>
+  <Flex slot="left" direction="col" gap={4}>
+    <Heading>{title}</Heading>
+
+    <Body>{subline}</Body>
+
+    <List>
+      {listItems.map((item) => <ListItem>{item}</ListItem>)}
+    </List>
+
+    <Flex direction="row" gap={4} className="mt-4">
+      {
+        links.map((link) => (
+          <PrimaryCTA
+            label={link.title}
+            url={link.url}
+            openInNewTab={link.openInNewTab}
+          />
+        ))
+      }
+    </Flex>
+  </Flex>
+
+  <ImageWrapper
+    slot="right"
+    image={featuredImage.image}
+    imageAlt={featuredImage.alt}
+    sizes="(max-width: 1023px) 100vw, (max-width: 1536px) 50vw, 672px"
+    rounded
+  />
+</RightSection>
