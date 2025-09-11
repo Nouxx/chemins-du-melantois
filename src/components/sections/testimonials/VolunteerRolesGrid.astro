@@ -1,24 +1,31 @@
 ---
 import VolunteerRolesGridCard from "@/components/sections/testimonials/VolunteerRolesGridCard.astro";
 import Body from "@/components/ui/atoms/Body.astro";
+import Flex from "@/components/ui/atoms/Flex.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import Section from "@/components/ui/atoms/Section.astro";
 import { volunteerRolesData } from "@/data_files/volunteers/roles";
 ---
 
-<Section flex="col">
-  <Heading size="medium">Trouvez le rôle qui vous correspond</Heading>
+<Section>
+  <Flex direction="col" gap={8}>
+    <Flex direction="col" gap={4}>
+      <Heading size="medium">Trouvez le rôle qui vous correspond</Heading>
 
-  <Body>
-    Découvrez les différentes missions et choisissez celle qui vous ressemble.
-    Chaque geste compte pour faire de cet évènement un moment inoubliable.
-  </Body>
+      <Body>
+        Découvrez les différentes missions et choisissez celle qui vous
+        ressemble. Chaque geste compte pour faire de cet évènement un moment
+        inoubliable.
+      </Body>
+    </Flex>
 
-  <div class="grid gap-6 sm:grid-cols-2">
-    {
-      volunteerRolesData.map((volunteerRoleData) => (
-        <VolunteerRolesGridCard volunteerRoleData={volunteerRoleData} />
-      ))
-    }
-  </div>
+    <!-- todo: create Grid Component -->
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        volunteerRolesData.map((volunteerRoleData) => (
+          <VolunteerRolesGridCard volunteerRoleData={volunteerRoleData} />
+        ))
+      }
+    </div>
+  </Flex>
 </Section>

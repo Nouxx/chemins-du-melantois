@@ -1,13 +1,20 @@
 ---
+import { cx } from "class-variance-authority";
+
 interface Props {
-  direction: "col" | "row";
-  gap: number;
+  direction?: "col" | "row";
+  gap?: number;
   className?: string;
 }
 
-const { direction = "row", gap = 0, className = "" } = Astro.props;
+const { direction, gap = 0, className = "" } = Astro.props;
+
+const directionClass = direction ? `flex-${direction}` : undefined;
+const gapClass = gap ? `gap-${gap}` : undefined;
+
+const mergedClasses = cx(directionClass, gapClass, className, "flex");
 ---
 
-<div class=`flex flex-${direction} gap-${gap} ${className}`>
+<div class={mergedClasses}>
   <slot />
 </div>
