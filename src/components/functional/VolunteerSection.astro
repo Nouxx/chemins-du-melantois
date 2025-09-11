@@ -3,19 +3,19 @@ import Body from "@/components/ui/atoms/Body.astro";
 import Flex from "@/components/ui/atoms/Flex.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import ImageWrapper from "@/components/ui/atoms/ImageWrapper.astro";
-import RightSection from "@/components/ui/atoms/RightSection.astro";
+import LeftAndRightSection from "@/components/ui/atoms/LeftAndRightSection.astro";
 import imgVolunteersManCyclingInTheWoods from "@images/volunteers/man-cycling-in-the-woods.webp";
 ---
 
-<RightSection>
-  <Flex direction="col" gap={8} slot="left">
+<LeftAndRightSection>
+  <Flex slot="left" direction="col" gap={8}>
     <Heading tag="h1" size="medium">
       Cet évènement est possible grâce à vous
     </Heading>
 
     <Body>
       Grâce à votre énergie, votre bonne humeur et votre présence sur le
-      terrain, cet évènement devient bien plus qu'une simple course : c'est un
+      terrain, cet évènement devient bien plus qu'une simple course : c'est un
       rendez-vous chaleureux, animé par le sourire des bénévoles, où se mêlent
       entraide, fierté collective et joie de faire vivre notre village. Sans
       vous, rien de tout cela ne serait possible.
@@ -30,4 +30,4 @@ import imgVolunteersManCyclingInTheWoods from "@images/volunteers/man-cycling-in
     sizes="(max-width: 1023px) 100vw, (max-width: 1536px) 50vw, 672px"
     rounded
   />
-</RightSection>
+</LeftAndRightSection>
