@@ -1,7 +1,7 @@
 import { RaceLink } from "@/data_files/races/schema";
 import { z } from "astro/zod";
 
-export const RaceHighlightDataSchema = z.strictObject({
+export const EventHighlightDataSchema = z.strictObject({
   title: z.string(),
   subline: z.string(),
   featuredImage: z.strictObject({
@@ -18,4 +18,8 @@ export const RaceHighlightDataSchema = z.strictObject({
   picturesLinks: RaceLink.optional(),
 });
 
-export type RaceHighlightData = z.input<typeof RaceHighlightDataSchema>;
+export const EventsHighlightDataSchema = z
+  .array(EventHighlightDataSchema)
+  .min(1);
+
+export type EventHighlightData = z.input<typeof EventHighlightDataSchema>;

@@ -1,5 +1,6 @@
 import {
   VolunteerRoleDataSchema,
+  VolunteerRolesDataSchema,
   type VolunteerRoleData,
 } from "@/data_files/volunteers/schema";
 import imgVolunteersRegistration from "@images/volunteers/women-at-the-registration-desk.webp";
@@ -69,11 +70,12 @@ const andMuchMoreRoleData: VolunteerRoleData = {
   },
 };
 
-export const volunteerRolesData: VolunteerRoleData[] = [
-  VolunteerRoleDataSchema.parse(MarshalRoleData),
-  VolunteerRoleDataSchema.parse(AidStationCrewRoleData),
-  VolunteerRoleDataSchema.parse(SetupCrewRoleData),
-  VolunteerRoleDataSchema.parse(registrationeCrewRoleData),
-  VolunteerRoleDataSchema.parse(photographerRoleData),
-  VolunteerRoleDataSchema.parse(andMuchMoreRoleData),
-];
+export const volunteerRolesData: VolunteerRoleData[] =
+  VolunteerRolesDataSchema.parse([
+    VolunteerRoleDataSchema.parse(MarshalRoleData),
+    VolunteerRoleDataSchema.parse(AidStationCrewRoleData),
+    VolunteerRoleDataSchema.parse(SetupCrewRoleData),
+    VolunteerRoleDataSchema.parse(registrationeCrewRoleData),
+    VolunteerRoleDataSchema.parse(photographerRoleData),
+    VolunteerRoleDataSchema.parse(andMuchMoreRoleData),
+  ]);

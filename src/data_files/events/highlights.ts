@@ -1,7 +1,8 @@
 import {
-  RaceHighlightDataSchema,
-  type RaceHighlightData,
-} from "@/data_files/raceHighlights/schema";
+  EventHighlightDataSchema,
+  EventsHighlightDataSchema,
+  type EventHighlightData,
+} from "@/data_files/events/schema";
 import edition2024Hero from "@images/races/2024-edition-hero.webp";
 import edition2022Hero from "@images/races/2022-edition-hero.webp";
 import edition2023Hero from "@images/races/2023-edition-hero.webp";
@@ -11,7 +12,7 @@ import { externalLinks } from "@/data_files/constants";
 const resultsButtonPhrase = "Résultats";
 const picturesButtonPhrase = "Photos";
 
-const edition2024Data: RaceHighlightData = {
+const edition2024Data: EventHighlightData = {
   title: "Édition 2024",
   subline:
     "L'édition 2024 des chemins du Mélantois a eu lieu le 24 septembre 2024 et a rassemblé 790 participants, soit le plus grand nombre d'inscrits depuis 8 ans !",
@@ -36,7 +37,7 @@ const edition2024Data: RaceHighlightData = {
   },
 };
 
-const edition2023Data: RaceHighlightData = {
+const edition2023Data: EventHighlightData = {
   title: "Édition 2023",
   subline:
     "L'édition 2023 des chemins du Mélantois s'est tenue le 17 septembre 2023 et a regroupé un total de 653 participants.",
@@ -61,7 +62,7 @@ const edition2023Data: RaceHighlightData = {
   },
 };
 
-const edition2022Data: RaceHighlightData = {
+const edition2022Data: EventHighlightData = {
   title: "Édition 2022",
   subline:
     "L'édition 2022 des chemins du Mélantois a eu lieu le 18 septembre 2022 et a regroupé un total de 677 participants.",
@@ -82,7 +83,7 @@ const edition2022Data: RaceHighlightData = {
   },
 };
 
-const edition2019Data: RaceHighlightData = {
+const edition2019Data: EventHighlightData = {
   title: "Édition 2019",
   subline:
     "L'édition 2019 des chemins du Mélantois a eu lieu le 15 septembre 2019 et a regroupé un total de 661 participants.",
@@ -107,9 +108,10 @@ const edition2019Data: RaceHighlightData = {
   },
 };
 
-export const eventsHighlights: RaceHighlightData[] = [
-  RaceHighlightDataSchema.parse(edition2024Data),
-  RaceHighlightDataSchema.parse(edition2023Data),
-  RaceHighlightDataSchema.parse(edition2022Data),
-  RaceHighlightDataSchema.parse(edition2019Data),
-];
+export const eventsHighlights: EventHighlightData[] =
+  EventsHighlightDataSchema.parse([
+    EventHighlightDataSchema.parse(edition2024Data),
+    EventHighlightDataSchema.parse(edition2023Data),
+    EventHighlightDataSchema.parse(edition2022Data),
+    EventHighlightDataSchema.parse(edition2019Data),
+  ]);

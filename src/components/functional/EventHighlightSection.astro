@@ -8,11 +8,11 @@ import LeftAndRightSection from "@/components/ui/atoms/LeftAndRightSection.astro
 import List from "@/components/ui/molecules/List.astro";
 import ListItem from "@/components/ui/molecules/ListItem.astro";
 import type { ButtonLink } from "@/components/ui/types";
-import type { RaceHighlightData } from "@/data_files/raceHighlights/schema";
+import type { EventHighlightData } from "@/data_files/events/schema";
 import type { RaceLink } from "@/data_files/races/schema";
 
 interface Props {
-  raceHighlightData: RaceHighlightData;
+  eventHighlightData: EventHighlightData;
 }
 
 export function mapToButtonLink(
@@ -33,7 +33,7 @@ const {
   participantsLines,
   resultsLink,
   picturesLinks,
-} = Astro.props.raceHighlightData;
+} = Astro.props.eventHighlightData;
 
 const listItems: string[] = participantsLines.map(
   (line) => `${line.participantsCount} participants au ${line.raceName}.`
@@ -44,14 +44,7 @@ const links = [resultsLink, picturesLinks]
   .filter((link): link is ButtonLink => link !== undefined);
 ---
 
-<LeftAndRightSection
-  title={title}
-  subTitle={subline}
-  image={featuredImage.image}
-  imageAlt={featuredImage.alt}
-  list={listItems}
-  links={links}
->
+<LeftAndRightSection>
   <Flex slot="left" direction="col" gap={4}>
     <Heading>{title}</Heading>
 

@@ -9,4 +9,6 @@ export const VolunteerRoleDataSchema = z.strictObject({
   content: z.string(),
 });
 
+export const VolunteerRolesDataSchema = z.array(VolunteerRoleDataSchema).min(1);
+
 export type VolunteerRoleData = z.input<typeof VolunteerRoleDataSchema>;

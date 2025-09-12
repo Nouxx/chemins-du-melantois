@@ -1,11 +1,11 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import { eventsHighlights } from "@/data_files/raceHighlights/raceHighlights";
+import { eventsHighlights } from "@/data_files/events/highlights";
 import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
-import RaceHighligtSection from "@/components/functional/RaceHighligtSection.astro";
+import EventHighlightSection from "@/components/functional/EventHighlightSection.astro";
 
 const pageTitle = getPageTitle("Résultats & Photos");
 
@@ -21,7 +21,7 @@ const pageDescription =
 >
   {
     eventsHighlights.map((eventHighlight) => {
-      return <RaceHighligtSection raceHighlightData={eventHighlight} />;
+      return <EventHighlightSection eventHighlightData={eventHighlight} />;
     })
   }
 </MainLayout>
