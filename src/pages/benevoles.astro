@@ -4,9 +4,9 @@ import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
-import VolunteerRolesGrid from "@/components/sections/testimonials/VolunteerRolesGrid.astro";
-import VolunteerSection from "@/components/functional/VolunteerSection.astro";
-import VolunteerCTA from "@/components/functional/VolunteerCTA.astro";
+import VolunteerCallToActionSection from "@/components/functional/VolunteerCallToActionSection.astro";
+import VolunteerAppreciationSection from "@/components/functional/VolunteerAppreciationSection.astro";
+import VolunteerRolesSection from "@/components/sections/testimonials/VolunteerRolesSection.astro";
 
 const pageTitle = getPageTitle("Bénévoles");
 
@@ -20,9 +20,9 @@ const pageDescription =
   customOgTitle={pageTitle}
   structuredData={getStructuredDataForPage(pageDescription)}
 >
-  <VolunteerSection />
+  <VolunteerAppreciationSection />
 
-  <VolunteerRolesGrid />
+  <VolunteerRolesSection />
 
-  <VolunteerCTA />
+  <VolunteerCallToActionSection />
 </MainLayout>
