@@ -37,6 +37,8 @@ const pageDescription = racePageData.routeSection.description;
   customOgTitle={pageTitle}
   structuredData={getStructuredDataForPage(pageDescription)}
 >
+  <MobileProgressBar />
+
   <Section>
     <TwoColumnsLayout>
       <div slot="left">
@@ -44,9 +46,6 @@ const pageDescription = racePageData.routeSection.description;
           image={racePageData.featuredImage.image}
           alt={racePageData.featuredImage.alt}
         />
-
-        <MobileProgressBar />
-        <!-- todo: move this up -->
 
         <RaceTOC racePageData={racePageData} />
       </div>
