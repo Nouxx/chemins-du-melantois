@@ -5,16 +5,16 @@ import Heading from "@/components/ui/atoms/Heading.astro";
 import type { RacePageData } from "@/data_files/races/schema";
 
 interface Props {
-  racePageData: RacePageData;
+  data: RacePageData;
 }
 
-const { racePageData } = Astro.props;
+const { data } = Astro.props;
 ---
 
 <RaceDetailSection>
-  <Heading size="medium">{racePageData.pageTitle}</Heading>
+  <Heading size="medium">{data.pageTitle}</Heading>
 
   <Body>
-    {racePageData.date} - {racePageData.price}
+    {data.date} - {data.price}
   </Body>
 </RaceDetailSection>

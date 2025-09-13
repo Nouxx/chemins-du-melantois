@@ -6,14 +6,14 @@ import TextLink from "@/components/ui/race/TextLink.astro";
 import type { RacePageData } from "@/data_files/races/schema";
 
 interface Props {
-  sectionData: RacePageData["rewardsSection"];
+  data: RacePageData["rewardsSection"];
 }
 
-const { sectionData } = Astro.props; // todo: do this instead
+const data = Astro.props.data;
 
-if (!sectionData) return undefined;
+if (!data) return undefined;
 
-const { title, anchorId, description, rewardsLink } = sectionData;
+const { title, anchorId, description, rewardsLink } = data;
 ---
 
 <RaceDetailSection>

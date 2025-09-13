@@ -9,16 +9,10 @@ import Section from "@/components/ui/atoms/Section.astro";
 import RaceMapImage from "@/components/functional/RaceMapImage.astro";
 import MobileProgressBar from "@/components/functional/MobileProgressBar.astro";
 import RaceTOC from "@/components/functional/RaceTOC.astro";
-import RaceRegistrationSection from "@/components/sections/races/Registration/RaceRegistrationSection.astro";
-import RaceHeading from "@/components/sections/races/RaceHeading.astro";
 import { racesPageData } from "@/data_files/races/races";
 import type { RacePageData } from "@/data_files/races/schema";
-import RaceRewardsSection from "@/components/sections/races/RaceRewardsSection.astro";
-import RaceBibSection from "@/components/sections/races/RaceBibSection.astro";
-import RaceRegistrationDetailsSection from "@/components/sections/races/RegistrationDetails/RaceRegistrationDetailsSection.astro";
-import RaceRegulationsSection from "@/components/sections/races/RaceRegulationsSection.astro";
-import RaceScheduleSection from "@/components/sections/races/RaceScheduleSection.astro";
-import RaceDescriptionSection from "@/components/sections/races/RaceDescriptionSection.astro";
+
+import RacePageContent from "@/components/functional/RacePageContent.astro";
 
 export function getStaticPaths() {
   return racesPageData.map((racePageData) => ({
@@ -52,34 +46,13 @@ const pageDescription = racePageData.routeSection.description;
         />
 
         <MobileProgressBar />
+        <!-- todo: move this up -->
 
         <RaceTOC racePageData={racePageData} />
       </div>
 
       <div slot="right">
-        <article class="flex flex-col gap-14">
-          <RaceHeading racePageData={racePageData} />
-
-          <RaceDescriptionSection sectionData={racePageData.routeSection} />
-
-          <RaceScheduleSection sectionData={racePageData.scheduleSection} />
-
-          <RaceRewardsSection sectionData={racePageData.rewardsSection} />
-
-          <RaceRegistrationSection
-            sectionData={racePageData.registrationSection}
-          />
-
-          <RaceBibSection sectionData={racePageData.bibSection} />
-
-          <RaceRegistrationDetailsSection
-            sectionData={racePageData.registrationDetailsSection}
-          />
-
-          <RaceRegulationsSection
-            sectionData={racePageData.regulationSection}
-          />
-        </article>
+        <RacePageContent data={racePageData} />
       </div>
     </TwoColumnsLayout>
   </Section>

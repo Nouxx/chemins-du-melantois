@@ -1,20 +1,24 @@
 ---
+import type { HTMLTag } from "astro/types";
 import { cx } from "class-variance-authority";
 
 interface Props {
   direction?: "col" | "row";
   gap?: number;
   className?: string;
+  renderAs?: HTMLTag;
 }
 
-const { direction, gap, className = "" } = Astro.props;
+const { direction, gap, className = "", renderAs } = Astro.props;
 
 const directionClass = direction ? `flex-${direction}` : undefined;
 const gapClass = gap ? `gap-${gap}` : undefined;
 
 const mergedClasses = cx(directionClass, gapClass, className, "flex");
+
+const Tag = renderAs ?? "div";
 ---
 
-<div class={mergedClasses}>
+<Tag class={mergedClasses}>
   <slot />
-</div>
+</Tag>

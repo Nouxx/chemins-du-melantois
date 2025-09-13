@@ -7,10 +7,10 @@ import { registrationDetailsId } from "@/data_files/races/races";
 import type { RacePageData } from "@/data_files/races/schema";
 
 interface Props {
-  sectionData: RacePageData["registrationSection"]["onSiteRegistration"];
+  data: RacePageData["registrationSection"]["onSiteRegistration"];
 }
 
-const { title, description, registrationFormLink } = Astro.props.sectionData;
+const { title, registrationFormLink } = Astro.props.data;
 ---
 
 <RaceDetailSection>

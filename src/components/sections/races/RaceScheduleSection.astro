@@ -5,7 +5,7 @@ import Heading from "@/components/ui/atoms/Heading.astro";
 import type { RacePageData } from "@/data_files/races/schema";
 
 interface Props {
-  sectionData: RacePageData["scheduleSection"];
+  data: RacePageData["scheduleSection"];
 }
 
 const {
@@ -15,7 +15,7 @@ const {
   startTime,
   meetingPointAddressLines,
   additionalScheduleInformation,
-} = Astro.props.sectionData;
+} = Astro.props.data;
 ---
 
 <RaceDetailSection>

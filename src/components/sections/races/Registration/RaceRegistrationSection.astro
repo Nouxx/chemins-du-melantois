@@ -6,17 +6,17 @@ import OnSiteRaceRegistration from "@/components/sections/races/Registration/OnS
 import OnlineRaceRegistration from "@/components/sections/races/Registration/OnlineRaceRegistration.astro";
 
 interface Props {
-  sectionData: RacePageData["registrationSection"];
+  data: RacePageData["registrationSection"];
 }
 
 const { title, anchorId, onSiteRegistration, onlineRegistration } =
-  Astro.props.sectionData;
+  Astro.props.data;
 ---
 
 <RaceDetailSection gap={8}>
   <Heading size="small" id={anchorId} tag="h2">{title}</Heading>
 
-  <OnlineRaceRegistration sectionData={onlineRegistration} />
+  <OnlineRaceRegistration data={onlineRegistration} />
 
-  <OnSiteRaceRegistration sectionData={onSiteRegistration} />
+  <OnSiteRaceRegistration data={onSiteRegistration} />
 </RaceDetailSection>

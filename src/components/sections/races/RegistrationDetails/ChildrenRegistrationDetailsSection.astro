@@ -8,7 +8,7 @@ import TextLink from "@/components/ui/race/TextLink.astro";
 import type { RacePageData } from "@/data_files/races/schema";
 
 interface Props {
-  sectionData: RacePageData["registrationDetailsSection"]["forChildren"];
+  data: RacePageData["registrationDetailsSection"]["forChildren"];
 }
 
 const {
@@ -17,7 +17,7 @@ const {
   requiredDocumentsLines,
   healthQuestionnaireLink,
   parentalConstentLink,
-} = Astro.props.sectionData;
+} = Astro.props.data;
 ---
 
 <RaceDetailSection>

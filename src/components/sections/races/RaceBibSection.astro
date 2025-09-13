@@ -7,11 +7,10 @@ import ListItem from "@/components/ui/molecules/ListItem.astro";
 import type { RacePageData } from "@/data_files/races/schema";
 
 interface Props {
-  sectionData: RacePageData["bibSection"];
+  data: RacePageData["bibSection"];
 }
 
-const { title, anchorId, description, pickupScheduleLines } =
-  Astro.props.sectionData;
+const { title, anchorId, description, pickupScheduleLines } = Astro.props.data;
 ---
 
 <RaceDetailSection>

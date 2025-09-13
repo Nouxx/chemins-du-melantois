@@ -6,11 +6,11 @@ import TextLink from "@/components/ui/race/TextLink.astro";
 import type { RacePageData } from "@/data_files/races/schema";
 
 interface Props {
-  sectionData: RacePageData["routeSection"];
+  data: RacePageData["routeSection"];
 }
 
 const { title, anchorId, description, tracePDFLink, traceMapsLink } =
-  Astro.props.sectionData;
+  Astro.props.data;
 ---
 
 <RaceDetailSection>

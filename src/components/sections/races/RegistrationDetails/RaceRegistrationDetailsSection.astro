@@ -7,10 +7,10 @@ import Heading from "@/components/ui/atoms/Heading.astro";
 import type { RacePageData } from "@/data_files/races/schema";
 
 interface Props {
-  sectionData: RacePageData["registrationDetailsSection"];
+  data: RacePageData["registrationDetailsSection"];
 }
 
-const { title, anchorId, forAdults, forChildren } = Astro.props.sectionData;
+const { title, anchorId, forAdults, forChildren } = Astro.props.data;
 ---
 
 <RaceDetailSection gap={8}>
@@ -18,7 +18,7 @@ const { title, anchorId, forAdults, forChildren } = Astro.props.sectionData;
     {title}
   </Heading>
 
-  <AdultRegistrationDetailsSection sectionData={forAdults} />
+  <AdultRegistrationDetailsSection data={forAdults} />
 
-  <ChildrenRegistrationDetailsSection sectionData={forChildren} />
+  <ChildrenRegistrationDetailsSection data={forChildren} />
 </RaceDetailSection>

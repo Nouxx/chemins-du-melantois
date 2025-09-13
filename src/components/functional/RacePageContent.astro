@@ -1,0 +1,36 @@
+---
+import RaceBibSection from "@/components/sections/races/RaceBibSection.astro";
+import RaceDescriptionSection from "@/components/sections/races/RaceDescriptionSection.astro";
+import RaceHeadingSection from "@/components/sections/races/RaceHeadingSection.astro";
+import RaceRegulationsSection from "@/components/sections/races/RaceRegulationsSection.astro";
+import RaceRewardsSection from "@/components/sections/races/RaceRewardsSection.astro";
+import RaceScheduleSection from "@/components/sections/races/RaceScheduleSection.astro";
+import RaceRegistrationSection from "@/components/sections/races/Registration/RaceRegistrationSection.astro";
+import RaceRegistrationDetailsSection from "@/components/sections/races/RegistrationDetails/RaceRegistrationDetailsSection.astro";
+import Flex from "@/components/ui/atoms/Flex.astro";
+import type { RacePageData } from "@/data_files/races/schema";
+
+interface Props {
+  data: RacePageData;
+}
+
+const { data } = Astro.props;
+---
+
+<Flex direction="col" gap={14} renderAs="article">
+  <RaceHeadingSection data={data} />
+
+  <RaceDescriptionSection data={data.routeSection} />
+
+  <RaceScheduleSection data={data.scheduleSection} />
+
+  <RaceRewardsSection data={data.rewardsSection} />
+
+  <RaceRegistrationSection data={data.registrationSection} />
+
+  <RaceBibSection data={data.bibSection} />
+
+  <RaceRegistrationDetailsSection data={data.registrationDetailsSection} />
+
+  <RaceRegulationsSection data={data.regulationSection} />
+</Flex>
