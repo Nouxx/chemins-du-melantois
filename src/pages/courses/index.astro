@@ -4,9 +4,8 @@ import {
   getPageTitle,
   getStructuredDataForPage,
 } from "@/utils/structured-data";
-import RaceBanner from "@/components/functional/RaceBanner.astro";
-import RaceCardGrid from "@/components/functional/RaceCardGrid.astro";
-import Section from "@/components/ui/atoms/Section.astro";
+import RaceBannerSection from "@/components/functional/RaceBannerSection.astro";
+import RaceCardsSection from "@/components/functional/RaceCardsSection.astro";
 
 const pageTitle = getPageTitle("Courses");
 
@@ -20,9 +19,7 @@ const pageDescription =
   customOgTitle={pageTitle}
   structuredData={getStructuredDataForPage(pageDescription)}
 >
-  <Section>
-    <RaceBanner />
+  <RaceBannerSection />
 
-    <RaceCardGrid />
-  </Section>
+  <RaceCardsSection />
 </MainLayout>

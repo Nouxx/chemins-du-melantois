@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import Icon from "@components/ui/icons/Icon.astro";
+import Link from "@/components/ui/atoms/Link.astro";
+import Body from "@/components/ui/atoms/Body.astro";
+import { undefined } from "astro:schema";
+import { cx } from "class-variance-authority";
+
+const { title, url, image, imageAlt, wide } = Astro.props;
+
+interface Props {
+  title: string;
+  url: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  wide?: boolean;
+}
+
+const wideClass = wide ? "md:col-span-2" : undefined;
+
+const linkClasses = cx(
+  "relative",
+  "flex",
+  "h-48",
+  "items-end",
+  "overflow-hidden",
+  "rounded-xl",
+  "shadow-lg",
+  "md:h-80",
+  wideClass
+);
+
+const imageClass =
+  "absolute inset-0 h-full w-full object-cover object-center transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110";
+---
+
+<Link url={url} className={linkClasses}>
+  <Image
+    src={image}
+    alt={imageAlt}
+    draggable={"false"}
+    class={imageClass}
+    format={"avif"}
+    style={{
+      height: "100%",
+    }}
+  />
+
+  <div
+    class="pointer-events-none absolute inset-0 bg-linear-to-t from-neutral-800 via-transparent to-transparent opacity-50"
+  >
+  </div>
+
+  <Body
+    color="white"
+    fontStyle="bold"
+    className="relative mb-3 ml-4 inline-block transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110 md:ml-5 md:text-lg"
+  >
+    {title}
+    <Icon name="openInNew" />
+  </Body>
+</Link>

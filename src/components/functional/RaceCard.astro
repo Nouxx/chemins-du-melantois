@@ -1,6 +1,5 @@
 ---
-import CardSmall from "@/components/ui/cards/CardSmall.astro";
-import CardWide from "@/components/ui/cards/CardWide.astro";
+import LinkCard from "@/components/ui/molecules/LinkCard.astro";
 import { routes } from "@/data_files/constants";
 import type { RacePageData } from "@/data_files/races/schema";
 
@@ -14,24 +13,10 @@ const { racePageData: race, size } = Astro.props;
 const url = routes.raceDetails(race.urlSlug);
 ---
 
-{
-  size === "small" && (
-    <CardSmall
-      title={race.pageTitle}
-      url={url}
-      image={race.featuredImage.image}
-      imageAlt={race.featuredImage.alt}
-    />
-  )
-}
-
-{
-  size === "wide" && (
-    <CardWide
-      title={race.pageTitle}
-      url={url}
-      image={race.featuredImage.image}
-      imageAlt={race.featuredImage.alt}
-    />
-  )
-}
+<LinkCard
+  title={race.pageTitle}
+  url={url}
+  image={race.featuredImage.image}
+  imageAlt={race.featuredImage.alt}
+  wide={size === "wide"}
+/>

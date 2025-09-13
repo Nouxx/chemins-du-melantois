@@ -35,9 +35,11 @@ const imageWrapper = cva("", {
 const imageWrapperClasses = imageWrapper({
   rounded: rounded ?? false,
 });
+
+// todo: handle image zoom based on parent container size
 ---
 
-<div class={`image-wrapper ${className} ${imageWrapperClasses}`}>
+<div class={`image-wrapper ${imageWrapperClasses} ${className} `}>
   <Image
     src={image}
     alt={imageAlt}

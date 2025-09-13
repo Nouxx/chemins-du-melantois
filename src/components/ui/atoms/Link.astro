@@ -1,0 +1,19 @@
+---
+import { cx } from "class-variance-authority";
+
+interface Props {
+  url: string;
+  preFetch?: boolean;
+  className?: string;
+}
+
+const { url, preFetch = true, className } = Astro.props;
+
+const focusClasses = "group ring-zinc-500 outline-hidden focus-visible:ring-3";
+
+const mergedClasses = cx(focusClasses, className);
+---
+
+<a href={url} data-astro-prefetch={preFetch} class={mergedClasses}>
+  <slot />
+</a>
