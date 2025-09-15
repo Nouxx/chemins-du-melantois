@@ -5,9 +5,11 @@ interface Props {
   flex?: Variants["flex"];
   gap?: number;
   className?: string;
+  px?: number;
+  py?: number;
 }
 
-const { flex, className, gap } = Astro.props;
+const { flex, className, gap, px = 4, py = 14 } = Astro.props;
 
 const section = cva(
   [
@@ -15,9 +17,9 @@ const section = cva(
     "mx-auto",
     "max-w-[85rem]",
     "2xl:max-w-full",
-    "px-4",
-    "sm:px-6",
-    "py-14",
+    `px-${px}`,
+    `sm:px-${px + 2}`,
+    `py-${py}`,
   ],
   {
     variants: {

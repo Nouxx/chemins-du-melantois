@@ -71,6 +71,9 @@ export const externalLinks = {
     googleDriveResultsFile:
       "https://drive.google.com/file/d/13V7VPyPgNhWXiqFAfOOt-LXpBvS0cAXv/view",
   },
+  facebook: "https://www.facebook.com/lescheminsdumelantois",
+  instagram:
+    "https://www.instagram.com/lescheminsdumelantois?igsh=dnN3ZnBvMmJ5bW96",
 } as const;
 
 export type ExternalLinkKey = keyof typeof externalLinks;

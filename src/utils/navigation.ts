@@ -44,13 +44,6 @@ const footerLinks: FooterLinks[] = [
   },
 ];
 
-const socialLinks = {
-  facebook: "https://www.facebook.com/lescheminsdumelantois",
-  instagram:
-    "https://www.instagram.com/lescheminsdumelantois?igsh=dnN3ZnBvMmJ5bW96",
-};
-
 export default {
   footerLinks,
-  socialLinks,
 };

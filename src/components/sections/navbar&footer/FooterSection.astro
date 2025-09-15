@@ -3,65 +3,83 @@ import FooterSocialLink from "@components/ui/links/FooterSocialLink.astro";
 import frStrings from "@/utils/navigation";
 import Icon from "@components/ui/icons/Icon.astro";
 import BrandLogo from "@components/BrandLogo.astro";
-import { SITE } from "@data/constants";
-import FooterLink from "@/components/sections/navbar&footer/FooterLink.astro";
+import { externalLinks, routes, SITE } from "@data/constants";
+import Section from "@/components/ui/atoms/Section.astro";
+import Grid from "@/components/ui/atoms/Grid.astro";
 
-const strings = frStrings;
+import FooterLinksColumn from "@/components/sections/navbar&footer/FooterLinksColumn.astro";
+import Flex from "@/components/ui/atoms/Flex.astro";
+import Body from "@/components/ui/atoms/Body.astro";
 ---
 
-<footer class="w-full bg-neutral-300 dark:bg-neutral-900">
-  <div
-    class="mx-auto w-full max-w-[85rem] px-4 py-10 sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-(--breakpoint-2xl)"
+<footer class="w-full bg-neutral-300">
+  <Section
+    py={10}
+    className="sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-(--breakpoint-2xl)"
   >
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+    <Grid gap={6} className="grid-cols-1 sm:grid-cols-3">
       <div class="col-span-full sm:col-span-1">
         <BrandLogo class="h-auto w-32" />
       </div>
-      {
-        strings.footerLinks.map((section) => (
-          <div class="col-span-1">
-            <h1 class="font-bold text-neutral-800 dark:text-neutral-200">
-              {section.section}
-            </h1>
-            <ul class="mt-3 grid space-y-3">
-              {section.links.map((link) => (
-                <FooterLink
-                  name={link.name}
-                  url={link.url}
-                  openInNewTab={link.openInNewTab}
-                />
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
 
-    <div
-      class="mt-9 grid gap-y-2 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
+      <FooterLinksColumn
+        title="Liens rapides"
+        links={[
+          {
+            title: "Bulletin d'inscription",
+            url: externalLinks.registrationForm,
+          },
+          {
+            title: "Liste des inscrits 2025",
+            url: externalLinks.registrantsList,
+          },
+          {
+            title: "PPS",
+            url: externalLinks.pps,
+          },
+        ]}
+      />
+
+      <FooterLinksColumn
+        title="Nous contacter"
+        links={[
+          {
+            title: "Par email",
+            url: `mailto:${SITE.contactEmail}`,
+          },
+          {
+            title: "Devenir bénévole",
+            url: routes.volunteer,
+            openInNewTab: false,
+          },
+        ]}
+      />
+    </Grid>
+
+    <Grid
+      className="mt-9 gap-y-2 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
     >
-      <div class="flex items-center justify-between">
-        <p class="text-sm text-neutral-600 dark:text-neutral-400">
-          © 2025
-          {SITE.title}.
-        </p>
-      </div>
+      <Flex direction="row" items="center" justify="between">
+        <Body size="xsmall">
+          © 2025 {SITE.title}.
+        </Body>
+      </Flex>
 
       <div>
         <FooterSocialLink
-          url={strings.socialLinks.facebook}
+          url={externalLinks.facebook}
           ariaLabel="Lien vers Facebook"
         >
           <Icon name="facebook" size="small" />
         </FooterSocialLink>
 
         <FooterSocialLink
-          url={strings.socialLinks.instagram}
+          url={externalLinks.instagram}
           ariaLabel="Lien vers Instagram"
         >
           <Icon name="instagram" size="small" />
         </FooterSocialLink>
       </div>
-    </div>
-  </div>
+    </Grid>
+  </Section>
 </footer>

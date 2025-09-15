@@ -1,11 +1,12 @@
 ---
 interface Props {
   className?: string;
+  spaceY?: number;
 }
 
-const { className } = Astro.props;
+const { className, spaceY } = Astro.props;
 ---
 
-<ul class="space-y-2" class={className}>
+<ul class={`space-y-${spaceY || 2}`} class={className}>
   <slot />
 </ul>

@@ -14,20 +14,34 @@ interface Props {
   className?: string;
   renderAs?: HTMLTag;
   wrap?: "noWrap" | "wrap" | "reverse";
+  items?: "center" | "start" | "end" | "stretch";
+  justify?: "center" | "start" | "end" | "between" | "around" | "evenly";
 }
 
-const { direction, gap, className = "", renderAs, wrap } = Astro.props;
+const {
+  direction,
+  gap,
+  className = "",
+  renderAs,
+  wrap,
+  items,
+  justify,
+} = Astro.props;
 
 const directionClass = direction ? `flex-${direction}` : undefined;
 const gapClass = gap ? `gap-${gap}` : undefined;
 const wrapClass = wrap ? wrapClassMap[wrap] : "flex-nowrap";
+const itemsClass = items ? `items-${items}` : undefined;
+const justifyClass = justify ? `justify-${justify}` : undefined;
 
 const mergedClasses = cx(
+  "flex",
   directionClass,
   gapClass,
   className,
   wrapClass,
-  "flex"
+  itemsClass,
+  justifyClass
 );
 
 const Tag = renderAs ?? "div";
