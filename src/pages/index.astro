@@ -1,26 +1,26 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import VideoLink from "@/components/sections/landing/VideoLink.astro";
 import SponsorsSection from "@/components/sections/landing/SponsorsSection.astro";
 import HeroSection from "@/components/functional/HeroSection.astro";
-import EventStats from "@/components/functional/EventStats.astro";
-import RacesOverview from "@/components/functional/RacesOverview.astro";
-import EventFAQ from "@/components/functional/EventFAQ.astro";
-import RegisterCTA from "@/components/functional/RegisterCTA.astro";
+import StatisticsSection from "@/components/functional/StatisticsSection.astro";
+import VideoLinkSection from "@/components/sections/landing/VideoLinkSection.astro";
+import RacesOverviewSection from "@/components/functional/RacesOverviewSection.astro";
+import FAQSection from "@/components/functional/FAQSection.astro";
+import RegisterCTASection from "@/components/functional/RegisterCTASection.astro";
 ---
 
 <MainLayout lang="fr">
   <HeroSection />
 
-  <EventStats />
+  <StatisticsSection />
 
-  <VideoLink />
+  <VideoLinkSection />
 
-  <RacesOverview />
+  <RacesOverviewSection />
 
-  <EventFAQ />
+  <FAQSection />
 
   <SponsorsSection />
 
-  <RegisterCTA />
+  <RegisterCTASection />
 </MainLayout>

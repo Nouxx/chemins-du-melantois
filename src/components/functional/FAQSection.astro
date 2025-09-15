@@ -1,25 +1,27 @@
 ---
+import Body from "@/components/ui/atoms/Body.astro";
+import Flex from "@/components/ui/atoms/Flex.astro";
+import Grid from "@/components/ui/atoms/Grid.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
 import Section from "@/components/ui/atoms/Section.astro";
 import AccordionItem from "@/components/ui/molecules/AccordionItem.astro";
+import { faqsData } from "@/data_files/faq/faq";
 import type { FrequentlyAskedQuestion } from "@/data_files/faq/schema";
-
-const { faqs } = Astro.props;
-
-interface Props {
-  faqs: FrequentlyAskedQuestion[];
-}
 
 const makeId = (base: any, index: any) => `${base}${index + 1}`;
 ---
 
 <Section>
-  <div class="grid gap-10 md:grid-cols-5">
+  <Grid gap={10} className="md:grid-cols-5">
     <div class="md:col-span-2">
-      <div class="flex max-w-xs flex-col gap-4">
-        <slot name="heading" />
+      <Flex direction="col" gap={4} className="max-w-xs">
+        <Heading size="medium">Questions fréquemment posées</Heading>
 
-        <slot name="subTitle" />
-      </div>
+        <Body>
+          Trouvez rapidement des réponses aux questions que l'on nous pose
+          chaque année.
+        </Body>
+      </Flex>
     </div>
 
     <div class="md:col-span-3">
@@ -27,14 +29,14 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
         class="hs-accordion-group divide-y divide-neutral-200 dark:divide-neutral-700"
       >
         {
-          faqs.map((question, i) => {
+          faqsData.map((question, index) => {
             let id = makeId(
               "hs-basic-with-title-and-arrow-stretched-heading-",
-              i
+              index
             );
             let collapseId = makeId(
               "hs-basic-with-title-and-arrow-stretched-collapse",
-              i
+              index
             );
 
             return (
@@ -42,12 +44,12 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
                 {...question}
                 id={id}
                 collapseId={collapseId}
-                first={i === 0}
+                first={index === 0}
               />
             );
           })
         }
       </div>
     </div>
-  </div>
+  </Grid>
 </Section>

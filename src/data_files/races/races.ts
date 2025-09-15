@@ -71,9 +71,6 @@ const rewardsSectionSharedData = {
   anchorId: "recompenses",
 };
 
-const getScheduleSectionDescription = (time: string) =>
-  `La course a lieu le ${eventDate} et le départ sera lancé à ${time}.`;
-
 const registrationDetailsSectionSharedData = {
   title: "Modalités d'inscription",
   anchorId: "modalites-d-inscription",
@@ -154,6 +151,8 @@ const raceRegulationData = {
     url: externalLinks.sportsRegulations,
   },
 };
+
+
 
 const rewardForEveryonePhrase = "Une médaille est remise à chaque participant.";
 

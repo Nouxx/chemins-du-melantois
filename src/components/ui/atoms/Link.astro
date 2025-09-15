@@ -5,15 +5,29 @@ interface Props {
   url: string;
   preFetch?: boolean;
   className?: string;
+  newTab?: boolean;
+  ariaCurrent?: "page";
 }
 
-const { url, preFetch = true, className } = Astro.props;
+const {
+  url,
+  preFetch = true,
+  className,
+  newTab = false,
+  ariaCurrent,
+} = Astro.props;
 
 const focusClasses = "group ring-zinc-500 outline-hidden focus-visible:ring-3";
 
 const mergedClasses = cx(focusClasses, className);
 ---
 
-<a href={url} data-astro-prefetch={preFetch} class={mergedClasses}>
+<a
+  href={url}
+  data-astro-prefetch={preFetch}
+  class={mergedClasses}
+  target={newTab ? "_blank" : "_self"}
+  aria-current={ariaCurrent}
+>
   <slot />
 </a>

@@ -2,19 +2,33 @@
 import type { HTMLTag } from "astro/types";
 import { cx } from "class-variance-authority";
 
+const wrapClassMap = {
+  wrap: "flex-wrap",
+  reverse: "flex-wrap-reverse",
+  noWrap: "flex-nowrap",
+};
+
 interface Props {
   direction?: "col" | "row";
   gap?: number;
   className?: string;
   renderAs?: HTMLTag;
+  wrap?: "noWrap" | "wrap" | "reverse";
 }
 
-const { direction, gap, className = "", renderAs } = Astro.props;
+const { direction, gap, className = "", renderAs, wrap } = Astro.props;
 
 const directionClass = direction ? `flex-${direction}` : undefined;
 const gapClass = gap ? `gap-${gap}` : undefined;
+const wrapClass = wrap ? wrapClassMap[wrap] : "flex-nowrap";
 
-const mergedClasses = cx(directionClass, gapClass, className, "flex");
+const mergedClasses = cx(
+  directionClass,
+  gapClass,
+  className,
+  wrapClass,
+  "flex"
+);
 
 const Tag = renderAs ?? "div";
 ---

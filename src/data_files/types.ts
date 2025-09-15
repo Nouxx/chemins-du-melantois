@@ -5,7 +5,7 @@ export type Link = {
 };
 
 export type SvgLogoLink = {
-  /** svg must be imported with ?raw */
+  /** must be imported with ?raw */
   svg: string;
   link: Link;
 };

@@ -1,0 +1,14 @@
+---
+import Icon from "@/components/ui/icons/Icon.astro";
+---
+
+<slot />
+
+<div
+  class="absolute inset-0 flex items-center justify-center bg-black/40 transition-colors group-hover:bg-black/60"
+>
+  <Icon
+    name="play"
+    className="h-18 w-18 transform text-white transition-transform group-hover:scale-110"
+  />
+</div>
