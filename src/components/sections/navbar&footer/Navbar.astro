@@ -4,25 +4,33 @@ import frStrings from "@/utils/navigation";
 import BrandLogo from "@components/BrandLogo.astro";
 import { isCurrentPath } from "@/utils/isCurrentPage";
 import { routes } from "@/data_files/constants";
+import Flex from "@/components/ui/atoms/Flex.astro";
+import Link from "@/components/ui/atoms/Link.astro";
 
-const strings = frStrings;
+const headerLinks = [
+  { name: "Accueil", url: routes.home },
+  { name: "Courses", url: routes.races },
+  { name: "Après-course", url: routes.resultsAndPictures },
+  { name: "Bénévoles", url: routes.volunteer },
+];
 ---
 
 <header
   class="sticky inset-x-0 top-4 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start"
 >
   <nav
-    class="relative mx-2 w-full rounded-[36px] border border-yellow-100/40 bg-yellow-50/60 px-4 py-3 backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto dark:border-neutral-700/40 dark:bg-neutral-800/80 dark:backdrop-blur-md"
+    class="relative mx-2 w-full rounded-[36px] border border-yellow-100/40 bg-yellow-50/60 px-4 py-3 backdrop-blur-md md:flex md:items-center md:justify-between md:px-6 md:py-0 lg:px-8 xl:mx-auto"
     aria-label="Global"
   >
-    <div class="flex items-center justify-between">
-      <a
-        class="flex-none rounded-lg text-xl font-bold ring-zinc-500 outline-hidden focus-visible:ring-3 dark:ring-zinc-200 dark:focus:outline-hidden"
-        href={routes.home}
+    <Flex direction="row" className="items-center justify-between">
+      <Link
+        url={routes.home}
+        className="flex-none rounded-lg"
         aria-label="Brand"
       >
         <BrandLogo class="h-auto w-14 p-1" />
-      </a>
+      </Link>
+
       <div class="mr-5 ml-auto md:hidden">
         <button
           type="button"
@@ -62,7 +70,8 @@ const strings = frStrings;
           </svg>
         </button>
       </div>
-    </div>
+    </Flex>
+
     <div
       id="navbar-collapse-with-animation"
       class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 md:block"
@@ -71,7 +80,7 @@ const strings = frStrings;
         class="mx-2 my-2 mt-5 flex flex-col gap-x-0 gap-y-4 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7"
       >
         {
-          strings.navBarLinks.map((link) => (
+          headerLinks.map((link) => (
             <NavLink
               url={link.url}
               name={link.name}
@@ -83,6 +92,7 @@ const strings = frStrings;
     </div>
   </nav>
 </header>
+
 <script is:inline>
   const HSThemeAppearance = {
     init() {

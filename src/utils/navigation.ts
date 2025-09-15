@@ -1,12 +1,5 @@
 import { externalLinks, routes, SITE } from "@/data_files/constants";
 
-const navBarLinks = [
-  { name: "Accueil", url: routes.home },
-  { name: "Courses", url: routes.races },
-  { name: "Après-course", url: routes.resultsAndPictures },
-  { name: "Bénévoles", url: routes.volunteer },
-];
-
 interface FooterLinks {
   section: string;
   links: FooterLink[];
@@ -58,7 +51,6 @@ const socialLinks = {
 };
 
 export default {
-  navBarLinks,
   footerLinks,
   socialLinks,
 };

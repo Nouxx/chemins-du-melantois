@@ -1,25 +1,31 @@
 ---
+import Link from "@/components/ui/atoms/Link.astro";
+import { cx } from "class-variance-authority";
+
 interface Props {
   url: string;
   name: string;
   isCurrent: boolean;
 }
 
+// type HeaderLink =
+//   | "10-km-sainghin-en-melantois"
+//   | "run-and-bike-peronne-en-melantois";
+
 const { url, name, isCurrent } = Astro.props;
 
-const baseClass =
+const baseClasses =
   "rounded-lg text-base font-medium ring-zinc-500 outline-hidden focus-visible:ring-3 md:py-3 md:text-sm 2xl:text-base dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-hidden";
 
-const currentClass = isCurrent
+const currentClasses = isCurrent
   ? "text-brand-light-green underline underline-offset-3"
-  : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-500 dark:hover:text-neutral-500";
+  : "text-neutral-600 hover:text-neutral-500";
+
+const ariaCurrent = isCurrent ? "page" : undefined;
+
+const mergedClasses = cx(baseClasses, currentClasses);
 ---
 
-<a
-  href={url}
-  data-astro-prefetch
-  class={`${baseClass} ${currentClass}`}
-  aria-current={isCurrent ? "page" : undefined}
->
+<Link url={url} preFetch className={mergedClasses} aria-current={ariaCurrent}>
   {name}
-</a>
+</Link>

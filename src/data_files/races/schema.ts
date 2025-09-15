@@ -11,6 +11,8 @@ const RacePageSectionMandatoryFields = z.strictObject({
   title: z.string(),
 });
 
+
+
 export const RacePageDataSchema = z.strictObject({
   urlSlug: z.string(), // todo: make sure id can be converted in a URL safe string
   featuredImage: z.strictObject({
