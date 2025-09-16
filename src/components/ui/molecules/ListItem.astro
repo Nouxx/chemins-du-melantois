@@ -1,13 +1,20 @@
 ---
 import Body from "@/components/ui/atoms/Body.astro";
+import { undefined } from "astro:schema";
+import { cx } from "class-variance-authority";
 
 interface Props {
   className?: string;
+  disc?: boolean;
 }
 
-const { className } = Astro.props;
+const { className, disc = true } = Astro.props;
+
+const discClasses = disc ? "list-inside list-disc" : undefined;
+
+const mergedClasses = cx(discClasses, className);
 ---
 
-<Body tag="li" size="small" className=`list-inside list-disc ${className}`>
+<Body tag="li" size="small" className={mergedClasses}>
   <slot />
 </Body>
