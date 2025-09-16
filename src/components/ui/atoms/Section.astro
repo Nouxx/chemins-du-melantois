@@ -1,43 +1,19 @@
 ---
-import { cva, cx, type VariantProps } from "class-variance-authority";
+import { cx } from "class-variance-authority";
 
-interface Props {
-  flex?: Variants["flex"];
-  gap?: number;
-  className?: string;
-  px?: number;
-  py?: number;
-}
+const classes = [
+  "items-stretch",
+  "mx-auto",
+  "max-w-[85rem]",
+  "2xl:max-w-full",
+  "px-4",
+  "py-14",
+  "sm:px-6",
+];
 
-const { flex, className, gap, px = 4, py = 14 } = Astro.props;
-
-const section = cva(
-  [
-    "items-stretch",
-    "mx-auto",
-    "max-w-[85rem]",
-    "2xl:max-w-full",
-    `px-${px}`,
-    `sm:px-${px + 2}`,
-    `py-${py}`,
-  ],
-  {
-    variants: {
-      flex: {
-        col: "flex flex-col",
-        row: "flex flex-row",
-        none: undefined,
-      },
-    },
-    defaultVariants: { flex: "none" },
-  }
-);
-
-const gapClass = gap ? `gap-${gap}` : undefined;
-
-type Variants = VariantProps<typeof section>;
+const mergedClasses = cx(classes);
 ---
 
-<section class={cx(section({ flex }), gapClass, className)}>
+<section class={mergedClasses}>
   <slot />
 </section>
