@@ -1,50 +1,62 @@
 ---
 import type { HTMLTag } from "astro/types";
-import { cx } from "class-variance-authority";
+import { cva, type VariantProps, cx } from "class-variance-authority";
 
-const wrapClassMap = {
-  wrap: "flex-wrap",
-  reverse: "flex-wrap-reverse",
-  noWrap: "flex-nowrap",
-};
+const flex = cva("flex", {
+  variants: {
+    direction: {
+      row: "flex-row",
+      col: "flex-col",
+    },
+    wrap: {
+      wrap: "flex-wrap",
+      reverse: "flex-wrap-reverse",
+      noWrap: "flex-nowrap",
+    },
+    items: {
+      start: "items-start",
+      end: "items-end",
+      center: "items-center",
+      stretch: "items-stretch",
+    },
+    justify: {
+      start: "justify-start",
+      end: "justify-end",
+      center: "justify-center",
+      between: "justify-between",
+      around: "justify-around",
+      evenly: "justify-evenly",
+    },
+    gap: {
+      2: "gap-2",
+      4: "gap-4",
+      6: "gap-6",
+      8: "gap-8",
+      14: "gap-14",
+    },
+  },
+  defaultVariants: {
+    direction: "row",
+    wrap: "noWrap",
+  },
+});
 
-interface Props {
-  direction?: "col" | "row";
-  gap?: number;
+type Variants = VariantProps<typeof flex>;
+
+interface Props extends Variants {
   className?: string;
   renderAs?: HTMLTag;
-  wrap?: "noWrap" | "wrap" | "reverse";
-  items?: "center" | "start" | "end" | "stretch";
-  justify?: "center" | "start" | "end" | "between" | "around" | "evenly";
 }
 
-const {
-  direction,
-  gap,
-  className = "",
-  renderAs,
-  wrap,
-  items,
-  justify,
-} = Astro.props;
-
-const directionClass = direction ? `flex-${direction}` : undefined;
-const gapClass = gap ? `gap-${gap}` : undefined;
-const wrapClass = wrap ? wrapClassMap[wrap] : "flex-nowrap";
-const itemsClass = items ? `items-${items}` : undefined;
-const justifyClass = justify ? `justify-${justify}` : undefined;
-
-const mergedClasses = cx(
-  "flex",
-  directionClass,
-  gapClass,
-  className,
-  wrapClass,
-  itemsClass,
-  justifyClass
-);
+const { direction, gap, className, renderAs, wrap, items, justify } =
+  Astro.props;
 
 const Tag = renderAs ?? "div";
+
+const mergedClasses = cx(
+  flex({ direction, wrap, items, justify, gap }),
+  className
+);
 ---
 
 <Tag class={mergedClasses}>

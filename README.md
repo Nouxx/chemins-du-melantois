@@ -44,3 +44,7 @@ This project is released under the MIT License. Please read the [LICENSE](https:
 **Note:** This website template has no affiliation with the companies displayed. Logos are used for demonstration purposes only and should be replaced in customized versions.
 
 export NODE_TLS_REJECT_UNAUTHORIZED=0
+
+## Note for dev
+
+use cva to make sure all tw classes are included in the bundle
