@@ -1,0 +1,31 @@
+---
+import Body from "@/components/ui/atoms/Body.astro";
+import Flex from "@/components/ui/atoms/Flex.astro";
+import Icon from "@/components/ui/icons/Icon.astro";
+import FooterSocialLink from "@/components/ui/links/FooterSocialLink.astro";
+import { SITE, externalLinks } from "@/data_files/constants";
+---
+
+<Flex direction="row" wrap="wrap" justify="between" className="mt-9">
+  <Flex direction="row" items="center" justify="between">
+    <Body size="xsmall">
+      © 2025 {SITE.title}.
+    </Body>
+  </Flex>
+
+  <div>
+    <FooterSocialLink
+      url={externalLinks.facebook}
+      ariaLabel="Lien vers Facebook"
+    >
+      <Icon name="facebook" size="small" />
+    </FooterSocialLink>
+
+    <FooterSocialLink
+      url={externalLinks.instagram}
+      ariaLabel="Lien vers Instagram"
+    >
+      <Icon name="instagram" size="small" />
+    </FooterSocialLink>
+  </div>
+</Flex>
