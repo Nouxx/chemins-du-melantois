@@ -242,7 +242,7 @@ export const races: Race[] = [
       alt: getMapAltText("900 m de Péronne en Mélantois"),
     },
     date: eventDate,
-    startTime: "9h15",
+    startTime: "11h30",
     description:
       "Ce parcours a été spécialement conçu pour les enfants et leurs familles désireux de s’initier à la course à pied dans une ambiance conviviale et accessible. À travers les rues paisibles et le cadre champêtre du village de Péronne, cette course familiale offre une belle occasion de partager un moment sportif, ludique et intergénérationnel, tout en découvrant le plaisir de courir ensemble, quel que soit son niveau.",
     traceLink: externalLinks.edition2025.trace900mPeronne,
