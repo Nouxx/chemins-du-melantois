@@ -1,12 +1,11 @@
 ---
-// Importing necessary components
+import Footer from "@/components/functional/footer/Footer.astro";
+import FooterSection from "@/components/functional/footer/FooterSection.astro";
 import Navbar from "@/components/functional/Navbar.astro";
 import Meta from "@components/Meta.astro";
-import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
 import { SITE } from "@data/constants";
 import "@styles/global.css";
 
-// Setting expected props
 const {
   title = SITE.title,
   meta,
@@ -16,7 +15,6 @@ const {
   customOgTitle = null,
 } = Astro.props;
 
-// Interface to type-check the properties
 interface Props {
   title?: string;
   meta?: string;
@@ -52,7 +50,8 @@ interface Props {
       </main>
     </div>
 
-    <FooterSection />
+    <Footer />
+
     <script>
       import "preline/preline.js";
     </script>

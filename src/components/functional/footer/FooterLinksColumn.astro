@@ -1,8 +1,8 @@
 ---
-import FooterLink from "@/components/sections/navbar&footer/FooterLink.astro";
 import Flex from "@/components/ui/atoms/Flex.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import type { ButtonLink } from "@/components/ui/types";
+import FooterLink from "./FooterLink.astro";
 
 interface Props {
   title: string;
@@ -21,7 +21,7 @@ const { title, links } = Astro.props;
         <FooterLink
           name={link.title}
           url={link.url}
-          openInNewTab={link.openInNewTab}
+          openInNewTab={link.openInNewTab ?? false}
         />
       ))
     }
