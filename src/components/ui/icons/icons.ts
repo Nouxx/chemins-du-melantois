@@ -145,4 +145,19 @@ export const svgIcons = {
     height: 20,
     width: 20,
   },
+  burgerMenu: {
+    lines: [
+      { x1: 3, x2: 21, y1: 6, y2: 6 },
+      { x1: 3, x2: 21, y1: 12, y2: 12 },
+      { x1: 3, x2: 21, y1: 18, y2: 18 },
+    ],
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+  },
 } satisfies Record<string, SvgIcon>;

@@ -5,6 +5,7 @@ import { isCurrentPath } from "@/utils/isCurrentPage";
 import { routes } from "@/data_files/constants";
 import Flex from "@/components/ui/atoms/Flex.astro";
 import Link from "@/components/ui/atoms/Link.astro";
+import Icon from "@/components/ui/icons/Icon.astro";
 
 const headerLinks = [
   { name: "Accueil", url: routes.home },
@@ -41,22 +42,7 @@ const headerLinks = [
           aria-controls="navbar-collapse-with-animation"
           aria-label="Toggle navigation"
         >
-          <!-- todo: refactor Icon component to use line -->
-          <svg
-            class="hs-collapse-open:hidden h-[1.25rem] w-[1.25rem] shrink-0"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="3" x2="21" y1="6" y2="6"></line>
-            <line x1="3" x2="21" y1="12" y2="12"></line>
-            <line x1="3" x2="21" y1="18" y2="18"></line>
-          </svg>
+          <Icon name="burgerMenu" className="hs-collapse-open:hidden" />
 
           <!-- todo: refactor Icon component to svg file as input and set props -->
           <svg

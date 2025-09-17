@@ -1,8 +1,15 @@
 import { svgIcons } from "@/components/ui/icons/icons";
 import { z } from "zod";
 
-const SvgIcon = z.strictObject({
-  paths: z.array(z.object({ d: z.string(), class: z.string().optional() })),
+const PathSchema = z.strictObject({ d: z.string() });
+const LineSchema = z.strictObject({
+  x1: z.number(),
+  y1: z.number(),
+  x2: z.number(),
+  y2: z.number(),
+});
+
+const SvgIconBase = z.strictObject({
   viewBox: z.string(),
   fill: z.string().default("currentColor"),
   class: z.string().optional(),
@@ -16,6 +23,16 @@ const SvgIcon = z.strictObject({
   clipRule: z.string().optional(),
   title: z.string().optional(),
 });
+
+const SvgIconWithPaths = SvgIconBase.extend({
+  paths: z.array(PathSchema),
+});
+
+const SvgIconWithLines = SvgIconBase.extend({
+  lines: z.array(LineSchema),
+});
+
+export const SvgIcon = z.union([SvgIconWithPaths, SvgIconWithLines]);
 
 export type SvgIcon = z.input<typeof SvgIcon>;
 
