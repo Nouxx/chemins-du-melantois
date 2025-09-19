@@ -13,6 +13,7 @@ import { racesPageData } from "@/data_files/races/races";
 import type { RacePageData } from "@/data_files/races/schema";
 
 import RacePageContent from "@/components/functional/RacePageContent.astro";
+import RegisterCTASection from "@/components/functional/RegisterCTASection.astro";
 
 export function getStaticPaths() {
   return racesPageData.map((racePageData) => ({
@@ -55,6 +56,8 @@ const pageDescription = racePageData.routeSection.description;
       </div>
     </TwoColumnsLayout>
   </Section>
+
+  <RegisterCTASection />
 </MainLayout>
 
 <style is:global>
