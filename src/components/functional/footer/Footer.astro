@@ -1,18 +1,15 @@
 ---
-import BrandLogo from "@components/BrandLogo.astro";
 import { externalLinks, routes, SITE } from "@data/constants";
-import Section from "@/components/ui/atoms/Section.astro";
 import Grid from "@/components/ui/atoms/Grid.astro";
 import FooterLinksColumn from "@/components/functional/footer/FooterLinksColumn.astro";
 import FooterSocialsLine from "@/components/functional/footer/FooterSocialsLine.astro";
+import BrandLogo from "@/components/functional/header/BrandLogo.astro";
+import HorizontalPageLayout from "@/components/ui/atoms/HorizontalPageLayout.astro";
 ---
 
 <footer class="w-full bg-neutral-300">
-  <Section
-    py={10}
-    className="sm:px-6 lg:px-16 lg:pt-20 2xl:max-w-(--breakpoint-2xl)"
-  >
-    <Grid gap={8} className="grid-cols-1 sm:grid-cols-3 sm:gap-4">
+  <HorizontalPageLayout>
+    <Grid gap={8} className="grid-cols-1 sm:grid-cols-3 sm:gap-4 pt-16">
       <div class="col-span-full sm:col-span-1">
         <BrandLogo class="h-auto w-32" />
       </div>
@@ -52,5 +49,5 @@ import FooterSocialsLine from "@/components/functional/footer/FooterSocialsLine.
     </Grid>
 
     <FooterSocialsLine />
-  </Section>
+  </HorizontalPageLayout>
 </footer>
