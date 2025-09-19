@@ -192,7 +192,7 @@ export const races: Race[] = [
     },
     date: eventDate,
     traceLink: externalLinks.edition2025.traceRunAndBike,
-    startTime: "9h15",
+    startTime: "9h00",
     price: "9",
     pricePerTeam: true,
     description:
