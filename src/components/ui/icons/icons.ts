@@ -160,4 +160,22 @@ export const svgIcons = {
     strokeLinecap: "round",
     strokeLinejoin: "round",
   },
+  cross: {
+    paths: [
+      {
+        d: "M18 6 6 18",
+      },
+      {
+        d: "m6 6 12 12",
+      },
+    ],
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+  },
 } satisfies Record<string, SvgIcon>;
