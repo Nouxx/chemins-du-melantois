@@ -1,4 +1,4 @@
-import { RaceLink } from "@/data_files/races/schema";
+import { LinkSchema } from "@/data_files/schema";
 import { z } from "astro/zod";
 
 export const EventHighlightDataSchema = z.strictObject({
@@ -14,8 +14,8 @@ export const EventHighlightDataSchema = z.strictObject({
       raceName: z.string(),
     }),
   ),
-  resultsLink: RaceLink,
-  picturesLinks: RaceLink.optional(),
+  resultsLink: LinkSchema,
+  picturesLinks: LinkSchema.optional(),
 });
 
 export const EventsHighlightDataSchema = z

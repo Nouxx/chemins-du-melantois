@@ -1,12 +1,7 @@
-import { z } from "zod";
+import type { LinkSchema } from "@/data_files/schema";
+import type { z } from "zod";
 
-export const Link = z.strictObject({
-  label: z.string(),
-  url: z.string(),
-  newTab: z.boolean().default(false),
-});
-
-export type Link = z.input<typeof Link>;
+export type Link = z.input<typeof LinkSchema>;
 
 export type SvgLogoLink = {
   /** must be imported with ?raw */

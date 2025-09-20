@@ -1,5 +1,5 @@
 import { raceUrlSlugs } from "@/data_files/races/slugs";
-import { Link } from "@/data_files/types";
+import { LinkSchema } from "@/data_files/schema";
 import { z } from "zod";
 
 const anchorIdPattern = /^[a-zA-Z0-9-_]+$/;
@@ -26,8 +26,8 @@ export const RacePageDataSchema = z.strictObject({
   routeSection: z.strictObject({
     ...RacePageSectionBase.shape,
     description: z.string(),
-    tracePDFLink: Link,
-    traceMapsLink: Link,
+    tracePDFLink: LinkSchema,
+    traceMapsLink: LinkSchema,
   }),
   scheduleSection: z.strictObject({
     ...RacePageSectionBase.shape,
@@ -40,7 +40,7 @@ export const RacePageDataSchema = z.strictObject({
     .strictObject({
       ...RacePageSectionBase.shape,
       description: z.string(),
-      rewardsLink: Link.optional(),
+      rewardsLink: LinkSchema.optional(),
     })
     .optional(),
   registrationSection: z.strictObject({
@@ -49,11 +49,11 @@ export const RacePageDataSchema = z.strictObject({
       title: z.string(),
       partner: z.string(),
       additionalDescription: z.string().optional(),
-      link: Link,
+      link: LinkSchema,
     }),
     onSiteRegistration: z.strictObject({
       title: z.string(),
-      registrationFormLink: Link,
+      registrationFormLink: LinkSchema,
     }),
   }),
   bibSection: z.strictObject({
@@ -67,20 +67,20 @@ export const RacePageDataSchema = z.strictObject({
       title: z.string(),
       description: z.string(),
       requiredDocumentsLines: z.array(z.string()).optional(),
-      ppsLink: Link.optional(),
+      ppsLink: LinkSchema.optional(),
     }),
     forChildren: z.strictObject({
       title: z.string(),
       description: z.string(),
       requiredDocumentsLines: z.array(z.string()),
-      parentalConstentLink: Link,
-      healthQuestionnaireLink: Link,
+      parentalConstentLink: LinkSchema,
+      healthQuestionnaireLink: LinkSchema,
     }),
   }),
   regulationSection: z.strictObject({
     ...RacePageSectionBase.shape,
     description: z.string(),
-    link: Link,
+    link: LinkSchema,
   }),
 });
 
