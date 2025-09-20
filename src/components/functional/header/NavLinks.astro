@@ -1,16 +1,15 @@
 ---
 import Flex from "@/components/ui/atoms/Flex.astro";
 import NavLink from "@/components/ui/links/NavLink.astro";
-import { routes } from "@/data_files/constants";
+import { routes } from "@/data_files/navigation/routes";
 import { isCurrentPath } from "@/utils/isCurrentPage";
 
-// todo: better typing for headerLinks
 const headerLinks = [
   { name: "Accueil", url: routes.home },
   { name: "Courses", url: routes.races },
   { name: "Après-course", url: routes.resultsAndPictures },
   { name: "Bénévoles", url: routes.volunteer },
-] as const;
+];
 ---
 
 <div
@@ -25,7 +24,7 @@ const headerLinks = [
       headerLinks.map((link) => (
         <NavLink
           url={link.url}
-          name={link.name}
+          label={link.name}
           isCurrent={isCurrentPath(Astro.url.pathname, link.url)}
         />
       ))

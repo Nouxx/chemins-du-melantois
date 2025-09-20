@@ -4,24 +4,33 @@ import { cx } from "class-variance-authority";
 
 interface Props {
   url: string;
-  name: string;
+  label: string;
   isCurrent: boolean;
 }
 
-const { url, name, isCurrent } = Astro.props;
+const { url, label, isCurrent } = Astro.props;
 
-const baseClasses =
-  "rounded-lg text-base font-medium ring-zinc-500 outline-hidden focus-visible:ring-3 md:py-3 md:text-sm 2xl:text-base dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-hidden";
+const baseClasses = [
+  "rounded-lg",
+  "text-base",
+  "font-medium",
+  "ring-zinc-500",
+  "outline-hidden",
+  "focus-visible:ring-3",
+  "md:py-3",
+  "md:text-sm",
+  "2xl:text-base",
+];
 
-const currentClasses = isCurrent
+const isCurrentClasses = isCurrent
   ? "text-brand-light-green underline underline-offset-3"
   : "text-neutral-600 hover:text-neutral-500";
 
 const ariaCurrent = isCurrent ? "page" : undefined;
 
-const mergedClasses = cx(baseClasses, currentClasses);
+const mergedClasses = cx(baseClasses, isCurrentClasses);
 ---
 
 <Link url={url} preFetch className={mergedClasses} aria-current={ariaCurrent}>
-  {name}
+  {label}
 </Link>

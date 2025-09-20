@@ -1,12 +1,13 @@
 ---
 import Body from "@/components/ui/atoms/Body.astro";
+import Link from "@/components/ui/atoms/Link.astro";
 import Icon from "@/components/ui/icons/Icon.astro";
 
 interface Props {
-  href: string;
+  url: string;
 }
 
-const { href } = Astro.props;
+const { url } = Astro.props;
 ---
 
 <Body
@@ -15,8 +16,8 @@ const { href } = Astro.props;
   color="darkNeutral"
   className="hover:underline hover:underline-offset-2"
 >
-  <a href={href} target="_blank" class="link__text">
+  <Link url={url} newTab className="link__text">
     <slot />
     <Icon name="openInNew" />
-  </a>
+  </Link>
 </Body>

@@ -1,20 +1,21 @@
-import { z } from "astro/zod";
+import { raceUrlSlugs } from "@/data_files/races/slugs";
+import { Link } from "@/data_files/types";
+import { z } from "zod";
 
-// todo: move to a global type
-export const RaceLink = z.strictObject({
-  label: z.string(),
-  url: z.string(),
+const anchorIdPattern = /^[a-zA-Z0-9-_]+$/;
+
+export const anchorIdSchema = z.string().regex(anchorIdPattern, {
+  message:
+    "Invalid anchor ID. Use only letters, numbers, dashes, or underscores.",
 });
 
-const RacePageSectionMandatoryFields = z.strictObject({
-  anchorId: z.string(), // todo: make sure id can be converted in a URL safe string
+const RacePageSectionBase = z.strictObject({
+  anchorId: anchorIdSchema,
   title: z.string(),
 });
 
-
-
 export const RacePageDataSchema = z.strictObject({
-  urlSlug: z.string(), // todo: make sure id can be converted in a URL safe string
+  urlSlug: z.enum(raceUrlSlugs),
   featuredImage: z.strictObject({
     image: z.custom<ImageMetadata>(),
     alt: z.string(),
@@ -23,13 +24,13 @@ export const RacePageDataSchema = z.strictObject({
   date: z.string(),
   price: z.string(),
   routeSection: z.strictObject({
-    ...RacePageSectionMandatoryFields.shape,
+    ...RacePageSectionBase.shape,
     description: z.string(),
-    tracePDFLink: RaceLink,
-    traceMapsLink: RaceLink,
+    tracePDFLink: Link,
+    traceMapsLink: Link,
   }),
   scheduleSection: z.strictObject({
-    ...RacePageSectionMandatoryFields.shape,
+    ...RacePageSectionBase.shape,
     eventDate: z.string(),
     startTime: z.string(),
     meetingPointAddressLines: z.array(z.string()).max(3),
@@ -37,54 +38,52 @@ export const RacePageDataSchema = z.strictObject({
   }),
   rewardsSection: z
     .strictObject({
-      ...RacePageSectionMandatoryFields.shape,
+      ...RacePageSectionBase.shape,
       description: z.string(),
-      rewardsLink: RaceLink.optional(),
+      rewardsLink: Link.optional(),
     })
     .optional(),
   registrationSection: z.strictObject({
-    ...RacePageSectionMandatoryFields.shape,
+    ...RacePageSectionBase.shape,
     onlineRegistration: z.strictObject({
       title: z.string(),
       partner: z.string(),
       additionalDescription: z.string().optional(),
-      link: RaceLink,
+      link: Link,
     }),
     onSiteRegistration: z.strictObject({
       title: z.string(),
-      registrationFormLink: RaceLink,
+      registrationFormLink: Link,
     }),
   }),
   bibSection: z.strictObject({
-    ...RacePageSectionMandatoryFields.shape,
+    ...RacePageSectionBase.shape,
     description: z.string(),
     pickupScheduleLines: z.array(z.string()),
   }),
   registrationDetailsSection: z.strictObject({
-    ...RacePageSectionMandatoryFields.shape,
+    ...RacePageSectionBase.shape,
     forAdults: z.strictObject({
       title: z.string(),
       description: z.string(),
       requiredDocumentsLines: z.array(z.string()).optional(),
-      ppsLink: RaceLink.optional(),
+      ppsLink: Link.optional(),
     }),
     forChildren: z.strictObject({
       title: z.string(),
       description: z.string(),
       requiredDocumentsLines: z.array(z.string()),
-      parentalConstentLink: RaceLink,
-      healthQuestionnaireLink: RaceLink,
+      parentalConstentLink: Link,
+      healthQuestionnaireLink: Link,
     }),
   }),
   regulationSection: z.strictObject({
-    ...RacePageSectionMandatoryFields.shape,
+    ...RacePageSectionBase.shape,
     description: z.string(),
-    link: RaceLink,
+    link: Link,
   }),
 });
 
-export type RaceLink = z.input<typeof RaceLink>;
-
-export type RacePageSection = z.input<typeof RacePageSectionMandatoryFields>;
+export type RacePageSection = z.input<typeof RacePageSectionBase>;
 
 export type RacePageData = z.input<typeof RacePageDataSchema>;

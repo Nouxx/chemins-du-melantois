@@ -26,7 +26,7 @@ const { title, partner, additionalDescription, link } = Astro.props.data;
 
   {additionalDescription && <Body size="small">{additionalDescription}</Body>}
 
-  <TextLink href={link.url}>
+  <TextLink url={link.url}>
     {link.label}
   </TextLink>
 </RaceDetailSection>

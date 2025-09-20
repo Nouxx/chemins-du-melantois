@@ -21,7 +21,7 @@ const { title, anchorId, description, link } = Astro.props.data;
     {description}
   </Body>
 
-  <TextLink href={link.url}>
+  <TextLink url={link.url}>
     {link.label}
   </TextLink>
 </RaceDetailSection>

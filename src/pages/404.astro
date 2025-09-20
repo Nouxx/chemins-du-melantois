@@ -1,20 +1,8 @@
 ---
-// Import section components
 import PrimaryCTA from "@/components/functional/PrimaryCTA.astro";
+import { routes } from "@/data_files/navigation/routes";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { getPageTitle } from "@/utils/structured-data";
-import { routes } from "@data/constants";
-
-// Define types for translations
-type TranslationKeys = "en" | "fr";
-type Translations = {
-  [key in TranslationKeys]: {
-    pageTitle: string;
-    subTitle: string;
-    content: string;
-    btnTitle: string;
-  };
-};
 
 const pageTitle = getPageTitle("Page Introuvable");
 ---
