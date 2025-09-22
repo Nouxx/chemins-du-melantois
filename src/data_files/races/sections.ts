@@ -6,7 +6,7 @@ export const routeSectionBaseData = {
   anchorId: "parcours",
   traceMapsLink: {
     label: "Lien vers les tracés interactifs (Maps)",
-    url: externalLinks.edition2025.traceMaps,
+    url: externalLinks.edition2025Maps,
   },
 };
 

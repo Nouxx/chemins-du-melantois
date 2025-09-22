@@ -29,11 +29,11 @@ const edition2024Data: EventHighlightData = {
   ],
   resultsLink: {
     label: resultsButtonPhrase,
-    url: externalLinks.edition2024.aSportPage,
+    url: externalLinks.edition2024TimingLive,
   },
   picturesLinks: {
     label: picturesButtonPhrase,
-    url: externalLinks.edition2024.googlePhotoAlbum,
+    url: externalLinks.edition2024Album,
   },
 };
 
@@ -54,11 +54,11 @@ const edition2023Data: EventHighlightData = {
   ],
   resultsLink: {
     label: resultsButtonPhrase,
-    url: externalLinks.edition2023.aSportPage,
+    url: externalLinks.edition2023TimingLive,
   },
   picturesLinks: {
     label: picturesButtonPhrase,
-    url: externalLinks.edition2023.googlePhotoAlbum,
+    url: externalLinks.edition2023Album,
   },
 };
 
@@ -79,7 +79,7 @@ const edition2022Data: EventHighlightData = {
   ],
   resultsLink: {
     label: resultsButtonPhrase,
-    url: externalLinks.edition2022.proLiveSportPage,
+    url: externalLinks.edition2022Live,
   },
 };
 
@@ -100,11 +100,11 @@ const edition2019Data: EventHighlightData = {
   ],
   resultsLink: {
     label: resultsButtonPhrase,
-    url: externalLinks.edition2019.googleDriveResultsFile,
+    url: externalLinks.edition2019Results,
   },
   picturesLinks: {
     label: picturesButtonPhrase,
-    url: externalLinks.edition2019.googlePhotoAlbum,
+    url: externalLinks.edition2019Album,
   },
 };
 

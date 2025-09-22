@@ -1,9 +1,5 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import {
-  getPageTitle,
-  getStructuredDataForPage,
-} from "@/utils/structured-data";
 import TwoColumnsLayout from "@/components/ui/atoms/TwoColumnsLayout.astro";
 import Section from "@/components/ui/atoms/Section.astro";
 import RaceMapImage from "@/components/functional/RaceMapImage.astro";
@@ -14,6 +10,7 @@ import type { RacePageData } from "@/data_files/races/schema";
 
 import RacePageContent from "@/components/functional/RacePageContent.astro";
 import RegisterCTASection from "@/components/functional/RegisterCTASection.astro";
+import { getPageTitle, getStructuredDataForPage } from "@/data_files/site/seo";
 
 export function getStaticPaths() {
   return racesPageData.map((racePageData) => ({

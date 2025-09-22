@@ -1,9 +1,14 @@
+import { externalLinks } from "@/data_files/navigation/externalLinks/externalLinks";
 import { z } from "zod";
 
-const urlSchema = z.string().url();
+const externalLinksKeys = Object.keys(externalLinks);
 
-export const externalLinksSchema: z.ZodType<any> = z.lazy(() =>
-  z.record(z.union([urlSchema, externalLinksSchema])),
-);
+const externalLinksSchema = z.strictObject({
+  ...Object.fromEntries(
+    externalLinksKeys.map((key) => [key, z.string().url()]),
+  ),
+});
+
+externalLinksSchema.parse(externalLinks);
 
 export type ExternalLinks = z.infer<typeof externalLinksSchema>;

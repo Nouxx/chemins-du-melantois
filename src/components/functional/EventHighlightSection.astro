@@ -9,14 +9,14 @@ import List from "@/components/ui/molecules/List.astro";
 import ListItem from "@/components/ui/molecules/ListItem.astro";
 import type { ButtonLink } from "@/components/ui/types";
 import type { EventHighlightData } from "@/data_files/events/schema";
-import type { RaceLink } from "@/data_files/races/schema";
+import type { Link } from "@/data_files/types";
 
 interface Props {
   eventHighlightData: EventHighlightData;
 }
 
 export function mapToButtonLink(
-  data: RaceLink | undefined
+  data: Link | undefined
 ): ButtonLink | undefined {
   if (!data) return undefined;
   return {

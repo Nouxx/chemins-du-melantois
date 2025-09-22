@@ -66,7 +66,7 @@ const tenKilometerRacePageData: RacePageData = {
     ...routeSectionBaseData,
     description:
       "Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l'étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l'objet d'une nouvelle labellisation en 2025.",
-    tracePDFLink: getTraceLink(externalLinks.edition2025.trace10km),
+    tracePDFLink: getTraceLink(externalLinks.edition2025Trace10km),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
@@ -104,7 +104,7 @@ const runAndBikeRacePageData: RacePageData = {
     ...routeSectionBaseData,
     description:
       "L'édition 2024 confirme le retour de cette épreuve originale, placée sous le signe du partage et de la transmission. Composée d'un binôme intergénérationnel, elle associe un coureur adulte (parent, grand frère ou sœur, cousin, proche…) et un jeune cycliste, qui ouvre la voie et joue le rôle de lièvre. Le jeune à vélo guide et encourage le coureur à pied, tout au long d'un parcours adapté et sécurisé à travers le village. Une belle manière de vivre la course autrement : en duo, en famille, et dans une ambiance joyeuse et bienveillante.",
-    tracePDFLink: getTraceLink(externalLinks.edition2025.traceRunAndBike),
+    tracePDFLink: getTraceLink(externalLinks.edition2025RunAndBike),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
@@ -138,7 +138,7 @@ const fiveKilometerRacePageData: RacePageData = {
     ...routeSectionBaseData,
     description:
       "Découvrez les paysages emblématiques du Mélantois en empruntant un itinéraire nature qui vous mène à travers le Bois de la Noyelle et le long des rives paisibles de la Marque. Composé à 70 % de sentiers, ce parcours se rapproche davantage de l'esprit trail que de la course sur route classique.",
-    tracePDFLink: getTraceLink(externalLinks.edition2025.trace5km),
+    tracePDFLink: getTraceLink(externalLinks.edition2025Trace5km),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
@@ -174,7 +174,7 @@ const nineHundredSainghinRacePageData: RacePageData = {
     ...routeSectionBaseData,
     description:
       "Un parcours court, ludique et sécurisé, idéal pour les enfants et leurs familles souhaitant s’initier à la course à pied dans une ambiance conviviale. À travers les rues du village de Sainghin, cette boucle accessible met l’accent sur le plaisir de courir ensemble, sans pression de performance. C’est l’occasion parfaite de partager un moment sportif intergénérationnel, dans un cadre chaleureux et festif.",
-    tracePDFLink: getTraceLink(externalLinks.edition2025.trace900mSainghin),
+    tracePDFLink: getTraceLink(externalLinks.edition2025Trace900mSainghin),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
@@ -208,7 +208,7 @@ const nineHundredPeronneRacePageData: RacePageData = {
     ...routeSectionBaseData,
     description:
       "Ce parcours a été spécialement conçu pour les enfants et leurs familles désireux de s'initier à la course à pied dans une ambiance conviviale et accessible. À travers les rues paisibles et le cadre champêtre du village de Péronne, cette course familiale offre une belle occasion de partager un moment sportif, ludique et intergénérationnel, tout en découvrant le plaisir de courir ensemble, quel que soit son niveau.",
-    tracePDFLink: getTraceLink(externalLinks.edition2025.trace900mPeronne),
+    tracePDFLink: getTraceLink(externalLinks.edition2025Trace900mPeronne),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
