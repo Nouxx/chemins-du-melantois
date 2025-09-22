@@ -3,7 +3,7 @@ import PrimaryCTA from "@/components/functional/PrimaryCTA.astro";
 import Body from "@/components/ui/atoms/Body.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import CTASection from "@/components/ui/molecules/CTASection.astro";
-import { SITE } from "@/data_files/constants";
+import { SiteMetadata } from "@/data_files/site/metadata";
 ---
 
 <CTASection>
@@ -11,7 +11,7 @@ import { SITE } from "@/data_files/constants";
   <Body slot="subTitle">L'aventure vous tente ? Contactez-nous !</Body>
   <PrimaryCTA
     slot="button"
-    label={`${SITE.contactEmail}`}
-    url={`mailto:${SITE.contactEmail}`}
+    label={`${SiteMetadata.contactEmail}`}
+    url={`mailto:${SiteMetadata.contactEmail}`}
   />
 </CTASection>

@@ -1,4 +1,4 @@
-import { externalLinks } from "@/data_files/constants";
+import { externalLinks } from "@/data_files/navigation/externalLinks/externalLinks";
 import type { RacePageData } from "@/data_files/races/schema";
 
 export const routeSectionBaseData = {

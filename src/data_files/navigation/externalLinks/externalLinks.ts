@@ -1,19 +1,9 @@
-import edition2024Hero from "../images/races/2024-edition-hero.webp";
+import {
+  externalLinksSchema,
+  type ExternalLinks,
+} from "@/data_files/navigation/externalLinks/schema";
 
-export const SITE = {
-  title: "Les Chemins du Mélantois",
-  tagline: "Courses nature et conviviales pour tous",
-  description:
-    "Les Chemins du Mélantois proposent une série de courses accessibles à tous, dans un cadre naturel au cœur du Mélantois. De 900 m à 10 km, venez courir, encourager ou participer à l'organisation dans une ambiance festive et solidaire.",
-  description_short:
-    "Courses nature au cœur du Mélantois pour petits et grands dans une ambiance conviviale.",
-  url: "https://www.lescheminsdumelantois.fr",
-  author: "Association Les Chemins du Mélantois",
-  base: "", // must match the base path in astro.config.mjs
-  contactEmail: "contact@lescheminsdumelantois.fr",
-} as const;
-
-export const externalLinks = {
+export const externalLinks: ExternalLinks = {
   registration:
     "https://fr.milesrepublic.com/event/les-chemins-du-melantois-2692",
   registrantsList:
@@ -76,35 +66,6 @@ export const externalLinks = {
     "https://www.instagram.com/lescheminsdumelantois?igsh=dnN3ZnBvMmJ5bW96",
 } as const;
 
+externalLinksSchema.parse(externalLinks);
+
 export type ExternalLinkKey = keyof typeof externalLinks;
-
-export const SEO = {
-  title: SITE.title,
-  description: SITE.description,
-  structuredData: {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    inLanguage: "fr-FR",
-    "@id": SITE.url,
-    url: SITE.url,
-    name: SITE.title,
-    description: SITE.description,
-    isPartOf: {
-      "@type": "WebSite",
-      url: SITE.url,
-      name: SITE.title,
-      description: SITE.description,
-    },
-  },
-};
-
-export const OG = {
-  locale: "fr_FR",
-  type: "website",
-  url: `${SITE.url}${SITE.base}`,
-  title: `${SITE.title} - ${SITE.tagline}`,
-  description: SITE.description,
-  image: edition2024Hero,
-  imageAlt:
-    "Une vue en hauteur du départ de la course 2024 des Chemins du Mélantois",
-};

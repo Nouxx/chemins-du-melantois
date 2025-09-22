@@ -3,7 +3,7 @@ import fiveKilometerHero from "../../images/races/5km-sem-hero.webp";
 import runAndBikeHero from "../../images/races/run-bike-peronne-hero.webp";
 import nineHundredPeronneHero from "../../images/races/900m-peronne-hero.webp";
 import nineHundredSainghinHero from "../../images/races/900m-sem-hero.webp";
-import { externalLinks } from "@/data_files/constants";
+import { externalLinks } from "@/data_files/navigation/externalLinks/externalLinks";
 import {
   RacePageDataSchema,
   type RacePageData,

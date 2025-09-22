@@ -3,11 +3,11 @@ import Footer from "@/components/functional/footer/Footer.astro";
 import Navbar from "@/components/functional/header/Navbar.astro";
 import HorizontalPageLayout from "@/components/ui/atoms/HorizontalPageLayout.astro";
 import Meta from "@components/Meta.astro";
-import { SITE } from "@data/constants";
+import { SiteMetadata } from "@/data_files/site/metadata";
 import "@styles/global.css";
 
 const {
-  title = SITE.title,
+  title = SiteMetadata.title,
   meta,
   structuredData,
   lang = "fr",
@@ -49,9 +49,7 @@ interface Props {
         <slot />
       </main>
     </HorizontalPageLayout>
-  </body>
-  
-  <Footer />
+  </body><Footer />
 
   <script>
     import "preline/preline.js";

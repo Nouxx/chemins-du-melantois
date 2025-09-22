@@ -1,32 +1,17 @@
 ---
-import Heading from "@/components/ui/atoms/Heading.astro";
-import type { SvgLogoLink } from "@/data_files/types";
-
-const { title, logoLinks } = Astro.props;
-
-interface Props {
-  title: string;
-  logoLinks: SvgLogoLink[];
-}
+import Flex from "@/components/ui/atoms/Flex.astro";
 ---
 
 <div class="mx-auto mb-6 w-full space-y-1 text-center">
-  <Heading size="small">
-    {title}
-  </Heading>
+  <slot name="title" />
 </div>
 
-<div class="flex flex-wrap items-center justify-center gap-10 sm:flex-row">
-  {
-    logoLinks.map((logoLink) => (
-      <a
-        href={logoLink.link.href}
-        target="_blank"
-        aria-label={logoLink.link.name}
-        rel="noopener noreferrer"
-      >
-        <div set:html={logoLink.svg} />
-      </a>
-    ))
-  }
-</div>
+<Flex
+  wrap="wrap"
+  items="center"
+  justify="center"
+  gap={14}
+  className="sm:flex-row"
+>
+  <slot />
+</Flex>

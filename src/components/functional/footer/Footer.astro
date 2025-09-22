@@ -4,8 +4,9 @@ import FooterLinksColumn from "@/components/functional/footer/FooterLinksColumn.
 import FooterSocialsLine from "@/components/functional/footer/FooterSocialsLine.astro";
 import BrandLogo from "@/components/functional/header/BrandLogo.astro";
 import HorizontalPageLayout from "@/components/ui/atoms/HorizontalPageLayout.astro";
-import { externalLinks, SITE } from "@/data_files/constants";
+import { externalLinks } from "@/data_files/navigation/externalLinks/externalLinks";
 import { routes } from "@/data_files/navigation/routes";
+import { SiteMetadata } from "@/data_files/site/metadata";
 ---
 
 <footer class="w-full bg-neutral-300">
@@ -38,7 +39,7 @@ import { routes } from "@/data_files/navigation/routes";
         links={[
           {
             title: "Par email",
-            url: `mailto:${SITE.contactEmail}`,
+            url: `mailto:${SiteMetadata.contactEmail}`,
           },
           {
             title: "Devenir bénévole",

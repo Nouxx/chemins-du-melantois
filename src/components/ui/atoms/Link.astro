@@ -1,12 +1,16 @@
 ---
 import { cx } from "class-variance-authority";
 
+type AnchorRel = "nofollow" | "noopener" | "noreferrer" | "noopener noreferrer";
+
 interface Props {
   url: string;
   preFetch?: boolean;
   className?: string;
   newTab?: boolean;
   ariaCurrent?: "page";
+  ariaLabel?: string;
+  rel?: AnchorRel[];
 }
 
 const {
@@ -15,9 +19,12 @@ const {
   className,
   newTab = false,
   ariaCurrent,
+  ariaLabel,
+  rel,
 } = Astro.props;
 
 const focusClasses = "group ring-zinc-500 outline-hidden focus-visible:ring-3";
+const relValues = rel?.join(" ");
 
 const mergedClasses = cx(focusClasses, className);
 ---
@@ -28,6 +35,8 @@ const mergedClasses = cx(focusClasses, className);
   class={mergedClasses}
   target={newTab ? "_blank" : "_self"}
   aria-current={ariaCurrent}
+  aria-label={ariaLabel}
+  rel={relValues}
 >
   <slot />
 </a>

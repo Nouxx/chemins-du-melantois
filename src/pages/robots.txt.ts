@@ -1,5 +1,6 @@
 // https://docs.astro.build/en/guides/integrations-guide/sitemap/#usage
-import type { APIRoute } from 'astro';
+import { SiteMetadata } from "@/data_files/site/metadata";
+import type { APIRoute } from "astro";
 
 const robotsTxt = `
 User-agent: Googlebot
@@ -20,13 +21,13 @@ Crawl-delay: 2
 User-agent: *
 Disallow: /
 
-Sitemap: ${new URL('sitemap-index.xml', import.meta.env.SITE).href}
+Sitemap: ${new URL("sitemap-index.xml", SiteMetadata.url).href}
 `.trim();
 
 export const GET: APIRoute = () => {
   return new Response(robotsTxt, {
     headers: {
-      'Content-Type': 'text/plain; charset=utf-8',
+      "Content-Type": "text/plain; charset=utf-8",
     },
   });
 };
