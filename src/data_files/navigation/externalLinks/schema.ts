@@ -10,5 +10,3 @@ const externalLinksSchema = z.strictObject({
 });
 
 externalLinksSchema.parse(externalLinks);
-
-export type ExternalLinks = z.infer<typeof externalLinksSchema>;

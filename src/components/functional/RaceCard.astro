@@ -1,6 +1,6 @@
 ---
 import LinkCard from "@/components/ui/molecules/LinkCard.astro";
-import { routes } from "@/data_files/navigation/routes/routes";
+import { getRaceDetails } from "@/data_files/navigation/routes/routes";
 import type { RacePageData } from "@/data_files/races/schema";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 const { racePageData: race, size } = Astro.props;
 
-const url = routes.raceDetails(race.urlSlug);
+const url = getRaceDetails(race.urlSlug);
 ---
 
 <LinkCard

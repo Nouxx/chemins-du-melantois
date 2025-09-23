@@ -84,6 +84,16 @@ export const RacePageDataSchema = z.strictObject({
   }),
 });
 
+z
+  .array(RacePageDataSchema)
+  .parse([
+    tenKilometerRacePageData,
+    runAndBikeRacePageData,
+    fiveKilometerRacePageData,
+    nineHundredSainghinRacePageData,
+    nineHundredPeronneRacePageData,
+  ]);
+
 export type RacePageSection = z.input<typeof RacePageSectionBase>;
 
 export type RacePageData = z.input<typeof RacePageDataSchema>;
