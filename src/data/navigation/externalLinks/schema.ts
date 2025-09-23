@@ -1,4 +1,4 @@
-import { externalLinks } from "@/data_files/navigation/externalLinks/externalLinks";
+import { externalLinks } from "@/data/navigation/externalLinks/externalLinks";
 import { z } from "zod";
 
 const externalLinksKeys = Object.keys(externalLinks);

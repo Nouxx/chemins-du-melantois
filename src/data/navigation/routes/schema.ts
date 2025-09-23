@@ -1,5 +1,5 @@
-import { routes } from "@/data_files/navigation/routes/routes";
-import { SiteMetadata } from "@/data_files/site/metadata";
+import { routes } from "@/data/navigation/routes/routes";
+import { SiteMetadata } from "@/data/site/metadata";
 import { z } from "zod";
 
 const routesKeys = Object.keys(routes);

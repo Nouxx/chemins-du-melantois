@@ -3,13 +3,18 @@ import Body from "@/components/ui/atoms/Body.astro";
 import Flex from "@/components/ui/atoms/Flex.astro";
 import Heading from "@/components/ui/atoms/Heading.astro";
 import ImageWrapper from "@/components/ui/atoms/ImageWrapper.astro";
-import type { VolunteerRoleData } from "@/data_files/volunteers/schema";
+import type { ImageMetadata } from "astro";
 
 interface Props {
-  volunteerRoleData: VolunteerRoleData;
+  role: string;
+  content: string;
+  roleImage: {
+    image: ImageMetadata;
+    alt: string;
+  };
 }
 
-const { role, content, roleImage } = Astro.props.volunteerRoleData;
+const { role, content, roleImage } = Astro.props;
 ---
 
 <Flex className="h-auto">

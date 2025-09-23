@@ -1,5 +1,5 @@
-import { externalLinks } from "@/data_files/navigation/externalLinks/externalLinks";
-import type { RacePageData } from "@/data_files/races/schema";
+import { externalLinks } from "@/data/navigation/externalLinks/externalLinks";
+import type { RacePageData } from "@/data/races/schema";
 
 export const routeSectionBaseData = {
   title: "Parcours",

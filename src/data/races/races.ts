@@ -3,13 +3,8 @@ import fiveKilometerHero from "../../images/races/5km-sem-hero.webp";
 import runAndBikeHero from "../../images/races/run-bike-peronne-hero.webp";
 import nineHundredPeronneHero from "../../images/races/900m-peronne-hero.webp";
 import nineHundredSainghinHero from "../../images/races/900m-sem-hero.webp";
-import { externalLinks } from "@/data_files/navigation/externalLinks/externalLinks";
-import {
-  RacePageDataSchema,
-  type RacePageData,
-} from "@/data_files/races/schema";
-import { z } from "zod";
-import type { Link } from "@/data_files/types";
+import { externalLinks } from "@/data/navigation/externalLinks/externalLinks";
+import type { Link } from "@/data/types";
 import {
   registrationDetailsSectionBaseData,
   routeSectionBaseData,
@@ -20,7 +15,8 @@ import {
   noRegistrationForAdultSectionData,
   registrationSectionBaseData,
   raceRegulationSectionBaseData,
-} from "@/data_files/races/sections";
+} from "@/data/races/sections";
+import type { RacePageData } from "@/data/races/schema";
 
 const getImageAltText = (raceName: string) =>
   `Tracé du parcours du ${raceName} des Chemins du Mélantois, édition 2025`;
@@ -229,7 +225,7 @@ const nineHundredPeronneRacePageData: RacePageData = {
   regulationSection: raceRegulationSectionBaseData,
 };
 
-export const racesData: RacePageData[] = [
+export const racesPageData: RacePageData[] = [
   tenKilometerRacePageData,
   runAndBikeRacePageData,
   fiveKilometerRacePageData,

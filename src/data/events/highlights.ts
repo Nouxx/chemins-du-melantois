@@ -2,12 +2,12 @@ import {
   EventHighlightDataSchema,
   EventsHighlightDataSchema,
   type EventHighlightData,
-} from "@/data_files/events/schema";
+} from "@/data/events/schema";
 import edition2024Hero from "@images/races/2024-edition-hero.webp";
 import edition2022Hero from "@images/races/2022-edition-hero.webp";
 import edition2023Hero from "@images/races/2023-edition-hero.webp";
 import edition2019Hero from "@images/races/2019-edition-hero.webp";
-import { externalLinks } from "@/data_files/navigation/externalLinks/externalLinks";
+import { externalLinks } from "@/data/navigation/externalLinks/externalLinks";
 
 const resultsButtonPhrase = "Résultats";
 const picturesButtonPhrase = "Photos";

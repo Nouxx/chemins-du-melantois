@@ -1,4 +1,4 @@
-import { LinkSchema } from "@/data_files/schema";
+import { LinkSchema } from "@/data/schema";
 import { z } from "astro/zod";
 
 export const EventHighlightDataSchema = z.strictObject({

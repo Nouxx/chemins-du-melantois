@@ -5,12 +5,12 @@ import Section from "@/components/ui/atoms/Section.astro";
 import RaceMapImage from "@/components/functional/RaceMapImage.astro";
 import MobileProgressBar from "@/components/functional/MobileProgressBar.astro";
 import RaceTOC from "@/components/functional/RaceTOC.astro";
-import { racesPageData } from "@/data_files/races/races";
-import type { RacePageData } from "@/data_files/races/schema";
+import { racesPageData } from "@/data/races/races";
+import type { RacePageData } from "@/data/races/schema";
 
 import RacePageContent from "@/components/functional/RacePageContent.astro";
 import RegisterCTASection from "@/components/functional/RegisterCTASection.astro";
-import { getPageTitle, getStructuredDataForPage } from "@/data_files/site/seo";
+import { getPageTitle, getStructuredDataForPage } from "@/data/site/seo";
 
 export function getStaticPaths() {
   return racesPageData.map((racePageData) => ({

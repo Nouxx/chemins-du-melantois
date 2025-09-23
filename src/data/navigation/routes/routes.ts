@@ -1,5 +1,5 @@
-import type { RaceUrlSlug } from "@/data_files/races/slugs";
-import { SiteMetadata } from "@/data_files/site/metadata";
+import type { RaceUrlSlug } from "@/data/races/slugs";
+import { SiteMetadata } from "@/data/site/metadata";
 
 export const routes = {
   home: `${SiteMetadata.base}/`,

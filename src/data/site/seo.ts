@@ -1,4 +1,4 @@
-import { SiteMetadata } from "@/data_files/site/metadata";
+import { SiteMetadata } from "@/data/site/metadata";
 
 export const SEOData = {
   title: SiteMetadata.title,

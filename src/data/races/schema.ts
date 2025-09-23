@@ -1,6 +1,6 @@
-import { racesData } from "@/data_files/races/races";
-import { raceUrlSlugs } from "@/data_files/races/slugs";
-import { LinkSchema } from "@/data_files/schema";
+import { racesPageData } from "@/data/races/races";
+import { raceUrlSlugs } from "@/data/races/slugs";
+import { LinkSchema } from "@/data/schema";
 import { z } from "zod";
 
 const anchorIdPattern = /^[a-zA-Z0-9-_]+$/;
@@ -85,7 +85,7 @@ export const RacePageDataSchema = z.strictObject({
   }),
 });
 
-z.array(RacePageDataSchema).parse(racesData);
+z.array(RacePageDataSchema).parse(racesPageData);
 
 export type RacePageSection = z.input<typeof RacePageSectionBase>;
 
