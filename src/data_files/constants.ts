@@ -48,6 +48,9 @@ export const externalLinks = {
       "https://drive.google.com/file/d/1N4POCdKh9YlkTZTJHRrQBbUJv2enp1Ar/view",
     traceMaps:
       "https://www.google.fr/maps/d/u/0/edit?mid=1YDOG0-5eHR_vzE_yyXufJq-fc0YbTdA",
+    results:
+      "https://sportchronometrage.fr/live/les-chemins-du-melantois-2025/",
+    photos: "https://photos.app.goo.gl/xurTKWxwnuYb2emq7",
   },
   edition2024: {
     youtubeVideo: "https://youtu.be/JSbhbnNtyr8?si=1WUyL2MXtpcpsgbP",

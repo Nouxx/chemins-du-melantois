@@ -4,6 +4,7 @@ import RightSection, {
   type ButtonLink,
 } from "@components/ui/blocks/RightSection.astro";
 
+import edition2025Hero from "@images/races/2025-edition-hero.webp";
 import edition2024Hero from "@images/races/2024-edition-hero.webp";
 import edition2022Hero from "@images/races/2022-edition-hero.webp";
 import edition2023Hero from "@images/races/2023-edition-hero.webp";
@@ -31,6 +32,28 @@ const buttonTitleForPhotos: string = "Photos";
 const buttonTitleForResults: string = "Résultats";
 
 const eventsHighlights: EventHighlightData[] = [
+  {
+    title: "Édition 2025",
+    subTitle:
+      "Cette édition a eu lieu le 21 septembre 2025, sous un ciel mitigé mais sec. Elle a rassemblé plus de 1000 participants (1061 exactement), soit un nouveau record consécutif.",
+    imgOne: edition2025Hero,
+    imgOneAlt:
+      "Départ de la course 2025 à Sainghin-en-Mélantois : des centaines de coureurs réunis sous l'arche jaune dans une ambiance festive et conviviale.",
+    list: [
+      "531 participants au 10 km",
+      "247 participants au 5 km",
+      "179 participants au 900 m de Sainghin",
+      "70 participants au 900 m de Péronne",
+      "34 participants au Run & Bike",
+    ],
+    links: [
+      {
+        title: buttonTitleForResults,
+        url: externalLinks.edition2025.results,
+        openInNewTab: true,
+      },
+    ],
+  },
   {
     title: "Édition 2024",
     subTitle:
