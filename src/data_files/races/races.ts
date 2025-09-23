@@ -229,12 +229,10 @@ const nineHundredPeronneRacePageData: RacePageData = {
   regulationSection: raceRegulationSectionBaseData,
 };
 
-export const racesPageData: RacePageData[] = z
-  .array(RacePageDataSchema)
-  .parse([
-    tenKilometerRacePageData,
-    runAndBikeRacePageData,
-    fiveKilometerRacePageData,
-    nineHundredSainghinRacePageData,
-    nineHundredPeronneRacePageData,
-  ]);
+export const racesData: RacePageData[] = [
+  tenKilometerRacePageData,
+  runAndBikeRacePageData,
+  fiveKilometerRacePageData,
+  nineHundredSainghinRacePageData,
+  nineHundredPeronneRacePageData,
+];

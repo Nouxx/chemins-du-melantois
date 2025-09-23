@@ -1,3 +1,4 @@
+import { racesData } from "@/data_files/races/races";
 import { raceUrlSlugs } from "@/data_files/races/slugs";
 import { LinkSchema } from "@/data_files/schema";
 import { z } from "zod";
@@ -84,15 +85,7 @@ export const RacePageDataSchema = z.strictObject({
   }),
 });
 
-z
-  .array(RacePageDataSchema)
-  .parse([
-    tenKilometerRacePageData,
-    runAndBikeRacePageData,
-    fiveKilometerRacePageData,
-    nineHundredSainghinRacePageData,
-    nineHundredPeronneRacePageData,
-  ]);
+z.array(RacePageDataSchema).parse(racesData);
 
 export type RacePageSection = z.input<typeof RacePageSectionBase>;
 
