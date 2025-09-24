@@ -15,6 +15,6 @@ export const urlSlugSchema = z.string().regex(slugPattern, {
     "Invalid slug format. Use lowercase letters, numbers and single dashes only.",
 });
 
-z.array(urlSlugSchema).parse(raceUrlSlugs);
-
 export type RaceUrlSlug = (typeof raceUrlSlugs)[number];
+
+z.array(urlSlugSchema).parse(raceUrlSlugs);

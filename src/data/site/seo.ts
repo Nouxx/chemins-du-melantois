@@ -18,7 +18,7 @@ export const SEOData = {
       description: SiteMetadata.description,
     },
   },
-};
+} as const;
 
 export const getPageTitle = (name: string) =>
   `${name} | ${SiteMetadata.title} `;

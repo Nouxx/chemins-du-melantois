@@ -1,6 +1,5 @@
 import {
   EventHighlightDataSchema,
-  EventsHighlightDataSchema,
   type EventHighlightData,
 } from "@/data/events/schema";
 import edition2024Hero from "@images/races/2024-edition-hero.webp";
@@ -8,6 +7,7 @@ import edition2022Hero from "@images/races/2022-edition-hero.webp";
 import edition2023Hero from "@images/races/2023-edition-hero.webp";
 import edition2019Hero from "@images/races/2019-edition-hero.webp";
 import { externalLinks } from "@/data/navigation/externalLinks/externalLinks";
+import { z } from "zod";
 
 const resultsButtonPhrase = "Résultats";
 const picturesButtonPhrase = "Photos";
@@ -108,10 +108,11 @@ const edition2019Data: EventHighlightData = {
   },
 };
 
-export const eventsHighlights: EventHighlightData[] =
-  EventsHighlightDataSchema.parse([
-    EventHighlightDataSchema.parse(edition2024Data),
-    EventHighlightDataSchema.parse(edition2023Data),
-    EventHighlightDataSchema.parse(edition2022Data),
-    EventHighlightDataSchema.parse(edition2019Data),
-  ]);
+export const eventsHighlightsData = [
+  edition2024Data,
+  edition2023Data,
+  edition2022Data,
+  edition2019Data,
+];
+
+z.array(EventHighlightDataSchema).min(1).parse(eventsHighlightsData);

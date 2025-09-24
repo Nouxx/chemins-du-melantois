@@ -1,4 +1,3 @@
-import { racesPageData } from "@/data/races/races";
 import { raceUrlSlugs } from "@/data/races/slugs";
 import { LinkSchema } from "@/data/schema";
 import { z } from "zod";
@@ -10,12 +9,12 @@ export const anchorIdSchema = z.string().regex(anchorIdPattern, {
     "Invalid anchor ID. Use only letters, numbers, dashes, or underscores.",
 });
 
-const RacePageSectionBase = z.strictObject({
+const racePageSectionBaseSchema = z.strictObject({
   anchorId: anchorIdSchema,
   title: z.string(),
 });
 
-export const RacePageDataSchema = z.strictObject({
+export const racePageDataSchema = z.strictObject({
   urlSlug: z.enum(raceUrlSlugs),
   featuredImage: z.strictObject({
     image: z.custom<ImageMetadata>(),
@@ -25,13 +24,13 @@ export const RacePageDataSchema = z.strictObject({
   date: z.string(),
   price: z.string(),
   routeSection: z.strictObject({
-    ...RacePageSectionBase.shape,
+    ...racePageSectionBaseSchema.shape,
     description: z.string(),
     tracePDFLink: LinkSchema,
     traceMapsLink: LinkSchema,
   }),
   scheduleSection: z.strictObject({
-    ...RacePageSectionBase.shape,
+    ...racePageSectionBaseSchema.shape,
     eventDate: z.string(),
     startTime: z.string(),
     meetingPointAddressLines: z.array(z.string()).max(3),
@@ -39,13 +38,13 @@ export const RacePageDataSchema = z.strictObject({
   }),
   rewardsSection: z
     .strictObject({
-      ...RacePageSectionBase.shape,
+      ...racePageSectionBaseSchema.shape,
       description: z.string(),
       rewardsLink: LinkSchema.optional(),
     })
     .optional(),
   registrationSection: z.strictObject({
-    ...RacePageSectionBase.shape,
+    ...racePageSectionBaseSchema.shape,
     onlineRegistration: z.strictObject({
       title: z.string(),
       partner: z.string(),
@@ -58,12 +57,12 @@ export const RacePageDataSchema = z.strictObject({
     }),
   }),
   bibSection: z.strictObject({
-    ...RacePageSectionBase.shape,
+    ...racePageSectionBaseSchema.shape,
     description: z.string(),
     pickupScheduleLines: z.array(z.string()),
   }),
   registrationDetailsSection: z.strictObject({
-    ...RacePageSectionBase.shape,
+    ...racePageSectionBaseSchema.shape,
     forAdults: z.strictObject({
       title: z.string(),
       description: z.string(),
@@ -79,14 +78,12 @@ export const RacePageDataSchema = z.strictObject({
     }),
   }),
   regulationSection: z.strictObject({
-    ...RacePageSectionBase.shape,
+    ...racePageSectionBaseSchema.shape,
     description: z.string(),
     link: LinkSchema,
   }),
 });
 
-z.array(RacePageDataSchema).parse(racesPageData);
+export type RacePageSection = z.input<typeof racePageSectionBaseSchema>;
 
-export type RacePageSection = z.input<typeof RacePageSectionBase>;
-
-export type RacePageData = z.input<typeof RacePageDataSchema>;
+export type RacePageData = z.input<typeof racePageDataSchema>;

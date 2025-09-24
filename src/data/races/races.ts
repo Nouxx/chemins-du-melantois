@@ -16,7 +16,8 @@ import {
   registrationSectionBaseData,
   raceRegulationSectionBaseData,
 } from "@/data/races/sections";
-import type { RacePageData } from "@/data/races/schema";
+import { racePageDataSchema, type RacePageData } from "@/data/races/schema";
+import { z } from "zod";
 
 const getImageAltText = (raceName: string) =>
   `Tracé du parcours du ${raceName} des Chemins du Mélantois, édition 2025`;
@@ -232,3 +233,5 @@ export const racesPageData: RacePageData[] = [
   nineHundredSainghinRacePageData,
   nineHundredPeronneRacePageData,
 ];
+
+z.array(racePageDataSchema).parse(racesPageData);

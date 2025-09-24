@@ -10,4 +10,4 @@ export const OpenGraphData = {
   image: edition2024Hero,
   imageAlt:
     "Une vue en hauteur du départ de la course 2024 des Chemins du Mélantois",
-};
+} as const;

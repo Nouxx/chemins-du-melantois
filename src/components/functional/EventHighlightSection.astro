@@ -7,23 +7,10 @@ import ImageWrapper from "@/components/ui/atoms/ImageWrapper.astro";
 import LeftAndRightSection from "@/components/ui/atoms/LeftAndRightSection.astro";
 import List from "@/components/ui/molecules/List.astro";
 import ListItem from "@/components/ui/molecules/ListItem.astro";
-import type { ButtonLink } from "@/components/ui/types";
 import type { EventHighlightData } from "@/data/events/schema";
-import type { Link } from "@/data/types";
 
 interface Props {
   eventHighlightData: EventHighlightData;
-}
-
-export function mapToButtonLink(
-  data: Link | undefined
-): ButtonLink | undefined {
-  if (!data) return undefined;
-  return {
-    title: data.label,
-    url: data.url,
-    openInNewTab: true,
-  };
 }
 
 const {
@@ -38,10 +25,6 @@ const {
 const listItems: string[] = participantsLines.map(
   (line) => `${line.participantsCount} participants au ${line.raceName}.`
 );
-
-const links = [resultsLink, picturesLinks]
-  .map((link) => mapToButtonLink(link))
-  .filter((link): link is ButtonLink => link !== undefined);
 ---
 
 <LeftAndRightSection>
@@ -55,14 +38,20 @@ const links = [resultsLink, picturesLinks]
     </List>
 
     <Flex direction="row" gap={4} className="mt-4">
+      <PrimaryCTA
+        label={resultsLink.label}
+        url={resultsLink.url}
+        openInNewTab={true}
+      />
+
       {
-        links.map((link) => (
+        picturesLinks && (
           <PrimaryCTA
-            label={link.title}
-            url={link.url}
-            openInNewTab={link.openInNewTab}
+            label={picturesLinks.label}
+            url={picturesLinks.url}
+            openInNewTab={true}
           />
-        ))
+        )
       }
     </Flex>
   </Flex>

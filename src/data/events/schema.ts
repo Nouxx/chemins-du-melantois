@@ -18,8 +18,4 @@ export const EventHighlightDataSchema = z.strictObject({
   picturesLinks: LinkSchema.optional(),
 });
 
-export const EventsHighlightDataSchema = z
-  .array(EventHighlightDataSchema)
-  .min(1);
-
 export type EventHighlightData = z.input<typeof EventHighlightDataSchema>;

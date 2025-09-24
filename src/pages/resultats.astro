@@ -1,6 +1,6 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
-import { eventsHighlights } from "@/data/events/highlights";
+import { eventsHighlightsData } from "@/data/events/highlights";
 import EventHighlightSection from "@/components/functional/EventHighlightSection.astro";
 import { getPageTitle, getStructuredDataForPage } from "@/data/site/seo";
 
@@ -17,8 +17,8 @@ const pageDescription =
   structuredData={getStructuredDataForPage(pageDescription)}
 >
   {
-    eventsHighlights.map((eventHighlight) => {
-      return <EventHighlightSection eventHighlightData={eventHighlight} />;
+    eventsHighlightsData.map((eventHighlightData) => {
+      return <EventHighlightSection eventHighlightData={eventHighlightData} />;
     })
   }
 </MainLayout>
