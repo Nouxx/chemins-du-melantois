@@ -41,4 +41,9 @@ export const externalLinks = {
   facebook: "https://www.facebook.com/lescheminsdumelantois",
   instagram:
     "https://www.instagram.com/lescheminsdumelantois?igsh=dnN3ZnBvMmJ5bW96",
+  MEL: "https://www.lillemetropole.fr",
+  nord: "https://lenord.fr",
+  creditMutuel: "https://www.creditmutuel.fr",
+  supermarchesMatch: "https://www.supermarchesmatch.fr",
+  reKeep: "https://rekeepfrance.com",
 } as const;

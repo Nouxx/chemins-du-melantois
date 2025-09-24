@@ -8,8 +8,7 @@ import NordIconSvg from "@/images/sponsors/nord-logo.svg?raw";
 import CreditMutuelIcon from "@/images/sponsors/credit-mutuel-logo.svg?raw";
 import MatchLogoSvg from "@/images/sponsors/match-logo.svg?raw";
 import ReKeepLogoSvg from "@/images/sponsors/rekeep-logo.svg?raw";
-
-// todo: use external links
+import { externalLinks } from "@/data/navigation/externalLinks/externalLinks";
 ---
 
 <Section>
@@ -18,7 +17,7 @@ import ReKeepLogoSvg from "@/images/sponsors/rekeep-logo.svg?raw";
       Un grand merci à nos partenaires
     </Heading>
     <Link
-      url="https://www.lillemetropole.fr"
+      url={externalLinks.MEL}
       newTab
       ariaLabel="Logo de la MEL: Métropole Européenne de Lille"
       rel={["noopener", "noreferrer"]}
@@ -27,7 +26,7 @@ import ReKeepLogoSvg from "@/images/sponsors/rekeep-logo.svg?raw";
     </Link>
 
     <Link
-      url="https://lenord.fr"
+      url={externalLinks.nord}
       newTab
       ariaLabel="Logo du Département du Nord"
       rel={["noopener", "noreferrer"]}
@@ -36,7 +35,7 @@ import ReKeepLogoSvg from "@/images/sponsors/rekeep-logo.svg?raw";
     </Link>
 
     <Link
-      url="https://www.creditmutuel.fr"
+      url={externalLinks.creditMutuel}
       newTab
       ariaLabel="Logo du Crédit Mutuel"
       rel={["noopener", "noreferrer"]}
@@ -45,7 +44,7 @@ import ReKeepLogoSvg from "@/images/sponsors/rekeep-logo.svg?raw";
     </Link>
 
     <Link
-      url="https://www.supermarchesmatch.fr"
+      url={externalLinks.supermarchesMatch}
       newTab
       ariaLabel="Logo du Supermarchés Match"
       rel={["noopener", "noreferrer"]}
@@ -54,7 +53,7 @@ import ReKeepLogoSvg from "@/images/sponsors/rekeep-logo.svg?raw";
     </Link>
 
     <Link
-      url="https://rekeepfrance.com"
+      url={externalLinks.reKeep}
       newTab
       ariaLabel="Logo de l'entreprise Rekeep"
       rel={["noopener", "noreferrer"]}
