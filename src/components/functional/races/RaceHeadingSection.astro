@@ -1,0 +1,20 @@
+---
+import RaceDetailSection from "@/components/functional/races/RaceDetailSection.astro";
+import Body from "@/components/ui/atoms/Body.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
+import type { RacePageData } from "@/data/races/schema";
+
+interface Props {
+  data: RacePageData;
+}
+
+const { data } = Astro.props;
+---
+
+<RaceDetailSection>
+  <Heading size="medium">{data.pageTitle}</Heading>
+
+  <Body>
+    {data.date} - {data.price}
+  </Body>
+</RaceDetailSection>

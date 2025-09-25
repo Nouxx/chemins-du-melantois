@@ -1,0 +1,13 @@
+---
+interface Props {
+  gap?: number;
+}
+
+// todo: use cva
+
+const { gap = 4 } = Astro.props;
+---
+
+<section class=`flex flex-col gap-${gap}`>
+  <slot />
+</section>

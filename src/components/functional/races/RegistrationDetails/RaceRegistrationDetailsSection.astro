@@ -1,0 +1,24 @@
+---
+import RaceDetailSection from "@/components/functional/races/RaceDetailSection.astro";
+import AdultRegistrationDetailsSection from "@/components/functional/races/RegistrationDetails/AdultRegistrationDetailsSection.astro";
+import ChildrenRegistrationDetailsSection from "@/components/functional/races/RegistrationDetails/ChildrenRegistrationDetailsSection.astro";
+import Heading from "@/components/ui/atoms/Heading.astro";
+
+import type { RacePageData } from "@/data/races/schema";
+
+interface Props {
+  data: RacePageData["registrationDetailsSection"];
+}
+
+const { title, anchorId, forAdults, forChildren } = Astro.props.data;
+---
+
+<RaceDetailSection gap={8}>
+  <Heading size="small" id={anchorId} tag="h2">
+    {title}
+  </Heading>
+
+  <AdultRegistrationDetailsSection data={forAdults} />
+
+  <ChildrenRegistrationDetailsSection data={forChildren} />
+</RaceDetailSection>

@@ -1,0 +1,64 @@
+---
+import Heading from "@/components/ui/atoms/Heading.astro";
+import Link from "@/components/ui/atoms/Link.astro";
+import Section from "@/components/ui/atoms/Section.astro";
+import MelIconSvg from "@/images/sponsors/mel-logo.svg?raw";
+import NordIconSvg from "@/images/sponsors/nord-logo.svg?raw";
+import CreditMutuelIcon from "@/images/sponsors/credit-mutuel-logo.svg?raw";
+import MatchLogoSvg from "@/images/sponsors/match-logo.svg?raw";
+import ReKeepLogoSvg from "@/images/sponsors/rekeep-logo.svg?raw";
+import { externalLinks } from "@/data/navigation/externalLinks/externalLinks";
+import FeaturedLogos from "@/components/ui/molecules/FeaturedLogos.astro";
+---
+
+<Section>
+  <FeaturedLogos>
+    <Heading slot="title" size="small">
+      Un grand merci à nos partenaires
+    </Heading>
+    <Link
+      url={externalLinks.MEL}
+      newTab
+      ariaLabel="Logo de la MEL: Métropole Européenne de Lille"
+      rel={["noopener", "noreferrer"]}
+    >
+      <div set:html={MelIconSvg} />
+    </Link>
+
+    <Link
+      url={externalLinks.nord}
+      newTab
+      ariaLabel="Logo du Département du Nord"
+      rel={["noopener", "noreferrer"]}
+    >
+      <div set:html={NordIconSvg} />
+    </Link>
+
+    <Link
+      url={externalLinks.creditMutuel}
+      newTab
+      ariaLabel="Logo du Crédit Mutuel"
+      rel={["noopener", "noreferrer"]}
+    >
+      <div set:html={CreditMutuelIcon} />
+    </Link>
+
+    <Link
+      url={externalLinks.supermarchesMatch}
+      newTab
+      ariaLabel="Logo du Supermarchés Match"
+      rel={["noopener", "noreferrer"]}
+    >
+      <div set:html={MatchLogoSvg} />
+    </Link>
+
+    <Link
+      url={externalLinks.reKeep}
+      newTab
+      ariaLabel="Logo de l'entreprise Rekeep"
+      rel={["noopener", "noreferrer"]}
+    >
+      <div set:html={ReKeepLogoSvg} />
+    </Link>
+  </FeaturedLogos>
+</Section>
