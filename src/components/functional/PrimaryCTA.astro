@@ -11,6 +11,7 @@ interface Props {
 const { label, url, openInNewTab = false, disabled = false } = Astro.props;
 
 const target = openInNewTab ? "_blank" : "_self";
+// todo: should be renamed as CTAButton
 ---
 
 <LinkButton
