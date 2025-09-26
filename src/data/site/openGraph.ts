@@ -1,5 +1,5 @@
-import { SiteMetadata } from "@/data/site/metadata";
-import edition2024Hero from "@/images/races/2024-edition-hero.webp";
+import { SiteMetadata } from "@data/site/metadata";
+import edition2024Hero from "@images/races/2024-edition-hero.webp";
 
 export const OpenGraphData = {
   locale: "fr_FR",

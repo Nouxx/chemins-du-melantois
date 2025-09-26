@@ -1,5 +1,5 @@
-import { raceUrlSlugs } from "@/data/races/slugs";
-import { LinkSchema } from "@/data/schema";
+import { raceUrlSlugs } from "@data/races/slugs";
+import { LinkSchema } from "@data/schema";
 import { z } from "zod";
 
 const anchorIdPattern = /^[a-zA-Z0-9-_]+$/;

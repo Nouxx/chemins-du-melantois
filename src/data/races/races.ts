@@ -3,8 +3,8 @@ import fiveKilometerHero from "../../images/races/5km-sem-hero.webp";
 import runAndBikeHero from "../../images/races/run-bike-peronne-hero.webp";
 import nineHundredPeronneHero from "../../images/races/900m-peronne-hero.webp";
 import nineHundredSainghinHero from "../../images/races/900m-sem-hero.webp";
-import { externalLinks } from "@/data/navigation/externalLinks/externalLinks";
-import type { Link } from "@/data/types";
+import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
+import type { Link } from "@data/types";
 import {
   registrationDetailsSectionBaseData,
   routeSectionBaseData,
@@ -15,8 +15,8 @@ import {
   noRegistrationForAdultSectionData,
   registrationSectionBaseData,
   raceRegulationSectionBaseData,
-} from "@/data/races/sections";
-import { racePageDataSchema, type RacePageData } from "@/data/races/schema";
+} from "@data/races/sections";
+import { racePageDataSchema, type RacePageData } from "@data/races/schema";
 import { z } from "zod";
 
 const getImageAltText = (raceName: string) =>

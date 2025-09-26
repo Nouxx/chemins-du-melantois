@@ -1,16 +1,16 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro";
-import TwoColumnsLayout from "@/components/ui/atoms/TwoColumnsLayout.astro";
-import Section from "@/components/ui/atoms/Section.astro";
-import RaceMapImage from "@/components/functional/RaceMapImage.astro";
-import MobileProgressBar from "@/components/functional/MobileProgressBar.astro";
-import RaceTOC from "@/components/functional/RaceTOC.astro";
-import { racesPageData } from "@/data/races/races";
-import type { RacePageData } from "@/data/races/schema";
+import TwoColumnsLayout from "@components/ui/atoms/TwoColumnsLayout.astro";
+import Section from "@components/ui/atoms/Section.astro";
+import RaceMapImage from "@components/functional/RaceMapImage.astro";
+import MobileProgressBar from "@components/functional/MobileProgressBar.astro";
+import RaceTOC from "@components/functional/RaceTOC.astro";
+import { racesPageData } from "@data/races/races";
+import type { RacePageData } from "@data/races/schema";
 
-import RacePageContent from "@/components/functional/RacePageContent.astro";
-import RegisterCTASection from "@/components/functional/RegisterCTASection.astro";
-import { getPageTitle, getStructuredDataForPage } from "@/data/site/seo";
+import RacePageContent from "@components/functional/RacePageContent.astro";
+import RegisterCTASection from "@components/functional/RegisterCTASection.astro";
+import { getPageTitle, getStructuredDataForPage } from "@data/site/seo";
+import MainLayout from "@components/functional/MainLayout.astro";
 
 export function getStaticPaths() {
   return racesPageData.map((racePageData) => ({

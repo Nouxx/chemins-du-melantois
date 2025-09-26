@@ -1,8 +1,8 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro";
-import { eventsHighlightsData } from "@/data/events/highlights";
-import EventHighlightSection from "@/components/functional/EventHighlightSection.astro";
-import { getPageTitle, getStructuredDataForPage } from "@/data/site/seo";
+import { eventsHighlightsData } from "@data/events/highlights";
+import EventHighlightSection from "@components/functional/EventHighlightSection.astro";
+import { getPageTitle, getStructuredDataForPage } from "@data/site/seo";
+import MainLayout from "@components/functional/MainLayout.astro";
 
 const pageTitle = getPageTitle("Résultats & Photos");
 

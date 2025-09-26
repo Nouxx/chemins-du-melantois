@@ -1,4 +1,4 @@
-import type { SvgIcon } from "@/components/ui/icons/schema";
+import type { SvgIcon } from "@components/ui/icons/schema";
 
 export const svgIcons = {
   arrowRight: {

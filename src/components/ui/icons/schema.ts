@@ -1,4 +1,4 @@
-import { svgIcons } from "@/components/ui/icons/icons";
+import { svgIcons } from "@components/ui/icons/icons";
 import { z } from "zod";
 
 const PathSchema = z.strictObject({ d: z.string() });
