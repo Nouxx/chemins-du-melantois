@@ -20,15 +20,15 @@ import { SiteMetadata } from "@/data/site/metadata";
         title="Liens rapides"
         links={[
           {
-            title: "Bulletin d'inscription",
+            label: "Bulletin d'inscription",
             url: externalLinks.registrationForm,
           },
           {
-            title: "Liste des inscrits",
+            label: "Liste des inscrits",
             url: externalLinks.registrantsList,
           },
           {
-            title: "PPS",
+            label: "PPS",
             url: externalLinks.pps,
           },
         ]}
@@ -38,13 +38,14 @@ import { SiteMetadata } from "@/data/site/metadata";
         title="Nous contacter"
         links={[
           {
-            title: "Par email",
+            label: "Par email",
             url: `mailto:${SiteMetadata.contactEmail}`,
+            newTab: false,
           },
           {
-            title: "Devenir bénévole",
+            label: "Devenir bénévole",
             url: routes.volunteer,
-            openInNewTab: false,
+            newTab: false,
           },
         ]}
       />
