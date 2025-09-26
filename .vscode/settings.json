@@ -4,5 +4,6 @@
     "Mélantois",
     "Péronne",
     "Sainghin"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
