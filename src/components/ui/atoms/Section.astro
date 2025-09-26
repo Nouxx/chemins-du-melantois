@@ -1,6 +1,12 @@
 ---
 import { cx } from "class-variance-authority";
 
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+
 const classes = [
   "items-stretch",
   "mx-auto",
@@ -11,7 +17,7 @@ const classes = [
   "sm:px-6",
 ];
 
-const mergedClasses = cx(classes);
+const mergedClasses = cx(classes, className);
 ---
 
 <section class={mergedClasses}>
