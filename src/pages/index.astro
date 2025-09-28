@@ -1,16 +1,17 @@
 ---
-import HeroSection from "@components/functional/HeroSection.astro";
-import StatisticsSection from "@components/functional/StatisticsSection.astro";
-import RacesOverviewSection from "@components/functional/RacesOverviewSection.astro";
-import FAQSection from "@components/functional/FAQSection.astro";
-import RegisterCTASection from "@components/functional/RegisterCTASection.astro";
-import VideoLinkSection from "@components/functional/VideoLinkSection.astro";
-import SponsorsSection from "@components/functional/SponsorsSection.astro";
-import MainLayout from "@components/functional/MainLayout.astro";
+import FAQSection from "@components/functional/events/FAQSection.astro";
+import StatisticsSection from "@components/functional/events/StatisticsSection.astro";
+import VideoLinkSection from "@components/functional/events/VideoLinkSection.astro";
+import WelcomeBanner from "@components/functional/events/WelcomeBanner.astro";
+import RacesOverviewSection from "@components/functional/races/RacesOverviewSection.astro";
+import RegisterCTASection from "@components/functional/registration/RegisterCTASection.astro";
+import SponsorsSection from "@components/functional/sponsors/SponsorsSection.astro";
+import MainLayout from "@components/functional/ui/MainLayout.astro";
+
 ---
 
 <MainLayout lang="fr">
-  <HeroSection />
+  <WelcomeBanner />
 
   <StatisticsSection />
 
