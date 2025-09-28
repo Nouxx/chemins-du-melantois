@@ -30,5 +30,9 @@ functional --> data
 
 **Website pages** are defined in `src/pages`. As per Astro’s architecture, this directory is responsible for routing and assembling the final pages.
 
+## Anatomy of a component
 
+🏗️ WIP
+
+- use `cva` to make sure all tw classes are included in the bundle
 

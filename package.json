@@ -4,9 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "prod": "npm run build && npm run preview",
+    "prod": "npm run build && astro preview",
     "build": "astro check && astro build && node process-html.mjs",
-    "preview": "npm run build && astro preview",
     "format:fix": "prettier --write .",
     "nuke": "rm -rf dist && rm -rf .astro && rm -rf node_modules && npm ci"
   },
