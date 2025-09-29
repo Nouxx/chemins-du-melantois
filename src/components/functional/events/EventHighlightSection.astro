@@ -37,7 +37,7 @@ const listItems: string[] = participantsLines.map(
       {listItems.map((item) => <ListItem>{item}</ListItem>)}
     </List>
 
-    <Flex direction="row" gap={4} className="mt-4">
+    <Flex direction="row" gap={4} wrap="wrap" className="mt-4">
       <PrimaryCTA
         label={resultsLink.label}
         url={resultsLink.url}
@@ -45,13 +45,10 @@ const listItems: string[] = participantsLines.map(
       />
 
       {
-        picturesLinks && (
-          <PrimaryCTA
-            label={picturesLinks.label}
-            url={picturesLinks.url}
-            openInNewTab={true}
-          />
-        )
+        picturesLinks?.length &&
+          picturesLinks.map((link) => (
+            <PrimaryCTA label={link.label} url={link.url} openInNewTab={true} />
+          ))
       }
     </Flex>
   </Flex>

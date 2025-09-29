@@ -2,6 +2,7 @@ import {
   EventHighlightDataSchema,
   type EventHighlightData,
 } from "@data/events/schema";
+import edition2025Hero from "@images/races/2025-edition-hero.webp";
 import edition2024Hero from "@images/races/2024-edition-hero.webp";
 import edition2022Hero from "@images/races/2022-edition-hero.webp";
 import edition2023Hero from "@images/races/2023-edition-hero.webp";
@@ -11,6 +12,49 @@ import { z } from "zod";
 
 const resultsButtonPhrase = "Résultats";
 const picturesButtonPhrase = "Photos";
+
+const edition2025Data: EventHighlightData = {
+  title: "Édition 2025",
+  subline:
+    "Cette édition a eu lieu le 21 septembre 2025, sous un ciel mitigé mais sec. Elle a rassemblé plus de 1000 participants (1061 exactement), soit un nouveau record consécutif.",
+  featuredImage: {
+    image: edition2025Hero,
+    alt: "Groupe de coureurs courant en forêt",
+  },
+  participantsLines: [
+    { participantsCount: 531, raceName: "10 km" },
+    { participantsCount: 247, raceName: "5 km" },
+    { participantsCount: 179, raceName: "900 m de Sainghin" },
+    { participantsCount: 70, raceName: "900 m de Péronne" },
+    { participantsCount: 34, raceName: "Run & Bike" },
+  ],
+  resultsLink: {
+    label: resultsButtonPhrase,
+    url: externalLinks.edition2025Results,
+  },
+  picturesLinks: [
+    {
+      label: "Photos départ",
+      url: externalLinks.edition2025StartPhotos,
+    },
+    {
+      label: "Photos 10 km",
+      url: externalLinks.edition202510kPhotos,
+    },
+    {
+      label: "Photos 5 km",
+      url: externalLinks.edition20255kPhotos,
+    },
+    {
+      label: "Photos 900 m de Sainghin",
+      url: externalLinks.edition2025900mSainghinPhotos,
+    },
+    {
+      label: "Photos Péronne",
+      url: externalLinks.edition2025PeronnePhotos,
+    },
+  ],
+};
 
 const edition2024Data: EventHighlightData = {
   title: "Édition 2024",
@@ -31,10 +75,12 @@ const edition2024Data: EventHighlightData = {
     label: resultsButtonPhrase,
     url: externalLinks.edition2024TimingLive,
   },
-  picturesLinks: {
-    label: picturesButtonPhrase,
-    url: externalLinks.edition2024Album,
-  },
+  picturesLinks: [
+    {
+      label: picturesButtonPhrase,
+      url: externalLinks.edition2024Album,
+    },
+  ],
 };
 
 const edition2023Data: EventHighlightData = {
@@ -56,10 +102,12 @@ const edition2023Data: EventHighlightData = {
     label: resultsButtonPhrase,
     url: externalLinks.edition2023TimingLive,
   },
-  picturesLinks: {
-    label: picturesButtonPhrase,
-    url: externalLinks.edition2023Album,
-  },
+  picturesLinks: [
+    {
+      label: picturesButtonPhrase,
+      url: externalLinks.edition2023Album,
+    },
+  ],
 };
 
 const edition2022Data: EventHighlightData = {
@@ -102,13 +150,16 @@ const edition2019Data: EventHighlightData = {
     label: resultsButtonPhrase,
     url: externalLinks.edition2019Results,
   },
-  picturesLinks: {
-    label: picturesButtonPhrase,
-    url: externalLinks.edition2019Album,
-  },
+  picturesLinks: [
+    {
+      label: picturesButtonPhrase,
+      url: externalLinks.edition2019Album,
+    },
+  ],
 };
 
 export const eventsHighlightsData = [
+  edition2025Data,
   edition2024Data,
   edition2023Data,
   edition2022Data,

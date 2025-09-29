@@ -6,8 +6,7 @@ import LeftAndRightSection from "@components/ui/atoms/LeftAndRightSection.astro"
 import Flex from "@components/ui/atoms/Flex.astro";
 import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
 import { routes } from "@data/navigation/routes/routes";
-import SecondaryCTA from "@components/ui/molecules/SecondaryCTA.astro";
-import RegisterButton from "@components/functional/registration/RegisterButton.astro";
+import PrimaryCTA from "@components/functional/ui/PrimaryCTA.astro";
 ---
 
 <LeftAndRightSection>
@@ -18,14 +17,13 @@ import RegisterButton from "@components/functional/registration/RegisterButton.a
     </Heading>
 
     <Body>
-      L'édition 2025 des Chemins du Mélantois est désormais ouverte aux
-      inscriptions ! Venez découvrir nos parcours de course et de vélo pour
-      cette 14ème édition consécutive.
+      L'édition 2025 des Chemins du Mélantois est terminée ! Rendez-vous l'année
+      prochaine. Redécouvrez les moments forts ainsi que les résultats de cette
+      dernière édition.
     </Body>
 
     <Flex direction="row" gap={4} wrap="wrap">
-      <RegisterButton />
-      <SecondaryCTA title="Courses" url={routes.races} />
+      <PrimaryCTA label="Résultats & Photos" url={routes.afterRace} />
     </Flex>
   </Flex>
 

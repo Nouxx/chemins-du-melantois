@@ -26,6 +26,13 @@ export const externalLinks = {
     "https://drive.google.com/file/d/1N4POCdKh9YlkTZTJHRrQBbUJv2enp1Ar/view",
   edition2025Maps:
     "https://www.google.fr/maps/d/u/0/edit?mid=1YDOG0-5eHR_vzE_yyXufJq-fc0YbTdA",
+  edition2025Results:
+    "https://sportchronometrage.fr/live/les-chemins-du-melantois-2025",
+  edition2025StartPhotos: "https://photos.app.goo.gl/xurTKWxwnuYb2emq7",
+  edition202510kPhotos: "https://photos.app.goo.gl/hnzT3Mde2ncoKe8eA",
+  edition20255kPhotos: "https://photos.app.goo.gl/nMPwmiRV5yTfcGaH7",
+  edition2025900mSainghinPhotos: "https://photos.app.goo.gl/AwiRggaELmJtqsGy9",
+  edition2025PeronnePhotos: "https://photos.app.goo.gl/senKJGw7bW9rg1di8",
   edition2024Video: "https://youtu.be/JSbhbnNtyr8?si=1WUyL2MXtpcpsgbP",
   edition2024Album: "https://photos.app.goo.gl/3Q6nZiEE1nganQ2G8",
   edition2024TimingLive: "http://asport-timing.com/live/chemins-melantois-2024",

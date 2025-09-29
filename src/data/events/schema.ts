@@ -15,7 +15,7 @@ export const EventHighlightDataSchema = z.strictObject({
     }),
   ),
   resultsLink: LinkSchema,
-  picturesLinks: LinkSchema.optional(),
+  picturesLinks: z.array(LinkSchema).optional(),
 });
 
 export type EventHighlightData = z.input<typeof EventHighlightDataSchema>;
