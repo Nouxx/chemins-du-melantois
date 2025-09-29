@@ -50,7 +50,7 @@ const { title, subTitle, image, imageAlt, imageLoading, list, links } =
 
     {
       links && links.length > 0 && (
-        <div class="flex flex-row gap-2">
+        <div class="flex flex-row flex-wrap gap-2">
           {links.map((link) => (
             <PrimaryCTA
               title={link.title}

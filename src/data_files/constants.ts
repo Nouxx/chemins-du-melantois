@@ -50,7 +50,11 @@ export const externalLinks = {
       "https://www.google.fr/maps/d/u/0/edit?mid=1YDOG0-5eHR_vzE_yyXufJq-fc0YbTdA",
     results:
       "https://sportchronometrage.fr/live/les-chemins-du-melantois-2025/",
-    photos: "https://photos.app.goo.gl/xurTKWxwnuYb2emq7",
+    photosAmbiance: "https://photos.app.goo.gl/xurTKWxwnuYb2emq7",
+    photos10k: "https://photos.app.goo.gl/hnzT3Mde2ncoKe8eA",
+    photos5k: "https://photos.app.goo.gl/nMPwmiRV5yTfcGaH7",
+    photos900mSainghin: "https://photos.app.goo.gl/AwiRggaELmJtqsGy9",
+    photosPeronne: "https://photos.app.goo.gl/senKJGw7bW9rg1di8",
   },
   edition2024: {
     youtubeVideo: "https://youtu.be/JSbhbnNtyr8?si=1WUyL2MXtpcpsgbP",
