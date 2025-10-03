@@ -1,5 +1,5 @@
 ---
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 import Link from "@components/ui/atoms/Link.astro";
 import Icon from "@components/ui/icons/Icon.astro";
 
@@ -10,7 +10,7 @@ interface Props {
 const { url } = Astro.props;
 ---
 
-<Body
+<Text
   size="small"
   fontStyle="bold"
   color="darkNeutral"
@@ -20,4 +20,4 @@ const { url } = Astro.props;
     <slot />
     <Icon name="openInNew" />
   </Link>
-</Body>
+</Text>

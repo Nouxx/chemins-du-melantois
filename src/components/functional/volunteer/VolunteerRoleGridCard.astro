@@ -1,5 +1,5 @@
 ---
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 import Flex from "@components/ui/atoms/Flex.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
 import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
@@ -32,7 +32,7 @@ const { role, content, roleImage } = Astro.props;
       <Flex>
         <Flex gap={2} direction="col" className="grow">
           <Heading size="xsmall">{role}</Heading>
-          <Body size="small">{content}</Body>
+          <Text size="small">{content}</Text>
         </Flex>
       </Flex>
     </Flex>

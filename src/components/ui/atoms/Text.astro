@@ -37,7 +37,6 @@ const { size, className, fontStyle, color, renderAs } = Astro.props;
 const classes = cx(body({ size, fontStyle, color }), className);
 
 const Tag: HTMLTag = renderAs ?? "p";
-// todo: rename to Text
 ---
 
 <Tag class={classes}>

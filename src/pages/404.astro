@@ -2,7 +2,7 @@
 import Heading from "@components/ui/atoms/Heading.astro";
 import { routes } from "@data/navigation/routes/routes";
 import { getPageTitle } from "@data/site/seo";
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 import Section from "@components/ui/atoms/Section.astro";
 import Flex from "@components/ui/atoms/Flex.astro";
 import MainLayout from "@components/functional/ui/MainLayout.astro";
@@ -15,8 +15,8 @@ const pageTitle = getPageTitle("Page Introuvable");
   <Section className="h-svh place-content-center text-center">
     <Flex direction="col" items="center" justify="center" gap={8}>
       <Heading tag="h1">Page Introuvable</Heading>
-      <Body>Oups, cette portion du parcours n'existe pas !</Body>
-      <Body
+      <Text>Oups, cette portion du parcours n'existe pas !</Text>
+      <Text
         >Pas de panique, même les meilleurs peuvent faire un petit détour.</Body
       >
       <LinkButton label="Retour vers l'accueil" url={routes.home} />

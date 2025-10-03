@@ -1,6 +1,6 @@
 ---
 import RaceDetailSection from "@components/functional/races/RaceDetailSection.astro";
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
 import TextLink from "@components/ui/molecules/TextLink.astro";
 import type { RacePageData } from "@data/races/schema";
@@ -17,14 +17,14 @@ const { title, partner, additionalDescription, link } = Astro.props.data;
     {title}
   </Heading>
 
-  <Body size="small">
+  <Text size="small">
     Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00
     via notre plateforme partenaire
     <span class="font-bold italic">{partner}</span>. Le paiement s'effectue
     également sur cette plateforme.
-  </Body>
+  </Text>
 
-  {additionalDescription && <Body size="small">{additionalDescription}</Body>}
+  {additionalDescription && <Text size="small">{additionalDescription}</Text>}
 
   <TextLink url={link.url}>
     {link.label}

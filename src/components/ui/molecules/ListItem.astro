@@ -1,5 +1,5 @@
 ---
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 import { cx } from "class-variance-authority";
 
 interface Props {
@@ -14,6 +14,6 @@ const discClasses = disc ? "list-inside list-disc" : undefined;
 const mergedClasses = cx(discClasses, className);
 ---
 
-<Body renderAs="li" size="small" className={mergedClasses}>
+<Text renderAs="li" size="small" className={mergedClasses}>
   <slot />
-</Body>
+</Text>

@@ -1,5 +1,5 @@
 ---
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 import Flex from "@components/ui/atoms/Flex.astro";
 import Grid from "@components/ui/atoms/Grid.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
@@ -12,13 +12,13 @@ import StatSmall from "@components/ui/molecules/StatSmall.astro";
   <Flex direction="col" gap={4}>
     <Heading tag="h2">En quelques chiffres</Heading>
 
-    <Body className="mb-16 max-w-prose leading-relaxed">
+    <Text className="mb-16 max-w-prose leading-relaxed">
       Cet évènement est organisé par l'association « Les chemins du Mélantois »
       sous l'impulsion des communes de Sainghin-en-Mélantois et
       Péronne-en-Mélantois, et est entièrement bénévole. Il a pour but de
       promouvoir la pratique du sport en milieu naturel, de faire découvrir le
       Mélantois et de récolter des fonds pour des associations locales.
-    </Body>
+    </Text>
   </Flex>
 
   <Grid gap={6} className="items-center lg:grid-cols-12 lg:gap-12">

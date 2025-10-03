@@ -1,5 +1,5 @@
 ---
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 
 interface Props {
   title: string;
@@ -10,14 +10,14 @@ const { title, subTitle } = Astro.props;
 ---
 
 <div class="lg:pe-6 xl:pe-12">
-  <Body
+  <Text
     fontStyle="bold"
     color="brandLightGreen"
     size="6xl"
     className="leading-10"
   >
     {title}
-  </Body>
+  </Text>
 
-  <Body className="mt-2 sm:mt-3">{subTitle}</Body>
+  <Text className="mt-2 sm:mt-3">{subTitle}</Text>
 </div>

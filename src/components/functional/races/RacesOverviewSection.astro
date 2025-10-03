@@ -1,7 +1,7 @@
 ---
 import Section from "@components/ui/atoms/Section.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 import IconBlock from "@components/ui/molecules/IconBlock.astro";
 import Grid from "@components/ui/atoms/Grid.astro";
 import Flex from "@components/ui/atoms/Flex.astro";
@@ -14,11 +14,11 @@ import LinkButton from "@components/ui/atoms/LinkButton.astro";
     <Flex direction="col" gap={6} className="lg:col-span-1">
       <Heading size="small">Nos 5 courses</Heading>
 
-      <Body>
+      <Text>
         Cette édition 2025 a proposé notre format habituel de 5 courses variées,
         parfait pour un événement familial où chacun peut venir et courir
         ensemble.
-      </Body>
+      </Text>
 
       <LinkButton label="Détails des courses" url={routes.races} />
     </Flex>

@@ -1,5 +1,5 @@
 ---
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
 import LinkButton from "@components/ui/atoms/LinkButton.astro";
 import CTASection from "@components/ui/molecules/CTASection.astro";
@@ -8,7 +8,7 @@ import { SiteMetadata } from "@data/site/metadata";
 
 <CTASection>
   <Heading slot="heading">Comment devenir bénévole ?</Heading>
-  <Body slot="subTitle">L'aventure vous tente ? Contactez-nous !</Body>
+  <Text slot="subTitle">L'aventure vous tente ? Contactez-nous !</Text>
   <LinkButton
     slot="button"
     label={`${SiteMetadata.contactEmail}`}

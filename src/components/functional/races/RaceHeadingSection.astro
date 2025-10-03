@@ -1,6 +1,6 @@
 ---
 import RaceDetailSection from "@components/functional/races/RaceDetailSection.astro";
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
 import type { RacePageData } from "@data/races/schema";
 
@@ -14,7 +14,7 @@ const { data } = Astro.props;
 <RaceDetailSection>
   <Heading size="medium">{data.pageTitle}</Heading>
 
-  <Body>
+  <Text>
     {data.date} - {data.price}
-  </Body>
+  </Text>
 </RaceDetailSection>

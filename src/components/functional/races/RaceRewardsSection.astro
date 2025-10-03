@@ -1,6 +1,6 @@
 ---
 import RaceDetailSection from "@components/functional/races/RaceDetailSection.astro";
-import Body from "@components/ui/atoms/Body.astro";
+import Text from "@components/ui/atoms/Text.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
 import TextLink from "@components/ui/molecules/TextLink.astro";
 import type { RacePageData } from "@data/races/schema";
@@ -19,7 +19,7 @@ const { title, anchorId, description, rewardsLink } = data;
 <RaceDetailSection>
   <Heading size="small" id={anchorId} tag="h2">{title}</Heading>
 
-  <Body size="small">{description}</Body>
+  <Text size="small">{description}</Text>
 
   {
     rewardsLink && (
