@@ -33,12 +33,69 @@ functional --> data
 
 ## Anatomy of a component
 
-🏗️ WIP
+### use `cva` to create Tailwind classes variants
 
-- use `cva` to make sure all tw classes are included in the bundle
-- use `cx` to merge all classes, this is called "className" (tbd)
-- always use interface props before the destructuring
-- extra classes are passed a string parameter `extraClass` (tbd)
-- do not add `className` in `cva` : use cx
-- "as" (good practices) prop name breaks the Props interface recognition (https://github.com/withastro/compiler/issues/927), name is "renderAs"
-- use `class:list` instead of cx? 
+Every conditional rendering on tailwind classes should be done via [`cva`](https://cva.style/docs) as it make sure all possible classes are included in the bundle.
+
+Considering this example:
+
+```typescript
+const { gap } = Astro.props;
+
+const gapClass = `gap-${gap}`;
+```
+
+Astro will not be able to guess what possible value `gap` can have, so no tailwind class will be included in the bundle.
+
+### `className` as extra class props
+
+use `className` to pass additional tailwind classes.
+
+```typescript
+interface Props {
+  className?: string;
+}
+```
+
+### use `cx` to merge all component classes
+
+Since we're using `cva`, it's not expensive to use `cx` when merging multiples classes.
+
+Astro's native `class:list` could also be used, but having this dealt with in the JS part improve readability.
+
+`Flex` component example
+
+```typescript
+import { cva, type VariantProps, cx } from "class-variance-authority";
+
+const flex = cva("flex", {
+  variants: {
+    // ...
+  },
+});
+
+type Variants = VariantProps<typeof flex>;
+
+interface Props extends Variants {
+  className?: string;
+  renderAs?: HTMLTag;
+}
+
+const { myVariant, className } = Astro.props;
+
+const flexClasses = cx(flex({ myVariant }), className);
+```
+
+Note: `className` props should **not** be used with `cva` definition as it mix everything together (static and dynamic classes). Having only static classes in `cva` improve readability, especially when looking for conflicting classes.
+
+### always type props with interface
+
+as mentioned [here](https://docs.astro.build/en/guides/typescript/#component-props)
+
+this should be positioned before props destructuring to improve readability.
+
+### use `renderAs` for HTML tag props
+
+it seems natural to use `as` when naming the props to provide a way to use a different HTML tag for a component, but this name breaks the build ([source](https://github.com/withastro/compiler/issues/927)).
+
+use `renderAs` instead.
