@@ -13,7 +13,11 @@ interface Props {
 
 const { label, url, newTab = false, disabled = false } = Astro.props;
 
-const iconMovementClasses = "transition duration-300 group-hover:translate-x-1";
+const iconMovementClasses = [
+  "transition",
+  "duration-300",
+  "group-hover:translate-x-1",
+].join(" ");
 ---
 
 {
