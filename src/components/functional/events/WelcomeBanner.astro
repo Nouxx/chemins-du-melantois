@@ -6,7 +6,7 @@ import LeftAndRightSection from "@components/ui/atoms/LeftAndRightSection.astro"
 import Flex from "@components/ui/atoms/Flex.astro";
 import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
 import { routes } from "@data/navigation/routes/routes";
-import PrimaryCTA from "@components/functional/ui/PrimaryCTA.astro";
+import LinkButton from "@components/ui/atoms/LinkButton.astro";
 ---
 
 <LeftAndRightSection>
@@ -23,7 +23,7 @@ import PrimaryCTA from "@components/functional/ui/PrimaryCTA.astro";
     </Body>
 
     <Flex direction="row" gap={4} wrap="wrap">
-      <PrimaryCTA label="Résultats & Photos" url={routes.afterRace} />
+      <LinkButton label="Résultats & photos" url={routes.afterRace} />
     </Flex>
   </Flex>
 

@@ -18,6 +18,7 @@ functional --> ui
 functional --> images
 functional --> data
 ```
+
 ---
 
 **Structured data** lives in `src/data`. This folder does not contain all data, but mainly the core racePageData object and some shared variables related to navigation. For example, FAQ content (a set of questions and answers) is not considered structured data. All structured data is safely validated and parsed using Zod.
@@ -35,4 +36,9 @@ functional --> data
 🏗️ WIP
 
 - use `cva` to make sure all tw classes are included in the bundle
-
+- use `cx` to merge all classes, this is called "className" (tbd)
+- always use interface props before the destructuring
+- extra classes are passed a string parameter `extraClass` (tbd)
+- do not add `className` in `cva` : use cx
+- "as" (good practices) prop name breaks the Props interface recognition (https://github.com/withastro/compiler/issues/927), name is "renderAs"
+- use `class:list` instead of cx? 

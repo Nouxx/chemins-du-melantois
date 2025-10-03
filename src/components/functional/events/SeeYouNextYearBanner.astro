@@ -1,8 +1,7 @@
 ---
-import RegisterButton from "@components/functional/registration/RegisterButton.astro";
-import PrimaryCTA from "@components/functional/ui/PrimaryCTA.astro";
 import Body from "@components/ui/atoms/Body.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
+import LinkButton from "@components/ui/atoms/LinkButton.astro";
 import CTASection from "@components/ui/molecules/CTASection.astro";
 import { routes } from "@data/navigation/routes/routes";
 ---
@@ -12,5 +11,5 @@ import { routes } from "@data/navigation/routes/routes";
   <Body slot="subTitle">
     Venez vibrer à nouveau en 2026 sur des parcours conviviaux et 100 % nature !
   </Body>
-  <PrimaryCTA slot="button" label="Résultats & Photos" url={routes.afterRace} />
+  <LinkButton slot="button" label="Résultats & Photos" url={routes.afterRace} />
 </CTASection>

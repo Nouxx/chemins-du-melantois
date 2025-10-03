@@ -6,7 +6,7 @@ import IconBlock from "@components/ui/molecules/IconBlock.astro";
 import Grid from "@components/ui/atoms/Grid.astro";
 import Flex from "@components/ui/atoms/Flex.astro";
 import { routes } from "@data/navigation/routes/routes";
-import PrimaryCTA from "@components/functional/ui/PrimaryCTA.astro";
+import LinkButton from "@components/ui/atoms/LinkButton.astro";
 ---
 
 <Section>
@@ -20,7 +20,7 @@ import PrimaryCTA from "@components/functional/ui/PrimaryCTA.astro";
         ensemble.
       </Body>
 
-      <PrimaryCTA label="Détails des courses" url={routes.races} />
+      <LinkButton label="Détails des courses" url={routes.races} />
     </Flex>
 
     <div class="lg:col-span-2">

@@ -1,54 +1,58 @@
 ---
-import { cva, type VariantProps } from "class-variance-authority";
+import type { HTMLTag } from "astro/types";
+import { cva, cx, type VariantProps } from "class-variance-authority";
 
-// todo: refactor
-type ValidTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+const VALID_TAGS = [
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+] as const satisfies HTMLTag[];
 
-const VALID_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"];
+type ValidTag = (typeof VALID_TAGS)[number];
 
-function isValidTag(string: string | undefined): string is ValidTag {
-  if (!string) return false;
-  return VALID_TAGS.includes(string);
-}
+const baseClasses = [
+  "font-bold",
+  "tracking-tight",
+  "text-balance",
+  "leading-tight",
+];
 
-// todo: astro props must be declared before destructure
-interface Props {
+const heading = cva(baseClasses, {
+  variants: {
+    size: {
+      xsmall: "text-2xl",
+      small: "text-3xl sm:text-4xl",
+      medium: "text-3xl sm:text-4xl lg:text-5xl",
+      large: "text-3xl sm:text-4xl lg:text-6xl",
+    },
+    color: {
+      neutral: "text-neutral-800",
+    },
+  },
+  defaultVariants: {
+    size: "large",
+    color: "neutral",
+  },
+});
+
+type Variants = VariantProps<typeof heading>;
+
+interface Props extends Variants {
   id?: string;
-  tag?: string;
-  size?: Variants["size"];
+  tag?: ValidTag;
   classNames?: string;
 }
 
-const { id, tag, size, classNames } = Astro.props;
+const { id, tag, size, color, classNames } = Astro.props;
 
-const Tag: ValidTag = isValidTag(tag) ? tag : "h1";
+const Tag: ValidTag = tag ?? "h1";
 
-const heading = cva(
-  ["font-bold", "tracking-tight", "text-balance", "leading-tight", classNames],
-  {
-    variants: {
-      size: {
-        xsmall: "text-2xl",
-        small: "text-3xl sm:text-4xl",
-        medium: "text-3xl sm:text-4xl lg:text-5xl",
-        large: "text-3xl sm:text-4xl lg:text-6xl",
-      },
-      color: {
-        neutral: "text-neutral-800",
-      },
-    },
-    defaultVariants: {
-      size: "large",
-      color: "neutral",
-    },
-  }
-);
-
-type Variants = VariantProps<typeof heading>; // todo: move this up?
-
-const classes = heading({ size });
+const headingClasses = cx(heading({ size, color }), classNames);
 ---
 
-<Tag id={id} class={classes}>
+<Tag id={id} class={headingClasses}>
   <slot />
 </Tag>

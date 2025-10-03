@@ -14,6 +14,6 @@ const discClasses = disc ? "list-inside list-disc" : undefined;
 const mergedClasses = cx(discClasses, className);
 ---
 
-<Body tag="li" size="small" className={mergedClasses}>
+<Body renderAs="li" size="small" className={mergedClasses}>
   <slot />
 </Body>

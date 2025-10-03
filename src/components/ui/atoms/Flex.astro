@@ -1,4 +1,5 @@
 ---
+import { gapVariants } from "@components/ui/props/gap";
 import type { HTMLTag } from "astro/types";
 import { cva, type VariantProps, cx } from "class-variance-authority";
 
@@ -27,13 +28,7 @@ const flex = cva("flex", {
       around: "justify-around",
       evenly: "justify-evenly",
     },
-    gap: {
-      2: "gap-2",
-      4: "gap-4",
-      6: "gap-6",
-      8: "gap-8",
-      14: "gap-14",
-    },
+    gap: gapVariants,
   },
   defaultVariants: {
     direction: "row",
@@ -53,12 +48,12 @@ const { direction, gap, className, renderAs, wrap, items, justify } =
 
 const Tag = renderAs ?? "div";
 
-const mergedClasses = cx(
+const flexClasses = cx(
   flex({ direction, wrap, items, justify, gap }),
   className
 );
 ---
 
-<Tag class={mergedClasses}>
+<Tag class={flexClasses}>
   <slot />
 </Tag>

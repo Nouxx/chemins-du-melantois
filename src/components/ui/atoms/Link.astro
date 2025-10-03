@@ -1,4 +1,5 @@
 ---
+import type { HTMLTag } from "astro/types";
 import { cx } from "class-variance-authority";
 
 type AnchorRel = "nofollow" | "noopener" | "noreferrer" | "noopener noreferrer";
@@ -11,6 +12,7 @@ interface Props {
   ariaCurrent?: "page";
   ariaLabel?: string;
   rel?: AnchorRel[];
+  renderAs?: HTMLTag;
 }
 
 const {
@@ -21,15 +23,18 @@ const {
   ariaCurrent,
   ariaLabel,
   rel,
+  renderAs,
 } = Astro.props;
 
 const focusClasses = "group ring-zinc-500 outline-hidden focus-visible:ring-3";
 const relValues = rel?.join(" ");
 
 const mergedClasses = cx(focusClasses, className);
+
+const Tag = renderAs ?? "a";
 ---
 
-<a
+<Tag
   href={url}
   data-astro-prefetch={preFetch}
   class={mergedClasses}
@@ -39,4 +44,4 @@ const mergedClasses = cx(focusClasses, className);
   rel={relValues}
 >
   <slot />
-</a>
+</Tag>

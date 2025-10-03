@@ -7,7 +7,6 @@ export const svgIcons = {
         d: "m9 18 6-6-6-6",
       },
     ],
-    class: "transition duration-300 group-hover:translate-x-1",
     width: 24,
     height: 24,
     viewBox: "0 0 24 24",

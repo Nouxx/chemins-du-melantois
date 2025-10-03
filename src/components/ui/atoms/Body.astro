@@ -1,12 +1,6 @@
 ---
-import { cva, type VariantProps } from "class-variance-authority";
-
-const defineHtmlTags = <T extends keyof HTMLElementTagNameMap>(tags: T[]) =>
-  tags;
-
-const validTags = defineHtmlTags(["p", "li"]);
-
-type ValidTag = (typeof validTags)[number];
+import { cva, cx, type VariantProps } from "class-variance-authority";
+import type { HTMLTag } from "astro/types";
 
 const body = cva(["text-pretty"], {
   variants: {
@@ -33,19 +27,17 @@ const body = cva(["text-pretty"], {
 
 type BodyVariants = VariantProps<typeof body>;
 
-interface Props {
-  size?: BodyVariants["size"];
+interface Props extends BodyVariants {
   className?: string;
-  fontStyle?: BodyVariants["fontStyle"];
-  color?: BodyVariants["color"];
-  tag?: ValidTag; // "as" prop name breaks the Props interface recognition (https://github.com/withastro/compiler/issues/927)
+  renderAs?: HTMLTag;
 }
 
-const { size, className, fontStyle, color, tag = "p" } = Astro.props;
+const { size, className, fontStyle, color, renderAs } = Astro.props;
 
-const classes = [body({ size, fontStyle, color }), className].join(" ");
+const classes = cx(body({ size, fontStyle, color }), className);
 
-const Tag = tag;
+const Tag: HTMLTag = renderAs ?? "p";
+// todo: rename to Text
 ---
 
 <Tag class={classes}>

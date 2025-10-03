@@ -1,63 +1,41 @@
 ---
+import Button from "@components/ui/atoms/Button.astro";
+import Link from "@components/ui/atoms/Link.astro";
 import Icon from "@components/ui/icons/Icon.astro";
-import { cva } from "class-variance-authority";
 
 interface Props {
   label: string;
   url: string;
-  color: Color;
-  fontStyle?: "bold" | "medium";
-  icon?: boolean; // todo: setup icon variants
-  target?: Target;
+  icon?: boolean;
+  newTab?: boolean;
   disabled?: boolean;
 }
 
-type Color = "green" | "neutral";
-type Target = "_blank" | "_self";
+const { label, url, newTab = false, disabled = false } = Astro.props;
 
-const {
-  label,
-  url,
-  color,
-  fontStyle,
-  icon = false,
-  target = "_self",
-  disabled = false,
-} = Astro.props;
-
-const baseClasses =
-  "group inline-flex items-center justify-center w-fit gap-x-2 rounded-lg px-4 py-3 text-sm ring-zinc-500 transition duration-300 focus-visible:ring-3 outline-hidden";
-const borderClasses = "border ";
-const disabledClasses = disabled ? "pointer-events-none opacity-50" : undefined;
-const fontSizeClasses = "2xl:text-base";
-const ringClasses = "ring-zinc-500";
-
-const linkButton = cva(
-  [baseClasses, borderClasses, disabledClasses, fontSizeClasses, ringClasses],
-  {
-    variants: {
-      color: {
-        green:
-          "text-neutral-50 bg-brand-dark-green hover:bg-brand-light-green border-transparent",
-        neutral:
-          "text-neutral-600 bg-neutral-300 hover:bg-neutral-400/50 shadow-xs border-neutral-200",
-      },
-      fontStyle: {
-        bold: "font-bold",
-        medium: "font-medium",
-      },
-    },
-    defaultVariants: {
-      color: "green",
-      fontStyle: "bold",
-    },
-  }
-);
-
-const classes = linkButton({ color, fontStyle });
+const iconMovementClasses = "transition duration-300 group-hover:translate-x-1";
 ---
 
-<a class={classes} href={url} target={target}>
-  {label}
-  {icon ? <Icon name="arrowRight" size="small" /> : null}
-</a>
+{
+  disabled ? (
+    <Button label={label} disabled>
+      <Icon
+        slot="icon"
+        size="small"
+        name="arrowRight"
+        className={iconMovementClasses}
+      />
+    </Button>
+  ) : (
+    <Link url={url} newTab={newTab} className="w-fit h-fit">
+      <Button label={label}>
+        <Icon
+          slot="icon"
+          size="small"
+          name="arrowRight"
+          className={iconMovementClasses}
+        />
+      </Button>
+    </Link>
+  )
+}

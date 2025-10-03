@@ -6,7 +6,7 @@ import Body from "@components/ui/atoms/Body.astro";
 import Section from "@components/ui/atoms/Section.astro";
 import Flex from "@components/ui/atoms/Flex.astro";
 import MainLayout from "@components/functional/ui/MainLayout.astro";
-import PrimaryCTA from "@components/functional/ui/PrimaryCTA.astro";
+import LinkButton from "@components/ui/atoms/LinkButton.astro";
 
 const pageTitle = getPageTitle("Page Introuvable");
 ---
@@ -19,7 +19,7 @@ const pageTitle = getPageTitle("Page Introuvable");
       <Body
         >Pas de panique, même les meilleurs peuvent faire un petit détour.</Body
       >
-      <PrimaryCTA label="Retour vers l'accueil" url={routes.home} />
+      <LinkButton label="Retour vers l'accueil" url={routes.home} />
     </Flex>
   </Section>
 </MainLayout>

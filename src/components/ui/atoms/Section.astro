@@ -7,7 +7,7 @@ interface Props {
 
 const { className } = Astro.props;
 
-const classes = [
+const baseClasses = [
   "items-stretch",
   "mx-auto",
   "max-w-[85rem]",
@@ -17,9 +17,9 @@ const classes = [
   "sm:px-6",
 ];
 
-const mergedClasses = cx(classes, className);
+const sectionClasses = cx(baseClasses, className);
 ---
 
-<section class={mergedClasses}>
+<section class={sectionClasses}>
   <slot />
 </section>

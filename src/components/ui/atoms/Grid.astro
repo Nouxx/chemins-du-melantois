@@ -1,18 +1,24 @@
 ---
-import { cx } from "class-variance-authority";
+import { gapVariants } from "@components/ui/props/gap";
+import { cva, cx, type VariantProps } from "class-variance-authority";
 
-interface Props {
-  gap?: number;
+const grid = cva("grid", {
+  variants: {
+    gap: gapVariants,
+  },
+});
+
+type Variants = VariantProps<typeof grid>;
+
+interface Props extends Variants {
   className?: string;
 }
 
-const { gap, className = "" } = Astro.props;
+const { gap, className } = Astro.props;
 
-const gapClass = gap ? `gap-${gap}` : undefined;
-
-const mergedClasses = cx("grid", gapClass, className);
+const gridClasses = cx(grid({ gap }), className);
 ---
 
-<div class={mergedClasses}>
+<div class={gridClasses}>
   <slot />
 </div>
