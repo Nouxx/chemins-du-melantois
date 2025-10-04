@@ -42,14 +42,14 @@ type Variants = VariantProps<typeof heading>;
 interface Props extends Variants {
   id?: string;
   tag?: ValidTag;
-  classNames?: string;
+  className?: string;
 }
 
-const { id, tag, size, color, classNames } = Astro.props;
+const { id, tag, size, color, className } = Astro.props;
 
 const Tag: ValidTag = tag ?? "h1";
 
-const headingClasses = cx(heading({ size, color }), classNames);
+const headingClasses = cx(heading({ size, color }), className);
 ---
 
 <Tag id={id} class={headingClasses}>
