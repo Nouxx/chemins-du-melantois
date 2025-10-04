@@ -1,4 +1,5 @@
 ---
+import { fontWeightVariants } from "@components/ui/props/typography";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const baseClasses = [
@@ -27,10 +28,7 @@ const button = cva(baseClasses, {
       neutral:
         "text-neutral-600 bg-neutral-300 hover:bg-neutral-400/50 shadow-xs border-neutral-200",
     },
-    fontStyle: {
-      bold: "font-bold",
-      medium: "font-medium",
-    },
+    fontStyle: fontWeightVariants,
     disabled: {
       true: "pointer-events-none opacity-50",
       false: undefined,
