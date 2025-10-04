@@ -11,9 +11,9 @@ const { className, disc = true } = Astro.props;
 
 const discClasses = disc ? "list-inside list-disc" : undefined;
 
-const mergedClasses = cx(discClasses, className);
+const listItemClasses = cx(discClasses, className);
 ---
 
-<Text renderAs="li" size="small" className={mergedClasses}>
+<Text renderAs="li" size="small" className={listItemClasses}>
   <slot />
 </Text>

@@ -15,9 +15,9 @@ interface Props {
   wide?: boolean;
 }
 
-const wideClass = wide ? "md:col-span-2" : undefined;
+const wideClasses = wide ? "md:col-span-2" : undefined;
 
-const linkClasses = cx(
+const baseClasses = [
   "relative",
   "flex",
   "h-48",
@@ -26,11 +26,22 @@ const linkClasses = cx(
   "rounded-xl",
   "shadow-lg",
   "md:h-80",
-  wideClass
-);
+];
 
-const imageClass =
-  "absolute inset-0 h-full w-full object-cover object-center transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110";
+const linkClasses = cx(baseClasses, wideClasses);
+
+const imageClass = [
+  "absolute",
+  "inset-0",
+  "h-full",
+  "w-full",
+  "object-cover",
+  "object-center",
+  "transition",
+  "duration-[600ms]",
+  "ease-[cubic-bezier(0.45,0,0.55,1)]",
+  "group-hover:scale-110",
+].join(" ");
 ---
 
 <Link url={url} className={linkClasses}>
