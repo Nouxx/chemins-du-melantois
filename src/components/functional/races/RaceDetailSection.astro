@@ -1,13 +1,23 @@
 ---
-interface Props {
-  gap?: number;
-}
+import { gapVariants } from "@components/ui/props/gap";
+import { cva, type VariantProps } from "class-variance-authority";
 
-// todo: use cva
+const raceDetailSection = cva(["flex", "flex-col"], {
+  variants: {
+    gap: gapVariants,
+  },
+  defaultVariants: {
+    gap: 4,
+  },
+});
 
-const { gap = 4 } = Astro.props;
+type Variants = VariantProps<typeof raceDetailSection>;
+
+interface Props extends Variants {}
+
+const { gap } = Astro.props;
 ---
 
-<section class=`flex flex-col gap-${gap}`>
+<section class={raceDetailSection({ gap })}>
   <slot />
 </section>
