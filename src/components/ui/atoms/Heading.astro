@@ -1,4 +1,5 @@
 ---
+import { textColorVariants } from "@components/ui/props/typography";
 import type { HTMLTag } from "astro/types";
 import { cva, cx, type VariantProps } from "class-variance-authority";
 
@@ -28,13 +29,11 @@ const heading = cva(baseClasses, {
       medium: "text-3xl sm:text-4xl lg:text-5xl",
       large: "text-3xl sm:text-4xl lg:text-6xl",
     },
-    color: {
-      neutral: "text-neutral-800",
-    },
+    color: textColorVariants,
   },
   defaultVariants: {
     size: "large",
-    color: "neutral",
+    color: "black",
   },
 });
 
