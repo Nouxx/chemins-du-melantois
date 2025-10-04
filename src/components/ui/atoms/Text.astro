@@ -9,16 +9,16 @@ import {
 const body = cva(["text-pretty"], {
   variants: {
     size: {
-      xsmall: "text-sm",
-      small: "text-md sm:text-lg",
-      lg: "text-lg sm:text-xl",
+      small: "text-sm",
+      medium: "text-md sm:text-lg",
+      large: "text-lg sm:text-xl",
       "6xl": "text-6xl",
       "3xl": "text-3xl",
     },
     color: textColorVariants,
     fontStyle: fontWeightVariants,
   },
-  defaultVariants: { size: "lg", color: "grey", fontStyle: "normal" },
+  defaultVariants: { size: "large", color: "grey", fontStyle: "normal" },
 });
 
 type BodyVariants = VariantProps<typeof body>;

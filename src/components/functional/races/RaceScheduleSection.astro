@@ -21,7 +21,7 @@ const {
 <RaceDetailSection>
   <Heading size="small" id={anchorId} tag="h2">{title}</Heading>
 
-  <Text size="small">
+  <Text size="medium">
     La course a lieu le
     <span class="font-bold">{eventDate}</span>
     et le départ sera lancé à
@@ -29,13 +29,13 @@ const {
     .
   </Text>
 
-  <Text size="small">Le point de rendez-vous est le suivant :</Text>
+  <Text size="medium">Le point de rendez-vous est le suivant :</Text>
 
   <div class="address">
     {
       meetingPointAddressLines.map((addressLine, index) => (
         <Text
-          size="small"
+          size="medium"
           className="my-0"
           fontStyle={index === 0 ? "bold" : "normal"}
         >
@@ -47,7 +47,7 @@ const {
 
   {
     additionalScheduleInformation && (
-      <Text size="small">{additionalScheduleInformation}</Text>
+      <Text size="medium">{additionalScheduleInformation}</Text>
     )
   }
 </RaceDetailSection>

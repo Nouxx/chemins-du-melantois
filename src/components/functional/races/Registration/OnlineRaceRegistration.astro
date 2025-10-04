@@ -17,14 +17,14 @@ const { title, partner, additionalDescription, link } = Astro.props.data;
     {title}
   </Heading>
 
-  <Text size="small">
+  <Text size="medium">
     Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00
     via notre plateforme partenaire
     <span class="font-bold italic">{partner}</span>. Le paiement s'effectue
     également sur cette plateforme.
   </Text>
 
-  {additionalDescription && <Text size="small">{additionalDescription}</Text>}
+  {additionalDescription && <Text size="medium">{additionalDescription}</Text>}
 
   <TextLink url={link.url}>
     {link.label}
