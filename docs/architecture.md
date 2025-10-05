@@ -1,6 +1,6 @@
 # Site Architecture
 
-This project is a static website designed with performance as a top priority.
+This project is a **static** website designed with performance and SEO as a top priority.
 
 ## Layers
 
@@ -21,13 +21,13 @@ functional --> data
 
 ---
 
-**Structured data** lives in `src/data`. This folder does not contain all data, but mainly the core racePageData object and some shared variables related to navigation. For example, FAQ content (a set of questions and answers) is not considered structured data. All structured data is safely validated and parsed using Zod.
+**Structured data** lives in `src/data`. This folder does not contain all data, but mainly the core `racePageData` object and some shared variables related to navigation. For example, FAQ content (a set of questions and answers) is not considered structured data because of its simplicity. All structured data is safely validated and parsed using Zod.
 
-**Images** are kept in `src/images`. These assets are consumed primarily by functional components.
+**Images** are kept in `src/images`. These assets are consumed only by functional components.
 
-**Design system** components are located in `src/ui`. These are base, purely presentational components, independent of the website’s business logic. They enforce consistent styling across the website and improve maintainability. The structure follows Atomic Design principles.
+**Design system** components are located in `src/components/ui`. These are base, purely presentational components, independent of the website’s business logic. They enforce consistent styling across the website and improve maintainability. The structure follows Atomic Design principles.
 
-**Functional components** are stored in `src/functional`, grouped by topic. These components handle the business-related content shown on the website by composing multiple pieces from the design system. They are used by the website page.
+**Functional components** are stored in `src/components/functional`, grouped by topic. These components handle the business-related content shown on the website by composing multiple pieces from the design system. They are used by website pages.
 
 **Website pages** are defined in `src/pages`. As per Astro’s architecture, this directory is responsible for routing and assembling the final pages.
 
