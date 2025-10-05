@@ -1,17 +1,16 @@
 ---
 import Link from "@components/ui/atoms/Link.astro";
 import ListItem from "@components/ui/molecules/ListItem.astro";
-import { cx } from "class-variance-authority";
 
 interface Props {
   name: string;
   url: string;
-  openInNewTab?: boolean;
+  newTab?: boolean;
 }
 
-const { name, url, openInNewTab = true } = Astro.props;
+const { name, url, newTab = true } = Astro.props;
 
-const defaultClasses = [
+const baseClasses = [
   "inline-flex gap-x-2",
   "rounded-lg",
   "text-neutral-600",
@@ -22,12 +21,10 @@ const defaultClasses = [
   "focus-visible:ring-3",
   "hover:text-neutral-500",
 ];
-
-const mergedClasses = cx(defaultClasses);
 ---
 
 <ListItem disc={false}>
-  <Link url={url} newTab={openInNewTab} className={mergedClasses}>
+  <Link url={url} newTab={newTab} className={baseClasses.join(" ")}>
     {name}
   </Link>
 </ListItem>

@@ -28,9 +28,9 @@ const isCurrentClasses = isCurrent
 
 const ariaCurrent = isCurrent ? "page" : undefined;
 
-const mergedClasses = cx(baseClasses, isCurrentClasses);
+const navLinkClasses = cx(baseClasses, isCurrentClasses);
 ---
 
-<Link url={url} preFetch className={mergedClasses} aria-current={ariaCurrent}>
+<Link url={url} preFetch className={navLinkClasses} aria-current={ariaCurrent}>
   {label}
 </Link>

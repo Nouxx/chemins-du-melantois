@@ -21,7 +21,7 @@ const { title, links } = Astro.props;
         <FooterLink
           name={link.label}
           url={link.url}
-          openInNewTab={link.newTab ?? true}
+          newTab={link.newTab ?? true}
         />
       ))
     }
