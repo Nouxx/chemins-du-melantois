@@ -1,21 +1,11 @@
 ---
-import { parsedSvgIcons, type SvgIconName } from "@components/ui/atoms/icons/schema";
-import { cva, type VariantProps } from "class-variance-authority";
+import {
+  parsedSvgIcons,
+  type SvgIconName,
+} from "@components/ui/atoms/icons/schema";
+import { cva, cx, type VariantProps } from "class-variance-authority";
 
-interface Props {
-  name: SvgIconName;
-  className?: string;
-  color?: IconColor;
-  size?: Variants["size"];
-}
-
-export type IconColor = Variants["color"];
-
-const { name, className, color, size } = Astro.props;
-
-const icon = parsedSvgIcons[name];
-
-const iconClasses = cva(["shrink-0", icon.class, className], {
+const iconClasses = cva(["shrink-0"], {
   variants: {
     color: {
       brandOrange: "text-brand-orange",
@@ -30,7 +20,20 @@ const iconClasses = cva(["shrink-0", icon.class, className], {
 
 type Variants = VariantProps<typeof iconClasses>;
 
-const classes = iconClasses({ className, color, size });
+interface Props extends Variants {
+  name: SvgIconName;
+  className?: string;
+}
+
+const { name, className, color, size } = Astro.props;
+
+const icon = parsedSvgIcons[name];
+
+const classes = cx(
+  iconClasses({ className, color, size }),
+  icon.class,
+  className
+);
 ---
 
 <svg
