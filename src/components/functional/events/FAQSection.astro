@@ -33,8 +33,6 @@ const faqsData = [
       "Les résultats seront publiés sur notre site dans la rubrique « Après-course » et accessibles via notre site partenaire.",
   },
 ];
-
-const makeId = (base: any, index: any) => `${base}${index + 1}`;
 ---
 
 <Section>
@@ -56,20 +54,11 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
       >
         {
           faqsData.map((question, index) => {
-            let id = makeId(
-              "hs-basic-with-title-and-arrow-stretched-heading-",
-              index
-            );
-            let collapseId = makeId(
-              "hs-basic-with-title-and-arrow-stretched-collapse",
-              index
-            );
-
             return (
               <AccordionItem
                 {...question}
-                id={id}
-                collapseId={collapseId}
+                id={`faq-item-${index + 1}`}
+                collapseId={`faq-item-${index + 1}-collapse`}
                 first={index === 0}
               />
             );
