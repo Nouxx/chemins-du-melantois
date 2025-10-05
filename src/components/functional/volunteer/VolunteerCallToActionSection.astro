@@ -11,7 +11,7 @@ import { SiteMetadata } from "@data/site/metadata";
   <Text slot="subTitle">L'aventure vous tente ? Contactez-nous !</Text>
   <LinkButton
     slot="button"
-    label={`${SiteMetadata.contactEmail}`}
+    label={SiteMetadata.contactEmail}
     url={`mailto:${SiteMetadata.contactEmail}`}
   />
 </CTASection>
