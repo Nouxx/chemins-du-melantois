@@ -1,0 +1,23 @@
+---
+import Text from "@components/ui/atoms/Text.astro";
+import Link from "@components/ui/atoms/Link.astro";
+import Icon from "@components/ui/atoms/icons/Icon.astro";
+
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+---
+
+<Text
+  size="medium"
+  fontStyle="bold"
+  color="black"
+  className="hover:underline hover:underline-offset-2"
+>
+  <Link url={url} newTab className="link__text">
+    <slot />
+    <Icon name="openInNew" />
+  </Link>
+</Text>

@@ -1,0 +1,40 @@
+---
+import Text from "@components/ui/atoms/Text.astro";
+import Flex from "@components/ui/atoms/Flex.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  role: string;
+  content: string;
+  roleImage: {
+    image: ImageMetadata;
+    alt: string;
+  };
+}
+
+const { role, content, roleImage } = Astro.props;
+---
+
+<Flex className="h-auto">
+  <Flex direction="col" className="rounded-xl bg-neutral-50">
+    <Flex className="flex-auto">
+      <ImageWrapper
+        image={roleImage.image}
+        imageAlt={roleImage.alt}
+        sizes="(max-width: 640px) 100vw, (max-width: 1536px) 50vw, 642px"
+        className="rounded-t-lg"
+      />
+    </Flex>
+
+    <Flex className="h-full rounded-b-lg bg-neutral-300/30 p-4 md:px-7">
+      <Flex>
+        <Flex gap={2} direction="col" className="grow">
+          <Heading size="xsmall">{role}</Heading>
+          <Text size="medium">{content}</Text>
+        </Flex>
+      </Flex>
+    </Flex>
+  </Flex>
+</Flex>

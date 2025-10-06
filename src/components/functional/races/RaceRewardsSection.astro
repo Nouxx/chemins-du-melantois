@@ -1,0 +1,29 @@
+---
+import RaceDetailSection from "@components/functional/races/RaceDetailSection.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import TextLink from "@components/ui/molecules/TextLink.astro";
+import type { RacePageData } from "@data/races/schema";
+
+interface Props {
+  data: RacePageData["rewardsSection"];
+}
+
+const data = Astro.props.data;
+
+if (!data) return undefined;
+
+const { title, anchorId, description, rewardsLink } = data;
+---
+
+<RaceDetailSection>
+  <Heading size="small" id={anchorId} tag="h2">{title}</Heading>
+
+  <Text size="medium">{description}</Text>
+
+  {
+    rewardsLink && (
+      <TextLink url={rewardsLink.url}>{rewardsLink.label}</TextLink>
+    )
+  }
+</RaceDetailSection>

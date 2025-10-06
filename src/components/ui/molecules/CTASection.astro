@@ -1,0 +1,17 @@
+---
+import Section from "@components/ui/atoms/Section.astro";
+---
+
+<Section>
+  <div class="mx-auto mt-5 max-w-3xl text-center">
+    <slot name="heading" />
+  </div>
+
+  <div class="mx-auto mt-5 max-w-3xl text-center">
+    <slot name="subTitle" />
+  </div>
+
+  <div class="mt-8 flex justify-center gap-3">
+    <slot name="button" />
+  </div>
+</Section>

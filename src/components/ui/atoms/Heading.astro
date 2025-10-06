@@ -1,0 +1,57 @@
+---
+import { textColorVariants } from "@components/ui/props/typography";
+import type { HTMLTag } from "astro/types";
+import { cva, cx, type VariantProps } from "class-variance-authority";
+
+const VALID_TAGS = [
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+] as const satisfies HTMLTag[];
+
+type ValidTag = (typeof VALID_TAGS)[number];
+
+const baseClasses = [
+  "font-bold",
+  "tracking-tight",
+  "text-balance",
+  "leading-tight",
+];
+
+const heading = cva(baseClasses, {
+  variants: {
+    size: {
+      xsmall: "text-2xl",
+      small: "text-3xl sm:text-4xl",
+      medium: "text-3xl sm:text-4xl lg:text-5xl",
+      large: "text-3xl sm:text-4xl lg:text-6xl",
+    },
+    color: textColorVariants,
+  },
+  defaultVariants: {
+    size: "large",
+    color: "black",
+  },
+});
+
+type Variants = VariantProps<typeof heading>;
+
+interface Props extends Variants {
+  id?: string;
+  tag?: ValidTag;
+  className?: string;
+}
+
+const { id, tag, size, color, className } = Astro.props;
+
+const Tag: ValidTag = tag ?? "h1";
+
+const headingClasses = cx(heading({ size, color }), className);
+---
+
+<Tag id={id} class={headingClasses}>
+  <slot />
+</Tag>

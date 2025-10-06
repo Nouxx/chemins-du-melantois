@@ -1,0 +1,21 @@
+---
+import RegisterButton from "@components/functional/registration/RegisterButton.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import Section from "@components/ui/atoms/Section.astro";
+import CTABanner from "@components/ui/molecules/CTABanner.astro";
+---
+
+<Section>
+  <CTABanner>
+    <Heading slot="heading" size="medium" className="whitespace-nowrap">
+      Nos Courses
+    </Heading>
+    <Text slot="subTitle">
+      5 distances, 5 ambiances, une même passion ! Que vous soyez coureur
+      aguerri, amateur de nature ou en famille, nos parcours s'adaptent à tous
+      les profils. Découvrez les paysages du Mélantois à travers des épreuves
+      conviviales, accessibles et bien encadrées.
+    </Text>
+  </CTABanner>
+</Section>

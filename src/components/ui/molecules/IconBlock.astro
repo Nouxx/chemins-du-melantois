@@ -1,0 +1,25 @@
+---
+import Text from "@components/ui/atoms/Text.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+
+interface Props {
+  title: string;
+  subTitle: string;
+  body: string;
+}
+const { title, subTitle, body } = Astro.props;
+---
+
+<div class="flex gap-x-5">
+  <slot />
+
+  <div class="flex grow flex-col gap-2">
+    <Heading size="xsmall" tag="h2">
+      {title}
+    </Heading>
+
+    <Text>{subTitle}</Text>
+
+    <Text size="medium">{body}</Text>
+  </div>
+</div>

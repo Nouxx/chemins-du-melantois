@@ -1,0 +1,22 @@
+---
+import RaceCard from "@components/functional/races/RaceCard.astro";
+import Grid from "@components/ui/atoms/Grid.astro";
+import Section from "@components/ui/atoms/Section.astro";
+import { racesPageData } from "@data/races/races";
+---
+
+<Section>
+  <Grid gap={4} className="grid-cols-1 sm:grid-cols-3 md:gap-6 xl:gap-8">
+    {
+      racesPageData.map((racePageData, index) => {
+        const isSmall = index !== 1;
+        return (
+          <RaceCard
+            racePageData={racePageData}
+            size={isSmall ? "small" : "wide"}
+          />
+        );
+      })
+    }
+  </Grid>
+</Section>

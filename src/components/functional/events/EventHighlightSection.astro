@@ -1,0 +1,63 @@
+---
+import Text from "@components/ui/atoms/Text.astro";
+import Flex from "@components/ui/atoms/Flex.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
+import LeftAndRightSection from "@components/ui/atoms/LeftAndRightSection.astro";
+import LinkButton from "@components/ui/molecules/LinkButton.astro";
+import List from "@components/ui/molecules/List.astro";
+import ListItem from "@components/ui/molecules/ListItem.astro";
+import type { EventHighlightData } from "@data/events/schema";
+
+interface Props {
+  eventHighlightData: EventHighlightData;
+}
+
+const {
+  title,
+  subline,
+  featuredImage,
+  participantsLines,
+  resultsLink,
+  picturesLinks,
+} = Astro.props.eventHighlightData;
+
+const listItems: string[] = participantsLines.map(
+  (line) => `${line.participantsCount} participants au ${line.raceName}.`
+);
+---
+
+<LeftAndRightSection>
+  <Flex slot="left" direction="col" gap={4}>
+    <Heading>{title}</Heading>
+
+    <Text>{subline}</Text>
+
+    <List>
+      {listItems.map((item) => <ListItem>{item}</ListItem>)}
+    </List>
+
+    <Flex direction="row" gap={4} wrap="wrap" className="mt-4">
+      <LinkButton
+        label={resultsLink.label}
+        url={resultsLink.url}
+        newTab={true}
+      />
+
+      {
+        picturesLinks?.length &&
+          picturesLinks.map((link) => (
+            <LinkButton label={link.label} url={link.url} newTab={true} />
+          ))
+      }
+    </Flex>
+  </Flex>
+
+  <ImageWrapper
+    slot="right"
+    image={featuredImage.image}
+    imageAlt={featuredImage.alt}
+    sizes="(max-width: 1023px) 100vw, (max-width: 1536px) 50vw, 672px"
+    rounded
+  />
+</LeftAndRightSection>

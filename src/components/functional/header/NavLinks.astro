@@ -1,0 +1,33 @@
+---
+import Flex from "@components/ui/atoms/Flex.astro";
+import NavLink from "@components/ui/molecules/NavLink.astro";
+import { routes } from "@data/navigation/routes/routes";
+import { isCurrentPath } from "@utils/isCurrentPage";
+
+const headerLinks = [
+  { name: "Accueil", url: routes.home },
+  { name: "Courses", url: routes.races },
+  { name: "Après-course", url: routes.afterRace },
+  { name: "Bénévoles", url: routes.volunteer },
+];
+---
+
+<div
+  id="navbar-collapse-with-animation"
+  class="hs-collapse hidden grow basis-full overflow-hidden transition-all duration-300 md:block"
+>
+  <Flex
+    direction="col"
+    className="mx-2 my-2 mt-5 gap-x-0 gap-y-4 md:my-0 md:mt-0 md:flex-row md:items-center md:justify-end md:gap-x-4 md:gap-y-0 md:ps-7 lg:gap-x-7"
+  >
+    {
+      headerLinks.map((link) => (
+        <NavLink
+          url={link.url}
+          label={link.name}
+          isCurrent={isCurrentPath(Astro.url.pathname, link.url)}
+        />
+      ))
+    }
+  </Flex>
+</div>

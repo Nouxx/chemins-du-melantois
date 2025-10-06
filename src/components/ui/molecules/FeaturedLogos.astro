@@ -1,0 +1,17 @@
+---
+import Flex from "@components/ui/atoms/Flex.astro";
+---
+
+<div class="mx-auto mb-6 w-full space-y-1 text-center">
+  <slot name="title" />
+</div>
+
+<Flex
+  wrap="wrap"
+  items="center"
+  justify="center"
+  gap={14}
+  className="sm:flex-row"
+>
+  <slot />
+</Flex>

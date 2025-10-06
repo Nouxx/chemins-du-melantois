@@ -1,0 +1,15 @@
+---
+import Text from "@components/ui/atoms/Text.astro";
+
+interface Props {
+  title: string;
+  subTitle: string;
+}
+
+const { title, subTitle } = Astro.props;
+---
+
+<div>
+  <Text color="lightGreen" size="3xl" fontStyle="bold">{title}</Text>
+  <Text className="mt-1">{subTitle}</Text>
+</div>

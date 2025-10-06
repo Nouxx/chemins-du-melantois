@@ -1,0 +1,18 @@
+---
+import Flex from "@components/ui/atoms/Flex.astro";
+import Section from "@components/ui/atoms/Section.astro";
+
+const slotWrapperClasses = "w-full max-w-full md:w-1/2 md:max-w-1/2";
+---
+
+<Section>
+  <Flex direction="col" gap={8} className="md:flex-row">
+    <div class={slotWrapperClasses}>
+      <slot name="left" />
+    </div>
+
+    <div class={slotWrapperClasses}>
+      <slot name="right" />
+    </div>
+  </Flex>
+</Section>

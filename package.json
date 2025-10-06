@@ -4,11 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "prod": "npm run build && npm run preview",
+    "prod": "npm run build && astro preview",
     "build": "astro check && astro build && node process-html.mjs",
-    "preview": "astro preview",
-    "astro": "astro",
-    "test": "vitest",
     "format:fix": "prettier --write .",
     "nuke": "rm -rf dist && rm -rf .astro && rm -rf node_modules && npm ci"
   },
@@ -19,6 +16,7 @@
     "@tailwindcss/vite": "^4.1.7",
     "astro": "^5.10.0",
     "astro-compressor": "^1.0.0",
+    "class-variance-authority": "^0.7.1",
     "clipboard": "^2.0.11",
     "globby": "^14.1.0",
     "gsap": "^3.12.7",

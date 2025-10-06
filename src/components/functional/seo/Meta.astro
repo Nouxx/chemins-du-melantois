@@ -1,0 +1,97 @@
+---
+import { getImage } from "astro:assets";
+import faviconSvgSrc from "@images/icon.svg";
+import faviconSrc from "@images/icon.png";
+import { SEOData } from "@data/site/seo";
+import { OpenGraphData } from "@data/site/openGraph";
+import { SiteMetadata } from "@data/site/metadata";
+
+const defaultProps = {
+  meta: SiteMetadata.description,
+  structuredData: SEOData.structuredData,
+  customDescription: null,
+  customOgTitle: null,
+};
+
+const {
+  meta = defaultProps.meta,
+  structuredData = defaultProps.structuredData,
+  customDescription = defaultProps.customDescription,
+  customOgTitle = defaultProps.customOgTitle,
+} = Astro.props;
+
+const description = customDescription || meta;
+const ogTitle = customOgTitle || OpenGraphData.title;
+const ogDescription = customDescription || OpenGraphData.description;
+
+const URL = `${Astro.site}`;
+const author = SiteMetadata.author;
+const canonical = Astro.url.href;
+const socialImageRes = await getImage({
+  src: OpenGraphData.image,
+  width: 1200,
+  height: 600,
+  format: "webp",
+});
+
+const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
+
+const faviconSvg = await getImage({
+  src: faviconSvgSrc,
+  format: "svg",
+});
+
+const appleTouchIcon = await getImage({
+  src: faviconSrc,
+  width: 180,
+  height: 180,
+  format: "png",
+});
+---
+
+{
+  structuredData && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  )
+}
+<meta charset="utf-8" />
+<meta content={description} name="description" />
+<meta name="web_author" content={author} />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"
+/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:locale" content={OpenGraphData.title} />
+<meta property="og:url" content={URL} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={ogTitle} />
+<meta property="og:site_name" content={SiteMetadata.title} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:image" content={socialImage} />
+<meta property="og:image:width" content="1980" />
+<meta property="og:image:height" content="1080" />
+<meta property="og:image:type" content="image/jpg" />
+<meta property="og:image:alt" content={OpenGraphData.imageAlt} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content={URL} />
+<meta property="twitter:url" content={URL} />
+<meta name="twitter:title" content={ogTitle} />
+<meta name="twitter:description" content={ogDescription} />
+<meta name="twitter:image" content={socialImage} />
+
+<link rel="manifest" href="/manifest.json" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<link href="/favicon.ico" rel="icon" sizes="any" type="image/x-icon" />
+<link href={faviconSvg.src} rel="icon" type="image/svg+xml" sizes="any" />
+<meta name="mobile-web-app-capable" content="yes" />
+<link href={appleTouchIcon.src} rel="apple-touch-icon" />
+<link href={appleTouchIcon.src} rel="shortcut icon" />
+<meta name="theme-color" content="#facc15" />

@@ -1,0 +1,27 @@
+---
+import RaceDetailSection from "@components/functional/races/RaceDetailSection.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import TextLink from "@components/ui/molecules/TextLink.astro";
+import type { RacePageData } from "@data/races/schema";
+
+interface Props {
+  data: RacePageData["regulationSection"];
+}
+
+const { title, anchorId, description, link } = Astro.props.data;
+---
+
+<RaceDetailSection>
+  <Heading size="small" tag="h2" id={anchorId}>
+    {title}
+  </Heading>
+
+  <Text size="medium">
+    {description}
+  </Text>
+
+  <TextLink url={link.url}>
+    {link.label}
+  </TextLink>
+</RaceDetailSection>

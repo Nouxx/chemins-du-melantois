@@ -1,0 +1,29 @@
+---
+import Flex from "@components/ui/atoms/Flex.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import FooterLink from "./FooterLink.astro";
+import type { Link } from "@data/types";
+
+interface Props {
+  title: string;
+  links: Link[];
+}
+
+const { title, links } = Astro.props;
+---
+
+<Flex direction="col" gap={4} className="col-span-1">
+  <Heading size="xsmall">{title}</Heading>
+
+  <Flex renderAs="ul" direction="col" gap={4}>
+    {
+      links.map((link) => (
+        <FooterLink
+          name={link.label}
+          url={link.url}
+          newTab={link.newTab ?? true}
+        />
+      ))
+    }
+  </Flex>
+</Flex>

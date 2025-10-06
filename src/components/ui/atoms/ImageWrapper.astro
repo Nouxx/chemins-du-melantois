@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import { cva, cx, type VariantProps } from "class-variance-authority";
+
+const imageWrapper = cva("image-wrapper", {
+  variants: {
+    rounded: {
+      true: "rounded-lg",
+      false: "",
+    },
+  },
+  defaultVariants: {
+    rounded: false,
+  },
+});
+
+type Variants = VariantProps<typeof imageWrapper>;
+
+interface Props extends Variants {
+  image: ImageMetadata;
+  imageAlt: string;
+  imageLoading?: HTMLImageElement["loading"];
+  sizes?: string;
+  className?: string;
+}
+
+const {
+  image,
+  imageAlt,
+  imageLoading = "lazy",
+  className,
+  sizes,
+  rounded,
+} = Astro.props;
+
+const imageWrapperClasses = cx(imageWrapper({ rounded }), className);
+
+// todo: handle image zoom based on parent container size
+---
+
+<div class={imageWrapperClasses}>
+  <Image
+    src={image}
+    alt={imageAlt}
+    format={"avif"}
+    sizes={sizes}
+    loading={imageLoading}
+    draggable={"false"}
+  />
+</div>
+
+<style>
+  .image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+</style>

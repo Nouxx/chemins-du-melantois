@@ -1,0 +1,56 @@
+---
+import Grid from "@components/ui/atoms/Grid.astro";
+import FooterLinksColumn from "@components/functional/footer/FooterLinksColumn.astro";
+import FooterSocialsLine from "@components/functional/footer/FooterSocialsLine.astro";
+import BrandLogo from "@components/functional/header/BrandLogo.astro";
+import HorizontalPageLayout from "@components/ui/atoms/HorizontalPageLayout.astro";
+import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
+import { routes } from "@data/navigation/routes/routes";
+import { SiteMetadata } from "@data/site/metadata";
+---
+
+<footer class="w-full bg-neutral-300">
+  <HorizontalPageLayout>
+    <Grid gap={8} className="grid-cols-1 pt-16 sm:grid-cols-3 sm:gap-4">
+      <div class="col-span-full sm:col-span-1">
+        <BrandLogo class="h-auto w-32" />
+      </div>
+
+      <FooterLinksColumn
+        title="Liens rapides"
+        links={[
+          {
+            label: "Bulletin d'inscription",
+            url: externalLinks.registrationForm,
+          },
+          {
+            label: "Liste des inscrits",
+            url: externalLinks.registrantsList,
+          },
+          {
+            label: "PPS",
+            url: externalLinks.pps,
+          },
+        ]}
+      />
+
+      <FooterLinksColumn
+        title="Nous contacter"
+        links={[
+          {
+            label: "Par email",
+            url: `mailto:${SiteMetadata.contactEmail}`,
+            newTab: false,
+          },
+          {
+            label: "Devenir bénévole",
+            url: routes.volunteer,
+            newTab: false,
+          },
+        ]}
+      />
+    </Grid>
+
+    <FooterSocialsLine />
+  </HorizontalPageLayout>
+</footer>

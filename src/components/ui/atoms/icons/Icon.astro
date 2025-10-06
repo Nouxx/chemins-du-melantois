@@ -1,0 +1,61 @@
+---
+import {
+  parsedSvgIcons,
+  type SvgIconName,
+} from "@components/ui/atoms/icons/schema";
+import { cva, cx, type VariantProps } from "class-variance-authority";
+
+const iconClasses = cva(["shrink-0"], {
+  variants: {
+    color: {
+      brandOrange: "text-brand-orange",
+    },
+    size: {
+      small: "size-4",
+      medium: "size-6",
+      large: "size-8",
+    },
+  },
+});
+
+type Variants = VariantProps<typeof iconClasses>;
+
+interface Props extends Variants {
+  name: SvgIconName;
+  className?: string;
+}
+
+const { name, className, color, size } = Astro.props;
+
+const icon = parsedSvgIcons[name];
+
+const classes = cx(
+  iconClasses({ className, color, size }),
+  icon.class,
+  className
+);
+---
+
+<svg
+  class={classes}
+  height={icon.height}
+  viewBox={icon.viewBox}
+  width={icon.width}
+  fill={icon.fill}
+  clip-rule={icon.clipRule}
+  fill-rule={icon.fillRule}
+  stroke={icon.stroke}
+  stroke-width={icon.strokeWidth}
+  stroke-linecap={icon.strokeLinecap}
+  stroke-linejoin={icon.strokeLinejoin}
+  aria-hidden={icon.title ? "false" : "true"}
+>
+  <title>{icon.title}</title>
+  {"paths" in icon && icon.paths.map((path) => <path d={path.d} />)}
+  {
+    "lines" in icon &&
+      icon.lines.map((line) => (
+        <line x1={line.x1} x2={line.x2} y1={line.y1} y2={line.y2} />
+      ))
+  }
+</svg>

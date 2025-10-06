@@ -1,0 +1,68 @@
+---
+import Footer from "@components/functional/footer/Footer.astro";
+import Navbar from "@components/functional/header/Navbar.astro";
+import Meta from "@components/functional/seo/Meta.astro";
+import HorizontalPageLayout from "@components/ui/atoms/HorizontalPageLayout.astro";
+import { SiteMetadata } from "@data/site/metadata";
+import "@styles/global.css";
+
+const {
+  title = SiteMetadata.title,
+  meta,
+  structuredData,
+  lang = "fr",
+  customDescription = null,
+  customOgTitle = null,
+} = Astro.props;
+
+interface Props {
+  title?: string;
+  meta?: string;
+  structuredData?: object;
+  lang?: string;
+  customDescription?: string | null;
+  customOgTitle?: string | null;
+}
+---
+
+<html lang={lang} class="scrollbar-hide lenis lenis-smooth scroll-pt-16">
+  <head>
+    <Meta
+      meta={meta}
+      structuredData={structuredData}
+      customDescription={customDescription}
+      customOgTitle={customOgTitle}
+    />
+    <title>{title}</title>
+    <script>
+      import "@scripts/lenisSmoothScroll.js";
+    </script>
+  </head>
+
+  <body
+    class="bg-neutral-200 selection:bg-yellow-400 selection:text-neutral-700"
+  >
+    <HorizontalPageLayout>
+      <Navbar />
+
+      <main>
+        <slot />
+      </main>
+    </HorizontalPageLayout>
+  </body><Footer />
+
+  <script>
+    import "preline/preline.js";
+  </script>
+
+  <style>
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</html>

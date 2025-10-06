@@ -1,0 +1,125 @@
+---
+import Text from "@components/ui/atoms/Text.astro";
+import Icon from "@components/ui/atoms/icons/Icon.astro";
+import List from "@components/ui/molecules/List.astro";
+import ListItem from "@components/ui/molecules/ListItem.astro";
+import type { RacePageData, RacePageSection } from "@data/races/schema";
+import DesktopProgressBar from "@components/functional/races/DesktopProgressBar.astro";
+
+interface Props {
+  racePageData: RacePageData;
+}
+
+const {
+  routeSection,
+  scheduleSection,
+  rewardsSection,
+  registrationSection,
+  bibSection,
+  registrationDetailsSection,
+  regulationSection,
+} = Astro.props.racePageData;
+
+const sections: RacePageSection[] = [
+  routeSection,
+  scheduleSection,
+  ...(rewardsSection ? [rewardsSection] : []),
+  registrationSection,
+  bibSection,
+  registrationDetailsSection,
+  regulationSection,
+].map((section) => ({ title: section.title, anchorId: section.anchorId }));
+---
+
+<div id="pin" class="mt-10 hidden space-y-4 md:block">
+  <DesktopProgressBar />
+
+  <Text size="medium">Liens rapides</Text>
+
+  <div id="toc">
+    <List className="transition duration-300">
+      {
+        sections.map((section) => (
+          <ListItem className="group flex items-center opacity-80 transition-opacity duration-300 ease-cubic group-[.selected-js]:opacity-100">
+            {/* the icon has no size by default, it's resized with client side JavaScript */}
+            <Icon
+              name="circledArrowRight"
+              color="brandOrange"
+              className="transition-all duration-300 ease-cubic h-0 w-0 group-[.selected-js]:w-5 group-[.selected-js]:h-5 group-[.selected-js]:mr-[0.3rem]"
+            />
+            <a href={`#${section.anchorId}`}>{section.title}</a>
+          </ListItem>
+        ))
+      }
+    </List>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.timeline({
+    scrollTrigger: {
+      scrub: 1,
+      pin: true,
+      trigger: "#pin",
+      start: "top 20%",
+      endTrigger: "footer",
+      end: "top bottom",
+    },
+  });
+
+  function setActiveLinkById(id: string | null) {
+    const listItems = document.querySelectorAll("#toc li");
+    listItems.forEach((item) => item.classList.remove("selected-js"));
+
+    if (!id) return;
+
+    const activeLink = document.querySelector(`#toc a[href="#${id}"]`);
+
+    if (!activeLink) return;
+
+    const listItem = activeLink.parentElement;
+    listItem?.classList.add("selected-js");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const article: HTMLElement | null = document.querySelector("article");
+
+    const headings: NodeListOf<HTMLElement> | [] = article
+      ? article.querySelectorAll("h2")
+      : [];
+
+    headings.forEach((heading, index) => {
+      if (heading instanceof HTMLElement) {
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: heading,
+            start: "top 20%",
+            end: () =>
+              `bottom top+=${index === headings.length - 1 ? 0 : (headings[index + 1] as HTMLElement).getBoundingClientRect().height}`,
+            onEnter: () => setActiveLinkById(heading.id),
+            onLeaveBack: () =>
+              setActiveLinkById((headings[index - 1] as HTMLElement)?.id),
+          },
+        });
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  // "selected-js" is added by client side JavaScript
+  #toc li.selected-js {
+    opacity: 1;
+  }
+
+  #toc li.selected-js svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.3rem;
+  }
+</style>

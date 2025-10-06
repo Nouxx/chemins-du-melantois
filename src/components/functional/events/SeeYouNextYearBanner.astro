@@ -1,0 +1,15 @@
+---
+import Text from "@components/ui/atoms/Text.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import LinkButton from "@components/ui/molecules/LinkButton.astro";
+import CTASection from "@components/ui/molecules/CTASection.astro";
+import { routes } from "@data/navigation/routes/routes";
+---
+
+<CTASection>
+  <Heading slot="heading">Rendez-vous en 2026 !</Heading>
+  <Text slot="subTitle">
+    Venez vibrer à nouveau en 2026 sur des parcours conviviaux et 100 % nature !
+  </Text>
+  <LinkButton slot="button" label="Résultats & Photos" url={routes.afterRace} />
+</CTASection>

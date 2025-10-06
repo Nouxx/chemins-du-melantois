@@ -1,0 +1,19 @@
+---
+import Text from "@components/ui/atoms/Text.astro";
+import { cx } from "class-variance-authority";
+
+interface Props {
+  className?: string;
+  disc?: boolean;
+}
+
+const { className, disc = true } = Astro.props;
+
+const discClasses = disc ? "list-inside list-disc" : undefined;
+
+const listItemClasses = cx(discClasses, className);
+---
+
+<Text renderAs="li" size="medium" className={listItemClasses}>
+  <slot />
+</Text>

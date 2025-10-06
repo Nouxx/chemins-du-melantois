@@ -1,0 +1,40 @@
+---
+import { cva, cx, type VariantProps } from "class-variance-authority";
+import type { HTMLTag } from "astro/types";
+import {
+  fontWeightVariants,
+  textColorVariants,
+} from "@components/ui/props/typography";
+
+const body = cva(["text-pretty"], {
+  variants: {
+    size: {
+      small: "text-sm",
+      medium: "text-md sm:text-lg",
+      large: "text-lg sm:text-xl",
+      "6xl": "text-6xl",
+      "3xl": "text-3xl",
+    },
+    color: textColorVariants,
+    fontStyle: fontWeightVariants,
+  },
+  defaultVariants: { size: "large", color: "grey", fontStyle: "normal" },
+});
+
+type BodyVariants = VariantProps<typeof body>;
+
+interface Props extends BodyVariants {
+  className?: string;
+  renderAs?: HTMLTag;
+}
+
+const { size, className, fontStyle, color, renderAs } = Astro.props;
+
+const classes = cx(body({ size, fontStyle, color }), className);
+
+const Tag: HTMLTag = renderAs ?? "p";
+---
+
+<Tag class={classes}>
+  <slot />
+</Tag>

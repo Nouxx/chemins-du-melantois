@@ -1,78 +1,26 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro";
-import HeroSection from "@components/sections/landing/HeroSection.astro";
-import HeroSectionAlt from "@components/sections/landing/HeroSectionAlt.astro";
-import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
-import FAQ from "@components/sections/misc/FAQ.astro";
-import heroImage from "@images/hero-image.webp";
-import videoPreviewImage from "@images/video-preview.webp";
-import faqs from "@data/fr/faqs.json";
-import features from "@data/fr/features.json";
-import { externalLinks, routes } from "@/data_files/constants";
-import FeaturesStats from "@/components/sections/features/FeaturesStats.astro";
-import RegisterButton from "@/components/ui/buttons/RegisterButton.astro";
-import VideoLink from "@/components/sections/landing/VideoLink.astro";
-import SponsorsSection from "@/components/sections/landing/SponsorsSection.astro";
+import FAQSection from "@components/functional/events/FAQSection.astro";
+import SeeYouNextYearBanner from "@components/functional/events/SeeYouNextYearBanner.astro";
+import StatisticsSection from "@components/functional/events/StatisticsSection.astro";
+import VideoLinkSection from "@components/functional/events/VideoLinkSection.astro";
+import WelcomeBanner from "@components/functional/events/WelcomeBanner.astro";
+import RacesOverviewSection from "@components/functional/races/RacesOverviewSection.astro";
+import SponsorsSection from "@components/functional/sponsors/SponsorsSection.astro";
+import MainLayout from "@components/functional/ui/MainLayout.astro";
 ---
 
 <MainLayout lang="fr">
-  <HeroSection
-    title=`Bienvenue aux Chemins du <span class="text-orange-400 dark:text-yellow-400">Mélantois</span>`
-    subTitle="L'édition 2025 des Chemins du Mélantois est terminée ! Rendez-vous l'année prochaine."
-    secondaryBtn="Courses de 2025"
-    secondaryBtnURL={routes.races}
-    src={heroImage}
-    alt="Coureurs au départ de la course des Chemins du Mélantois"
-  >
-    <p slot="title">
-      Bienvenue aux Chemins du <span class="text-brand-light-green"
-        >Mélantois</span
-      >
-    </p>
-  </HeroSection>
+  <WelcomeBanner />
 
-  <FeaturesStats
-    title="En quelques chiffres"
-    subTitle="Cet évènement est organisé par l'association « Les chemins du Mélantois » sous l'impulsion des communes de Sainghin-en-Mélantois et Péronne-en-Mélantois, \
-    et est entièrement bénévole. Il a pour but de promouvoir la pratique du sport en milieu naturel, de faire découvrir le Mélantois et de récolter des fonds pour des associations locales."
-    mainStatTitle="3200"
-    mainStatSubTitle="participants depuis sa création"
-    stats={[
-      {
-        stat: "15ème",
-        description: "édition depuis 2011",
-      },
-      {
-        stat: "5",
-        description: "formats disponible",
-      },
-      {
-        stat: "10min",
-        description: "en voiture depuis Lille",
-      },
-    ]}
-  />
+  <StatisticsSection />
 
-  <VideoLink
-    title="Retour en images sur l’édition 2024 !"
-    videoUrl={externalLinks.edition2024.youtubeVideo}
-    image={videoPreviewImage}
-  />
+  <VideoLinkSection />
 
-  <FeaturesGeneral
-    title="Nos courses de 2025"
-    subTitle="Cette édition 2025 a proposé notre format habituel de 5 courses variées, parfait pour un événement familial où chacun peut venir et courir ensemble."
-    features={features}
-    callToActionLabel="Détails des courses"
-    callToActionLink={routes.races}
-  />
+  <RacesOverviewSection />
 
-  <FAQ title="Questions fréquemment posées" faqs={faqs} />
+  <FAQSection />
 
   <SponsorsSection />
 
-  <HeroSectionAlt
-    title="Rendez-vous en 2026 !"
-    subTitle="Venez vibrer à nouveau en 2026 sur des parcours conviviaux et 100 % nature !"
-  />
+  <SeeYouNextYearBanner />
 </MainLayout>

@@ -1,0 +1,36 @@
+---
+import Link from "@components/ui/atoms/Link.astro";
+import { cx } from "class-variance-authority";
+
+interface Props {
+  url: string;
+  label: string;
+  isCurrent: boolean;
+}
+
+const { url, label, isCurrent } = Astro.props;
+
+const baseClasses = [
+  "rounded-lg",
+  "text-base",
+  "font-medium",
+  "ring-zinc-500",
+  "outline-hidden",
+  "focus-visible:ring-3",
+  "md:py-3",
+  "md:text-sm",
+  "2xl:text-base",
+];
+
+const isCurrentClasses = isCurrent
+  ? "text-brand-light-green underline underline-offset-3"
+  : "text-neutral-600 hover:text-neutral-500";
+
+const ariaCurrent = isCurrent ? "page" : undefined;
+
+const navLinkClasses = cx(baseClasses, isCurrentClasses);
+---
+
+<Link url={url} preFetch className={navLinkClasses} aria-current={ariaCurrent}>
+  {label}
+</Link>

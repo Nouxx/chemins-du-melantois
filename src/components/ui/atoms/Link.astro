@@ -1,0 +1,53 @@
+---
+import type { HTMLTag } from "astro/types";
+import { cx } from "class-variance-authority";
+
+const baseClasses = [
+  "group",
+  "ring-zinc-500",
+  "outline-hidden",
+  "focus-visible:ring-3",
+];
+
+type AnchorRel = "nofollow" | "noopener" | "noreferrer" | "noopener noreferrer";
+
+interface Props {
+  url: string;
+  preFetch?: boolean;
+  className?: string;
+  newTab?: boolean;
+  ariaCurrent?: "page";
+  ariaLabel?: string;
+  rel?: AnchorRel[];
+  renderAs?: HTMLTag;
+}
+
+const {
+  url,
+  preFetch = true,
+  className,
+  newTab = false,
+  ariaCurrent,
+  ariaLabel,
+  rel,
+  renderAs,
+} = Astro.props;
+
+const relValues = rel?.join(" ");
+
+const linkClasses = cx(baseClasses, className);
+
+const Tag = renderAs ?? "a";
+---
+
+<Tag
+  href={url}
+  data-astro-prefetch={preFetch}
+  class={linkClasses}
+  target={newTab ? "_blank" : "_self"}
+  aria-current={ariaCurrent}
+  aria-label={ariaLabel}
+  rel={relValues}
+>
+  <slot />
+</Tag>

@@ -1,0 +1,22 @@
+---
+import LinkCard from "@components/ui/molecules/LinkCard.astro";
+import { getRaceDetails } from "@data/navigation/routes/routes";
+import type { RacePageData } from "@data/races/schema";
+
+interface Props {
+  racePageData: RacePageData;
+  size: "small" | "wide";
+}
+
+const { racePageData: race, size } = Astro.props;
+
+const url = getRaceDetails(race.urlSlug);
+---
+
+<LinkCard
+  title={race.pageTitle}
+  url={url}
+  image={race.featuredImage.image}
+  imageAlt={race.featuredImage.alt}
+  wide={size === "wide"}
+/>

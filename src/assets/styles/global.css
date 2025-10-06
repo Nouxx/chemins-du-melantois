@@ -2,8 +2,6 @@
 @import "preline/variants.css";
 @plugin '@tailwindcss/forms';
 
-@custom-variant dark (&:is(.dark *));
-
 @theme {
   /* https://tailwindcss.com/docs/colors#customizing-your-colors */
   --color-*: initial;
@@ -122,15 +120,4 @@
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
-}
-
-/**
- * provides a placeholder background when lazy loaded images are not yet loadedF
-*/
-.image__placeholder {
-  background-color: var(--color-gray-100);
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  border-radius: 0.5rem;
 }

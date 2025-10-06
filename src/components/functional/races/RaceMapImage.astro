@@ -1,0 +1,20 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+}
+
+const { image, alt } = Astro.props;
+---
+
+<div class="h-auto overflow-hidden rounded-lg shadow-lg">
+  <Image
+    class="h-full w-full object-cover object-center"
+    src={image}
+    alt={alt}
+    draggable={"false"}
+    format={"avif"}
+  />
+</div>

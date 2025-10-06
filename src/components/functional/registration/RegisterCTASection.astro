@@ -1,0 +1,15 @@
+---
+import RegisterButton from "@components/functional/registration/RegisterButton.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import CTASection from "@components/ui/molecules/CTASection.astro";
+---
+
+<CTASection>
+  <Heading slot="heading">Inscrivez-vous dès maintenant</Heading>
+  <Text slot="subTitle">
+    Rejoignez l'aventure des Chemins du Mélantois et prenez le départ d'une
+    course conviviale, familiale et 100 % nature !
+  </Text>
+  <RegisterButton slot="button" />
+</CTASection>

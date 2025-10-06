@@ -1,39 +1,30 @@
 ---
-import MainLayout from "@/layouts/MainLayout.astro";
-import { Image } from "astro:assets";
-import RaceRegulations from "@/components/sections/races/RaceRegulations.astro";
-import Registration from "@/components/sections/races/Registration/Registration.astro";
-import Schedule from "@/components/sections/races/Schedule.astro";
-import Rewards from "@/components/sections/races/Rewards.astro";
-import Bib from "@/components/sections/races/Bib.astro";
-import RegistrationDetails from "@/components/sections/races/RegistrationDetails/RegistrationDetails.astro";
-import {
-  getPageTitle,
-  getStructuredDataForPage,
-} from "@/utils/structured-data";
-import { externalLinks, races, type Race } from "@/data_files/constants";
-import RaceDescription from "@/components/sections/races/RaceDescription.astro";
-import OnlineRegistrationText from "@/components/sections/races/Registration/OnlineRegistrationText.astro";
-import OnSiteRegistrationText from "@/components/sections/races/Registration/OnSiteRegistrationText.astro";
-import AdultRegistrationText from "@/components/sections/races/RegistrationDetails/AdultRegistrationText.astro";
-import NoAdultRegistrationText from "@/components/sections/races/RegistrationDetails/NoAdultRegistrationText.astro";
+import TwoColumnsLayout from "@components/ui/atoms/TwoColumnsLayout.astro";
+import Section from "@components/ui/atoms/Section.astro";
+import { racesPageData } from "@data/races/races";
+import type { RacePageData } from "@data/races/schema";
+import { getPageTitle, getStructuredDataForPage } from "@data/site/seo";
+import RaceMapImage from "@components/functional/races/RaceMapImage.astro";
+import MobileProgressBar from "@components/functional/races/MobileProgressBar.astro";
+import RacePageContent from "@components/functional/races/RacePageContent.astro";
+import RaceTOC from "@components/functional/races/RaceTOC.astro";
+import MainLayout from "@components/functional/ui/MainLayout.astro";
 
 export function getStaticPaths() {
-  return races.map((race) => ({
-    params: { id: race.id },
-    props: { race },
+  return racesPageData.map((racePageData) => ({
+    params: { id: racePageData.urlSlug },
+    props: { racePageData },
   }));
 }
 
 interface Props {
-  race: Race;
+  racePageData: RacePageData;
 }
 
-const { race } = Astro.props;
+const { racePageData } = Astro.props;
 
-const isFree = !race.price;
-const pageTitle = getPageTitle(race.title);
-const pageDescription = race.description;
+const pageTitle = getPageTitle(racePageData.pageTitle);
+const pageDescription = racePageData.routeSection.description;
 ---
 
 <MainLayout
@@ -42,109 +33,24 @@ const pageDescription = race.description;
   customOgTitle={pageTitle}
   structuredData={getStructuredDataForPage(pageDescription)}
 >
-  <section class="py-6 sm:py-8 lg:py-12">
-    <div class="mx-auto max-w-(--breakpoint-xl) px-4 md:px-8">
-      <div class="grid gap-8 md:grid-cols-2 lg:gap-12">
-        <div>
-          <div class="h-64 overflow-hidden rounded-lg shadow-lg md:h-auto">
-            <Image
-              class="h-full w-full object-cover object-center"
-              src={race.hero.image}
-              alt={race.hero.alt}
-              draggable={"false"}
-              format={"avif"}
-            />
-          </div>
-          <div
-            id="progress-mobile"
-            class="fixed top-0 left-0 h-2 w-full bg-linear-to-r from-orange-400/30 to-orange-400 md:hidden"
-          >
-          </div>
-          <div id="pin" class="mt-10 hidden space-y-4 md:block">
-            <div
-              class="h-px w-full overflow-hidden bg-neutral-300 dark:bg-neutral-700"
-            >
-              <div
-                id="progress"
-                class="h-px w-full bg-linear-to-r from-orange-400/30 to-orange-400"
-              >
-              </div>
-            </div>
-            <p class="text-sm text-pretty text-neutral-500">Liens rapides:</p>
-            <div id="toc" class="">
-              <ul
-                class="space-y-2 text-base text-pretty text-neutral-700 transition duration-300 dark:text-neutral-400"
-              >
-              </ul>
-            </div>
-          </div>
-        </div>
+  <MobileProgressBar />
 
-        <div class="md:pt-8">
-          <h1
-            class="mb-4 text-center text-2xl font-bold text-balance text-neutral-800 sm:text-3xl md:mb-6 md:text-left dark:text-neutral-200"
-          >
-            {race.title}
-          </h1>
+  <Section>
+    <TwoColumnsLayout>
+      <div slot="left">
+        <RaceMapImage
+          image={racePageData.featuredImage.image}
+          alt={racePageData.featuredImage.alt}
+        />
 
-          <article
-            class="race__content text-lg text-pretty text-neutral-700 dark:text-neutral-300"
-          >
-            <p class="text-xl">
-              {race.date} - {
-                isFree
-                  ? "Gratuit"
-                  : `${race.price}€ par ${race.pricePerTeam ? "équipe" : "participant"}`
-              }
-            </p>
-
-            <RaceDescription
-              text={race.description}
-              traceLinkPDF={race.traceLink}
-              traceLinkMaps={externalLinks.edition2025.traceMaps}
-            />
-
-            <Schedule
-              addressLines={race.meetingPointAddressLines}
-              additionalInfo={race.additionalScheduleInformation}
-              startTime={race.startTime}
-            />
-
-            {
-              race.rewardsSummary && (
-                <Rewards
-                  text={race.rewardsSummary}
-                  displayLink={race.displayRewardsSummaryLink}
-                />
-              )
-            }
-
-            <Registration>
-              <OnlineRegistrationText
-                slot="online-registration-text"
-                isRaceFree={isFree}
-              />
-              <OnSiteRegistrationText slot="on-site-registration-text" />
-            </Registration>
-
-            <Bib />
-
-            <RegistrationDetails>
-              {
-                race.adultRegistrationRequirement ? (
-                  <AdultRegistrationText slot="adult-registration-text" />
-                ) : (
-                  <NoAdultRegistrationText slot="adult-registration-text" />
-                )
-              }
-            </RegistrationDetails>
-
-            <RaceRegulations />
-          </article>
-        </div>
+        <RaceTOC racePageData={racePageData} />
       </div>
-    </div>
-  </section>
+
+      <div slot="right">
+        <RacePageContent data={racePageData} />
+      </div>
+    </TwoColumnsLayout>
+  </Section>
 </MainLayout>
 
 <style is:global>
@@ -161,180 +67,6 @@ const pageDescription = race.description;
   article h4,
   article h5,
   article h6 {
-    font-weight: bold;
-    margin-top: 2.5rem;
     scroll-margin-top: 3rem;
   }
-
-  h2 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  h4 {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
-  p,
-  ul {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  li {
-    list-style: disc;
-    list-style-position: inside;
-  }
-
-  article > ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  #toc li {
-    display: flex;
-    align-items: center;
-    opacity: 0.8;
-    transition: all 300ms var(--transition-cubic);
-  }
-
-  #toc li.selected {
-    opacity: 1;
-  }
-
-  #toc li svg {
-    width: 0;
-    height: 0;
-    transition:
-      height 400ms var(--transition-cubic),
-      width 400ms var(--transition-cubic);
-  }
-
-  #toc li.selected svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    margin-right: 0.3rem;
-  }
 </style>
-
-<script>
-  const onScroll = (): void => {
-    const article = document.querySelector("article");
-    if (!article) return;
-
-    const articleHeight = article.offsetHeight;
-    const articleOffsetTop = article.offsetTop;
-
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-    if (articleHeight && articleOffsetTop && scrollTop) {
-      const progress =
-        ((scrollTop - articleOffsetTop) /
-          (articleHeight - window.innerHeight)) *
-        100;
-
-      const progressBar = document.getElementById("progress");
-      const progressBarMobile = document.getElementById("progress-mobile");
-
-      if (progressBar && progressBarMobile) {
-        progressBar.style.width = `${progress}%`;
-        progressBarMobile.style.width = `${progress}%`;
-      }
-    }
-  };
-
-  document.addEventListener("DOMContentLoaded", (event) => {
-    window.onscroll = onScroll;
-
-    // Set initial width of progress bar
-    const progressBar = document.getElementById("progress");
-    const progressBarMobile = document.getElementById("progress-mobile");
-
-    if (progressBar && progressBarMobile) {
-      progressBar.style.width = "0%";
-      progressBarMobile.style.width = "0%";
-    }
-  });
-</script>
-<script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.timeline({
-    scrollTrigger: {
-      scrub: 1,
-      pin: true,
-      trigger: "#pin",
-      start: "top 20%",
-      endTrigger: "footer",
-      end: "top bottom",
-    },
-  });
-
-  const SVG_HTML_STRING =
-    '<svg class="w-0 h-0 flex-none" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fa5a15"><path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></svg>';
-
-  function setActiveLinkById(id: string | null) {
-    const listItems = document.querySelectorAll("#toc li");
-    listItems.forEach((item) => item.classList.remove("selected"));
-
-    if (!id) return;
-
-    const activeLink = document.querySelector(`#toc a[href="#${id}"]`);
-
-    if (!activeLink) return;
-
-    const listItem = activeLink.parentElement;
-    listItem?.classList.add("selected");
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const article: HTMLElement | null = document.querySelector("article");
-    const tocList: HTMLElement | null = document.querySelector("#toc ul");
-
-    const headings: NodeListOf<HTMLElement> | [] = article
-      ? article.querySelectorAll("h2")
-      : [];
-
-    headings.forEach((heading, i) => {
-      if (heading instanceof HTMLElement) {
-        const listItem = document.createElement("li");
-        listItem.className = "toc-level-" + heading.tagName.toLowerCase();
-
-        const tempDiv = document.createElement("div");
-        tempDiv.innerHTML = SVG_HTML_STRING;
-
-        const svg = tempDiv.firstChild;
-        listItem.appendChild(svg as Node);
-
-        const link = document.createElement("a");
-        link.href = "#" + heading.id;
-        link.textContent = heading.textContent;
-        listItem.appendChild(link);
-
-        tocList?.appendChild(listItem);
-
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: heading,
-            start: "top 20%",
-            end: () =>
-              `bottom top+=${i === headings.length - 1 ? 0 : (headings[i + 1] as HTMLElement).getBoundingClientRect().height}`,
-            onEnter: () => setActiveLinkById(heading.id),
-            onLeaveBack: () =>
-              setActiveLinkById((headings[i - 1] as HTMLElement)?.id),
-          },
-        });
-      }
-    });
-  });
-</script>

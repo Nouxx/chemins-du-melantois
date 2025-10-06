@@ -1,0 +1,32 @@
+---
+import FooterSocialLink from "@components/functional/footer/FooterSocialLink.astro";
+import Text from "@components/ui/atoms/Text.astro";
+import Flex from "@components/ui/atoms/Flex.astro";
+import Icon from "@components/ui/atoms/icons/Icon.astro";
+import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
+import { SiteMetadata } from "@data/site/metadata";
+---
+
+<Flex direction="row" wrap="wrap" justify="between" className="mt-9 pb-2">
+  <Flex direction="row" items="center" justify="between">
+    <Text size="medium">
+      © 2025 {SiteMetadata.title}.
+    </Text>
+  </Flex>
+
+  <div>
+    <FooterSocialLink
+      url={externalLinks.facebook}
+      ariaLabel="Lien vers Facebook"
+    >
+      <Icon name="facebook" size="small" />
+    </FooterSocialLink>
+
+    <FooterSocialLink
+      url={externalLinks.instagram}
+      ariaLabel="Lien vers Instagram"
+    >
+      <Icon name="instagram" size="small" />
+    </FooterSocialLink>
+  </div>
+</Flex>
