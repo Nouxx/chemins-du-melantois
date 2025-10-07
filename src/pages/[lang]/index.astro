@@ -7,10 +7,25 @@ import WelcomeBanner from "@components/functional/events/WelcomeBanner.astro";
 import RacesOverviewSection from "@components/functional/races/RacesOverviewSection.astro";
 import SponsorsSection from "@components/functional/sponsors/SponsorsSection.astro";
 import MainLayout from "@components/functional/ui/MainLayout.astro";
+import Heading from "@components/ui/atoms/Heading.astro";
+import { getLangFromUrl, useTranslations } from "src/i18n/utils";
+
+// todo: provide default static paths
+export function getStaticPaths() {
+  return [{ params: { lang: "fr" } }, { params: { lang: "en" } }];
+}
+
+const { lang } = Astro.params;
+
+const lang2 = getLangFromUrl(Astro.url);
+const t = useTranslations(lang2);
 ---
 
-<MainLayout lang="fr">
+<!-- todo: Main Layout should provide lang -->
+<MainLayout lang={lang}>
   <WelcomeBanner />
+
+  <Heading>LANG2={lang2}</Heading>
 
   <StatisticsSection />
 
