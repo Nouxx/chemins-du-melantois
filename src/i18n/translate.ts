@@ -1,20 +1,40 @@
 import { readFileSync } from "fs";
+import { threadId } from "worker_threads";
 
 type Variables = Record<string, string | number>;
 type Translations = { [key: string]: string | Translations };
+type SupportedLanguages = "fr";
 
 /**
  * Loads and parses a JSON translation file from a given language code.
  * @param lang the JSON filename in `src/i18n/translations` (e.g., 'fr' for `fr.json`).
  */
-const getTranslations = (lang: string): Translations => {
+export const getTranslations = (lang: SupportedLanguages): Translations => {
   // To-do: Add Zod validation here after parsing.
   return JSON.parse(
     readFileSync(`${import.meta.dirname}/translations/${lang}.json`, "utf8"),
   );
 };
 
-const translations = getTranslations("fr");
+/**
+ * simpler implementation similar to i18n's interpolation: https://www.i18next.com/translation-function/interpolation
+ */
+const getInterpolatedTranslation = (
+  template: string,
+  values?: Variables,
+): string => {
+  if (!values) {
+    return template;
+  }
+
+  return template.replace(/(?<={{)\w+(?=}})/g, (placeholder, key) => {
+    if (Object.hasOwn(values, key)) {
+      return String(values[key]);
+    }
+    // if a key is missing in the variables, return the original placeholder
+    return placeholder;
+  });
+};
 
 // todo: rename
 export const interpolate = (
@@ -45,22 +65,50 @@ export const interpolate = (
   return result;
 };
 
-export function getTranslationForKey(key: string, object: any) {
-  if (!object) {
-    // to do: safely type from unknown
-    object = translations;
-  }
-
-  if (key.includes(".")) {
-    const split = key.split(".");
-    const leftHand = split[0];
-    const rightHand = split.slice(1).join(".");
-    return getTranslationForKey(rightHand, object[leftHand]);
-  }
-
-  return object[key];
+function hasKey<T extends object>(object: T, key: PropertyKey): key is keyof T {
+  return Object.hasOwn(object, key);
 }
 
-export function t(key: string, variables: Record<string, string | number>) {
-  return interpolate(getTranslationForKey(key, translations), variables);
-}
+export const getTranslationForKey = (
+  path: string,
+  translations: Translations,
+): string => {
+  const found = path
+    .split(".")
+    .reduce((currentObject: Translations | string | undefined, currentKey) => {
+      if (
+        typeof currentObject === "object" &&
+        hasKey(currentObject, currentKey)
+      ) {
+        return currentObject[currentKey];
+      }
+      return undefined;
+    }, translations);
+
+  if (typeof found !== "string") {
+    throw new Error("Not a string");
+  }
+  return found;
+};
+
+export const createTranslator = (lang: SupportedLanguages) => {
+  const translations = getTranslations(lang);
+
+  return function t(key: string, variables?: Variables): string {
+    const translationString = interpolate(
+      getTranslationForKey(key, translations),
+      variables,
+    );
+
+    // If the key wasn't found, return the key itself as a fallback.
+    // This makes it easy to spot missing translations during development.
+    if (typeof translationString !== "string") {
+      console.warn(`Translation key not found: "${key}"`);
+      return key;
+    }
+
+    return translationString;
+  };
+};
+
+export const t = createTranslator("fr");

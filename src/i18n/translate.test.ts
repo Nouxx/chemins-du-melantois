@@ -1,4 +1,6 @@
-import { getTranslationForKey } from "src/i18n/translate";
+import {
+  getTranslationForKey,
+} from "src/i18n/translate";
 import { expect, test } from "vitest";
 
 const mockedObject = {
@@ -24,3 +26,8 @@ test.each(testCases)(
     expect(getTranslationForKey(path, mockedObject)).toBe(expected);
   },
 );
+
+test("should throw", () => {
+  expect(() => getTranslationForKey(".notapath", mockedObject)).toThrow();
+  expect(() => getTranslationForKey("nestedKey.notAKey", mockedObject)).toThrow();
+});
