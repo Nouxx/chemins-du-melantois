@@ -1,4 +1,4 @@
-import { t } from "src/i18n/translate";
+import { getTranslationForKey } from "src/i18n/translate";
 import { expect, test } from "vitest";
 
 const mockedObject = {
@@ -21,6 +21,6 @@ const testCases = [
 test.each(testCases)(
   "should return $expected for path $path",
   ({ path, expected }) => {
-    expect(t(path, mockedObject)).toBe(expected);
+    expect(getTranslationForKey(path, mockedObject)).toBe(expected);
   },
 );

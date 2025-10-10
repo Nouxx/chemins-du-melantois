@@ -1,25 +1,32 @@
 import { readFileSync } from "fs";
 
-const getTranslations = () => {
-  // throws if invalid JSON
-  // to do: Zod validation?
+type Variables = Record<string, string | number>;
+type Translations = { [key: string]: string | Translations };
+
+/**
+ * Loads and parses a JSON translation file from a given language code.
+ * @param lang the JSON filename in `src/i18n/translations` (e.g., 'fr' for `fr.json`).
+ */
+const getTranslations = (lang: string): Translations => {
+  // To-do: Add Zod validation here after parsing.
   return JSON.parse(
-    readFileSync(import.meta.dirname + "/translations/fr.json", "utf8"),
+    readFileSync(`${import.meta.dirname}/translations/${lang}.json`, "utf8"),
   );
 };
+
+const translations = getTranslations("fr");
 
 // todo: rename
 export const interpolate = (
   input: string,
-  values: Record<string, string | number>,
+  values?: Record<string, string | number>,
 ): string => {
   let result = input;
 
-  const reg = new RegExp(/(?<={{)\w+(?=}})/g);
-  const variables = input.matchAll(reg);
+  const stringsInCurlyBraces = input.matchAll(/(?<={{)\w+(?=}})/g);
 
-  if (variables) {
-    for (const variable of variables) {
+  if (stringsInCurlyBraces && values) {
+    for (const variable of stringsInCurlyBraces) {
       // search for variable in values
       const key = variable[0];
 
@@ -38,9 +45,7 @@ export const interpolate = (
   return result;
 };
 
-const translations = getTranslations();
-
-export function t(key: string, object: any) {
+export function getTranslationForKey(key: string, object: any) {
   if (!object) {
     // to do: safely type from unknown
     object = translations;
@@ -50,8 +55,12 @@ export function t(key: string, object: any) {
     const split = key.split(".");
     const leftHand = split[0];
     const rightHand = split.slice(1).join(".");
-    return t(rightHand, object[leftHand]);
+    return getTranslationForKey(rightHand, object[leftHand]);
   }
 
   return object[key];
+}
+
+export function t(key: string, variables: Record<string, string | number>) {
+  return interpolate(getTranslationForKey(key, translations), variables);
 }
