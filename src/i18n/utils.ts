@@ -1,13 +1,28 @@
-import { ui, defaultLang } from './ui';
+import { readFileSync } from "fs";
 
-export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
-  return defaultLang;
-}
+const getTranslations = () => {
+  // throws if invalid JSON
+  // to do: Zod validation?
+  return JSON.parse(
+    readFileSync(import.meta.dirname + "/translations/fr.json", "utf8"),
+  );
+};
 
-export function useTranslations(lang: keyof typeof ui) {
-  return function t(key: keyof typeof ui[typeof defaultLang]) {
-    return ui[lang][key] || ui[defaultLang][key];
-  }
+const translations = getTranslations();
+
+export function useTranslations() {
+  return function t(key: string, object: any) {
+    if (!object) {
+      // to do: safely type from unknown
+      object = translations;
+    }
+
+    if (key.includes(".")) {
+      const split = key.split(".");
+      const newKey = split.slice(1).join(".");
+      return t(newKey, object[key]);
+    }
+
+    return object[key];
+  };
 }
