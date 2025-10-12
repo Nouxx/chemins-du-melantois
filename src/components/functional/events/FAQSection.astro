@@ -5,32 +5,28 @@ import Grid from "@components/ui/atoms/Grid.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
 import Section from "@components/ui/atoms/Section.astro";
 import AccordionItem from "@components/ui/molecules/AccordionItem.astro";
+import { t } from "@lib/i18n";
 
 const faqsData = [
   {
-    question: "Les courses sont-elles labellisées ?",
-    answer:
-      "Seule la course du 10 km bénéficie d'un label départemental. Les autres formats ne sont pas labellisés.",
+    question: t("homepage.faqSection.faqs.0.question"),
+    answer: t("homepage.faqSection.faqs.0.answer"),
   },
   {
-    question: "Quelle est la fréquence des ravitaillements ?",
-    answer:
-      "Le parcours du 10 km propose 4 points de ravitaillement répartis équitablement. Le 5 km dispose d'un point unique. Les autres courses n'ont pas de ravitaillement prévu.",
+    question: t("homepage.faqSection.faqs.1.question"),
+    answer: t("homepage.faqSection.faqs.1.answer"),
   },
   {
-    question: "Où puis-je me garer ?",
-    answer:
-      "Le stationnement est interdit dans le centre de Sainghin-en-Mélantois, mais le parking du stade est accessible avant 9h.",
+    question: t("homepage.faqSection.faqs.2.question"),
+    answer: t("homepage.faqSection.faqs.2.answer"),
   },
   {
-    question: "Que contient le sac coureur remis avant le départ ?",
-    answer:
-      "Chaque participant reçoit un petit cadeau surprise au moment de la remise des dossards. Les enfants inscrits aux courses de 900 m repartent quant à eux avec une médaille.",
+    question: t("homepage.faqSection.faqs.3.question"),
+    answer: t("homepage.faqSection.faqs.3.answer"),
   },
   {
-    question: "Où puis-je consulter mes résultats après la course ?",
-    answer:
-      "Les résultats seront publiés sur notre site dans la rubrique « Après-course » et accessibles via notre site partenaire.",
+    question: t("homepage.faqSection.faqs.4.question"),
+    answer: t("homepage.faqSection.faqs.4.answer"),
   },
 ];
 ---
@@ -39,19 +35,16 @@ const faqsData = [
   <Grid gap={10} className="md:grid-cols-5">
     <div class="md:col-span-2">
       <Flex direction="col" gap={4} className="max-w-xs">
-        <Heading size="medium">Questions fréquemment posées</Heading>
+        <Heading size="medium">{t("homepage.faqSection.heading")}</Heading>
 
         <Text>
-          Trouvez rapidement des réponses aux questions que l'on nous pose
-          chaque année.
+          {t("homepage.faqSection.description")}
         </Text>
       </Flex>
     </div>
 
     <div class="md:col-span-3">
-      <div
-        class="hs-accordion-group divide-y divide-neutral-200"
-      >
+      <div class="hs-accordion-group divide-y divide-neutral-200">
         {
           faqsData.map((question, index) => {
             return (

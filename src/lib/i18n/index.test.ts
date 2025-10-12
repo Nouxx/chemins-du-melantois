@@ -5,23 +5,23 @@ import { t } from "./";
 
 describe("find keys", () => {
   test("find first level key", () => {
-    expect(t("welcome")).toBe("Bienvenue aux Chemins du Mélantois");
+    expect(t("homepage.welcomeSection.title")).toBe("Bienvenue aux Chemins du Mélantois");
   });
 
-  test("find second level key", () => {
-    expect(t("racesOverview.free")).toBe("Gratuit");
+  test("find key in array", () => {
+    expect(t("homepage.faqSection.faqs.0.question")).toBe("Les courses sont-elles labellisées ?");
   });
 });
 
 describe("interpolation", () => {
   test("should interpolate number", () => {
-    expect(t("racesOverview.pricePerParticipant", { price: 7 })).toBe(
+    expect(t("homepage.racesOverview.pricePerParticipant", { price: 7 })).toBe(
       "7€ par participant",
     );
   });
 
   test("should not interpolate missing variable", () => {
-    expect(t("racesOverview.pricePerParticipant")).toBe(
+    expect(t("homepage.racesOverview.pricePerParticipant")).toBe(
       "{{price}}€ par participant",
     );
   });
