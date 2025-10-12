@@ -8,7 +8,7 @@ export const createTranslator = (lang: SupportedLanguages) => {
 
   if (import.meta.env.DEV) {
     return function t(key: string, variables?: TemplateVariables): string {
-      // reload translations on every request in dev for hot reload effect
+      // reload translations on every request in dev for HMR to take effect
       translations = getTranslations(lang);
 
       const translationString = getInterpolatedTranslation(
@@ -41,6 +41,4 @@ export const createTranslator = (lang: SupportedLanguages) => {
   }
 };
 
-// not updated on page reload in dev mode, to investigate!
-// translation update in the JSON file are not taken into account
 export const t = createTranslator("fr");

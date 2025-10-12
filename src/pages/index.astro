@@ -7,17 +7,10 @@ import WelcomeBanner from "@components/functional/events/WelcomeBanner.astro";
 import RacesOverviewSection from "@components/functional/races/RacesOverviewSection.astro";
 import SponsorsSection from "@components/functional/sponsors/SponsorsSection.astro";
 import MainLayout from "@components/functional/ui/MainLayout.astro";
-import Heading from "@components/ui/atoms/Heading.astro";
-import { useTranslations } from "src/i18n/utils";
-
-const t = useTranslations();
 ---
 
 <MainLayout>
   <WelcomeBanner />
-
-  <Heading>LANG={t("welcome")}</Heading>
-  <Heading>LANG={t("greeting.morning")}</Heading>
 
   <StatisticsSection />
 

@@ -1,0 +1,67 @@
+---
+import { textColorVariants } from "@components/ui/props/typography";
+import { t } from "@lib/i18n";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const colorClasses = cva(undefined, {
+  variants: {
+    color: textColorVariants,
+  },
+  defaultVariants: {
+    color: "lightGreen",
+  },
+});
+
+type ColorVariants = VariantProps<typeof colorClasses>;
+
+const strongClasses = cva(undefined, {
+  variants: {
+    strong: {
+      bold: "font-bold",
+    },
+  },
+  defaultVariants: {
+    strong: "bold",
+  },
+});
+
+type StrongVariants = VariantProps<typeof strongClasses>;
+
+const { i18nKey, color, strong } = Astro.props;
+
+const SUPPORTED_TAG = ["color", "strong"] as const;
+
+type SupportedTag = (typeof SUPPORTED_TAG)[number];
+
+const tagClassesMapping: Record<SupportedTag, string> = {
+  color: colorClasses({ color }),
+  strong: strongClasses({ strong }),
+};
+
+function interpolateString(input: string) {
+  let inputString = input;
+
+  SUPPORTED_TAG.forEach((tag) => {
+    const regexPattern = `<${tag}>[A-zÀ-ú]+<\/${tag}>`;
+
+    inputString = inputString.replace(new RegExp(regexPattern, "g"), (st) => {
+      const unwrappedString = st.replace(/<[^>]*>/g, "");
+      const className = tagClassesMapping[tag];
+      const interpolatedString = `<span class="${className}">${unwrappedString}</span>`;
+      return interpolatedString;
+    });
+  });
+
+  return inputString;
+}
+
+interface Props extends ColorVariants, StrongVariants {
+  i18nKey: string;
+}
+
+const translatedString = t(i18nKey);
+
+const interpolatedString = interpolateString(translatedString);
+---
+
+<Fragment set:html={interpolatedString} />

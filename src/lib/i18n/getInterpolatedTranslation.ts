@@ -11,6 +11,7 @@ export const getInterpolatedTranslation = (
     return template;
   }
 
+  // todo: test accents
   return template.replace(/{{\w+}}/g, (rawKey) => {
     const key = rawKey.replaceAll("{{", "").replaceAll("}}", "");
 
