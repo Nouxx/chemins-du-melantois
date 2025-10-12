@@ -42,11 +42,6 @@ export default defineConfig({
     clientPrerender: true,
   },
   vite: {
-    server: {
-      watch: {
-        paths: ['src/lib/i18n/translations/*.json']
-      }
-    },
     plugins: [tailwindcss()],
   },
 });
