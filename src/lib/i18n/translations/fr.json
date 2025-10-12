@@ -73,6 +73,16 @@
           "answer": "Les résultats seront publiés sur notre site dans la rubrique « Après-course » et accessibles via notre site partenaire."
         }
       ]
+    },
+    "sponsorsSection": {
+      "heading": "Un grand merci à nos partenaires",
+      "logosAlt": {
+        "MEL": "Logo de la Métropole Européenne de Lille",
+        "Nord": "Logo du Département du Nord",
+        "CreditMutuel": "Logo du Crédit Mutuel",
+        "Match": "Logo des Supermarchés Match",
+        "Rekeep": "Logo de l'entreprise Rekeep"
+      }
     }
   }
 }

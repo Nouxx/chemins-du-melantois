@@ -9,17 +9,18 @@ import MatchLogoSvg from "@images/sponsors/match-logo.svg?raw";
 import ReKeepLogoSvg from "@images/sponsors/rekeep-logo.svg?raw";
 import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
 import FeaturedLogos from "@components/ui/molecules/FeaturedLogos.astro";
+import { t } from "@lib/i18n";
 ---
 
 <Section>
   <FeaturedLogos>
     <Heading slot="title" size="small">
-      Un grand merci à nos partenaires
+      {t("homepage.sponsorsSection.heading")}
     </Heading>
     <Link
       url={externalLinks.MEL}
       newTab
-      ariaLabel="Logo de la MEL: Métropole Européenne de Lille"
+      ariaLabel={t("homepage.sponsorsSection.logosAlt.MEL")}
       rel={["noopener", "noreferrer"]}
     >
       <div set:html={MelIconSvg} />
@@ -28,7 +29,7 @@ import FeaturedLogos from "@components/ui/molecules/FeaturedLogos.astro";
     <Link
       url={externalLinks.nord}
       newTab
-      ariaLabel="Logo du Département du Nord"
+      ariaLabel={t("homepage.sponsorsSection.logosAlt.Nord")}
       rel={["noopener", "noreferrer"]}
     >
       <div set:html={NordIconSvg} />
@@ -37,7 +38,7 @@ import FeaturedLogos from "@components/ui/molecules/FeaturedLogos.astro";
     <Link
       url={externalLinks.creditMutuel}
       newTab
-      ariaLabel="Logo du Crédit Mutuel"
+      ariaLabel={t("homepage.sponsorsSection.logosAlt.CreditMutuel")}
       rel={["noopener", "noreferrer"]}
     >
       <div set:html={CreditMutuelIcon} />
@@ -46,7 +47,7 @@ import FeaturedLogos from "@components/ui/molecules/FeaturedLogos.astro";
     <Link
       url={externalLinks.supermarchesMatch}
       newTab
-      ariaLabel="Logo du Supermarchés Match"
+      ariaLabel={t("homepage.sponsorsSection.logosAlt.Match")}
       rel={["noopener", "noreferrer"]}
     >
       <div set:html={MatchLogoSvg} />
@@ -55,7 +56,7 @@ import FeaturedLogos from "@components/ui/molecules/FeaturedLogos.astro";
     <Link
       url={externalLinks.reKeep}
       newTab
-      ariaLabel="Logo de l'entreprise Rekeep"
+      ariaLabel={t("homepage.sponsorsSection.logosAlt.Rekeep")}
       rel={["noopener", "noreferrer"]}
     >
       <div set:html={ReKeepLogoSvg} />
