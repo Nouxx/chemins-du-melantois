@@ -1,0 +1,9 @@
+{
+  "welcome": "Bienvenue aux Chemins du <color>Mélantois</color>",
+  "welcomeMessage": "L'édition 2025 des Chemins du Mélantois est terminée ! Rendez-vous l'année prochaine. Redécouvrez les moments forts ainsi que les résultats de cette dernière édition.",
+  "racesOverview": {
+    "free": "Gratuit",
+    "pricePerParticipant": "{{price}}€ par participant",
+    "pricePerTeam": "{{price}}€ par équipe"
+  }
+}
