@@ -83,6 +83,11 @@
         "Match": "Logo des Supermarchés Match",
         "Rekeep": "Logo de l'entreprise Rekeep"
       }
+    },
+    "banner": {
+      "title": "Rendez-vous en 2026 !",
+      "message": "Venez vibrer à nouveau en 2026 sur des parcours conviviaux et 100 % nature !",
+      "label": "Résultats & Photos"
     }
   }
 }
