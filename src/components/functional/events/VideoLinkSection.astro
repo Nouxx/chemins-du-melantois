@@ -7,6 +7,7 @@ import Link from "@components/ui/atoms/Link.astro";
 import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
 import Flex from "@components/ui/atoms/Flex.astro";
 import VideoOverlay from "@components/ui/molecules/VideoOverlay.astro";
+import { t } from "@lib/i18n";
 
 const imageClass =
   "h-full w-full object-cover object-center transition duration-[600ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:scale-110";
@@ -15,7 +16,7 @@ const imageClass =
 <Section>
   <Flex direction="col" gap={8}>
     <Heading size="medium" className="text-center">
-      Retour en images sur l'édition 2024 !
+      {t("homepage.videoSection.title")}
     </Heading>
 
     <div
@@ -25,7 +26,7 @@ const imageClass =
         <VideoOverlay>
           <ImageWrapper
             image={videoPreviewImage}
-            imageAlt="Vue aérienne de la course a coeur du village de Sainghin en Mélantois"
+            imageAlt={t("homepage.videoSection.imageAlt")}
             className={imageClass}
           />
         </VideoOverlay>

@@ -1,9 +1,52 @@
 {
-  "welcome": "Bienvenue aux Chemins du <color>Mélantois</color>",
-  "welcomeMessage": "L'édition 2025 des Chemins du Mélantois est terminée ! Rendez-vous l'année prochaine. Redécouvrez les moments forts ainsi que les résultats de cette dernière édition.",
-  "racesOverview": {
-    "free": "Gratuit",
-    "pricePerParticipant": "{{price}}€ par participant",
-    "pricePerTeam": "{{price}}€ par équipe"
+  "homepage": {
+    "welcomeSection": {
+      "title": "Bienvenue aux Chemins du <color>Mélantois</color>",
+      "message": "L'édition 2025 des Chemins du Mélantois est terminée ! Rendez-vous l'année prochaine. Redécouvrez les moments forts ainsi que les résultats de cette dernière édition.",
+      "link": "Résultats & photos",
+      "imageAlt": "Coureurs au départ de la course des Chemins du Mélantois"
+    },
+    "statisticsSection": {
+      "heading": "En quelques chiffres",
+      "description": "Cet évènement est organisé par l'association « Les chemins du Mélantois » sous l'impulsion des communes de Sainghin-en-Mélantois et Péronne-en-Mélantois, et est entièrement bénévole. Il a pour but de promouvoir la pratique du sport en milieu naturel, de faire découvrir le Mélantois et de récolter des fonds pour des associations locales.",
+      "statBigTitle": "3200",
+      "statBigSubtitle": "participants depuis sa création",
+      "statSmall1Title": "14ème",
+      "statSmall1Subtitle": "édition depuis 2011",
+      "statSmall2Title": "5",
+      "statSmall2Subtitle": "formats disponible",
+      "statSmall3Title": "10min",
+      "statSmall3Subtitle": "en voiture depuis Lille"
+    },
+    "videoSection": {
+      "title": "Retour en images sur l'édition 2024 !",
+      "imageAlt": "Vue aérienne de la course a coeur du village de Sainghin en Mélantois"
+    },
+    "racesOverview": {
+      "title": "Nos 5 courses",
+      "description": "Cette édition 2025 a proposé notre format habituel de 5 courses variées, parfait pour un événement familial où chacun peut venir et courir ensemble.",
+      "link": "Détails des courses",
+      "races": {
+        "pricePerParticipant": "{{price}}€ par participant",
+        "pricePerTeam": "{{price}}€ par équipe",
+        "free": "Gratuit",
+        "run10km": {
+          "title": "Course à pied - 10 km",
+          "body": "La boucle de 10km traverse le Bois de la Noyelle, l'étang de pêche de Sainghin, jusqu'à effleurer les Marais de la Marque."
+        },
+        "run5km": {
+          "title": "Course à pied - 5 km",
+          "body": "Un parcours nature. Partez à la découverte des plus beaux paysages du Mélantois à travers la nature : Le Bois de la Noyelle Les rives de la Marque Profitez d'un parcours composé à 70 % de chemins plus proche du trail que de la course sur route."
+        },
+        "run900m": {
+          "title": "Courses à pied - 900 m",
+          "body": "2 parcours de découverte familial, adapté pour les enfants et leurs familles souhaitant découvrir la course à pied à travers le village de Sainghin-en-Mélantois ou de Péronne-en-Mélantois."
+        },
+        "runBike": {
+          "title": "Run & Bike",
+          "body": "Une épreuve au départ de Péronne composée d'une équipe avec deux catégorie d'âge: un coureur à pied adulte, un ou une jeune cycliste qui joue le rôle de lièvre et supporte le coureur à pied. L'épreuve inter-générationnelle par nature."
+        }
+      }
+    }
   }
 }
