@@ -1,21 +1,18 @@
 ---
-import RegisterButton from "@components/functional/registration/RegisterButton.astro";
 import Text from "@components/ui/atoms/Text.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
 import Section from "@components/ui/atoms/Section.astro";
 import CTABanner from "@components/ui/molecules/CTABanner.astro";
+import { t } from "@lib/i18n";
 ---
 
 <Section>
   <CTABanner>
     <Heading slot="heading" size="medium" className="whitespace-nowrap">
-      Parcours 2025
+      {t("racePage.banner.title")}
     </Heading>
     <Text slot="subTitle">
-      5 distances, 5 ambiances, une même passion ! Que vous soyez coureur
-      aguerri, amateur de nature ou en famille, nos parcours s'adaptent à tous
-      les profils. Découvrez les paysages du Mélantois à travers des épreuves
-      conviviales, accessibles et bien encadrées.
+      {t("racePage.banner.message")}
     </Text>
   </CTABanner>
 </Section>

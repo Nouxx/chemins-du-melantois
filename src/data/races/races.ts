@@ -18,9 +18,10 @@ import {
 } from "@data/races/sections";
 import { racePageDataSchema, type RacePageData } from "@data/races/schema";
 import { z } from "zod";
+import { t } from "@lib/i18n";
 
 const getImageAltText = (raceName: string) =>
-  `Tracé du parcours du ${raceName} des Chemins du Mélantois, édition 2025`;
+  t("racePage.raceImageAlt", { raceName });
 
 export const eventDate = "21 septembre 2025";
 
