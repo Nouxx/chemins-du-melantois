@@ -21,7 +21,7 @@ export function getTranslationForKey(
     }, translations);
 
   if (typeof found !== "string") {
-    throw new Error("Not a string");
+    throw new Error(`Could not find translation for key: ${path}`);
   }
 
   return found;
