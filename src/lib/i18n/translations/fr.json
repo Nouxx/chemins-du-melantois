@@ -89,5 +89,22 @@
       "message": "Venez vibrer à nouveau en 2026 sur des parcours conviviaux et 100 % nature !",
       "label": "Résultats & Photos"
     }
+  },
+  "headerNavigation": {
+    "home": "Accueil",
+    "races": "Parcours",
+    "results": "Après-courses",
+    "volunteer": "Bénévoles"
+  },
+  "footer": {
+    "quickLinks": "Liens rapides",
+    "contactUs": "Nous contacter",
+    "registrationForm": "Bulletin d'inscription",
+    "registrantsList": "Liste des inscrits",
+    "pps": "PPS",
+    "contactByEmail": "Par email",
+    "becomeVolunteer": "Devenir bénévole",
+    "facebookLinkAriaLabel": "Lien vers Facebook",
+    "instagramLinkAriaLabel": "Lien vers Instagram"
   }
 }

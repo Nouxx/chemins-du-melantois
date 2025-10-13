@@ -2,13 +2,14 @@
 import Flex from "@components/ui/atoms/Flex.astro";
 import NavLink from "@components/ui/molecules/NavLink.astro";
 import { routes } from "@data/navigation/routes/routes";
+import { t } from "@lib/i18n";
 import { isCurrentPath } from "@utils/isCurrentPage";
 
 const headerLinks = [
-  { name: "Accueil", url: routes.home },
-  { name: "Parcours", url: routes.races }, // todo: update url
-  { name: "Après-course", url: routes.afterRace },
-  { name: "Bénévoles", url: routes.volunteer },
+  { name: t("headerNavigation.home"), url: routes.home },
+  { name: t("headerNavigation.races"), url: routes.races },
+  { name: t("headerNavigation.results"), url: routes.afterRace },
+  { name: t("headerNavigation.volunteer"), url: routes.volunteer },
 ];
 ---
 
