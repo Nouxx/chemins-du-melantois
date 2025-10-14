@@ -1,18 +1,19 @@
 import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
 import type { RacePageData } from "@data/races/schema";
+import { t } from "@lib/i18n";
 
 export const routeSectionBaseData = {
-  title: "Parcours",
-  anchorId: "parcours",
+  title: t("racePage.routeSection.title"),
+  anchorId: t("racePage.routeSection.anchorId"),
   traceMapsLink: {
-    label: "Lien vers les tracés interactifs (Maps)",
+    label: t("racePage.linkToMapsTrace"),
     url: externalLinks.edition2025Maps,
   },
 };
 
 export const scheduleSectionBaseData = {
-  title: "Départ et horaires",
-  anchorId: "depart-et-horaires",
+  title: t("racePage.scheduleSection.title"),
+  anchorId: t("racePage.scheduleSection.anchorId"),
 };
 
 export const rewardsSectionBaseData = {

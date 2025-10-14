@@ -23,7 +23,7 @@ import { t } from "@lib/i18n";
 const getImageAltText = (raceName: string) =>
   t("racePage.raceImageAlt", { raceName });
 
-export const eventDate = "21 septembre 2025";
+export const eventDate = t("racePage.eventDate");
 
 const egliseSaintNicolasAddressLines: RacePageData["scheduleSection"]["meetingPointAddressLines"] =
   [
@@ -40,39 +40,37 @@ const mairieDePeronneAddressLines: RacePageData["scheduleSection"]["meetingPoint
   ];
 
 const getTraceLink = (url: string): Link => ({
-  label: "Lien vers le tracé (PDF)",
+  label: t("racePage.linkToPdfTrace"),
   url,
 });
 
 const rewardsSummaryLink = {
-  label: "Lien vers le tableau des récompenses",
+  label: t("racePage.linkToRewardsSummary"),
   url: externalLinks.rewardsSummary,
 };
 
-const rewardForEveryonePhrase = "Une médaille est remise à chaque participant.";
+const rewardForEveryonePhrase = t("racePage.rewardsForEveryone");
 
 const tenKilometerRacePageData: RacePageData = {
   urlSlug: "10-km-sainghin-en-melantois",
   featuredImage: {
     image: tenKilometerHero,
-    alt: getImageAltText("10 km de Sainghin en Mélantois"),
+    alt: getImageAltText(t("racePage.10km.title")),
   },
-  pageTitle: "10 km de Sainghin en Mélantois",
+  pageTitle: t("racePage.10km.title"),
   date: eventDate,
-  price: "11€ par participant",
+  price: t("racePage.pricePerParticipant", { price: 11 }),
   routeSection: {
     ...routeSectionBaseData,
-    description:
-      "Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l'étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l'objet d'une nouvelle labellisation en 2025.",
+    description: t("racePage.10km.description"),
     tracePDFLink: getTraceLink(externalLinks.edition2025Trace10km),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
     eventDate: eventDate,
-    startTime: "10h15",
+    startTime: t("racePage.10km.startTime"),
     meetingPointAddressLines: egliseSaintNicolasAddressLines,
-    additionalScheduleInformation:
-      "Un échauffement encadré est proposé à 10h00.",
+    additionalScheduleInformation: t("racePage.10km.additionalInfo"),
   },
   rewardsSection: {
     ...rewardsSectionBaseData,

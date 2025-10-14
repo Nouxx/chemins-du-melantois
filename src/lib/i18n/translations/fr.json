@@ -92,11 +92,32 @@
   },
   "racePage": {
     "description": "Découvrez les différentes épreuves des Chemins du Mélantois : du 900 m au 10 km, des courses accessibles, conviviales et ouvertes à tous les profils, dans un cadre naturel et chaleureux.",
+    "eventDate": "21 septembre 2025",
+    "linkToPdfTrace": "Lien vers le tracé (PDF)",
+    "linkToMapsTrace": "Lien vers les tracés interactifs (Maps)",
+    "linkToRewardsSummary": "Lien vers le tableau des récompenses",
+    "rewardsForEveryone": "Une médaille est remise à chaque participant.",
+    "pricePerParticipant": "{{price}}€ par participant",
+    "pricePerTeam": "{{price}}€ par équipe",
+    "routeSection": {
+      "title": "Parcours",
+      "anchorId": "parcours"
+    },
+    "scheduleSection": {
+      "title": "Départ et horaires",
+      "anchorId": "depart-et-horaires"
+    },
     "banner": {
       "title": "Parcours 2025",
       "message": "5 distances, 5 ambiances, une même passion ! Que vous soyez coureur aguerri, amateur de nature ou en famille, nos parcours s'adaptent à tous les profils. Découvrez les paysages du Mélantois à travers des épreuves conviviales, accessibles et bien encadrées."
     },
-    "raceImageAlt": "Tracé du parcours du {{raceName}} des Chemins du Mélantois, édition 2025"
+    "raceImageAlt": "Tracé du parcours du {{raceName}} des Chemins du Mélantois, édition 2025",
+    "10km": {
+      "title": "10 km de Sainghin en Mélantois",
+      "description": "Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l'étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l'objet d'une nouvelle labellisation en 2025.",
+      "startTime": "10h15",
+      "additionalInfo": "Un échauffement encadré est proposé à 10h00."
+    }
   },
   "headerNavigation": {
     "home": "Accueil",
