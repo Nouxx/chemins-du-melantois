@@ -4,13 +4,14 @@ import Text from "@components/ui/atoms/Text.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
 import TextLink from "@components/ui/molecules/TextLink.astro";
 import type { RacePageData } from "@data/races/schema";
-import { registrationDetailsSectionAnchor } from "@data/races/sections";
+import Translation from "@components/ui/atoms/Translation.astro";
+import { t } from "@lib/i18n";
 
 interface Props {
   data: RacePageData["registrationSection"]["onSiteRegistration"];
 }
 
-const { title, registrationFormLink } = Astro.props.data;
+const { title, description, registrationFormLink } = Astro.props.data;
 ---
 
 <RaceDetailSection>
@@ -19,17 +20,7 @@ const { title, registrationFormLink } = Astro.props.data;
   </Heading>
 
   <Text size="medium">
-    Vous pouvez également vous inscrire à la Maison des Associations de Sainghin
-    en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à venir muni
-    de votre bulletin d'inscription rempli ainsi que tous les documents requis
-    pour finaliser votre inscription (voir les
-    <a
-      class="link__text font-bold"
-      href={`#${registrationDetailsSectionAnchor}`}
-    >
-      Modalités d'inscriptions
-    </a>
-    plus bas).
+    <Translation input={description} />
   </Text>
 
   <TextLink url={registrationFormLink.url}>
@@ -37,6 +28,7 @@ const { title, registrationFormLink } = Astro.props.data;
   </TextLink>
 </RaceDetailSection>
 
+<!-- // todo check -->
 <style>
   .link__text:hover {
     text-decoration: underline;

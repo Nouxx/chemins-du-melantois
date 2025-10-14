@@ -17,27 +17,30 @@ export const scheduleSectionBaseData = {
 };
 
 export const rewardsSectionBaseData = {
-  title: "Récompenses",
-  anchorId: "recompenses",
+  title: t("racePage.rewardsSection.title"),
+  anchorId: t("racePage.rewardsSection.anchorId"),
 };
 
-const milesRepublicPhrase = "Miles Republic";
-
 export const registrationSectionBaseData = {
-  title: "Inscription",
-  anchorId: "inscription",
+  title: t("racePage.registrationSection.title"),
+  anchorId: t("racePage.registrationSection.anchorId"),
   onlineRegistration: {
-    title: "En ligne",
-    partner: milesRepublicPhrase,
+    title: t("racePage.registrationSection.onlineRegistration.title"),
+    description: t(
+      "racePage.registrationSection.onlineRegistration.description",
+    ),
     link: {
-      label: "Lien vers l'inscription en ligne",
+      label: t("racePage.registrationSection.onlineRegistration.linkLabel"),
       url: externalLinks.registration,
     },
   },
   onSiteRegistration: {
-    title: "Sur place",
+    title: t("racePage.registrationSection.onSiteRegistration.title"),
+    description: t(
+      "racePage.registrationSection.onSiteRegistration.description",
+    ),
     registrationFormLink: {
-      label: "Lien vers le bulletin d'inscription",
+      label: t("racePage.registrationSection.onSiteRegistration.linkLabel"),
       url: externalLinks.registrationForm,
     },
   },

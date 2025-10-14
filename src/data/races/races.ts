@@ -67,8 +67,10 @@ const tenKilometerRacePageData: RacePageData = {
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
-    eventDate: eventDate,
-    startTime: t("racePage.10km.startTime"),
+    body: t("racePage.scheduleLine", {
+      startTime: "10h15",
+      eventDate: eventDate,
+    }),
     meetingPointAddressLines: egliseSaintNicolasAddressLines,
     additionalScheduleInformation: t("racePage.10km.additionalInfo"),
   },
@@ -104,8 +106,10 @@ const runAndBikeRacePageData: RacePageData = {
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
-    eventDate: eventDate,
-    startTime: "9h45",
+    body: t("racePage.scheduleLine", {
+      startTime: "10h15",
+      eventDate: eventDate,
+    }),
     meetingPointAddressLines: mairieDePeronneAddressLines,
   },
   rewardsSection: {
@@ -138,8 +142,10 @@ const fiveKilometerRacePageData: RacePageData = {
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
-    eventDate: eventDate,
-    startTime: "9h00",
+    body: t("racePage.scheduleLine", {
+      startTime: "10h15",
+      eventDate: eventDate,
+    }),
     meetingPointAddressLines: egliseSaintNicolasAddressLines,
   },
   rewardsSection: {
@@ -174,8 +180,10 @@ const nineHundredSainghinRacePageData: RacePageData = {
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
-    eventDate: eventDate,
-    startTime: "9h45",
+    body: t("racePage.scheduleLine", {
+      startTime: "10h15",
+      eventDate: eventDate,
+    }),
     meetingPointAddressLines: egliseSaintNicolasAddressLines,
   },
   rewardsSection: {
@@ -208,8 +216,10 @@ const nineHundredPeronneRacePageData: RacePageData = {
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
-    eventDate: eventDate,
-    startTime: "9h15",
+    body: t("racePage.scheduleLine", {
+      startTime: "10h15",
+      eventDate: eventDate,
+    }),
     meetingPointAddressLines: mairieDePeronneAddressLines,
   },
   rewardsSection: {

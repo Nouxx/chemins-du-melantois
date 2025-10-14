@@ -31,8 +31,7 @@ export const racePageDataSchema = z.strictObject({
   }),
   scheduleSection: z.strictObject({
     ...racePageSectionBaseSchema.shape,
-    eventDate: z.string(),
-    startTime: z.string(),
+    body: z.string(),
     meetingPointAddressLines: z.array(z.string()).max(3),
     additionalScheduleInformation: z.string().optional(),
   }),
@@ -47,12 +46,13 @@ export const racePageDataSchema = z.strictObject({
     ...racePageSectionBaseSchema.shape,
     onlineRegistration: z.strictObject({
       title: z.string(),
-      partner: z.string(),
+      description: z.string(),
       additionalDescription: z.string().optional(),
       link: LinkSchema,
     }),
     onSiteRegistration: z.strictObject({
       title: z.string(),
+      description: z.string(),
       registrationFormLink: LinkSchema,
     }),
   }),

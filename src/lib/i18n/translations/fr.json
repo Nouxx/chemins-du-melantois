@@ -99,6 +99,7 @@
     "rewardsForEveryone": "Une médaille est remise à chaque participant.",
     "pricePerParticipant": "{{price}}€ par participant",
     "pricePerTeam": "{{price}}€ par équipe",
+    "scheduleLine": "La course a lieu le <strong>{{eventDate}}</strong> et le départ sera lancé à <strong>{{startTime}}</strong>.",
     "routeSection": {
       "title": "Parcours",
       "anchorId": "parcours"
@@ -106,6 +107,24 @@
     "scheduleSection": {
       "title": "Départ et horaires",
       "anchorId": "depart-et-horaires"
+    },
+    "rewardsSection": {
+      "title": "Récompenses",
+      "anchorId": "recompenses"
+    },
+    "registrationSection": {
+      "title": "Inscription",
+      "anchorId": "inscription",
+      "onlineRegistration": {
+        "title": "En ligne",
+        "description": "Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00 via notre plateforme partenaire <strong>Miles Republic</strong>. Le paiement s'effectue également sur cette plateforme.",
+        "linkLabel": "Lien vers l'inscription en ligne"
+      },
+      "onSiteRegistration": {
+        "title": "Sur place",
+        "description": "Vous pouvez également vous inscrire à la Maison des Associations de Sainghin en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à venir muni de votre bulletin d'inscription rempli ainsi que tous les documents requis pour finaliser votre inscription (voir les <italic>Modalités d'inscriptions</italic> plus bas).",
+        "linkLabel": "Lien vers l'inscription en ligne"
+      }
     },
     "banner": {
       "title": "Parcours 2025",
@@ -115,7 +134,6 @@
     "10km": {
       "title": "10 km de Sainghin en Mélantois",
       "description": "Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l'étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l'objet d'une nouvelle labellisation en 2025.",
-      "startTime": "10h15",
       "additionalInfo": "Un échauffement encadré est proposé à 10h00."
     }
   },

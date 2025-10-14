@@ -14,35 +14,23 @@ const colorClasses = cva(undefined, {
 
 type ColorVariants = VariantProps<typeof colorClasses>;
 
-const strongClasses = cva(undefined, {
-  variants: {
-    strong: {
-      bold: "font-bold",
-    },
-  },
-  defaultVariants: {
-    strong: "bold",
-  },
-});
+const { i18nKey, input, color } = Astro.props;
 
-type StrongVariants = VariantProps<typeof strongClasses>;
-
-const { i18nKey, color, strong } = Astro.props;
-
-const SUPPORTED_TAG = ["color", "strong"] as const;
+const SUPPORTED_TAG = ["color", "strong", "italic"] as const;
 
 type SupportedTag = (typeof SUPPORTED_TAG)[number];
 
 const tagClassesMapping: Record<SupportedTag, string> = {
   color: colorClasses({ color }),
-  strong: strongClasses({ strong }),
+  strong: "font-bold",
+  italic: "italic",
 };
 
 function interpolateString(input: string) {
   let inputString = input;
 
   SUPPORTED_TAG.forEach((tag) => {
-    const regexPattern = `<${tag}>[A-zÀ-ú]+<\/${tag}>`;
+    const regexPattern = `<${tag}>[A-Za-zÀ-ÖØ-öø-ÿ0-9'’\\s-]+<\\/${tag}>`;
 
     inputString = inputString.replace(new RegExp(regexPattern, "g"), (st) => {
       const unwrappedString = st.replace(/<[^>]*>/g, "");
@@ -55,11 +43,13 @@ function interpolateString(input: string) {
   return inputString;
 }
 
-interface Props extends ColorVariants, StrongVariants {
-  i18nKey: string;
+interface Props extends ColorVariants {
+  i18nKey?: string;
+  input?: string;
 }
 
-const translatedString = t(i18nKey);
+const translatedString = input ?? t(i18nKey as string);
+// todo: remove this shit
 
 const interpolatedString = interpolateString(translatedString);
 ---
