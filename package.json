@@ -7,7 +7,8 @@
     "prod": "npm run build && astro preview",
     "build": "astro check && astro build && node process-html.mjs",
     "format:fix": "prettier --write .",
-    "nuke": "rm -rf dist && rm -rf .astro && rm -rf node_modules && npm ci"
+    "nuke": "rm -rf dist && rm -rf .astro && rm -rf node_modules && npm ci",
+    "test": "vitest --config vitest.config.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

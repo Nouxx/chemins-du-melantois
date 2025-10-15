@@ -5,7 +5,7 @@ import { t } from "./";
 
 describe("find keys", () => {
   test("find first level key", () => {
-    expect(t("homepage.welcomeSection.title")).toBe("Bienvenue aux Chemins du Mélantois");
+    expect(t("homepage.welcomeSection.title")).toBe("Bienvenue aux Chemins du <color>Mélantois</color>");
   });
 
   test("find key in array", () => {
@@ -15,13 +15,13 @@ describe("find keys", () => {
 
 describe("interpolation", () => {
   test("should interpolate number", () => {
-    expect(t("homepage.racesOverview.pricePerParticipant", { price: 7 })).toBe(
+    expect(t("homepage.racesOverview.races.pricePerParticipant", { price: 7 })).toBe(
       "7€ par participant",
     );
   });
 
   test("should not interpolate missing variable", () => {
-    expect(t("homepage.racesOverview.pricePerParticipant")).toBe(
+    expect(t("homepage.racesOverview.races.pricePerParticipant")).toBe(
       "{{price}}€ par participant",
     );
   });

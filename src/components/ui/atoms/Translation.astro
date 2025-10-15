@@ -14,6 +14,11 @@ const colorClasses = cva(undefined, {
 
 type ColorVariants = VariantProps<typeof colorClasses>;
 
+interface Props extends ColorVariants {
+  i18nKey?: string;
+  input?: string;
+}
+
 const { i18nKey, input, color } = Astro.props;
 
 const SUPPORTED_TAG = ["color", "strong", "italic"] as const;
@@ -41,11 +46,6 @@ function interpolateString(input: string) {
   });
 
   return inputString;
-}
-
-interface Props extends ColorVariants {
-  i18nKey?: string;
-  input?: string;
 }
 
 const translatedString = input ?? t(i18nKey as string);
