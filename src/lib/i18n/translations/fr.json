@@ -117,7 +117,7 @@
       "anchorId": "inscription",
       "onlineRegistration": {
         "title": "En ligne",
-        "description": "Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00 via notre plateforme partenaire <strong>Miles Republic</strong>. Le paiement s'effectue également sur cette plateforme.",
+        "description": "Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00 via notre plateforme partenaire <italic><strong>Miles Republic</strong></italic>. Le paiement s'effectue également sur cette plateforme.",
         "linkLabel": "Lien vers l'inscription en ligne"
       },
       "onSiteRegistration": {

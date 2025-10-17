@@ -3,6 +3,162 @@ import { textColorVariants } from "@components/ui/props/typography";
 import { t } from "@lib/i18n";
 import { cva, type VariantProps } from "class-variance-authority";
 
+type TagType = "opening" | "closing";
+
+type TagMetadata = {
+  tag: SupportedTag;
+  type: TagType;
+  startIndex: number;
+  endIndex: number;
+  length: number;
+};
+
+type TagsMetadata = Record<SupportedTag, Record<TagType, TagMetadata>>;
+
+function getOpeningTagMetadata(str: string, tag: SupportedTag): TagMetadata {
+  const tagString = `<${tag}>`;
+  const start = str.indexOf(tagString);
+  const length = tagString.length;
+  return {
+    startIndex: start,
+    endIndex: start + length,
+    length: length,
+  };
+}
+
+function getClosingTagMetadata(str: string, tag: SupportedTag): TagMetadata {
+  const tagString = `</${tag}>`;
+  const start = str.indexOf(tagString);
+  const length = tagString.length;
+  return {
+    startIndex: start,
+    endIndex: start + length,
+    length: length,
+  };
+}
+
+function countInstances(string: string, word: string) {
+  return string.split(word).length - 1;
+}
+
+function countTagsInstances(string: string) {
+  let openingTags = 0;
+  let closingTags = 0;
+
+  SUPPORTED_TAG.forEach((tag) => {
+    openingTags += countInstances(string, `<${tag}>`);
+    closingTags += countInstances(string, `</${tag}>`);
+  });
+
+  return { openingTags, closingTags };
+}
+
+function isSupportedTag(str: string): str is SupportedTag {
+  return SUPPORTED_TAG.includes(str as SupportedTag);
+}
+
+function parseTag(str: string): { type: TagType; tag: SupportedTag } {
+  const stripped = str.replace("<", "").replace(">", "").replace("/", "");
+
+  if (!isSupportedTag(stripped)) {
+    throw new Error("parseTag error for stripping");
+  }
+
+  if (str.startsWith("</")) {
+    return { type: "closing", tag: stripped };
+  }
+  if (str.startsWith("<")) {
+    return { type: "opening", tag: stripped };
+  }
+  throw new Error("parseTag error");
+}
+
+function testDebug(str: string) {
+  let newString = str;
+
+  const regexPattern = `<(\/)?(${SUPPORTED_TAG.join("|")})>`;
+  const regex = new RegExp(regexPattern, "g");
+  const tags = newString.matchAll(regex);
+
+  let parsedTags: TagMetadata[] = [];
+
+  for (const tag of tags) {
+    const parsed = parseTag(tag[0]);
+    const length = tag[0].length;
+
+    parsedTags.push({
+      tag: parsed.tag,
+      type: parsed.type,
+      startIndex: tag.index,
+      length: length,
+      endIndex: tag.index + length,
+    });
+  }
+
+  console.log("parsedTags", parsedTags);
+
+  const openingTags = parsedTags.filter(
+    (parsedTag) => parsedTag.type === "opening"
+  ).length;
+
+  const closingTags = parsedTags.filter(
+    (parsedTag) => parsedTag.type === "closing"
+  ).length;
+
+  if (openingTags !== closingTags) {
+    // to do: more explicit error
+    throw new Error(`NOPE`);
+  }
+
+  for (const parsedTag of parsedTags) {
+    newString = replaceAt(
+      newString,
+      parsedTag.startIndex,
+      parseTag.length,
+      getReplacement(parsedTag)
+    );
+  }
+
+  return newString;
+}
+
+function getReplacement(tagMeta: TagMetadata) {
+  if (tagMeta.type === "opening") {
+    return `<span class="${tagClassesMapping[tagMeta.tag]}">`;
+  }
+  return `</span>`;
+}
+
+function replaceAt(
+  str: string,
+  at: number,
+  size: number,
+  replaceValue: string
+): string {
+  return str.substring(0, at) + replaceValue + str.substring(at + size);
+}
+
+// a tag have a single opening and closing
+// creates an ordered array of all the tags with metadata
+
+// type TagMetadata = {
+//   tag: SupportedTag;
+//   type: "opening" | "closing";
+//   startIndex: number;
+//   endIndex: number;
+//   length: number;
+// };
+
+// clear following tags like: <strong><strong>Very strong</strong></strong> (same tag) > <strong>Very strong</strong>
+// swap <tag> to <span>
+// - multiple tags wrapping the same text should be merged
+// <italic><strong>Strong and italic</strong> here</italic> > dont merge
+// <italic> here <strong>Strong and italic</strong></italic> > dont merge
+// <italic><strong>Strong and italic</strong></italic> > merge
+
+const myString =
+  "This is <strong>Strong Text</strong> and a <strong>A <strong>Very strong</strong></strong> and a <italic><strong>Strong and italic</strong> here</italic> and a <color>Colored and <strong>Strong</strong></color> text.";
+
 const colorClasses = cva(undefined, {
   variants: {
     color: textColorVariants,
@@ -20,6 +176,10 @@ interface Props extends ColorVariants {
 }
 
 const { i18nKey, input, color } = Astro.props;
+
+if (!i18nKey && !input) {
+  throw new Error("At least i18nKey or input must be provided");
+}
 
 const SUPPORTED_TAG = ["color", "strong", "italic"] as const;
 
@@ -49,9 +209,10 @@ function interpolateString(input: string) {
 }
 
 const translatedString = input ?? t(i18nKey as string);
-// todo: remove this shit
 
 const interpolatedString = interpolateString(translatedString);
+
+const test = testDebug(translatedString);
 ---
 
 <Fragment set:html={interpolatedString} />
