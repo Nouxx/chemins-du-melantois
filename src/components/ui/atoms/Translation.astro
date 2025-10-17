@@ -5,159 +5,63 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 type TagType = "opening" | "closing";
 
-type TagMetadata = {
+type ParsedTag = {
   tag: SupportedTag;
   type: TagType;
-  startIndex: number;
-  endIndex: number;
-  length: number;
 };
-
-type TagsMetadata = Record<SupportedTag, Record<TagType, TagMetadata>>;
-
-function getOpeningTagMetadata(str: string, tag: SupportedTag): TagMetadata {
-  const tagString = `<${tag}>`;
-  const start = str.indexOf(tagString);
-  const length = tagString.length;
-  return {
-    startIndex: start,
-    endIndex: start + length,
-    length: length,
-  };
-}
-
-function getClosingTagMetadata(str: string, tag: SupportedTag): TagMetadata {
-  const tagString = `</${tag}>`;
-  const start = str.indexOf(tagString);
-  const length = tagString.length;
-  return {
-    startIndex: start,
-    endIndex: start + length,
-    length: length,
-  };
-}
-
-function countInstances(string: string, word: string) {
-  return string.split(word).length - 1;
-}
-
-function countTagsInstances(string: string) {
-  let openingTags = 0;
-  let closingTags = 0;
-
-  SUPPORTED_TAG.forEach((tag) => {
-    openingTags += countInstances(string, `<${tag}>`);
-    closingTags += countInstances(string, `</${tag}>`);
-  });
-
-  return { openingTags, closingTags };
-}
 
 function isSupportedTag(str: string): str is SupportedTag {
   return SUPPORTED_TAG.includes(str as SupportedTag);
 }
 
-function parseTag(str: string): { type: TagType; tag: SupportedTag } {
-  const stripped = str.replace("<", "").replace(">", "").replace("/", "");
+function parseTag(input: string): ParsedTag {
+  const stripped = input.replace("<", "").replace(">", "").replace("/", "");
 
   if (!isSupportedTag(stripped)) {
-    throw new Error("parseTag error for stripping");
+    throw new Error(`Tag ${stripped} is not supported`);
   }
 
-  if (str.startsWith("</")) {
+  if (input.startsWith("</")) {
     return { type: "closing", tag: stripped };
   }
-  if (str.startsWith("<")) {
+  if (input.startsWith("<")) {
     return { type: "opening", tag: stripped };
   }
-  throw new Error("parseTag error");
+
+  throw new Error(`Could not parse tag from ${input}`);
 }
 
-function testDebug(str: string) {
-  let newString = str;
+function interpolateString(translatedString: string) {
+  const openingTagsRegexPattern = `<(${SUPPORTED_TAG.join("|")})>`;
+  const closingTagsRegexPattern = `<\/(${SUPPORTED_TAG.join("|")})>`;
 
-  const regexPattern = `<(\/)?(${SUPPORTED_TAG.join("|")})>`;
-  const regex = new RegExp(regexPattern, "g");
-  const tags = newString.matchAll(regex);
+  const openingTags =
+    translatedString.match(new RegExp(openingTagsRegexPattern, "g")) || [];
+  const closingTags =
+    translatedString.match(new RegExp(closingTagsRegexPattern, "g")) || [];
 
-  let parsedTags: TagMetadata[] = [];
-
-  for (const tag of tags) {
-    const parsed = parseTag(tag[0]);
-    const length = tag[0].length;
-
-    parsedTags.push({
-      tag: parsed.tag,
-      type: parsed.type,
-      startIndex: tag.index,
-      length: length,
-      endIndex: tag.index + length,
-    });
-  }
-
-  console.log("parsedTags", parsedTags);
-
-  const openingTags = parsedTags.filter(
-    (parsedTag) => parsedTag.type === "opening"
-  ).length;
-
-  const closingTags = parsedTags.filter(
-    (parsedTag) => parsedTag.type === "closing"
-  ).length;
-
-  if (openingTags !== closingTags) {
-    // to do: more explicit error
-    throw new Error(`NOPE`);
-  }
-
-  for (const parsedTag of parsedTags) {
-    newString = replaceAt(
-      newString,
-      parsedTag.startIndex,
-      parseTag.length,
-      getReplacement(parsedTag)
+  if (openingTags.length !== closingTags.length) {
+    throw new Error(
+      `The number of opening tags (${openingTags.length}) and closing tags (${closingTags.length}) does not match.`
     );
   }
 
-  return newString;
+  const allTagsRegexPattern = `<(\/)?(${SUPPORTED_TAG.join("|")})>`;
+
+  return translatedString.replace(
+    new RegExp(allTagsRegexPattern, "g"),
+    (tag) => {
+      return getHTMLMarkupForTag(parseTag(tag));
+    }
+  );
 }
 
-function getReplacement(tagMeta: TagMetadata) {
-  if (tagMeta.type === "opening") {
-    return `<span class="${tagClassesMapping[tagMeta.tag]}">`;
+function getHTMLMarkupForTag(parsedTag: ParsedTag) {
+  if (parsedTag.type === "opening") {
+    return `<span class="${tagClassesMapping[parsedTag.tag]}">`;
   }
   return `</span>`;
 }
-
-function replaceAt(
-  str: string,
-  at: number,
-  size: number,
-  replaceValue: string
-): string {
-  return str.substring(0, at) + replaceValue + str.substring(at + size);
-}
-
-// a tag have a single opening and closing
-// creates an ordered array of all the tags with metadata
-
-// type TagMetadata = {
-//   tag: SupportedTag;
-//   type: "opening" | "closing";
-//   startIndex: number;
-//   endIndex: number;
-//   length: number;
-// };
-
-// clear following tags like: <strong><strong>Very strong</strong></strong> (same tag) > <strong>Very strong</strong>
-// swap <tag> to <span>
-// - multiple tags wrapping the same text should be merged
-// <italic><strong>Strong and italic</strong> here</italic> > dont merge
-// <italic> here <strong>Strong and italic</strong></italic> > dont merge
-// <italic><strong>Strong and italic</strong></italic> > merge
-
-const myString =
-  "This is <strong>Strong Text</strong> and a <strong>A <strong>Very strong</strong></strong> and a <italic><strong>Strong and italic</strong> here</italic> and a <color>Colored and <strong>Strong</strong></color> text.";
 
 const colorClasses = cva(undefined, {
   variants: {
@@ -191,28 +95,9 @@ const tagClassesMapping: Record<SupportedTag, string> = {
   italic: "italic",
 };
 
-function interpolateString(input: string) {
-  let inputString = input;
-
-  SUPPORTED_TAG.forEach((tag) => {
-    const regexPattern = `<${tag}>[A-Za-zÀ-ÖØ-öø-ÿ0-9'’\\s-]+<\\/${tag}>`;
-
-    inputString = inputString.replace(new RegExp(regexPattern, "g"), (st) => {
-      const unwrappedString = st.replace(/<[^>]*>/g, "");
-      const className = tagClassesMapping[tag];
-      const interpolatedString = `<span class="${className}">${unwrappedString}</span>`;
-      return interpolatedString;
-    });
-  });
-
-  return inputString;
-}
-
 const translatedString = input ?? t(i18nKey as string);
 
 const interpolatedString = interpolateString(translatedString);
-
-const test = testDebug(translatedString);
 ---
 
 <Fragment set:html={interpolatedString} />

@@ -56,7 +56,9 @@ test("should throw when there is an additional closing tag", async () => {
         input: "This is a <color>text</color></strong>",
       },
     }),
-  ).rejects.toThrow();
+  ).rejects.toThrow(
+    "The number of opening tags (1) and closing tags (2) does not match.",
+  );
 });
 
 test("should throw when there is an additional opening tag", async () => {
@@ -68,18 +70,49 @@ test("should throw when there is an additional opening tag", async () => {
         input: "This <strong>is a <color>text</color>",
       },
     }),
-  ).rejects.toThrow();
+  ).rejects.toThrow(
+    "The number of opening tags (2) and closing tags (1) does not match.",
+  );
 });
 
-test.only("should YE", async () => {
+test("should interpolate 2 nested tags", async () => {
   const container = await AstroContainer.create();
   const result = await container.renderToString(Translation, {
     props: {
       input:
-        "This is a <strong>Strong Text</strong> and a <strong>A <strong>Very strong</strong></strong> and a <italic><strong>Strong and italic</strong> here</italic> and a <color>Colored and <strong>Strong</strong></color> text.",
+        "This is a <strong>Strong Text in <italic>Italic</italic></strong>.",
     },
   });
 
-  expect(result).toBe(`This is a <span class="font-bold">Strong Text</span> and a <span class="font-bold">A <span class="font-bold">Very strong</span></span> and a <span class="italic"><span class="font-bold">Strong and italic</span> here</span> and a <span class="text-brand-light-green">Colored and <span class="font-bold">Strong</span></span> text.`,
-);
+  expect(result).toBe(
+    `This is a <span class="font-bold">Strong Text in <span class="italic">Italic</span></span>.`,
+  );
+});
+
+test("should interpolate 3 nested tags", async () => {
+  const container = await AstroContainer.create();
+  const result = await container.renderToString(Translation, {
+    props: {
+      input:
+        "This is a <strong>Strong Text in <italic>Italic and <color>Colored</color></italic></strong>.",
+    },
+  });
+
+  expect(result).toBe(
+    `This is a <span class="font-bold">Strong Text in <span class="italic">Italic and <span class="text-brand-light-green">Colored</span></span></span>.`,
+  );
+});
+
+test("should interpolate 2 tags encapsulating the same string", async () => {
+  const container = await AstroContainer.create();
+  const result = await container.renderToString(Translation, {
+    props: {
+      input:
+        "This is a <strong><italic>Strong and Italic</italic></strong> text.",
+    },
+  });
+
+  expect(result).toBe(
+    `This is a <span class="font-bold"><span class="italic">Strong and Italic</span></span> text.`,
+  );
 });
