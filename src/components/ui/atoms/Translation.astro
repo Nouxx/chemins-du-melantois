@@ -3,6 +3,22 @@ import { textColorVariants } from "@components/ui/props/typography";
 import { t } from "@lib/i18n";
 import { cva, type VariantProps } from "class-variance-authority";
 
+const colorClasses = cva(undefined, {
+  variants: {
+    color: textColorVariants,
+  },
+  defaultVariants: {
+    color: "lightGreen",
+  },
+});
+
+type ColorVariants = VariantProps<typeof colorClasses>;
+
+interface Props extends ColorVariants {
+  i18nKey?: string;
+  input?: string;
+}
+
 type TagType = "opening" | "closing";
 
 type ParsedTag = {
@@ -10,8 +26,8 @@ type ParsedTag = {
   type: TagType;
 };
 
-function isSupportedTag(str: string): str is SupportedTag {
-  return SUPPORTED_TAG.includes(str as SupportedTag);
+function isSupportedTag(input: string): input is SupportedTag {
+  return SUPPORTED_TAG.includes(input as SupportedTag);
 }
 
 function parseTag(input: string): ParsedTag {
@@ -61,22 +77,6 @@ function getHTMLMarkupForTag(parsedTag: ParsedTag) {
     return `<span class="${tagClassesMapping[parsedTag.tag]}">`;
   }
   return `</span>`;
-}
-
-const colorClasses = cva(undefined, {
-  variants: {
-    color: textColorVariants,
-  },
-  defaultVariants: {
-    color: "lightGreen",
-  },
-});
-
-type ColorVariants = VariantProps<typeof colorClasses>;
-
-interface Props extends ColorVariants {
-  i18nKey?: string;
-  input?: string;
 }
 
 const { i18nKey, input, color } = Astro.props;
