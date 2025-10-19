@@ -122,8 +122,40 @@
       },
       "onSiteRegistration": {
         "title": "Sur place",
-        "description": "Vous pouvez également vous inscrire à la Maison des Associations de Sainghin en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à venir muni de votre bulletin d'inscription rempli ainsi que tous les documents requis pour finaliser votre inscription (voir les <italic>Modalités d'inscriptions</italic> plus bas).",
+        "description": "Vous pouvez également vous inscrire à la Maison des Associations de Sainghin en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à venir muni de votre bulletin d'inscription rempli ainsi que tous les documents requis pour finaliser votre inscription (voir les <italic><link>Modalités d'inscriptions</link></italic> plus bas).",
         "linkLabel": "Lien vers l'inscription en ligne"
+      }
+    },
+    "bibSection": {
+      "title": "Retrait des dossards",
+      "anchorId": "retrait-des-dossards",
+      "description": "Les dossards sont à retirer en mairie de Sainghin, aux horaires suivants :",
+      "pickupLines": [
+        "Samedi 20 septembre : de 14h00 à 17h00",
+        "Dimanche 21 septembre : de 7h30 à 9h45"
+      ]
+    },
+    "registrationDetailsSection": {
+      "title": "Modalités d'inscription",
+      "anchorId": "modalites-d-inscription",
+      "forAdults": "Pour les majeurs",
+      "forChildren": "Pour les mineurs",
+      "forChildrenSection": {
+        "description": "Les participants de moins de 18 ans doivent impérativement fournir les 2 documents suivants :",
+        "requiredDocuments": [
+          "Une autorisation parentale signée",
+          "Un questionnaire de santé ou un certificat médical de moins de 6 mois"
+        ],
+        "healthQuestionnaireLink": "Lien vers l'autorisation parentale ",
+        "parentalConstentLink": "Lien vers le questionnaire de santé"
+      },
+      "forAdultsSection": {
+        "description": "Pour valider votre inscription, vous devez fournir l'un des deux documents suivants :",
+        "requiredDocuments": [
+          "Une Licence conforme et en cours de validité",
+          "Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat médical pour les non licenciés"
+        ],
+        "ppsLink": "En savoir plus sur le PPS"
       }
     },
     "banner": {
@@ -134,7 +166,8 @@
     "10km": {
       "title": "10 km de Sainghin en Mélantois",
       "description": "Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l'étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l'objet d'une nouvelle labellisation en 2025.",
-      "additionalInfo": "Un échauffement encadré est proposé à 10h00."
+      "additionalInfo": "Un échauffement encadré est proposé à 10h00.",
+      "rewards": "Les récompenses vont jusqu'à 100€ pour le vainqueur du 10 km. Veuillez trouvez le détail des prix en suivant le lien ci dessous."
     }
   },
   "headerNavigation": {

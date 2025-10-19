@@ -17,7 +17,10 @@ type ColorVariants = VariantProps<typeof colorClasses>;
 interface Props extends ColorVariants {
   i18nKey?: string;
   input?: string;
+  link?: string;
 }
+
+const { i18nKey, input, color, link } = Astro.props;
 
 type TagType = "opening" | "closing";
 
@@ -73,26 +76,36 @@ function interpolateString(translatedString: string) {
 }
 
 function getHTMLMarkupForTag(parsedTag: ParsedTag) {
+  if (parsedTag.tag === "link") {
+    if (!link) {
+      // to do: handle multiple links
+      // a links: string[] seems fine
+      throw new Error(`A link prop must be provided when using <link>`);
+    }
+    if (parsedTag.type === "opening") {
+      return `<a href="${link}" class="${tagClassesMapping["link"]}">`;
+    }
+    return `</a>`;
+  }
   if (parsedTag.type === "opening") {
     return `<span class="${tagClassesMapping[parsedTag.tag]}">`;
   }
   return `</span>`;
 }
 
-const { i18nKey, input, color } = Astro.props;
-
 if (!i18nKey && !input) {
   throw new Error("At least i18nKey or input must be provided");
 }
 
-const SUPPORTED_TAG = ["color", "strong", "italic"] as const;
+const SUPPORTED_TAG = ["color", "strong", "italic", "link"] as const;
 
 type SupportedTag = (typeof SUPPORTED_TAG)[number];
 
-const tagClassesMapping: Record<SupportedTag, string> = {
+const tagClassesMapping: Record<SupportedTag, string | undefined> = {
   color: colorClasses({ color }),
   strong: "font-bold",
   italic: "italic",
+  link: "underline underline-offset-2",
 };
 
 const translatedString = input ?? t(i18nKey as string);

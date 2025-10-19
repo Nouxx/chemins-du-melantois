@@ -6,6 +6,7 @@ import TextLink from "@components/ui/molecules/TextLink.astro";
 import type { RacePageData } from "@data/races/schema";
 import Translation from "@components/ui/atoms/Translation.astro";
 import { t } from "@lib/i18n";
+import { registrationDetailsSectionBaseData } from "@data/races/sections";
 
 interface Props {
   data: RacePageData["registrationSection"]["onSiteRegistration"];
@@ -20,18 +21,13 @@ const { title, description, registrationFormLink } = Astro.props.data;
   </Heading>
 
   <Text size="medium">
-    <Translation input={description} />
+    <Translation
+      input={description}
+      link={`#${registrationDetailsSectionBaseData.anchorId}`}
+    />
   </Text>
 
   <TextLink url={registrationFormLink.url}>
     {registrationFormLink.label}
   </TextLink>
 </RaceDetailSection>
-
-<!-- // todo check -->
-<style>
-  .link__text:hover {
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-</style>

@@ -59,15 +59,20 @@ export const raceRegulationSectionBaseData = {
 
 export const adultRegistrationSectionBaseData: RacePageData["registrationDetailsSection"]["forAdults"] =
   {
-    title: "Pour les majeurs",
-    description:
-      "Pour valider votre inscription, vous devez fournir l'un des deux documents suivants :",
+    title: t("racePage.registrationDetailsSection.forAdults"),
+    description: t(
+      "racePage.registrationDetailsSection.forAdultsSection.description",
+    ),
     requiredDocumentsLines: [
-      "Une Licence conforme et en cours de validité",
-      "Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat médical pour les non licenciés",
+      t(
+        "racePage.registrationDetailsSection.forAdultsSection.requiredDocuments.0",
+      ),
+      t(
+        "racePage.registrationDetailsSection.forAdultsSection.requiredDocuments.1",
+      ),
     ],
     ppsLink: {
-      label: "En savoir plus sur le PPS",
+      label: t("racePage.registrationDetailsSection.forAdultsSection.ppsLink"),
       url: externalLinks.pps,
     },
   };
@@ -80,33 +85,41 @@ export const noRegistrationForAdultSectionData: RacePageData["registrationDetail
   };
 
 export const bibSectionBaseData: RacePageData["bibSection"] = {
-  title: "Retrait des dossards",
-  anchorId: "retrait-des-dossards",
-  description:
-    "Les dossards sont à retirer en mairie de Sainghin, aux horaires suivants :",
+  title: t("racePage.bibSection.title"),
+  anchorId: t("racePage.bibSection.anchorId"),
+  description: t("racePage.bibSection.description"),
   pickupScheduleLines: [
-    "Samedi 20 septembre : de 14h00 à 17h00",
-    "Dimanche 21 septembre : de 7h30 à 9h45",
+    t("racePage.bibSection.pickupLines.0"),
+    t("racePage.bibSection.pickupLines.1"),
   ],
 };
 
 export const registrationDetailsSectionBaseData = {
-  title: "Modalités d'inscription",
-  anchorId: "modalites-d-inscription",
+  title: t("racePage.registrationDetailsSection.title"),
+  anchorId: t("racePage.registrationDetailsSection.anchorId"),
   forChildren: {
-    title: "Pour les mineurs",
-    description:
-      "Les participants de moins de 18 ans doivent impérativement fournir les 2 documents suivants :",
+    title: t("racePage.registrationDetailsSection.forChildren"),
+    description: t(
+      "racePage.registrationDetailsSection.forChildrenSection.description",
+    ),
     requiredDocumentsLines: [
-      "Une autorisation parentale signée",
-      `Un questionnaire de santé ou un certificat médical de moins de 6 mois`,
+      t(
+        "racePage.registrationDetailsSection.forChildrenSection.requiredDocuments.0",
+      ),
+      t(
+        "racePage.registrationDetailsSection.forChildrenSection.requiredDocuments.1",
+      ),
     ],
     healthQuestionnaireLink: {
-      label: "Lien vers l'autorisation parentale ",
+      label: t(
+        "racePage.registrationDetailsSection.forChildrenSection.healthQuestionnaireLink",
+      ),
       url: externalLinks.healthQuestionnaire,
     },
     parentalConstentLink: {
-      label: "Lien vers le questionnaire de santé",
+      label: t(
+        "racePage.registrationDetailsSection.forChildrenSection.parentalConstentLink",
+      ),
       url: externalLinks.parentalConsentForm,
     },
   },

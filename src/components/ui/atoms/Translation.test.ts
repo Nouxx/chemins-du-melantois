@@ -116,3 +116,30 @@ test("should interpolate 2 tags encapsulating the same string", async () => {
     `This is a <span class="font-bold"><span class="italic">Strong and Italic</span></span> text.`,
   );
 });
+
+test("should interpolate a link", async () => {
+  const container = await AstroContainer.create();
+  const result = await container.renderToString(Translation, {
+    props: {
+      input: "This is a <link>link</link> in a text.",
+      link: "#anchorId",
+    },
+  });
+
+  expect(result).toBe(`This is a <a href="#anchorId">link</a> in a text.`);
+});
+
+test("should interpolate a link", async () => {
+  const container = await AstroContainer.create();
+  const result = await container.renderToString(Translation, {
+    props: {
+      input:
+        "This is a <italic><strong>strong text</strong></strong> in a text.",
+    },
+  });
+
+  // maybe we shouldn't allow this?
+  expect(result).toBe(
+    `This is a <span class="italic"><span class="font-bold">strong text</span></span> in a text.`,
+  );
+});

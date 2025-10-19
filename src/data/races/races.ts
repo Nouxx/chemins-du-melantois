@@ -76,8 +76,7 @@ const tenKilometerRacePageData: RacePageData = {
   },
   rewardsSection: {
     ...rewardsSectionBaseData,
-    description:
-      "Les récompenses vont jusqu'à 100€ pour le vainqueur du 10 km. Veuillez trouvez le détail des prix en suivant le lien ci dessous.",
+    description: t("racePage.10km.rewards"),
     rewardsLink: rewardsSummaryLink,
   },
   registrationSection: registrationSectionBaseData,
