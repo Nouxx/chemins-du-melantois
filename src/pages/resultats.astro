@@ -3,11 +3,11 @@ import EventHighlightSection from "@components/functional/events/EventHighlightS
 import MainLayout from "@components/functional/ui/MainLayout.astro";
 import { eventsHighlightsData } from "@data/events/highlights";
 import { getPageTitle, getStructuredDataForPage } from "@data/site/seo";
+import { t } from "@lib/i18n";
 
-const pageTitle = getPageTitle("Résultats & Photos");
+const pageTitle = getPageTitle(t("resultsPage.title"));
 
-const pageDescription =
-  "Revivez les éditions précédentes des Chemins du Mélantois à travers les résultats des courses et les albums photos. Découvrez les moments forts, les performances et l'ambiance festive de chaque année.";
+const pageDescription = t("resultsPage.description");
 ---
 
 <MainLayout

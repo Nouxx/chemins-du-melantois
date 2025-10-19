@@ -9,24 +9,24 @@ import edition2023Hero from "@images/races/2023-edition-hero.webp";
 import edition2019Hero from "@images/races/2019-edition-hero.webp";
 import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
 import { z } from "zod";
+import { t } from "@lib/i18n";
 
-const resultsButtonPhrase = "Résultats";
-const picturesButtonPhrase = "Photos";
+const resultsButtonPhrase = t("resultsPage.results");
+const picturesButtonPhrase = t("resultsPage.photos");
 
 const edition2025Data: EventHighlightData = {
-  title: "Édition 2025",
-  subline:
-    "Cette édition a eu lieu le 21 septembre 2025, sous un ciel mitigé mais sec. Elle a rassemblé plus de 1000 participants (1061 exactement), soit un nouveau record consécutif.",
+  title: t("resultsPage.yearlyEdition", { year: 2025 }),
+  subline: t("resultsPage.2025edition.description"),
   featuredImage: {
     image: edition2025Hero,
-    alt: "Groupe de coureurs courant en forêt",
+    alt: t("resultsPage.2025edition.imageAlt"),
   },
   participantsLines: [
-    { participantsCount: 531, raceName: "10 km" },
-    { participantsCount: 247, raceName: "5 km" },
-    { participantsCount: 179, raceName: "900 m de Sainghin" },
-    { participantsCount: 70, raceName: "900 m de Péronne" },
-    { participantsCount: 34, raceName: "Run & Bike" },
+    { participantsCount: 531, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 247, raceName: t("resultsPage.5kmName") },
+    { participantsCount: 179, raceName: t("resultsPage.900mSainghinName") },
+    { participantsCount: 70, raceName: t("resultsPage.900mPeronneName") },
+    { participantsCount: 34, raceName: t("resultsPage.RunAndBikeName") },
   ],
   resultsLink: {
     label: resultsButtonPhrase,
@@ -34,42 +34,41 @@ const edition2025Data: EventHighlightData = {
   },
   picturesLinks: [
     {
-      label: "Photos départ",
+      label: t("resultsPage.startPictures"),
       url: externalLinks.edition2025StartPhotos,
     },
     {
-      label: "Photos 10 km",
+      label: t("resultsPage.10kPictures"),
       url: externalLinks.edition202510kPhotos,
     },
     {
-      label: "Photos 5 km",
+      label: t("resultsPage.5kPictures"),
       url: externalLinks.edition20255kPhotos,
     },
     {
-      label: "Photos 900 m de Sainghin",
+      label: t("resultsPage.900mSainghinPictures"),
       url: externalLinks.edition2025900mSainghinPhotos,
     },
     {
-      label: "Photos Péronne",
+      label: t("resultsPage.PeronnePictures"),
       url: externalLinks.edition2025PeronnePhotos,
     },
   ],
 };
 
 const edition2024Data: EventHighlightData = {
-  title: "Édition 2024",
-  subline:
-    "L'édition 2024 des chemins du Mélantois a eu lieu le 24 septembre 2024 et a rassemblé 790 participants, soit le plus grand nombre d'inscrits depuis 8 ans !",
+  title: t("resultsPage.yearlyEdition", { year: 2024 }),
+  subline: t("resultsPage.2024edition.description"),
   featuredImage: {
     image: edition2024Hero,
-    alt: "Départ de la course 2024 à Sainghin-en-Mélantois : des centaines de coureurs réunis sous l'arche jaune dans une ambiance festive et conviviale.",
+    alt: t("resultsPage.2024edition.imageAlt"),
   },
   participantsLines: [
-    { participantsCount: 349, raceName: "10 km" },
-    { participantsCount: 162, raceName: "5 km" },
-    { participantsCount: 35, raceName: "Run & Bike" },
-    { participantsCount: 190, raceName: "900 m de Sainghin" },
-    { participantsCount: 54, raceName: "900 m de Péronne" },
+    { participantsCount: 349, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 162, raceName: t("resultsPage.5kmName") },
+    { participantsCount: 35, raceName: t("resultsPage.RunAndBikeName") },
+    { participantsCount: 190, raceName: t("resultsPage.900mSainghinName") },
+    { participantsCount: 54, raceName: t("resultsPage.900mPeronneName") },
   ],
   resultsLink: {
     label: resultsButtonPhrase,
@@ -84,19 +83,18 @@ const edition2024Data: EventHighlightData = {
 };
 
 const edition2023Data: EventHighlightData = {
-  title: "Édition 2023",
-  subline:
-    "L'édition 2023 des chemins du Mélantois s'est tenue le 17 septembre 2023 et a regroupé un total de 653 participants.",
+  title: t("resultsPage.yearlyEdition", { year: 2023 }),
+  subline: t("resultsPage.2023edition.description"),
   featuredImage: {
     image: edition2023Hero,
-    alt: "Participants des Chemins du Mélantois 2024 posant fièrement devant l'église de Sainghin-en-Mélantois avant le départ de la course.",
+    alt: t("resultsPage.2023edition.imageAlt"),
   },
   participantsLines: [
-    { participantsCount: 261, raceName: "10 km" },
-    { participantsCount: 105, raceName: "5 km" },
-    { participantsCount: 14, raceName: "Run & Bike" },
-    { participantsCount: 201, raceName: "900 m de Sainghin" },
-    { participantsCount: 72, raceName: "900 m de Péronne" },
+    { participantsCount: 261, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 105, raceName: t("resultsPage.5kmName") },
+    { participantsCount: 14, raceName: t("resultsPage.RunAndBikeName") },
+    { participantsCount: 201, raceName: t("resultsPage.900mSainghinName") },
+    { participantsCount: 72, raceName: t("resultsPage.900mPeronneName") },
   ],
   resultsLink: {
     label: resultsButtonPhrase,
@@ -111,19 +109,18 @@ const edition2023Data: EventHighlightData = {
 };
 
 const edition2022Data: EventHighlightData = {
-  title: "Édition 2022",
-  subline:
-    "L'édition 2022 des chemins du Mélantois a eu lieu le 18 septembre 2022 et a regroupé un total de 677 participants.",
+  title: t("resultsPage.yearlyEdition", { year: 2022 }),
+  subline: t("resultsPage.2022edition.description"),
   featuredImage: {
     image: edition2022Hero,
-    alt: "Un coureur souriant portant un enfant dans ses bras après sa course lors des Chemins du Mélantois, entouré de spectateurs.",
+    alt: t("resultsPage.2022edition.imageAlt"),
   },
   participantsLines: [
-    { participantsCount: 311, raceName: "10 km" },
-    { participantsCount: 78, raceName: "5 km" },
-    { participantsCount: 14, raceName: "1,5 km" },
-    { participantsCount: 201, raceName: "900 m de Sainghin" },
-    { participantsCount: 73, raceName: "900 m de Péronne" },
+    { participantsCount: 311, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 78, raceName: t("resultsPage.5kmName") },
+    { participantsCount: 14, raceName: t("resultsPage.1dot5kmName") },
+    { participantsCount: 201, raceName: t("resultsPage.900mSainghinName") },
+    { participantsCount: 73, raceName: t("resultsPage.900mPeronneName") },
   ],
   resultsLink: {
     label: resultsButtonPhrase,
@@ -132,19 +129,18 @@ const edition2022Data: EventHighlightData = {
 };
 
 const edition2019Data: EventHighlightData = {
-  title: "Édition 2019",
-  subline:
-    "L'édition 2019 des chemins du Mélantois a eu lieu le 15 septembre 2019 et a regroupé un total de 661 participants.",
+  title: t("resultsPage.yearlyEdition", { year: 2019 }),
+  subline: t("resultsPage.2019edition.description"),
   featuredImage: {
     image: edition2019Hero,
-    alt: "Des enfants attendant le départ de la course des Chemins du Mélantois sur la ligne de départ.",
+    alt: t("resultsPage.2019edition.imageAlt"),
   },
   participantsLines: [
-    { participantsCount: 418, raceName: "10 km" },
-    { participantsCount: 82, raceName: "5 km" },
-    { participantsCount: 16, raceName: "1,5 km" },
-    { participantsCount: 125, raceName: "900 m de Sainghin" },
-    { participantsCount: 20, raceName: "900 m de Péronne" },
+    { participantsCount: 418, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 82, raceName: t("resultsPage.5kmName") },
+    { participantsCount: 16, raceName: t("resultsPage.1dot5kmName") },
+    { participantsCount: 125, raceName: t("resultsPage.900mSainghinName") },
+    { participantsCount: 20, raceName: t("resultsPage.900mPeronneName") },
   ],
   resultsLink: {
     label: resultsButtonPhrase,
