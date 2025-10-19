@@ -32,6 +32,7 @@ export const racePageDataSchema = z.strictObject({
   scheduleSection: z.strictObject({
     ...racePageSectionBaseSchema.shape,
     body: z.string(),
+    meetingPointLine: z.string(),
     meetingPointAddressLines: z.array(z.string()).max(3),
     additionalScheduleInformation: z.string().optional(),
   }),

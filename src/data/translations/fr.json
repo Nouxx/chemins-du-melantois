@@ -101,6 +101,7 @@
     "pricePerTeam": "{{price}}€ par équipe",
     "free": "Gratuit",
     "scheduleLine": "La course a lieu le <strong>{{eventDate}}</strong> et le départ sera lancé à <strong>{{startTime}}</strong>.",
+    "meetingPointLine": "Le point de rendez-vous est le suivant :",
     "routeSection": {
       "title": "Parcours",
       "anchorId": "parcours"

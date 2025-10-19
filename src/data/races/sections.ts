@@ -14,6 +14,7 @@ export const routeSectionBaseData = {
 export const scheduleSectionBaseData = {
   title: t("racePage.scheduleSection.title"),
   anchorId: t("racePage.scheduleSection.anchorId"),
+  meetingPointLine: t("racePage.meetingPointLine"),
 };
 
 export const rewardsSectionBaseData = {
