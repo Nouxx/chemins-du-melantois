@@ -1,13 +1,11 @@
 import type { SupportedLanguages, Translations } from "./types";
-import { readFileSync } from "fs";
+import frenchTranslations from "@data/translations/fr.json";
 
-/**
- * Loads and parses a JSON translation file from a given language code.
- * @param lang the JSON filename in `src/i18n/translations` (e.g., 'fr' for `fr.json`).
- */
+const allTranslations: Record<SupportedLanguages, Translations> = {
+  fr: frenchTranslations,
+};
+
 export const getTranslations = (lang: SupportedLanguages): Translations => {
   // To-do: Add Zod validation here after parsing.
-  return JSON.parse(
-    readFileSync(`${import.meta.dirname}/translations/${lang}.json`, "utf8"),
-  );
+  return allTranslations[lang];
 };

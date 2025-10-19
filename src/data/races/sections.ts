@@ -47,12 +47,11 @@ export const registrationSectionBaseData = {
 };
 
 export const raceRegulationSectionBaseData = {
-  title: "Règlement de course",
-  anchorId: "reglement-de-course",
-  description:
-    "Avant de participer, merci de consulter le règlement officiel de la course, qui précise l'ensemble des modalités de participation, consignes de sécurité, et règles sportives.",
+  title: t("racePage.regulationSection.title"),
+  anchorId: t("racePage.regulationSection.anchorId"),
+  description: t("racePage.regulationSection.description"),
   link: {
-    label: "Lien vers le réglement de course",
+    label: t("racePage.regulationSection.link"),
     url: externalLinks.sportsRegulations,
   },
 };
@@ -79,9 +78,8 @@ export const adultRegistrationSectionBaseData: RacePageData["registrationDetails
 
 export const noRegistrationForAdultSectionData: RacePageData["registrationDetailsSection"]["forAdults"] =
   {
-    title: "Pour les majeurs",
-    description:
-      "Hormis le bulletin d'inscription si vous souhaitez vous inscrire sur place, aucun document n'est requis.",
+    title: t("racePage.registrationDetailsSection.forAdults"),
+    description: t("racePage.registrationDetailsSection.noDocumentRequired"),
   };
 
 export const bibSectionBaseData: RacePageData["bibSection"] = {
@@ -124,6 +122,3 @@ export const registrationDetailsSectionBaseData = {
     },
   },
 };
-
-export const registrationDetailsSectionAnchor =
-  registrationDetailsSectionBaseData.anchorId;

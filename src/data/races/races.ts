@@ -49,8 +49,6 @@ const rewardsSummaryLink = {
   url: externalLinks.rewardsSummary,
 };
 
-const rewardForEveryonePhrase = t("racePage.rewardsForEveryone");
-
 const tenKilometerRacePageData: RacePageData = {
   urlSlug: "10-km-sainghin-en-melantois",
   featuredImage: {
@@ -92,28 +90,27 @@ const runAndBikeRacePageData: RacePageData = {
   urlSlug: "run-and-bike-peronne-en-melantois",
   featuredImage: {
     image: runAndBikeHero,
-    alt: getImageAltText("Run and Bike de Péronne en Mélantois"),
+    alt: getImageAltText(t("racePage.runAndBike.title")),
   },
-  pageTitle: "Run & Bike de Péronne en Mélantois",
+  pageTitle: t("racePage.runAndBike.title"),
   date: eventDate,
-  price: "9€ par équipe",
+  price: t("racePage.pricePerTeam", { price: 9 }),
   routeSection: {
     ...routeSectionBaseData,
-    description:
-      "L'édition 2024 confirme le retour de cette épreuve originale, placée sous le signe du partage et de la transmission. Composée d'un binôme intergénérationnel, elle associe un coureur adulte (parent, grand frère ou sœur, cousin, proche…) et un jeune cycliste, qui ouvre la voie et joue le rôle de lièvre. Le jeune à vélo guide et encourage le coureur à pied, tout au long d'un parcours adapté et sécurisé à travers le village. Une belle manière de vivre la course autrement : en duo, en famille, et dans une ambiance joyeuse et bienveillante.",
+    description: t("racePage.runAndBike.description"),
     tracePDFLink: getTraceLink(externalLinks.edition2025RunAndBike),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
     body: t("racePage.scheduleLine", {
-      startTime: "10h15",
+      startTime: "9h45",
       eventDate: eventDate,
     }),
     meetingPointAddressLines: mairieDePeronneAddressLines,
   },
   rewardsSection: {
     ...rewardsSectionBaseData,
-    description: rewardForEveryonePhrase,
+    description: t("racePage.rewardsForEveryone"),
   },
   registrationSection: registrationSectionBaseData,
   bibSection: bibSectionBaseData,
@@ -128,29 +125,27 @@ const fiveKilometerRacePageData: RacePageData = {
   urlSlug: "5-km-sainghin-en-melantois",
   featuredImage: {
     image: fiveKilometerHero,
-    alt: getImageAltText("5 km de Sainghin en Mélantois"),
+    alt: getImageAltText(t("racePage.5km.title")),
   },
-  pageTitle: "5 km de Sainghin en Mélantois",
+  pageTitle: t("racePage.5km.title"),
   date: eventDate,
-  price: "7€ par participant",
+  price: t("racePage.pricePerParticipant", { price: 7 }),
   routeSection: {
     ...routeSectionBaseData,
-    description:
-      "Découvrez les paysages emblématiques du Mélantois en empruntant un itinéraire nature qui vous mène à travers le Bois de la Noyelle et le long des rives paisibles de la Marque. Composé à 70 % de sentiers, ce parcours se rapproche davantage de l'esprit trail que de la course sur route classique.",
+    description: t("racePage.5km.description"),
     tracePDFLink: getTraceLink(externalLinks.edition2025Trace5km),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
     body: t("racePage.scheduleLine", {
-      startTime: "10h15",
+      startTime: "9h00",
       eventDate: eventDate,
     }),
     meetingPointAddressLines: egliseSaintNicolasAddressLines,
   },
   rewardsSection: {
     ...rewardsSectionBaseData,
-    description:
-      "Les récompenses vont jusqu'à 40€ pour le vainqueur du 5 km. Veuillez trouvez le détail des prix en suivant le lien ci dessous.",
+    description: t("racePage.5km.rewards"),
     rewardsLink: rewardsSummaryLink,
   },
   registrationSection: registrationSectionBaseData,
@@ -166,28 +161,27 @@ const nineHundredSainghinRacePageData: RacePageData = {
   urlSlug: "900-m-sainghin-en-melantois",
   featuredImage: {
     image: nineHundredSainghinHero,
-    alt: getImageAltText("900 m de Sainghin en Mélantois"),
+    alt: getImageAltText(t("racePage.900mSainghin.title")),
   },
-  pageTitle: "900 m de Sainghin en Mélantois",
+  pageTitle: t("racePage.900mSainghin.title"),
   date: eventDate,
-  price: "Gratuit",
+  price: t("racePage.free"),
   routeSection: {
     ...routeSectionBaseData,
-    description:
-      "Un parcours court, ludique et sécurisé, idéal pour les enfants et leurs familles souhaitant s’initier à la course à pied dans une ambiance conviviale. À travers les rues du village de Sainghin, cette boucle accessible met l’accent sur le plaisir de courir ensemble, sans pression de performance. C’est l’occasion parfaite de partager un moment sportif intergénérationnel, dans un cadre chaleureux et festif.",
+    description: t("racePage.900mSainghin.description"),
     tracePDFLink: getTraceLink(externalLinks.edition2025Trace900mSainghin),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
     body: t("racePage.scheduleLine", {
-      startTime: "10h15",
+      startTime: "9h45",
       eventDate: eventDate,
     }),
     meetingPointAddressLines: egliseSaintNicolasAddressLines,
   },
   rewardsSection: {
     ...rewardsSectionBaseData,
-    description: rewardForEveryonePhrase,
+    description: t("racePage.rewardsForEveryone"),
   },
   registrationSection: registrationSectionBaseData,
   bibSection: bibSectionBaseData,
@@ -202,28 +196,27 @@ const nineHundredPeronneRacePageData: RacePageData = {
   urlSlug: "900-m-peronne-en-melantois",
   featuredImage: {
     image: nineHundredPeronneHero,
-    alt: getImageAltText("900 m de Péronne en Mélantois"),
+    alt: getImageAltText(t("racePage.900mPeronne.title")),
   },
-  pageTitle: "900 m de Péronne en Mélantoi",
+  pageTitle: t("racePage.900mPeronne.title"),
   date: eventDate,
-  price: "Gratuit",
+  price: t("racePage.free"),
   routeSection: {
     ...routeSectionBaseData,
-    description:
-      "Ce parcours a été spécialement conçu pour les enfants et leurs familles désireux de s'initier à la course à pied dans une ambiance conviviale et accessible. À travers les rues paisibles et le cadre champêtre du village de Péronne, cette course familiale offre une belle occasion de partager un moment sportif, ludique et intergénérationnel, tout en découvrant le plaisir de courir ensemble, quel que soit son niveau.",
+    description: t("racePage.900mPeronne.description"),
     tracePDFLink: getTraceLink(externalLinks.edition2025Trace900mPeronne),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
     body: t("racePage.scheduleLine", {
-      startTime: "10h15",
+      startTime: "9h15",
       eventDate: eventDate,
     }),
     meetingPointAddressLines: mairieDePeronneAddressLines,
   },
   rewardsSection: {
     ...rewardsSectionBaseData,
-    description: rewardForEveryonePhrase,
+    description: t("racePage.rewardsForEveryone"),
   },
   registrationSection: registrationSectionBaseData,
   bibSection: bibSectionBaseData,
