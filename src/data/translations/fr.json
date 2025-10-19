@@ -261,7 +261,29 @@
     "appreciationSection": {
       "title": "Cet évènement est possible grâce à vous",
       "description": "Grâce à votre énergie, votre bonne humeur et votre présence sur le terrain, cet évènement devient bien plus qu'une simple course : c'est un rendez-vous chaleureux, animé par le sourire des bénévoles, où se mêlent entraide, fierté collective et joie de faire vivre notre village. Sans vous, rien de tout cela ne serait possible.",
-      "imageAlt": "Un bénévole en casque et gilet jaune fait du vélo sur un chemin de campagne, tandis que d’autres personnes marchent ou courent derrière lui."
+      "imageAlt": "Un bénévole en casque et gilet jaune fait du vélo sur un chemin de campagne, tandis que d'autres personnes marchent ou courent derrière lui."
+    },
+    "rolesSection": {
+      "title": "Trouvez le rôle qui vous correspond",
+      "description": "Découvrez les différentes missions et choisissez celle qui vous ressemble. Chaque geste compte pour faire de cet évènement un moment inoubliable.",
+      "marshall": "Signaleur",
+      "marshallDescription": "Je suis positionné sur un point du parcours pour indiquer la direction aux coureurs ou sécuriser un carrefour.",
+      "marshallImageAlt": "Bénévole en vélo sur le parcours, vêtu d'un gilet orange, indiquant la direction aux coureurs.",
+      "aidStation": "Ravitaillement",
+      "aidStationDescription": "Je prépare et distribue eau et en-cas aux coureurs sur les points de ravitaillement.",
+      "aidStationImageAlt": "Trois bénévoles préparant gobelets et en-cas pour les coureurs.",
+      "setupCrew": "Installation",
+      "setupCrewDescription": "J'aide à mettre en place et démonter les équipements : barrières, signalétique, zones de départ et d'arrivée.",
+      "setupCrewImageAlt": "Entrée du village de course à Sainghin-en-Mélantois préparée par les bénévoles.",
+      "registration": "Inscription",
+      "registrationDescription": "J'aide les coureurs à s'inscrire, à récupérer leurs dossards et à répondre à leurs questions.",
+      "registrationImageAlt": "Quatre bénévoles à la table d'inscription, souriantes et accueillantes.",
+      "photographer": "Photographe",
+      "photographerDescription": "Je capture les moments forts de la course : départs, arrivées, sourires, efforts et émotions.",
+      "photographerImageAlt": "Photographe postée sur un balcon prenant des photos de la course.",
+      "muchMore": "Et bien plus !",
+      "muchMoreDescription": "Vous avez une autre compétence et envie de participer ? Nous avons sûrement un rôle pour vous !",
+      "muchMoreImageAlt": "Bénévoles souriants avec un jeune coureur."
     }
   },
   "headerNavigation": {
