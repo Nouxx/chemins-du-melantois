@@ -284,6 +284,10 @@
       "muchMore": "Et bien plus !",
       "muchMoreDescription": "Vous avez une autre compétence et envie de participer ? Nous avons sûrement un rôle pour vous !",
       "muchMoreImageAlt": "Bénévoles souriants avec un jeune coureur."
+    },
+    "callToActionSection": {
+      "title": "Comment devenir bénévole ?",
+      "description": "L'aventure vous tente ? Contactez-nous !"
     }
   },
   "headerNavigation": {
