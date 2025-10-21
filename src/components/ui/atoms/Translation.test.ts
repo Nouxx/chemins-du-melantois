@@ -126,7 +126,9 @@ test("should interpolate a link", async () => {
     },
   });
 
-  expect(result).toBe(`This is a <a href="#anchorId">link</a> in a text.`);
+  expect(result).toBe(
+    `This is a <a href="#anchorId" class="underline underline-offset-2">link</a> in a text.`,
+  );
 });
 
 test("should interpolate a link", async () => {

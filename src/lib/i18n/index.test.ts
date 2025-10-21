@@ -5,19 +5,29 @@ import { t } from "./";
 
 describe("find keys", () => {
   test("find first level key", () => {
-    expect(t("homepage.welcomeSection.title")).toBe("Bienvenue aux Chemins du <color>Mélantois</color>");
+    expect(t("homepage.welcomeSection.title")).toBe(
+      "Bienvenue aux Chemins du <color>Mélantois</color>",
+    );
   });
 
   test("find key in array", () => {
-    expect(t("homepage.faqSection.faqs.0.question")).toBe("Les courses sont-elles labellisées ?");
+    expect(t("homepage.faqSection.faqs.0.question")).toBe(
+      "Les courses sont-elles labellisées ?",
+    );
+  });
+
+  test("should throw error for missing key", () => {
+    expect(() => t("non.existing.key")).toThrowError(
+      "Could not find translation for key: non.existing.key",
+    );
   });
 });
 
 describe("interpolation", () => {
   test("should interpolate number", () => {
-    expect(t("homepage.racesOverview.races.pricePerParticipant", { price: 7 })).toBe(
-      "7€ par participant",
-    );
+    expect(
+      t("homepage.racesOverview.races.pricePerParticipant", { price: 7 }),
+    ).toBe("7€ par participant");
   });
 
   test("should not interpolate missing variable", () => {
