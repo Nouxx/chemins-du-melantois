@@ -1,5 +1,6 @@
 ---
 import Icon from "@components/ui/atoms/icons/Icon.astro";
+import { t } from "@lib/i18n";
 ---
 
 <div class="mr-5 ml-auto md:hidden">
@@ -8,7 +9,7 @@ import Icon from "@components/ui/atoms/icons/Icon.astro";
     class="hs-collapse-toggle flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold text-neutral-600 transition duration-300 hover:bg-neutral-200 disabled:pointer-events-none disabled:opacity-50"
     data-hs-collapse="#navbar-collapse-with-animation"
     aria-controls="navbar-collapse-with-animation"
-    aria-label="Toggle navigation"
+    aria-label={t("headerNavigation.toggleBurgerMenu")}
   >
     <Icon name="burgerMenu" className="hs-collapse-open:hidden" />
 

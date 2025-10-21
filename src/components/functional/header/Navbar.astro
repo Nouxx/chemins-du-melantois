@@ -5,6 +5,7 @@ import MobileBurgerMenu from "@components/functional/header/MobileBurgerMenu.ast
 import NavLinks from "@components/functional/header/NavLinks.astro";
 import BrandLogo from "@components/functional/header/BrandLogo.astro";
 import { routes } from "@data/navigation/routes/routes";
+import { t } from "@lib/i18n";
 ---
 
 <Flex
@@ -21,7 +22,7 @@ import { routes } from "@data/navigation/routes/routes";
       <Link
         url={routes.home}
         className="flex-none rounded-lg"
-        aria-label="Brand"
+        ariaLabel={t("headerNavigation.linkToHome")}
       >
         <BrandLogo class="h-auto w-14 p-1" />
       </Link>

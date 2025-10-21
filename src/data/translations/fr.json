@@ -294,7 +294,9 @@
     "home": "Accueil",
     "races": "Parcours",
     "results": "Après-courses",
-    "volunteer": "Bénévoles"
+    "volunteer": "Bénévoles",
+    "linkToHome": "Lien vers l'accueil",
+    "toggleBurgerMenu": "Basculer le menu"
   },
   "footer": {
     "quickLinks": "Liens rapides",
