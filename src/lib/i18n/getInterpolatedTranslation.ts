@@ -11,14 +11,13 @@ export const getInterpolatedTranslation = (
     return template;
   }
 
-  // todo: test accents
-  return template.replace(/{{\w+}}/g, (rawKey) => {
-    const key = rawKey.replaceAll("{{", "").replaceAll("}}", "");
+  return template.replace(/{{\w+}}/g, (matchedKey) => {
+    const key = matchedKey.replaceAll("{{", "").replaceAll("}}", "");
 
     if (Object.hasOwn(values, key)) {
       return String(values[key]);
     }
-    // to do: throw in prod mode
-    return rawKey;
+
+    return matchedKey;
   });
 };
