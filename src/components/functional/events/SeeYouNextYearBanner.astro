@@ -4,12 +4,17 @@ import Heading from "@components/ui/atoms/Heading.astro";
 import LinkButton from "@components/ui/molecules/LinkButton.astro";
 import CTASection from "@components/ui/molecules/CTASection.astro";
 import { routes } from "@data/navigation/routes/routes";
+import { t } from "@lib/i18n";
 ---
 
 <CTASection>
-  <Heading slot="heading">Rendez-vous en 2026 !</Heading>
-  <Text slot="subTitle">
-    Venez vibrer à nouveau en 2026 sur des parcours conviviaux et 100 % nature !
-  </Text>
-  <LinkButton slot="button" label="Résultats & Photos" url={routes.afterRace} />
+  <Heading slot="heading">{t("homepage.banner.title")}</Heading>
+
+  <Text slot="subTitle">{t("homepage.banner.message")}</Text>
+
+  <LinkButton
+    slot="button"
+    label={t("homepage.banner.label")}
+    url={routes.afterRace}
+  />
 </CTASection>

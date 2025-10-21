@@ -8,52 +8,55 @@ import Flex from "@components/ui/atoms/Flex.astro";
 import { routes } from "@data/navigation/routes/routes";
 import LinkButton from "@components/ui/molecules/LinkButton.astro";
 import Icon from "@components/ui/atoms/icons/Icon.astro";
+import { t } from "@lib/i18n";
 ---
 
 <Section>
   <Grid gap={8} className="lg:mt-16 lg:grid-cols-3 lg:gap-12">
     <Flex direction="col" gap={6} className="lg:col-span-1">
-      <Heading size="small">Nos 5 courses</Heading>
+      <Heading size="small">{t("homepage.racesOverview.title")}</Heading>
 
-      <Text>
-        Cette édition 2025 a proposé notre format habituel de 5 courses variées,
-        parfait pour un événement familial où chacun peut venir et courir
-        ensemble.
-      </Text>
+      <Text>{t("homepage.racesOverview.description")}</Text>
 
-      <LinkButton label="Détails des courses" url={routes.races} />
+      <LinkButton label={t("homepage.racesOverview.link")} url={routes.races} />
     </Flex>
 
     <div class="lg:col-span-2">
       <Grid gap={8} className="sm:grid-cols-2 md:gap-12">
         <IconBlock
-          title="Course à pied - 10 km"
-          subTitle="11€ par participant"
-          body="La boucle de 10km traverse le Bois de la Noyelle, l'étang de pêche de Sainghin, jusqu'à effleurer les Marais de la Marque."
+          title={t("homepage.racesOverview.races.run10km.title")}
+          subTitle={t("homepage.racesOverview.races.pricePerParticipant", {
+            price: 11,
+          })}
+          body={t("homepage.racesOverview.races.run10km.body")}
         >
           <Icon name="manRunning" size="large" color="brandOrange" />
         </IconBlock>
 
         <IconBlock
-          title="Course à pied - 5 km"
-          subTitle="7€ par participant"
-          body="Un parcours nature. Partez à la découverte des plus beaux paysages du Mélantois à travers la nature : Le Bois de la Noyelle Les rives de la Marque Profitez d'un parcours composé à 70 % de chemins plus proche du trail que de la course sur route."
+          title={t("homepage.racesOverview.races.run5km.title")}
+          subTitle={t("homepage.racesOverview.races.pricePerParticipant", {
+            price: 7,
+          })}
+          body={t("homepage.racesOverview.races.run5km.body")}
         >
           <Icon name="manRunning" size="large" color="brandOrange" />
         </IconBlock>
 
         <IconBlock
-          title="Courses à pied - 900 m"
-          subTitle="Gratuit"
-          body="2 parcours de découverte familial, adapté pour les enfants et leurs familles souhaitant découvrir la course à pied à travers le village de Sainghin-en-Mélantois ou de Péronne-en-Mélantois."
+          title={t("homepage.racesOverview.races.run900m.title")}
+          subTitle={t("homepage.racesOverview.races.free")}
+          body={t("homepage.racesOverview.races.run900m.body")}
         >
           <Icon name="manRunning" size="large" color="brandOrange" />
         </IconBlock>
 
         <IconBlock
-          title="Run & Bike"
-          subTitle="9€ par équipe"
-          body="Une épreuve au départ de Péronne composée d'une équipe avec deux catégorie d'âge: un coureur à pied adulte, un ou une jeune cycliste qui joue le rôle de lièvre et supporte le coureur à pied. L'épreuve inter-générationnelle par nature."
+          title={t("homepage.racesOverview.races.runBike.title")}
+          subTitle={t("homepage.racesOverview.races.pricePerTeam", {
+            price: 9,
+          })}
+          body={t("homepage.racesOverview.races.runBike.body")}
         >
           <Icon name="manBiking" size="large" color="brandOrange" />
         </IconBlock>

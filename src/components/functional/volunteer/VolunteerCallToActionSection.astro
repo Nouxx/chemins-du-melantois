@@ -4,11 +4,16 @@ import Heading from "@components/ui/atoms/Heading.astro";
 import LinkButton from "@components/ui/molecules/LinkButton.astro";
 import CTASection from "@components/ui/molecules/CTASection.astro";
 import { SiteMetadata } from "@data/site/metadata";
+import { t } from "@lib/i18n";
 ---
 
 <CTASection>
-  <Heading slot="heading">Comment devenir bénévole ?</Heading>
-  <Text slot="subTitle">L'aventure vous tente ? Contactez-nous !</Text>
+  <Heading slot="heading"
+    >{t("volunteersPage.callToActionSection.title")}</Heading
+  >
+  <Text slot="subTitle"
+    >{t("volunteersPage.callToActionSection.description")}</Text
+  >
   <LinkButton
     slot="button"
     label={SiteMetadata.contactEmail}

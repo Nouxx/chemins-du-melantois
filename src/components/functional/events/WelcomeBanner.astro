@@ -7,30 +7,32 @@ import Flex from "@components/ui/atoms/Flex.astro";
 import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
 import { routes } from "@data/navigation/routes/routes";
 import LinkButton from "@components/ui/molecules/LinkButton.astro";
+import Translation from "@components/ui/atoms/Translation.astro";
+import { t } from "@lib/i18n";
 ---
 
 <LeftAndRightSection>
   <Flex slot="left" direction="col" gap={8}>
     <Heading tag="h1">
-      Bienvenue aux Chemins du
-      <span class="text-brand-light-green"> Mélantois</span>
+      <Translation i18nKey="homepage.welcomeSection.title" color="lightGreen" />
     </Heading>
 
     <Text>
-      L'édition 2025 des Chemins du Mélantois est terminée ! Rendez-vous l'année
-      prochaine. Redécouvrez les moments forts ainsi que les résultats de cette
-      dernière édition.
+      {t("homepage.welcomeSection.message")}
     </Text>
 
     <Flex direction="row" gap={4} wrap="wrap">
-      <LinkButton label="Résultats & photos" url={routes.afterRace} />
+      <LinkButton
+        label={t("homepage.welcomeSection.link")}
+        url={routes.afterRace}
+      />
     </Flex>
   </Flex>
 
   <ImageWrapper
     slot="right"
     image={heroImage}
-    imageAlt="Coureurs au départ de la course des Chemins du Mélantois"
+    imageAlt={t("homepage.welcomeSection.imageAlt")}
     sizes="(max-width: 640px) 100vw, (max-width: 1536px) 50vw, 438px"
     rounded
   />

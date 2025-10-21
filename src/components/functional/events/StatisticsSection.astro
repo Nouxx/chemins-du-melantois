@@ -6,33 +6,42 @@ import Heading from "@components/ui/atoms/Heading.astro";
 import Section from "@components/ui/atoms/Section.astro";
 import StatBig from "@components/ui/molecules/StatBig.astro";
 import StatSmall from "@components/ui/molecules/StatSmall.astro";
+import { t } from "@lib/i18n";
 ---
 
 <Section>
   <Flex direction="col" gap={4}>
-    <Heading tag="h2">En quelques chiffres</Heading>
+    <Heading tag="h2">{t("homepage.statisticsSection.heading")}</Heading>
 
     <Text className="mb-16 max-w-prose leading-relaxed">
-      Cet évènement est organisé par l'association « Les chemins du Mélantois »
-      sous l'impulsion des communes de Sainghin-en-Mélantois et
-      Péronne-en-Mélantois, et est entièrement bénévole. Il a pour but de
-      promouvoir la pratique du sport en milieu naturel, de faire découvrir le
-      Mélantois et de récolter des fonds pour des associations locales.
+      {t("homepage.statisticsSection.description")}
     </Text>
   </Flex>
 
   <Grid gap={6} className="items-center lg:grid-cols-12 lg:gap-12">
     <div class="lg:col-span-4">
-      <StatBig title="3200" subTitle="participants depuis sa création" />
+      <StatBig
+        title={t("homepage.statisticsSection.statBigTitle")}
+        subTitle={t("homepage.statisticsSection.statBigSubtitle")}
+      />
     </div>
 
     <div
       class="relative lg:col-span-8 lg:before:absolute lg:before:-start-12 lg:before:top-0 lg:before:h-full lg:before:w-px lg:before:bg-neutral-300"
     >
       <Flex direction="row" gap={8} wrap="wrap" className="justify-between">
-        <StatSmall title="14ème" subTitle="édition depuis 2011" />
-        <StatSmall title="5" subTitle="formats disponible" />
-        <StatSmall title="10min" subTitle="en voiture depuis Lille" />
+        <StatSmall
+          title={t("homepage.statisticsSection.statSmall1Title")}
+          subTitle={t("homepage.statisticsSection.statSmall1Subtitle")}
+        />
+        <StatSmall
+          title={t("homepage.statisticsSection.statSmall2Title")}
+          subTitle={t("homepage.statisticsSection.statSmall2Subtitle")}
+        />
+        <StatSmall
+          title={t("homepage.statisticsSection.statSmall3Title")}
+          subTitle={t("homepage.statisticsSection.statSmall3Subtitle")}
+        />
       </Flex>
     </div>
   </Grid>

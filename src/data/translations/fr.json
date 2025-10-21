@@ -1,0 +1,310 @@
+{
+  "homepage": {
+    "welcomeSection": {
+      "title": "Bienvenue aux Chemins du <color>Mélantois</color>",
+      "message": "L'édition 2025 des Chemins du Mélantois est terminée ! Rendez-vous l'année prochaine. Redécouvrez les moments forts ainsi que les résultats de cette dernière édition.",
+      "link": "Résultats & photos",
+      "imageAlt": "Coureurs au départ de la course des Chemins du Mélantois"
+    },
+    "statisticsSection": {
+      "heading": "En quelques chiffres",
+      "description": "Cet évènement est organisé par l'association « Les chemins du Mélantois » sous l'impulsion des communes de Sainghin-en-Mélantois et Péronne-en-Mélantois, et est entièrement bénévole. Il a pour but de promouvoir la pratique du sport en milieu naturel, de faire découvrir le Mélantois et de récolter des fonds pour des associations locales.",
+      "statBigTitle": "3200",
+      "statBigSubtitle": "participants depuis sa création",
+      "statSmall1Title": "14ème",
+      "statSmall1Subtitle": "édition depuis 2011",
+      "statSmall2Title": "5",
+      "statSmall2Subtitle": "formats disponible",
+      "statSmall3Title": "10min",
+      "statSmall3Subtitle": "en voiture depuis Lille"
+    },
+    "videoSection": {
+      "title": "Retour en images sur l'édition 2024 !",
+      "imageAlt": "Vue aérienne de la course a coeur du village de Sainghin en Mélantois"
+    },
+    "racesOverview": {
+      "title": "Nos 5 courses",
+      "description": "Cette édition 2025 a proposé notre format habituel de 5 courses variées, parfait pour un événement familial où chacun peut venir et courir ensemble.",
+      "link": "Détails des courses",
+      "races": {
+        "pricePerParticipant": "{{price}}€ par participant",
+        "pricePerTeam": "{{price}}€ par équipe",
+        "free": "Gratuit",
+        "run10km": {
+          "title": "Course à pied - 10 km",
+          "body": "La boucle de 10km traverse le Bois de la Noyelle, l'étang de pêche de Sainghin, jusqu'à effleurer les Marais de la Marque."
+        },
+        "run5km": {
+          "title": "Course à pied - 5 km",
+          "body": "Un parcours nature. Partez à la découverte des plus beaux paysages du Mélantois à travers la nature : Le Bois de la Noyelle Les rives de la Marque Profitez d'un parcours composé à 70 % de chemins plus proche du trail que de la course sur route."
+        },
+        "run900m": {
+          "title": "Courses à pied - 900 m",
+          "body": "2 parcours de découverte familial, adapté pour les enfants et leurs familles souhaitant découvrir la course à pied à travers le village de Sainghin-en-Mélantois ou de Péronne-en-Mélantois."
+        },
+        "runBike": {
+          "title": "Run & Bike",
+          "body": "Une épreuve au départ de Péronne composée d'une équipe avec deux catégorie d'âge: un coureur à pied adulte, un ou une jeune cycliste qui joue le rôle de lièvre et supporte le coureur à pied. L'épreuve inter-générationnelle par nature."
+        }
+      }
+    },
+    "faqSection": {
+      "heading": "Questions fréquemment posées",
+      "description": "Trouvez rapidement des réponses aux questions que l'on nous pose chaque année.",
+      "faqs": [
+        {
+          "question": "Les courses sont-elles labellisées ?",
+          "answer": "Seule la course du 10 km bénéficie d'un label départemental. Les autres formats ne sont pas labellisés."
+        },
+        {
+          "question": "Quelle est la fréquence des ravitaillements ?",
+          "answer": "Le parcours du 10 km propose 4 points de ravitaillement répartis équitablement. Le 5 km dispose d'un point unique. Les autres courses n'ont pas de ravitaillement prévu."
+        },
+        {
+          "question": "Où puis-je me garer ?",
+          "answer": "Le stationnement est interdit dans le centre de Sainghin-en-Mélantois, mais le parking du stade est accessible avant 9h."
+        },
+        {
+          "question": "Que contient le sac coureur remis avant le départ ?",
+          "answer": "Chaque participant reçoit un petit cadeau surprise au moment de la remise des dossards. Les enfants inscrits aux courses de 900 m repartent quant à eux avec une médaille."
+        },
+        {
+          "question": "Où puis-je consulter mes résultats après la course ?",
+          "answer": "Les résultats seront publiés sur notre site dans la rubrique « Après-course » et accessibles via notre site partenaire."
+        }
+      ]
+    },
+    "sponsorsSection": {
+      "heading": "Un grand merci à nos partenaires",
+      "logosAlt": {
+        "MEL": "Logo de la Métropole Européenne de Lille",
+        "Nord": "Logo du Département du Nord",
+        "CreditMutuel": "Logo du Crédit Mutuel",
+        "Match": "Logo des Supermarchés Match",
+        "Rekeep": "Logo de l'entreprise Rekeep"
+      }
+    },
+    "banner": {
+      "title": "Rendez-vous en 2026 !",
+      "message": "Venez vibrer à nouveau en 2026 sur des parcours conviviaux et 100 % nature !",
+      "label": "Résultats & Photos"
+    }
+  },
+  "racePage": {
+    "description": "Découvrez les différentes épreuves des Chemins du Mélantois : du 900 m au 10 km, des courses accessibles, conviviales et ouvertes à tous les profils, dans un cadre naturel et chaleureux.",
+    "eventDate": "21 septembre 2025",
+    "linkToPdfTrace": "Lien vers le tracé (PDF)",
+    "linkToMapsTrace": "Lien vers les tracés interactifs (Maps)",
+    "linkToRewardsSummary": "Lien vers le tableau des récompenses",
+    "rewardsForEveryone": "Une médaille est remise à chaque participant.",
+    "pricePerParticipant": "{{price}}€ par participant",
+    "pricePerTeam": "{{price}}€ par équipe",
+    "free": "Gratuit",
+    "scheduleLine": "La course a lieu le <strong>{{eventDate}}</strong> et le départ sera lancé à <strong>{{startTime}}</strong>.",
+    "meetingPointLine": "Le point de rendez-vous est le suivant :",
+    "routeSection": {
+      "title": "Parcours",
+      "anchorId": "parcours"
+    },
+    "scheduleSection": {
+      "title": "Départ et horaires",
+      "anchorId": "depart-et-horaires"
+    },
+    "rewardsSection": {
+      "title": "Récompenses",
+      "anchorId": "recompenses"
+    },
+    "registrationSection": {
+      "title": "Inscription",
+      "anchorId": "inscription",
+      "onlineRegistration": {
+        "title": "En ligne",
+        "description": "Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00 via notre plateforme partenaire <italic><strong>Miles Republic</strong></italic>. Le paiement s'effectue également sur cette plateforme.",
+        "linkLabel": "Lien vers l'inscription en ligne"
+      },
+      "onSiteRegistration": {
+        "title": "Sur place",
+        "description": "Vous pouvez également vous inscrire à la Maison des Associations de Sainghin en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à venir muni de votre bulletin d'inscription rempli ainsi que tous les documents requis pour finaliser votre inscription (voir les <italic><link>Modalités d'inscriptions</link></italic> plus bas).",
+        "linkLabel": "Lien vers l'inscription en ligne"
+      }
+    },
+    "bibSection": {
+      "title": "Retrait des dossards",
+      "anchorId": "retrait-des-dossards",
+      "description": "Les dossards sont à retirer en mairie de Sainghin, aux horaires suivants :",
+      "pickupLines": [
+        "Samedi 20 septembre : de 14h00 à 17h00",
+        "Dimanche 21 septembre : de 7h30 à 9h45"
+      ]
+    },
+    "registrationDetailsSection": {
+      "title": "Modalités d'inscription",
+      "anchorId": "modalites-d-inscription",
+      "forAdults": "Pour les majeurs",
+      "forChildren": "Pour les mineurs",
+      "noDocumentRequired": "Hormis le bulletin d'inscription si vous souhaitez vous inscrire sur place, aucun document n'est requis.",
+      "forChildrenSection": {
+        "description": "Les participants de moins de 18 ans doivent impérativement fournir les 2 documents suivants :",
+        "requiredDocuments": [
+          "Une autorisation parentale signée",
+          "Un questionnaire de santé ou un certificat médical de moins de 6 mois"
+        ],
+        "healthQuestionnaireLink": "Lien vers l'autorisation parentale ",
+        "parentalConstentLink": "Lien vers le questionnaire de santé"
+      },
+      "forAdultsSection": {
+        "description": "Pour valider votre inscription, vous devez fournir l'un des deux documents suivants :",
+        "requiredDocuments": [
+          "Une Licence conforme et en cours de validité",
+          "Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat médical pour les non licenciés"
+        ],
+        "ppsLink": "En savoir plus sur le PPS"
+      }
+    },
+    "regulationSection": {
+      "title": "Règlement de course",
+      "anchorId": "reglement-de-course",
+      "description": "Avant de participer, merci de consulter le règlement officiel de la course, qui précise l'ensemble des modalités de participation, consignes de sécurité, et règles sportives.",
+      "link": "Lien vers le réglement de course"
+    },
+    "banner": {
+      "title": "Parcours 2025",
+      "message": "5 distances, 5 ambiances, une même passion ! Que vous soyez coureur aguerri, amateur de nature ou en famille, nos parcours s'adaptent à tous les profils. Découvrez les paysages du Mélantois à travers des épreuves conviviales, accessibles et bien encadrées."
+    },
+    "raceImageAlt": "Tracé du parcours du {{raceName}} des Chemins du Mélantois, édition 2025",
+    "10km": {
+      "title": "10 km de Sainghin en Mélantois",
+      "description": "Le parcours de 10 km sillonne le Bois de la Noyelle, emprunte le nouveau chemin le long de la Marque ouvert en 2025, longe l'étang de pêche de Sainghin et frôle les Marais de la Marque. Il est re-mesuré tous les 5 ans et a donc fait l'objet d'une nouvelle labellisation en 2025.",
+      "additionalInfo": "Un échauffement encadré est proposé à 10h00.",
+      "rewards": "Les récompenses vont jusqu'à 100€ pour le vainqueur du 10 km. Veuillez trouvez le détail des prix en suivant le lien ci dessous."
+    },
+    "runAndBike": {
+      "title": "Run & Bike de Péronne en Mélantois",
+      "description": "L'édition 2024 confirme le retour de cette épreuve originale, placée sous le signe du partage et de la transmission. Composée d'un binôme intergénérationnel, elle associe un coureur adulte (parent, grand frère ou sœur, cousin, proche…) et un jeune cycliste, qui ouvre la voie et joue le rôle de lièvre. Le jeune à vélo guide et encourage le coureur à pied, tout au long d'un parcours adapté et sécurisé à travers le village. Une belle manière de vivre la course autrement : en duo, en famille, et dans une ambiance joyeuse et bienveillante."
+    },
+    "5km": {
+      "title": "5 km de Sainghin en Mélantois",
+      "description": "Découvrez les paysages emblématiques du Mélantois en empruntant un itinéraire nature qui vous mène à travers le Bois de la Noyelle et le long des rives paisibles de la Marque. Composé à 70 % de sentiers, ce parcours se rapproche davantage de l'esprit trail que de la course sur route classique.",
+      "rewards": "Les récompenses vont jusqu'à 40€ pour le vainqueur du 5 km. Veuillez trouvez le détail des prix en suivant le lien ci dessous."
+    },
+    "900mSainghin": {
+      "title": "900 m de Sainghin en Mélantois",
+      "description": "Un parcours court, ludique et sécurisé, idéal pour les enfants et leurs familles souhaitant s'initier à la course à pied dans une ambiance conviviale. À travers les rues du village de Sainghin, cette boucle accessible met l'accent sur le plaisir de courir ensemble, sans pression de performance. C'est l'occasion parfaite de partager un moment sportif intergénérationnel, dans un cadre chaleureux et festif."
+    },
+    "900mPeronne": {
+      "title": "900 m de Péronne en Mélantois",
+      "description": "Ce parcours a été spécialement conçu pour les enfants et leurs familles désireux de s'initier à la course à pied dans une ambiance conviviale et accessible. À travers les rues paisibles et le cadre champêtre du village de Péronne, cette course familiale offre une belle occasion de partager un moment sportif, ludique et intergénérationnel, tout en découvrant le plaisir de courir ensemble, quel que soit son niveau."
+    }
+  },
+  "resultsPage": {
+    "title": "Résultats & Photos",
+    "description": "Revivez les éditions précédentes des Chemins du Mélantois à travers les résultats des courses et les albums photos. Découvrez les moments forts, les performances et l'ambiance festive de chaque année.",
+    "yearlyEdition": "Édition {{year}}",
+    "10kmName": "10 km",
+    "5kmName": "5 km",
+    "1dot5kmName": "1,5 km",
+    "RunAndBikeName": "Run & Bike",
+    "900mSainghinName": "900 m de Sainghin",
+    "900mPeronneName": "900 m de Péronne",
+    "results": "Résultats",
+    "photos": "Photos",
+    "startPictures": "Photos départ",
+    "10kPictures": "Photos 10 km",
+    "5kPictures": "Photos 5 km",
+    "900mSainghinPictures": "Photos 900 m de Sainghin",
+    "PeronnePictures": "Photos Péronne",
+    "participantsLine": "{{count}} participants au {{raceName}}.",
+    "2025edition": {
+      "description": "Cette édition a eu lieu le 21 septembre 2025, sous un ciel mitigé mais sec. Elle a rassemblé plus de 1000 participants (1061 exactement), soit un nouveau record consécutif.",
+      "imageAlt": "Groupe de coureurs courant en forêt",
+      "resultsLink": {
+        "label": ""
+      },
+      "picturesLinks": [
+        {
+          "label": "Photos départ"
+        },
+        {
+          "label": "Photos 10 km"
+        },
+        {
+          "label": "Photos 5 km"
+        },
+        {
+          "label": "Photos 900 m de Sainghin"
+        },
+        {
+          "label": "Photos Péronne"
+        }
+      ]
+    },
+    "2024edition": {
+      "description": "L'édition 2024 des chemins du Mélantois a eu lieu le 24 septembre 2024 et a rassemblé 790 participants, soit le plus grand nombre d'inscrits depuis 8 ans !",
+      "imageAlt": "Départ de la course 2024 à Sainghin-en-Mélantois : des centaines de coureurs réunis sous l'arche jaune dans une ambiance festive et conviviale."
+    },
+    "2023edition": {
+      "description": "L'édition 2023 des chemins du Mélantois s'est tenue le 17 septembre 2023 et a regroupé un total de 653 participants.",
+      "imageAlt": "Participants des Chemins du Mélantois 2023 posant fièrement devant l'église de Sainghin-en-Mélantois avant le départ de la course."
+    },
+    "2022edition": {
+      "description": "L'édition 2022 des chemins du Mélantois a eu lieu le 18 septembre 2022 et a regroupé un total de 677 participants.",
+      "imageAlt": "Un coureur souriant portant un enfant dans ses bras après sa course lors des Chemins du Mélantois, entouré de spectateurs."
+    },
+    "2019edition": {
+      "description": "L'édition 2019 des chemins du Mélantois a eu lieu le 15 septembre 2019 et a regroupé un total de 661 participants.",
+      "imageAlt": "Des enfants attendant le départ de la course des Chemins du Mélantois sur la ligne de départ."
+    }
+  },
+  "volunteersPage": {
+    "title": "Bénévoles",
+    "description": "Participez à l'organisation de notre course en rejoignant l'équipe de bénévoles ! Votre aide est précieuse pour faire de cet événement un moment chaleureux, solidaire et inoubliable pour tous.",
+    "appreciationSection": {
+      "title": "Cet évènement est possible grâce à vous",
+      "description": "Grâce à votre énergie, votre bonne humeur et votre présence sur le terrain, cet évènement devient bien plus qu'une simple course : c'est un rendez-vous chaleureux, animé par le sourire des bénévoles, où se mêlent entraide, fierté collective et joie de faire vivre notre village. Sans vous, rien de tout cela ne serait possible.",
+      "imageAlt": "Un bénévole en casque et gilet jaune fait du vélo sur un chemin de campagne, tandis que d'autres personnes marchent ou courent derrière lui."
+    },
+    "rolesSection": {
+      "title": "Trouvez le rôle qui vous correspond",
+      "description": "Découvrez les différentes missions et choisissez celle qui vous ressemble. Chaque geste compte pour faire de cet évènement un moment inoubliable.",
+      "marshall": "Signaleur",
+      "marshallDescription": "Je suis positionné sur un point du parcours pour indiquer la direction aux coureurs ou sécuriser un carrefour.",
+      "marshallImageAlt": "Bénévole en vélo sur le parcours, vêtu d'un gilet orange, indiquant la direction aux coureurs.",
+      "aidStation": "Ravitaillement",
+      "aidStationDescription": "Je prépare et distribue eau et en-cas aux coureurs sur les points de ravitaillement.",
+      "aidStationImageAlt": "Trois bénévoles préparant gobelets et en-cas pour les coureurs.",
+      "setupCrew": "Installation",
+      "setupCrewDescription": "J'aide à mettre en place et démonter les équipements : barrières, signalétique, zones de départ et d'arrivée.",
+      "setupCrewImageAlt": "Entrée du village de course à Sainghin-en-Mélantois préparée par les bénévoles.",
+      "registration": "Inscription",
+      "registrationDescription": "J'aide les coureurs à s'inscrire, à récupérer leurs dossards et à répondre à leurs questions.",
+      "registrationImageAlt": "Quatre bénévoles à la table d'inscription, souriantes et accueillantes.",
+      "photographer": "Photographe",
+      "photographerDescription": "Je capture les moments forts de la course : départs, arrivées, sourires, efforts et émotions.",
+      "photographerImageAlt": "Photographe postée sur un balcon prenant des photos de la course.",
+      "muchMore": "Et bien plus !",
+      "muchMoreDescription": "Vous avez une autre compétence et envie de participer ? Nous avons sûrement un rôle pour vous !",
+      "muchMoreImageAlt": "Bénévoles souriants avec un jeune coureur."
+    },
+    "callToActionSection": {
+      "title": "Comment devenir bénévole ?",
+      "description": "L'aventure vous tente ? Contactez-nous !"
+    }
+  },
+  "headerNavigation": {
+    "home": "Accueil",
+    "races": "Parcours",
+    "results": "Après-courses",
+    "volunteer": "Bénévoles"
+  },
+  "footer": {
+    "quickLinks": "Liens rapides",
+    "contactUs": "Nous contacter",
+    "registrationForm": "Bulletin d'inscription",
+    "registrantsList": "Liste des inscrits",
+    "pps": "PPS",
+    "contactByEmail": "Par email",
+    "becomeVolunteer": "Devenir bénévole",
+    "facebookLinkAriaLabel": "Lien vers Facebook",
+    "instagramLinkAriaLabel": "Lien vers Instagram"
+  }
+}

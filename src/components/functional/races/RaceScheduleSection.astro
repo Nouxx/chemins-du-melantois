@@ -3,6 +3,7 @@ import RaceDetailSection from "@components/functional/races/RaceDetailSection.as
 import Text from "@components/ui/atoms/Text.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
 import type { RacePageData } from "@data/races/schema";
+import Translation from "@components/ui/atoms/Translation.astro";
 
 interface Props {
   data: RacePageData["scheduleSection"];
@@ -11,8 +12,8 @@ interface Props {
 const {
   title,
   anchorId,
-  eventDate,
-  startTime,
+  body,
+  meetingPointLine,
   meetingPointAddressLines,
   additionalScheduleInformation,
 } = Astro.props.data;
@@ -22,14 +23,10 @@ const {
   <Heading size="small" id={anchorId} tag="h2">{title}</Heading>
 
   <Text size="medium">
-    La course a lieu le
-    <span class="font-bold">{eventDate}</span>
-    et le départ sera lancé à
-    <span class="font-bold">{startTime}</span>
-    .
+    <Translation input={body} />
   </Text>
 
-  <Text size="medium">Le point de rendez-vous est le suivant :</Text>
+  <Text size="medium">{meetingPointLine}</Text>
 
   <div class="address">
     {

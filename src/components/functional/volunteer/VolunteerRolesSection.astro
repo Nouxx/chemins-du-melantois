@@ -11,72 +11,67 @@ import imgVolunteersManTakingAPicture from "@images/volunteers/man-taking-pictur
 import imgVolunteersInstallations from "@images/volunteers/finish-line-before-the-race.webp";
 import imgVolunteersPosing from "@images/volunteers/volunteers-and-participant-posing.webp";
 import VolunteerRoleGridCard from "@components/functional/volunteer/VolunteerRoleGridCard.astro";
+import { t } from "@lib/i18n";
 
-const MarshalRoleData = {
-  role: "Signaleur",
-  content:
-    "Je suis positionné sur un point du parcours pour indiquer la direction aux coureurs ou sécuriser un carrefour.",
+const MarshallRoleData = {
+  role: t("volunteersPage.rolesSection.marshall"),
+  content: t("volunteersPage.rolesSection.marshallDescription"),
   roleImage: {
     image: imgVolunteersManCycling,
-    alt: "Bénevole en vélo sur le parcours, vêtu d'un gilet orange, indiquant la direction aux coureurs.",
+    alt: t("volunteersPage.rolesSection.marshallImageAlt"),
   },
 };
 
 const AidStationCrewRoleData = {
-  role: "Ravitaillement",
-  content:
-    "Je prépare et distribue eau et encas aux coureurs sur les points de ravitaillement.",
+  role: t("volunteersPage.rolesSection.aidStation"),
+  content: t("volunteersPage.rolesSection.aidStationDescription"),
   roleImage: {
     image: imgVolunteersFood,
-    alt: "Trois bénévoles préparant gobelets et encas pour les coureurs.",
+    alt: t("volunteersPage.rolesSection.aidStationImageAlt"),
   },
 };
 
 const SetupCrewRoleData = {
-  role: "Installation",
-  content:
-    "J'aide à mettre en place et démonter les équipements : barrières, signalétique, zones de départ et d'arrivée.",
+  role: t("volunteersPage.rolesSection.setupCrew"),
+  content: t("volunteersPage.rolesSection.setupCrewDescription"),
   roleImage: {
     image: imgVolunteersInstallations,
-    alt: "Entrée du village de course à Sainghin-en-Mélantois préparée par les bénévoles.",
+    alt: t("volunteersPage.rolesSection.setupCrewImageAlt"),
   },
 };
 
-const registrationeCrewRoleData = {
-  role: "Inscription",
-  content:
-    "J'aide les coureurs à s'inscrire, à récupérer leurs dossards et à répondre à leurs questions.",
+const registrationCrewRoleData = {
+  role: t("volunteersPage.rolesSection.registration"),
+  content: t("volunteersPage.rolesSection.registrationDescription"),
   roleImage: {
     image: imgVolunteersRegistration,
-    alt: "Quatre bénévoles à la table d'inscription, souriantes et accueillantes.",
+    alt: t("volunteersPage.rolesSection.registrationImageAlt"),
   },
 };
 
 const photographerRoleData = {
-  role: "Photographe",
-  content:
-    "Je capture les moments forts de la course : départs, arrivées, sourires, efforts et émotions.",
+  role: t("volunteersPage.rolesSection.photographer"),
+  content: t("volunteersPage.rolesSection.photographerDescription"),
   roleImage: {
     image: imgVolunteersManTakingAPicture,
-    alt: "Photographe postée sur un balcon prenant des photos de la course.",
+    alt: t("volunteersPage.rolesSection.photographerImageAlt"),
   },
 };
 
 const andMuchMoreRoleData = {
-  role: "Et bien plus !",
-  content:
-    "Vous avez une autre compétence et envie de participer ? Nous avons sûrement un rôle pour vous !",
+  role: t("volunteersPage.rolesSection.muchMore"),
+  content: t("volunteersPage.rolesSection.muchMoreDescription"),
   roleImage: {
     image: imgVolunteersPosing,
-    alt: "Bénévoles souriants avec un jeune coureur.",
+    alt: t("volunteersPage.rolesSection.muchMoreImageAlt"),
   },
 };
 
 const volunteerRolesData = [
-  MarshalRoleData,
+  MarshallRoleData,
   AidStationCrewRoleData,
   SetupCrewRoleData,
-  registrationeCrewRoleData,
+  registrationCrewRoleData,
   photographerRoleData,
   andMuchMoreRoleData,
 ];
@@ -85,12 +80,10 @@ const volunteerRolesData = [
 <Section>
   <Flex direction="col" gap={8}>
     <Flex direction="col" gap={4}>
-      <Heading size="medium">Trouvez le rôle qui vous correspond</Heading>
+      <Heading size="medium">{t("volunteersPage.rolesSection.title")}</Heading>
 
       <Text>
-        Découvrez les différentes missions et choisissez celle qui vous
-        ressemble. Chaque geste compte pour faire de cet évènement un moment
-        inoubliable.
+        {t("volunteersPage.rolesSection.description")}
       </Text>
     </Flex>
 

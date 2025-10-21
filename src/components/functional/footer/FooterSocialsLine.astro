@@ -5,6 +5,7 @@ import Flex from "@components/ui/atoms/Flex.astro";
 import Icon from "@components/ui/atoms/icons/Icon.astro";
 import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
 import { SiteMetadata } from "@data/site/metadata";
+import { t } from "@lib/i18n";
 ---
 
 <Flex direction="row" wrap="wrap" justify="between" className="mt-9 pb-2">
@@ -17,14 +18,14 @@ import { SiteMetadata } from "@data/site/metadata";
   <div>
     <FooterSocialLink
       url={externalLinks.facebook}
-      ariaLabel="Lien vers Facebook"
+      ariaLabel={t("footer.facebookLinkAriaLabel")}
     >
       <Icon name="facebook" size="small" />
     </FooterSocialLink>
 
     <FooterSocialLink
       url={externalLinks.instagram}
-      ariaLabel="Lien vers Instagram"
+      ariaLabel={t("footer.instagramLinkAriaLabel")}
     >
       <Icon name="instagram" size="small" />
     </FooterSocialLink>

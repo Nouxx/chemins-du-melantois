@@ -1,0 +1,116 @@
+---
+import { textColorVariants } from "@components/ui/props/typography";
+import { t } from "@lib/i18n";
+import { cva, type VariantProps } from "class-variance-authority";
+
+const colorClasses = cva(undefined, {
+  variants: {
+    color: textColorVariants,
+  },
+  defaultVariants: {
+    color: "lightGreen",
+  },
+});
+
+type ColorVariants = VariantProps<typeof colorClasses>;
+
+interface Props extends ColorVariants {
+  i18nKey?: string;
+  input?: string;
+  link?: string;
+}
+
+const { i18nKey, input, color, link } = Astro.props;
+
+type TagType = "opening" | "closing";
+
+type ParsedTag = {
+  tag: SupportedTag;
+  type: TagType;
+};
+
+function isSupportedTag(input: string): input is SupportedTag {
+  return SUPPORTED_TAG.includes(input as SupportedTag);
+}
+
+function parseTag(input: string): ParsedTag {
+  const stripped = input.replace("<", "").replace(">", "").replace("/", "");
+
+  if (!isSupportedTag(stripped)) {
+    throw new Error(`Tag ${stripped} is not supported`);
+  }
+
+  if (input.startsWith("</")) {
+    return { type: "closing", tag: stripped };
+  }
+  if (input.startsWith("<")) {
+    return { type: "opening", tag: stripped };
+  }
+
+  throw new Error(`Could not parse tag from ${input}`);
+}
+
+function interpolateString(translatedString: string) {
+  const openingTagsRegexPattern = `<(${SUPPORTED_TAG.join("|")})>`;
+  const closingTagsRegexPattern = `<\/(${SUPPORTED_TAG.join("|")})>`;
+
+  const openingTags =
+    translatedString.match(new RegExp(openingTagsRegexPattern, "g")) || [];
+  const closingTags =
+    translatedString.match(new RegExp(closingTagsRegexPattern, "g")) || [];
+
+  if (openingTags.length !== closingTags.length) {
+    throw new Error(
+      `The number of opening tags (${openingTags.length}) and closing tags (${closingTags.length}) does not match.`
+    );
+  }
+
+  const allTagsRegexPattern = `<(\/)?(${SUPPORTED_TAG.join("|")})>`;
+
+  return translatedString.replace(
+    new RegExp(allTagsRegexPattern, "g"),
+    (tag) => {
+      return getHTMLMarkupForTag(parseTag(tag));
+    }
+  );
+}
+
+function getHTMLMarkupForTag(parsedTag: ParsedTag) {
+  if (parsedTag.tag === "link") {
+    if (!link) {
+      // to do: handle multiple links
+      // a links: string[] seems fine
+      throw new Error(`A link prop must be provided when using <link>`);
+    }
+    if (parsedTag.type === "opening") {
+      return `<a href="${link}" class="${tagClassesMapping["link"]}">`;
+    }
+    return `</a>`;
+  }
+  if (parsedTag.type === "opening") {
+    return `<span class="${tagClassesMapping[parsedTag.tag]}">`;
+  }
+  return `</span>`;
+}
+
+if (!i18nKey && !input) {
+  throw new Error("At least i18nKey or input must be provided");
+}
+
+const SUPPORTED_TAG = ["color", "strong", "italic", "link"] as const;
+
+type SupportedTag = (typeof SUPPORTED_TAG)[number];
+
+const tagClassesMapping: Record<SupportedTag, string | undefined> = {
+  color: colorClasses({ color }),
+  strong: "font-bold",
+  italic: "italic",
+  link: "underline underline-offset-2",
+};
+
+const translatedString = input ?? t(i18nKey as string);
+
+const interpolatedString = interpolateString(translatedString);
+---
+
+<Fragment set:html={interpolatedString} />

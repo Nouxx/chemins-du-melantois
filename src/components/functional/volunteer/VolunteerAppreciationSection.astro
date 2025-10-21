@@ -5,27 +5,24 @@ import Heading from "@components/ui/atoms/Heading.astro";
 import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
 import LeftAndRightSection from "@components/ui/atoms/LeftAndRightSection.astro";
 import imgVolunteersManCyclingInTheWoods from "@images/volunteers/man-cycling-in-the-woods.webp";
+import { t } from "@lib/i18n";
 ---
 
 <LeftAndRightSection>
   <Flex slot="left" direction="col" gap={8}>
     <Heading tag="h1" size="medium">
-      Cet évènement est possible grâce à vous
+      {t("volunteersPage.appreciationSection.title")}
     </Heading>
 
     <Text>
-      Grâce à votre énergie, votre bonne humeur et votre présence sur le
-      terrain, cet évènement devient bien plus qu'une simple course : c'est un
-      rendez-vous chaleureux, animé par le sourire des bénévoles, où se mêlent
-      entraide, fierté collective et joie de faire vivre notre village. Sans
-      vous, rien de tout cela ne serait possible.
+      {t("volunteersPage.appreciationSection.description")}
     </Text>
   </Flex>
 
   <ImageWrapper
     slot="right"
     image={imgVolunteersManCyclingInTheWoods}
-    imageAlt="Un bénévole en casque et gilet jaune fait du vélo sur un chemin de campagne, tandis que d’autres personnes marchent ou courent derrière lui."
+    imageAlt={t("volunteersPage.appreciationSection.imageAlt")}
     imageLoading="eager"
     sizes="(max-width: 1023px) 100vw, (max-width: 1536px) 50vw, 672px"
     rounded

@@ -8,6 +8,7 @@ import LinkButton from "@components/ui/molecules/LinkButton.astro";
 import List from "@components/ui/molecules/List.astro";
 import ListItem from "@components/ui/molecules/ListItem.astro";
 import type { EventHighlightData } from "@data/events/schema";
+import { t } from "@lib/i18n";
 
 interface Props {
   eventHighlightData: EventHighlightData;
@@ -22,8 +23,11 @@ const {
   picturesLinks,
 } = Astro.props.eventHighlightData;
 
-const listItems: string[] = participantsLines.map(
-  (line) => `${line.participantsCount} participants au ${line.raceName}.`
+const listItems: string[] = participantsLines.map((line) =>
+  t("resultsPage.participantsLine", {
+    count: line.participantsCount,
+    raceName: line.raceName,
+  })
 );
 ---
 

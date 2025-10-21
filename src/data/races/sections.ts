@@ -1,112 +1,125 @@
 import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
 import type { RacePageData } from "@data/races/schema";
+import { t } from "@lib/i18n";
 
 export const routeSectionBaseData = {
-  title: "Parcours",
-  anchorId: "parcours",
+  title: t("racePage.routeSection.title"),
+  anchorId: t("racePage.routeSection.anchorId"),
   traceMapsLink: {
-    label: "Lien vers les tracés interactifs (Maps)",
+    label: t("racePage.linkToMapsTrace"),
     url: externalLinks.edition2025Maps,
   },
 };
 
 export const scheduleSectionBaseData = {
-  title: "Départ et horaires",
-  anchorId: "depart-et-horaires",
+  title: t("racePage.scheduleSection.title"),
+  anchorId: t("racePage.scheduleSection.anchorId"),
+  meetingPointLine: t("racePage.meetingPointLine"),
 };
 
 export const rewardsSectionBaseData = {
-  title: "Récompenses",
-  anchorId: "recompenses",
+  title: t("racePage.rewardsSection.title"),
+  anchorId: t("racePage.rewardsSection.anchorId"),
 };
 
-const milesRepublicPhrase = "Miles Republic";
-
 export const registrationSectionBaseData = {
-  title: "Inscription",
-  anchorId: "inscription",
+  title: t("racePage.registrationSection.title"),
+  anchorId: t("racePage.registrationSection.anchorId"),
   onlineRegistration: {
-    title: "En ligne",
-    partner: milesRepublicPhrase,
+    title: t("racePage.registrationSection.onlineRegistration.title"),
+    description: t(
+      "racePage.registrationSection.onlineRegistration.description",
+    ),
     link: {
-      label: "Lien vers l'inscription en ligne",
+      label: t("racePage.registrationSection.onlineRegistration.linkLabel"),
       url: externalLinks.registration,
     },
   },
   onSiteRegistration: {
-    title: "Sur place",
+    title: t("racePage.registrationSection.onSiteRegistration.title"),
+    description: t(
+      "racePage.registrationSection.onSiteRegistration.description",
+    ),
     registrationFormLink: {
-      label: "Lien vers le bulletin d'inscription",
+      label: t("racePage.registrationSection.onSiteRegistration.linkLabel"),
       url: externalLinks.registrationForm,
     },
   },
 };
 
 export const raceRegulationSectionBaseData = {
-  title: "Règlement de course",
-  anchorId: "reglement-de-course",
-  description:
-    "Avant de participer, merci de consulter le règlement officiel de la course, qui précise l'ensemble des modalités de participation, consignes de sécurité, et règles sportives.",
+  title: t("racePage.regulationSection.title"),
+  anchorId: t("racePage.regulationSection.anchorId"),
+  description: t("racePage.regulationSection.description"),
   link: {
-    label: "Lien vers le réglement de course",
+    label: t("racePage.regulationSection.link"),
     url: externalLinks.sportsRegulations,
   },
 };
 
 export const adultRegistrationSectionBaseData: RacePageData["registrationDetailsSection"]["forAdults"] =
   {
-    title: "Pour les majeurs",
-    description:
-      "Pour valider votre inscription, vous devez fournir l'un des deux documents suivants :",
+    title: t("racePage.registrationDetailsSection.forAdults"),
+    description: t(
+      "racePage.registrationDetailsSection.forAdultsSection.description",
+    ),
     requiredDocumentsLines: [
-      "Une Licence conforme et en cours de validité",
-      "Un PPS (Parcours Prévention Santé), déclaration remplaçant le certificat médical pour les non licenciés",
+      t(
+        "racePage.registrationDetailsSection.forAdultsSection.requiredDocuments.0",
+      ),
+      t(
+        "racePage.registrationDetailsSection.forAdultsSection.requiredDocuments.1",
+      ),
     ],
     ppsLink: {
-      label: "En savoir plus sur le PPS",
+      label: t("racePage.registrationDetailsSection.forAdultsSection.ppsLink"),
       url: externalLinks.pps,
     },
   };
 
 export const noRegistrationForAdultSectionData: RacePageData["registrationDetailsSection"]["forAdults"] =
   {
-    title: "Pour les majeurs",
-    description:
-      "Hormis le bulletin d'inscription si vous souhaitez vous inscrire sur place, aucun document n'est requis.",
+    title: t("racePage.registrationDetailsSection.forAdults"),
+    description: t("racePage.registrationDetailsSection.noDocumentRequired"),
   };
 
 export const bibSectionBaseData: RacePageData["bibSection"] = {
-  title: "Retrait des dossards",
-  anchorId: "retrait-des-dossards",
-  description:
-    "Les dossards sont à retirer en mairie de Sainghin, aux horaires suivants :",
+  title: t("racePage.bibSection.title"),
+  anchorId: t("racePage.bibSection.anchorId"),
+  description: t("racePage.bibSection.description"),
   pickupScheduleLines: [
-    "Samedi 20 septembre : de 14h00 à 17h00",
-    "Dimanche 21 septembre : de 7h30 à 9h45",
+    t("racePage.bibSection.pickupLines.0"),
+    t("racePage.bibSection.pickupLines.1"),
   ],
 };
 
 export const registrationDetailsSectionBaseData = {
-  title: "Modalités d'inscription",
-  anchorId: "modalites-d-inscription",
+  title: t("racePage.registrationDetailsSection.title"),
+  anchorId: t("racePage.registrationDetailsSection.anchorId"),
   forChildren: {
-    title: "Pour les mineurs",
-    description:
-      "Les participants de moins de 18 ans doivent impérativement fournir les 2 documents suivants :",
+    title: t("racePage.registrationDetailsSection.forChildren"),
+    description: t(
+      "racePage.registrationDetailsSection.forChildrenSection.description",
+    ),
     requiredDocumentsLines: [
-      "Une autorisation parentale signée",
-      `Un questionnaire de santé ou un certificat médical de moins de 6 mois`,
+      t(
+        "racePage.registrationDetailsSection.forChildrenSection.requiredDocuments.0",
+      ),
+      t(
+        "racePage.registrationDetailsSection.forChildrenSection.requiredDocuments.1",
+      ),
     ],
     healthQuestionnaireLink: {
-      label: "Lien vers l'autorisation parentale ",
+      label: t(
+        "racePage.registrationDetailsSection.forChildrenSection.healthQuestionnaireLink",
+      ),
       url: externalLinks.healthQuestionnaire,
     },
     parentalConstentLink: {
-      label: "Lien vers le questionnaire de santé",
+      label: t(
+        "racePage.registrationDetailsSection.forChildrenSection.parentalConstentLink",
+      ),
       url: externalLinks.parentalConsentForm,
     },
   },
 };
-
-export const registrationDetailsSectionAnchor =
-  registrationDetailsSectionBaseData.anchorId;
