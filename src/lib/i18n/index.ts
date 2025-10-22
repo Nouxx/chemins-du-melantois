@@ -27,7 +27,7 @@ export const t = createTranslator("fr");
 
 await i18next.init({
   lng: "fr",
-  debug: true,
+  debug: import.meta.env.DEV,
   resources: {
     fr: {
       translation: frenchTranslations,
