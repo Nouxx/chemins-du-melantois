@@ -8,13 +8,13 @@ import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
 import { routes } from "@data/navigation/routes/routes";
 import LinkButton from "@components/ui/molecules/LinkButton.astro";
 import Translation from "@components/ui/atoms/Translation.astro";
-import { t } from "@lib/i18n";
+import { t, t2 } from "@lib/i18n";
 ---
 
 <LeftAndRightSection>
   <Flex slot="left" direction="col" gap={8}>
     <Heading tag="h1">
-      <Translation i18nKey="homepage.welcomeSection.title" color="lightGreen" />
+      {t2("homepage.welcomeSection.title")}
     </Heading>
 
     <Text>
