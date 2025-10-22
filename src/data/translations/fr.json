@@ -9,14 +9,14 @@
     "statisticsSection": {
       "heading": "En quelques chiffres",
       "description": "Cet évènement est organisé par l'association « Les chemins du Mélantois » sous l'impulsion des communes de Sainghin-en-Mélantois et Péronne-en-Mélantois, et est entièrement bénévole. Il a pour but de promouvoir la pratique du sport en milieu naturel, de faire découvrir le Mélantois et de récolter des fonds pour des associations locales.",
-      "statBigTitle": "3200",
-      "statBigSubtitle": "participants depuis sa création",
-      "statSmall1Title": "14ème",
-      "statSmall1Subtitle": "édition depuis 2011",
-      "statSmall2Title": "5",
-      "statSmall2Subtitle": "formats disponible",
-      "statSmall3Title": "10min",
-      "statSmall3Subtitle": "en voiture depuis Lille"
+      "participantSinceStarted_one": "participant depuis sa création",
+      "participantSinceStarted_other": "participants depuis sa création",
+      "fourteenth": "14ème",
+      "eventSince2011": "édition depuis 2011",
+      "raceTypeAvailable_one": "format disponible",
+      "raceTypeAvailable_other": "formats disponible",
+      "tenMinutes": "10min",
+      "fromLilleInCar": "en voiture depuis Lille"
     },
     "videoSection": {
       "title": "Retour en images sur l'édition 2024 !",
