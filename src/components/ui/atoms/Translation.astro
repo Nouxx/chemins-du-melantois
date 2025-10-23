@@ -3,6 +3,10 @@ import { textColorVariants } from "@components/ui/props/typography";
 import { t } from "@lib/i18n";
 import { cva, type VariantProps } from "class-variance-authority";
 
+const SUPPORTED_TAG = ["color", "strong", "italic", "link"] as const;
+
+type SupportedTag = (typeof SUPPORTED_TAG)[number];
+
 const colorClasses = cva(undefined, {
   variants: {
     color: textColorVariants,
@@ -12,101 +16,161 @@ const colorClasses = cva(undefined, {
   },
 });
 
-type ColorVariants = VariantProps<typeof colorClasses>;
-
-interface Props extends ColorVariants {
+interface Props {
   i18nKey?: string;
   input?: string;
-  link?: string;
+  slots: Slot[];
 }
 
-const { i18nKey, input, color, link } = Astro.props;
+const { i18nKey, input, slots } = Astro.props;
+
+const tagClassesMapping: Partial<Record<SupportedTag, string | undefined>> = {
+  strong: "font-bold",
+  italic: "italic",
+  link: "underline underline-offset-2",
+};
+
+type ColorVariants = VariantProps<typeof colorClasses>;
+
+type Slot =
+  | {
+      type: "strong" | "italic";
+    }
+  | {
+      type: "link";
+      to: string;
+    }
+  | {
+      type: "color";
+      color?: ColorVariants["color"];
+    };
 
 type TagType = "opening" | "closing";
 
-type ParsedTag = {
-  tag: SupportedTag;
-  type: TagType;
-};
+const openingTagsRegexPattern = new RegExp(/<\d+>/, "g");
+const closingTagsRegexPattern = new RegExp(/<\/\d+>/, "g");
+const allTagsRegexPattern = new RegExp(/<(\/)?\d+>/, "g");
 
-function isSupportedTag(input: string): input is SupportedTag {
-  return SUPPORTED_TAG.includes(input as SupportedTag);
+function stripTag(input: string, type: TagType): number {
+  let result;
+
+  if (type === "opening") {
+    result = parseInt(input.replace("<", "").replace(">", ""));
+  }
+
+  if (type === "closing") {
+    result = parseInt(input.replace("<", "").replace(">", "").replace("/", ""));
+  }
+
+  if (!result) {
+    throw new Error(`Could not strip tag from ${input}`);
+  }
+
+  if (isNaN(result)) {
+    throw new Error(`Could not strip tag from ${input}`);
+  }
+
+  return result;
 }
 
-function parseTag(input: string): ParsedTag {
-  const stripped = input.replace("<", "").replace(">", "").replace("/", "");
-
-  if (!isSupportedTag(stripped)) {
-    throw new Error(`Tag ${stripped} is not supported`);
+function getTagType(input: string): TagType {
+  if (input.startsWith("</") && input.endsWith(">")) {
+    return "closing";
+  }
+  if (input.startsWith("<") && input.endsWith(">")) {
+    return "opening";
   }
 
-  if (input.startsWith("</")) {
-    return { type: "closing", tag: stripped };
-  }
-  if (input.startsWith("<")) {
-    return { type: "opening", tag: stripped };
+  throw new Error(`Could not determine tag type from ${input}`);
+}
+
+function getSlotsIndexes(input: string, type: TagType) {
+  if (type === "opening") {
+    const matches = input.match(new RegExp(openingTagsRegexPattern, "g")) || [];
+    return matches.map((tag) => stripTag(tag, "opening"));
   }
 
-  throw new Error(`Could not parse tag from ${input}`);
+  if (type === "closing") {
+    const matches = input.match(new RegExp(closingTagsRegexPattern, "g")) || [];
+    return matches.map((tag) => stripTag(tag, "closing"));
+  }
+
+  throw new Error(`Unsupported tag type: ${type}`);
+}
+
+function indexesMatch(
+  openingIndexes: number[],
+  closingIndexes: number[]
+): boolean {
+  if (openingIndexes.length !== closingIndexes.length) {
+    return false;
+  }
+
+  const sortedOpeningIndexes = openingIndexes.slice().sort((a, b) => a - b);
+  const sortedClosingIndexes = closingIndexes.slice().sort((a, b) => a - b);
+
+  if (sortedClosingIndexes.toString() !== sortedOpeningIndexes.toString()) {
+    return false;
+  }
+
+  return true;
 }
 
 function interpolateString(translatedString: string) {
-  const openingTagsRegexPattern = `<(${SUPPORTED_TAG.join("|")})>`;
-  const closingTagsRegexPattern = `<\/(${SUPPORTED_TAG.join("|")})>`;
+  const openingTags = getSlotsIndexes(translatedString, "opening");
+  const closingTags = getSlotsIndexes(translatedString, "closing");
 
-  const openingTags =
-    translatedString.match(new RegExp(openingTagsRegexPattern, "g")) || [];
-  const closingTags =
-    translatedString.match(new RegExp(closingTagsRegexPattern, "g")) || [];
-
-  if (openingTags.length !== closingTags.length) {
+  if (!indexesMatch(openingTags, closingTags)) {
     throw new Error(
-      `The number of opening tags (${openingTags.length}) and closing tags (${closingTags.length}) does not match.`
+      `Opening tags (${openingTags}) and closing tags (${closingTags}) does not match.`
     );
   }
-
-  const allTagsRegexPattern = `<(\/)?(${SUPPORTED_TAG.join("|")})>`;
 
   return translatedString.replace(
     new RegExp(allTagsRegexPattern, "g"),
     (tag) => {
-      return getHTMLMarkupForTag(parseTag(tag));
+      return getHTMLMarkupForSlot(
+        stripTag(tag, getTagType(tag)) - 1,
+        getTagType(tag)
+      );
     }
   );
 }
 
-function getHTMLMarkupForTag(parsedTag: ParsedTag) {
-  if (parsedTag.tag === "link") {
-    if (!link) {
-      // to do: handle multiple links
-      // a links: string[] seems fine
-      throw new Error(`A link prop must be provided when using <link>`);
-    }
-    if (parsedTag.type === "opening") {
-      return `<a href="${link}" class="${tagClassesMapping["link"]}">`;
-    }
-    return `</a>`;
+function getHTMLMarkupForSlot(index: number, type: TagType) {
+  const slot = slots[index];
+
+  if (!slot) {
+    throw new Error(`No slot found for index ${index + 1}`);
   }
-  if (parsedTag.type === "opening") {
-    return `<span class="${tagClassesMapping[parsedTag.tag]}">`;
+
+  if (type === "opening") {
+    if (slot.type === "link") {
+      return `<a href="${slot.to}" class="${tagClassesMapping["link"]}">`;
+    }
+
+    if (slot.type === "color") {
+      const classes = colorClasses({ color: slot.color });
+      return `<span class="${classes}">`;
+    }
+
+    const classes = tagClassesMapping[slot.type];
+    return `<span class="${classes}">`;
   }
-  return `</span>`;
+
+  if (type === "closing") {
+    if (slot.type === "link") {
+      return `</a>`;
+    }
+    return `</span>`;
+  }
+
+  throw new Error(`Unsupported tag type: ${type}`);
 }
 
 if (!i18nKey && !input) {
   throw new Error("At least i18nKey or input must be provided");
 }
-
-const SUPPORTED_TAG = ["color", "strong", "italic", "link"] as const;
-
-type SupportedTag = (typeof SUPPORTED_TAG)[number];
-
-const tagClassesMapping: Record<SupportedTag, string | undefined> = {
-  color: colorClasses({ color }),
-  strong: "font-bold",
-  italic: "italic",
-  link: "underline underline-offset-2",
-};
 
 const translatedString = input ?? t(i18nKey as string);
 
