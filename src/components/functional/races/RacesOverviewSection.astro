@@ -8,55 +8,58 @@ import Flex from "@components/ui/atoms/Flex.astro";
 import { routes } from "@data/navigation/routes/routes";
 import LinkButton from "@components/ui/molecules/LinkButton.astro";
 import Icon from "@components/ui/atoms/icons/Icon.astro";
-import { t } from "@lib/i18n";
+import { t2 } from "@lib/i18n";
 ---
 
 <Section>
   <Grid gap={8} className="lg:mt-16 lg:grid-cols-3 lg:gap-12">
     <Flex direction="col" gap={6} className="lg:col-span-1">
-      <Heading size="small">{t("homepage.racesOverview.title")}</Heading>
+      <Heading size="small">{t2("homepage.racesOverview.title")}</Heading>
 
-      <Text>{t("homepage.racesOverview.description")}</Text>
+      <Text>{t2("homepage.racesOverview.description")}</Text>
 
-      <LinkButton label={t("homepage.racesOverview.link")} url={routes.races} />
+      <LinkButton
+        label={t2("homepage.racesOverview.link")}
+        url={routes.races}
+      />
     </Flex>
 
     <div class="lg:col-span-2">
       <Grid gap={8} className="sm:grid-cols-2 md:gap-12">
         <IconBlock
-          title={t("homepage.racesOverview.races.run10km.title")}
-          subTitle={t("homepage.racesOverview.races.pricePerParticipant", {
+          title={t2("homepage.racesOverview.races.run10km.title")}
+          subTitle={t2("homepage.racesOverview.races.pricePerParticipant", {
             price: 11,
           })}
-          body={t("homepage.racesOverview.races.run10km.body")}
+          body={t2("homepage.racesOverview.races.run10km.body")}
         >
           <Icon name="manRunning" size="large" color="brandOrange" />
         </IconBlock>
 
         <IconBlock
-          title={t("homepage.racesOverview.races.run5km.title")}
-          subTitle={t("homepage.racesOverview.races.pricePerParticipant", {
+          title={t2("homepage.racesOverview.races.run5km.title")}
+          subTitle={t2("homepage.racesOverview.races.pricePerParticipant", {
             price: 7,
           })}
-          body={t("homepage.racesOverview.races.run5km.body")}
+          body={t2("homepage.racesOverview.races.run5km.body")}
         >
           <Icon name="manRunning" size="large" color="brandOrange" />
         </IconBlock>
 
         <IconBlock
-          title={t("homepage.racesOverview.races.run900m.title")}
-          subTitle={t("homepage.racesOverview.races.free")}
-          body={t("homepage.racesOverview.races.run900m.body")}
+          title={t2("homepage.racesOverview.races.run900m.title")}
+          subTitle={t2("homepage.racesOverview.races.free")}
+          body={t2("homepage.racesOverview.races.run900m.body")}
         >
           <Icon name="manRunning" size="large" color="brandOrange" />
         </IconBlock>
 
         <IconBlock
-          title={t("homepage.racesOverview.races.runBike.title")}
-          subTitle={t("homepage.racesOverview.races.pricePerTeam", {
+          title={t2("homepage.racesOverview.races.runBike.title")}
+          subTitle={t2("homepage.racesOverview.races.pricePerTeam", {
             price: 9,
           })}
-          body={t("homepage.racesOverview.races.runBike.body")}
+          body={t2("homepage.racesOverview.races.runBike.body")}
         >
           <Icon name="manBiking" size="large" color="brandOrange" />
         </IconBlock>

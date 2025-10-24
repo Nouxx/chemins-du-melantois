@@ -140,7 +140,9 @@ function getMarkupForSlot(slotIndex: number, tagType: TagPosition) {
   const slot = slots[slotIndex];
 
   if (!slot) {
-    throw new Error(`No slot found at position ${slotIndex + 1}`);
+    throw new Error(
+      `No slot found at position ${slotIndex + 1} for input: "${input ?? i18nKey}"`
+    );
   }
 
   if (tagType === "opening") {

@@ -100,7 +100,7 @@
     "pricePerParticipant": "{{price}}€ par participant",
     "pricePerTeam": "{{price}}€ par équipe",
     "free": "Gratuit",
-    "scheduleLine": "La course a lieu le <strong>{{eventDate}}</strong> et le départ sera lancé à <strong>{{startTime}}</strong>.",
+    "scheduleLine": "La course a lieu le <1>{{eventDate}}</1> et le départ sera lancé à <2>{{startTime}}</2>.",
     "meetingPointLine": "Le point de rendez-vous est le suivant :",
     "routeSection": {
       "title": "Parcours",
@@ -119,7 +119,7 @@
       "anchorId": "inscription",
       "onlineRegistration": {
         "title": "En ligne",
-        "description": "Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00 via notre plateforme partenaire <italic><strong>Miles Republic</strong></italic>. Le paiement s'effectue également sur cette plateforme.",
+        "description": "Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00 via notre plateforme partenaire <1><2>Miles Republic</2></1>. Le paiement s'effectue également sur cette plateforme.",
         "linkLabel": "Lien vers l'inscription en ligne"
       },
       "onSiteRegistration": {
