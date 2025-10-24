@@ -4,7 +4,15 @@ import { t2 } from "@lib/i18n";
 import { haveSameElements, hasDuplicate } from "@utils/array";
 import { cva, type VariantProps } from "class-variance-authority";
 
-// AFAIK, Astro does not support passing components as props
+// this component is a custom, Astro-compatible implementation of react-i18next Trans component
+// https://react.i18next.com/latest/trans-component
+// A more flexible solution would have been to pass components
+// <Trans
+//   components={{
+//     CustomLink: <MyCustomLinkComponent href="value-to-be-overridden"/>
+//     }}
+// />
+// but, AFAIK, Astro does not support passing components as props
 // https://github.com/withastro/astro/issues/3964
 
 const SLOTS_TYPES = ["color", "strong", "italic", "link"] as const;
@@ -29,6 +37,10 @@ interface Props {
 }
 
 const { i18nKey, input, slots } = Astro.props;
+
+if (!i18nKey && !input) {
+  throw new Error("At least i18nKey or input must be provided");
+}
 
 const slotsClassesMapping: Partial<Record<SlotType, string | undefined>> = {
   strong: "font-bold",
@@ -76,25 +88,27 @@ function getTagPosition(tag: string): TagPosition {
   throw new Error(`Invalid tag format: ${tag}`);
 }
 
-function getStrippedTags(string: string, type: TagPosition) {
-  if (type === "opening") {
-    const matches =
-      string.match(new RegExp(openingTagsRegexPattern, "g")) || [];
-    return matches.map((tag) => extractTagIndex(tag));
+const regexMap = {
+  opening: openingTagsRegexPattern,
+  closing: closingTagsRegexPattern,
+};
+
+function extractTagIndices(
+  source: string,
+  position: "opening" | "closing"
+): number[] {
+  const regex = regexMap[position];
+
+  if (!regex) {
+    throw new Error(`Unsupported tag position: ${position}`);
   }
 
-  if (type === "closing") {
-    const matches =
-      string.match(new RegExp(closingTagsRegexPattern, "g")) || [];
-    return matches.map((tag) => extractTagIndex(tag));
-  }
-
-  throw new Error(`Unsupported tag type: ${type}`);
+  return [...(source.match(regex) || [])].map(extractTagIndex);
 }
 
 function interpolateString(translatedString: string) {
-  const openingTags = getStrippedTags(translatedString, "opening");
-  const closingTags = getStrippedTags(translatedString, "closing");
+  const openingTags = extractTagIndices(translatedString, "opening");
+  const closingTags = extractTagIndices(translatedString, "closing");
 
   if (openingTags.length !== closingTags.length) {
     throw new Error(
@@ -151,10 +165,6 @@ function getMarkupForSlot(slotIndex: number, tagType: TagPosition) {
   }
 
   throw new Error(`Unsupported tag type: ${tagType}`);
-}
-
-if (!i18nKey && !input) {
-  throw new Error("At least i18nKey or input must be provided");
 }
 
 const translatedString = input ?? t2(i18nKey as string);
