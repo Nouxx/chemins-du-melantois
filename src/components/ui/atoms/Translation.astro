@@ -1,11 +1,14 @@
 ---
 import { textColorVariants } from "@components/ui/props/typography";
-import { t } from "@lib/i18n";
+import { t2 } from "@lib/i18n";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const SUPPORTED_TAG = ["color", "strong", "italic", "link"] as const;
+// AFAIK, Astro does not support passing components as props
+// https://github.com/withastro/astro/issues/3964
 
-type SupportedTag = (typeof SUPPORTED_TAG)[number];
+const SLOTS_TYPES = ["color", "strong", "italic", "link"] as const;
+
+type SlotType = (typeof SLOTS_TYPES)[number];
 
 const colorClasses = cva(undefined, {
   variants: {
@@ -16,6 +19,8 @@ const colorClasses = cva(undefined, {
   },
 });
 
+type ColorVariants = VariantProps<typeof colorClasses>;
+
 interface Props {
   i18nKey?: string;
   input?: string;
@@ -24,13 +29,11 @@ interface Props {
 
 const { i18nKey, input, slots } = Astro.props;
 
-const tagClassesMapping: Partial<Record<SupportedTag, string | undefined>> = {
+const slotsClassesMapping: Partial<Record<SlotType, string | undefined>> = {
   strong: "font-bold",
   italic: "italic",
   link: "underline underline-offset-2",
 };
-
-type ColorVariants = VariantProps<typeof colorClasses>;
 
 type Slot =
   | {
@@ -51,9 +54,15 @@ const openingTagsRegexPattern = new RegExp(/<\d+>/, "g");
 const closingTagsRegexPattern = new RegExp(/<\/\d+>/, "g");
 const allTagsRegexPattern = new RegExp(/<(\/)?\d+>/, "g");
 
+/**
+ * returns the number inside the tag
+ *
+ * example: `<1>` => `1`
+ */
 function stripTag(input: string, type: TagType): number {
   let result;
 
+  // is conditional necessary?
   if (type === "opening") {
     result = parseInt(input.replace("<", "").replace(">", ""));
   }
@@ -62,54 +71,49 @@ function stripTag(input: string, type: TagType): number {
     result = parseInt(input.replace("<", "").replace(">", "").replace("/", ""));
   }
 
-  if (!result) {
-    throw new Error(`Could not strip tag from ${input}`);
-  }
-
-  if (isNaN(result)) {
+  if (!result || isNaN(result)) {
     throw new Error(`Could not strip tag from ${input}`);
   }
 
   return result;
 }
 
-function getTagType(input: string): TagType {
-  if (input.startsWith("</") && input.endsWith(">")) {
+function getTagType(rawTag: string): TagType {
+  if (rawTag.startsWith("</") && rawTag.endsWith(">")) {
     return "closing";
   }
-  if (input.startsWith("<") && input.endsWith(">")) {
+  if (rawTag.startsWith("<") && rawTag.endsWith(">")) {
     return "opening";
   }
 
-  throw new Error(`Could not determine tag type from ${input}`);
+  throw new Error(`Could not determine tag type from ${rawTag}`);
 }
 
-function getSlotsIndexes(input: string, type: TagType) {
+function getStrippedTags(string: string, type: TagType) {
   if (type === "opening") {
-    const matches = input.match(new RegExp(openingTagsRegexPattern, "g")) || [];
+    const matches =
+      string.match(new RegExp(openingTagsRegexPattern, "g")) || [];
     return matches.map((tag) => stripTag(tag, "opening"));
   }
 
   if (type === "closing") {
-    const matches = input.match(new RegExp(closingTagsRegexPattern, "g")) || [];
+    const matches =
+      string.match(new RegExp(closingTagsRegexPattern, "g")) || [];
     return matches.map((tag) => stripTag(tag, "closing"));
   }
 
   throw new Error(`Unsupported tag type: ${type}`);
 }
 
-function indexesMatch(
-  openingIndexes: number[],
-  closingIndexes: number[]
-): boolean {
-  if (openingIndexes.length !== closingIndexes.length) {
+function tagsMatch(openingTags: number[], closingTags: number[]): boolean {
+  if (openingTags.length !== closingTags.length) {
     return false;
   }
 
-  const sortedOpeningIndexes = openingIndexes.slice().sort((a, b) => a - b);
-  const sortedClosingIndexes = closingIndexes.slice().sort((a, b) => a - b);
+  const sortedOpeningTags = openingTags.slice().sort((a, b) => a - b);
+  const sortedClosingTags = closingTags.slice().sort((a, b) => a - b);
 
-  if (sortedClosingIndexes.toString() !== sortedOpeningIndexes.toString()) {
+  if (sortedClosingTags.toString() !== sortedOpeningTags.toString()) {
     return false;
   }
 
@@ -117,12 +121,12 @@ function indexesMatch(
 }
 
 function interpolateString(translatedString: string) {
-  const openingTags = getSlotsIndexes(translatedString, "opening");
-  const closingTags = getSlotsIndexes(translatedString, "closing");
+  const openingTags = getStrippedTags(translatedString, "opening");
+  const closingTags = getStrippedTags(translatedString, "closing");
 
-  if (!indexesMatch(openingTags, closingTags)) {
+  if (!tagsMatch(openingTags, closingTags)) {
     throw new Error(
-      `Opening tags (${openingTags}) and closing tags (${closingTags}) does not match.`
+      `Opening slots (${openingTags}) and closing slots (${closingTags}) does not match.`
     );
   }
 
@@ -137,16 +141,16 @@ function interpolateString(translatedString: string) {
   );
 }
 
-function getHTMLMarkupForSlot(index: number, type: TagType) {
-  const slot = slots[index];
+function getHTMLMarkupForSlot(slotIndex: number, tagType: TagType) {
+  const slot = slots[slotIndex];
 
   if (!slot) {
-    throw new Error(`No slot found for index ${index + 1}`);
+    throw new Error(`No slot found at position ${slotIndex + 1}`);
   }
 
-  if (type === "opening") {
+  if (tagType === "opening") {
     if (slot.type === "link") {
-      return `<a href="${slot.to}" class="${tagClassesMapping["link"]}">`;
+      return `<a href="${slot.to}" class="${slotsClassesMapping["link"]}">`;
     }
 
     if (slot.type === "color") {
@@ -154,25 +158,25 @@ function getHTMLMarkupForSlot(index: number, type: TagType) {
       return `<span class="${classes}">`;
     }
 
-    const classes = tagClassesMapping[slot.type];
+    const classes = slotsClassesMapping[slot.type];
     return `<span class="${classes}">`;
   }
 
-  if (type === "closing") {
+  if (tagType === "closing") {
     if (slot.type === "link") {
       return `</a>`;
     }
     return `</span>`;
   }
 
-  throw new Error(`Unsupported tag type: ${type}`);
+  throw new Error(`Unsupported tag type: ${tagType}`);
 }
 
 if (!i18nKey && !input) {
   throw new Error("At least i18nKey or input must be provided");
 }
 
-const translatedString = input ?? t(i18nKey as string);
+const translatedString = input ?? t2(i18nKey as string);
 
 const interpolatedString = interpolateString(translatedString);
 ---
