@@ -56,42 +56,37 @@ type ColorSlot = {
 
 type Slot = StrongSlot | ItalicSlot | LinkSlot | ColorSlot;
 
-type TagOpeningOrClosing = "opening" | "closing";
+type TagPosition = "opening" | "closing";
 
 const openingTagsRegexPattern = new RegExp(/<\d+>/, "g");
 const closingTagsRegexPattern = new RegExp(/<\/\d+>/, "g");
 const allTagsRegexPattern = new RegExp(/<(\/)?\d+>/, "g");
 
-/**
- * returns the number inside the tag
- *
- * example: `<1>` => `1`
- */
-function stripTag(input: string): number {
-  const digitMatch = input.match(/(?<=<\/?)\d+(?=>)/);
-  if (!digitMatch) {
-    throw new Error(`No tag found in ${input}`);
+function extractTagIndex(tag: string): number {
+  const indexMatch = tag.match(/(?<=<\/?)\d+(?=>)/);
+  if (!indexMatch) {
+    throw new Error(`No tag index found in "${tag}"`);
   }
-  return parseInt(digitMatch[0]);
+  return parseInt(indexMatch[0], 10);
 }
 
-function getTagType(tag: string): TagOpeningOrClosing {
+function getTagPosition(tag: string): TagPosition {
   if (tag.startsWith("</")) return "closing";
   if (tag.startsWith("<")) return "opening";
   throw new Error(`Invalid tag format: ${tag}`);
 }
 
-function getStrippedTags(string: string, type: TagOpeningOrClosing) {
+function getStrippedTags(string: string, type: TagPosition) {
   if (type === "opening") {
     const matches =
       string.match(new RegExp(openingTagsRegexPattern, "g")) || [];
-    return matches.map((tag) => stripTag(tag));
+    return matches.map((tag) => extractTagIndex(tag));
   }
 
   if (type === "closing") {
     const matches =
       string.match(new RegExp(closingTagsRegexPattern, "g")) || [];
-    return matches.map((tag) => stripTag(tag));
+    return matches.map((tag) => extractTagIndex(tag));
   }
 
   throw new Error(`Unsupported tag type: ${type}`);
@@ -122,12 +117,12 @@ function interpolateString(translatedString: string) {
   return translatedString.replace(
     new RegExp(allTagsRegexPattern, "g"),
     (tag) => {
-      return getMarkupForSlot(stripTag(tag) - 1, getTagType(tag));
+      return getMarkupForSlot(extractTagIndex(tag) - 1, getTagPosition(tag));
     }
   );
 }
 
-function getMarkupForSlot(slotIndex: number, tagType: TagOpeningOrClosing) {
+function getMarkupForSlot(slotIndex: number, tagType: TagPosition) {
   const slot = slots[slotIndex];
 
   if (!slot) {
