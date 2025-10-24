@@ -32,7 +32,23 @@ test("should throw when there is an additional closing tag", async () => {
         input: "This is a <1>text</1></2>",
       },
     }),
-  ).rejects.toThrow("Opening tags (1) and closing tags (1,2) does not match.");
+  ).rejects.toThrow(
+    "Number of opening tags (1) does not match number of closing tags (2)",
+  );
+});
+
+test("should throw when there is an additional closing tag", async () => {
+  const container = await AstroContainer.create();
+
+  await expect(
+    container.renderToString(Translation, {
+      props: {
+        input: "This is a <1>super</1> <2>text</3>",
+      },
+    }),
+  ).rejects.toThrow(
+    "Opening tags (1,2) and closing tags (1,3) does not match",
+  );
 });
 
 test("should throw when there is an additional opening tag", async () => {
@@ -44,7 +60,23 @@ test("should throw when there is an additional opening tag", async () => {
         input: "This is a <1>text</1><1>",
       },
     }),
-  ).rejects.toThrow("Opening tags (1,1) and closing tags (1) does not match.");
+  ).rejects.toThrow(
+    "Number of opening tags (2) does not match number of closing tags (1)",
+  );
+});
+
+test("should throw when there is duplicate tag", async () => {
+  const container = await AstroContainer.create();
+
+  await expect(
+    container.renderToString(Translation, {
+      props: {
+        input: "This is a <1>text</1> <1>duplicated</1>",
+      },
+    }),
+  ).rejects.toThrow(
+    "Duplicate tags found in opening tags (1,1) or closing tags (1,1)",
+  );
 });
 
 test("should interpolate links", async () => {

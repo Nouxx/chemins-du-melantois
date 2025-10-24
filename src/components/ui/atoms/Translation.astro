@@ -1,6 +1,7 @@
 ---
 import { textColorVariants } from "@components/ui/props/typography";
 import { t2 } from "@lib/i18n";
+import { haveSameElements, hasDuplicate } from "@utils/array";
 import { cva, type VariantProps } from "class-variance-authority";
 
 // AFAIK, Astro does not support passing components as props
@@ -35,20 +36,27 @@ const slotsClassesMapping: Partial<Record<SlotType, string | undefined>> = {
   link: "underline underline-offset-2",
 };
 
-type Slot =
-  | {
-      type: "strong" | "italic";
-    }
-  | {
-      type: "link";
-      to: string;
-    }
-  | {
-      type: "color";
-      color?: ColorVariants["color"];
-    };
+type StrongSlot = {
+  type: "strong";
+};
 
-type TagType = "opening" | "closing";
+type ItalicSlot = {
+  type: "italic";
+};
+
+type LinkSlot = {
+  type: "link";
+  to: string;
+};
+
+type ColorSlot = {
+  type: "color";
+  color?: ColorVariants["color"];
+};
+
+type Slot = StrongSlot | ItalicSlot | LinkSlot | ColorSlot;
+
+type TagOpeningOrClosing = "opening" | "closing";
 
 const openingTagsRegexPattern = new RegExp(/<\d+>/, "g");
 const closingTagsRegexPattern = new RegExp(/<\/\d+>/, "g");
@@ -59,89 +67,67 @@ const allTagsRegexPattern = new RegExp(/<(\/)?\d+>/, "g");
  *
  * example: `<1>` => `1`
  */
-function stripTag(input: string, type: TagType): number {
-  let result;
-
-  // is conditional necessary?
-  if (type === "opening") {
-    result = parseInt(input.replace("<", "").replace(">", ""));
+function stripTag(input: string): number {
+  const digitMatch = input.match(/(?<=<\/?)\d+(?=>)/);
+  if (!digitMatch) {
+    throw new Error(`No tag found in ${input}`);
   }
-
-  if (type === "closing") {
-    result = parseInt(input.replace("<", "").replace(">", "").replace("/", ""));
-  }
-
-  if (!result || isNaN(result)) {
-    throw new Error(`Could not strip tag from ${input}`);
-  }
-
-  return result;
+  return parseInt(digitMatch[0]);
 }
 
-function getTagType(rawTag: string): TagType {
-  if (rawTag.startsWith("</") && rawTag.endsWith(">")) {
-    return "closing";
-  }
-  if (rawTag.startsWith("<") && rawTag.endsWith(">")) {
-    return "opening";
-  }
-
-  throw new Error(`Could not determine tag type from ${rawTag}`);
+function getTagType(tag: string): TagOpeningOrClosing {
+  if (tag.startsWith("</")) return "closing";
+  if (tag.startsWith("<")) return "opening";
+  throw new Error(`Invalid tag format: ${tag}`);
 }
 
-function getStrippedTags(string: string, type: TagType) {
+function getStrippedTags(string: string, type: TagOpeningOrClosing) {
   if (type === "opening") {
     const matches =
       string.match(new RegExp(openingTagsRegexPattern, "g")) || [];
-    return matches.map((tag) => stripTag(tag, "opening"));
+    return matches.map((tag) => stripTag(tag));
   }
 
   if (type === "closing") {
     const matches =
       string.match(new RegExp(closingTagsRegexPattern, "g")) || [];
-    return matches.map((tag) => stripTag(tag, "closing"));
+    return matches.map((tag) => stripTag(tag));
   }
 
   throw new Error(`Unsupported tag type: ${type}`);
-}
-
-function tagsMatch(openingTags: number[], closingTags: number[]): boolean {
-  if (openingTags.length !== closingTags.length) {
-    return false;
-  }
-
-  const sortedOpeningTags = openingTags.slice().sort((a, b) => a - b);
-  const sortedClosingTags = closingTags.slice().sort((a, b) => a - b);
-
-  if (sortedClosingTags.toString() !== sortedOpeningTags.toString()) {
-    return false;
-  }
-
-  return true;
 }
 
 function interpolateString(translatedString: string) {
   const openingTags = getStrippedTags(translatedString, "opening");
   const closingTags = getStrippedTags(translatedString, "closing");
 
-  if (!tagsMatch(openingTags, closingTags)) {
+  if (openingTags.length !== closingTags.length) {
     throw new Error(
-      `Opening slots (${openingTags}) and closing slots (${closingTags}) does not match.`
+      `Number of opening tags (${openingTags.length}) does not match number of closing tags (${closingTags.length})`
+    );
+  }
+
+  if (hasDuplicate(openingTags) || hasDuplicate(closingTags)) {
+    throw new Error(
+      `Duplicate tags found in opening tags (${openingTags}) or closing tags (${closingTags})`
+    );
+  }
+
+  if (!haveSameElements(openingTags, closingTags)) {
+    throw new Error(
+      `Opening tags (${openingTags}) and closing tags (${closingTags}) does not match`
     );
   }
 
   return translatedString.replace(
     new RegExp(allTagsRegexPattern, "g"),
     (tag) => {
-      return getHTMLMarkupForSlot(
-        stripTag(tag, getTagType(tag)) - 1,
-        getTagType(tag)
-      );
+      return getMarkupForSlot(stripTag(tag) - 1, getTagType(tag));
     }
   );
 }
 
-function getHTMLMarkupForSlot(slotIndex: number, tagType: TagType) {
+function getMarkupForSlot(slotIndex: number, tagType: TagOpeningOrClosing) {
   const slot = slots[slotIndex];
 
   if (!slot) {
