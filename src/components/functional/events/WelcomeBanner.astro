@@ -8,7 +8,7 @@ import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
 import { routes } from "@data/navigation/routes/routes";
 import LinkButton from "@components/ui/molecules/LinkButton.astro";
 import Translation from "@components/ui/atoms/Translation.astro";
-import { t, t2 } from "@lib/i18n";
+import { t2 } from "@lib/i18n";
 ---
 
 <LeftAndRightSection>
@@ -35,7 +35,7 @@ import { t, t2 } from "@lib/i18n";
   <ImageWrapper
     slot="right"
     image={heroImage}
-    imageAlt={t("homepage.welcomeSection.imageAlt")}
+    imageAlt={t2("homepage.welcomeSection.imageAlt")}
     sizes="(max-width: 640px) 100vw, (max-width: 1536px) 50vw, 438px"
     rounded
   />
