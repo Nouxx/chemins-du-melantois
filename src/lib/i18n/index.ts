@@ -36,4 +36,13 @@ await i18next.init({
   },
 });
 
-export const t2 = i18next.t;
+type TParameters = Parameters<typeof i18next.t>;
+
+export function t2(...args: TParameters): string {
+  const result = i18next.t(...args);
+  const key = args[0];
+  if (import.meta.env.PROD && result === key) {
+    throw new Error(`Translation key not found: "${key}"`);
+  }
+  return result;
+}
