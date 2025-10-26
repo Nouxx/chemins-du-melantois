@@ -25,7 +25,6 @@ export const createTranslator = (lang: SupportedLanguages) => {
 
 export const t = createTranslator("fr");
 
-// todo: throw in build mode if no translation found for a key
 await i18next.init({
   lng: "fr",
   debug: false,
