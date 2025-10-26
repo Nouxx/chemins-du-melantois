@@ -18,12 +18,12 @@ import {
 } from "@data/races/sections";
 import { racePageDataSchema, type RacePageData } from "@data/races/schema";
 import { z } from "zod";
-import { t } from "@lib/i18n";
+import { t2 } from "@lib/i18n";
 
 const getImageAltText = (raceName: string) =>
-  t("racePage.raceImageAlt", { raceName });
+  t2("racePage.raceImageAlt", { raceName });
 
-export const eventDate = t("racePage.eventDate");
+export const eventDate = t2("racePage.eventDate");
 
 const egliseSaintNicolasAddressLines: RacePageData["scheduleSection"]["meetingPointAddressLines"] =
   [
@@ -40,12 +40,12 @@ const mairieDePeronneAddressLines: RacePageData["scheduleSection"]["meetingPoint
   ];
 
 const getTraceLink = (url: string): Link => ({
-  label: t("racePage.linkToPdfTrace"),
+  label: t2("racePage.linkToPdfTrace"),
   url,
 });
 
 const rewardsSummaryLink = {
-  label: t("racePage.linkToRewardsSummary"),
+  label: t2("racePage.linkToRewardsSummary"),
   url: externalLinks.rewardsSummary,
 };
 
@@ -53,28 +53,28 @@ const tenKilometerRacePageData: RacePageData = {
   urlSlug: "10-km-sainghin-en-melantois",
   featuredImage: {
     image: tenKilometerHero,
-    alt: getImageAltText(t("racePage.10km.title")),
+    alt: getImageAltText(t2("racePage.10km.title")),
   },
-  pageTitle: t("racePage.10km.title"),
+  pageTitle: t2("racePage.10km.title"),
   date: eventDate,
-  price: t("racePage.pricePerParticipant", { price: 11 }),
+  price: t2("racePage.pricePerParticipant", { price: 11 }),
   routeSection: {
     ...routeSectionBaseData,
-    description: t("racePage.10km.description"),
+    description: t2("racePage.10km.description"),
     tracePDFLink: getTraceLink(externalLinks.edition2025Trace10km),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
-    body: t("racePage.scheduleLine", {
+    body: t2("racePage.scheduleLine", {
       startTime: "10h15",
       eventDate: eventDate,
     }),
     meetingPointAddressLines: egliseSaintNicolasAddressLines,
-    additionalScheduleInformation: t("racePage.10km.additionalInfo"),
+    additionalScheduleInformation: t2("racePage.10km.additionalInfo"),
   },
   rewardsSection: {
     ...rewardsSectionBaseData,
-    description: t("racePage.10km.rewards"),
+    description: t2("racePage.10km.rewards"),
     rewardsLink: rewardsSummaryLink,
   },
   registrationSection: registrationSectionBaseData,
@@ -90,19 +90,19 @@ const runAndBikeRacePageData: RacePageData = {
   urlSlug: "run-and-bike-peronne-en-melantois",
   featuredImage: {
     image: runAndBikeHero,
-    alt: getImageAltText(t("racePage.runAndBike.title")),
+    alt: getImageAltText(t2("racePage.runAndBike.title")),
   },
-  pageTitle: t("racePage.runAndBike.title"),
+  pageTitle: t2("racePage.runAndBike.title"),
   date: eventDate,
-  price: t("racePage.pricePerTeam", { price: 9 }),
+  price: t2("racePage.pricePerTeam", { price: 9 }),
   routeSection: {
     ...routeSectionBaseData,
-    description: t("racePage.runAndBike.description"),
+    description: t2("racePage.runAndBike.description"),
     tracePDFLink: getTraceLink(externalLinks.edition2025RunAndBike),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
-    body: t("racePage.scheduleLine", {
+    body: t2("racePage.scheduleLine", {
       startTime: "9h45",
       eventDate: eventDate,
     }),
@@ -110,7 +110,7 @@ const runAndBikeRacePageData: RacePageData = {
   },
   rewardsSection: {
     ...rewardsSectionBaseData,
-    description: t("racePage.rewardsForEveryone"),
+    description: t2("racePage.rewardsForEveryone"),
   },
   registrationSection: registrationSectionBaseData,
   bibSection: bibSectionBaseData,
@@ -125,19 +125,19 @@ const fiveKilometerRacePageData: RacePageData = {
   urlSlug: "5-km-sainghin-en-melantois",
   featuredImage: {
     image: fiveKilometerHero,
-    alt: getImageAltText(t("racePage.5km.title")),
+    alt: getImageAltText(t2("racePage.5km.title")),
   },
-  pageTitle: t("racePage.5km.title"),
+  pageTitle: t2("racePage.5km.title"),
   date: eventDate,
-  price: t("racePage.pricePerParticipant", { price: 7 }),
+  price: t2("racePage.pricePerParticipant", { price: 7 }),
   routeSection: {
     ...routeSectionBaseData,
-    description: t("racePage.5km.description"),
+    description: t2("racePage.5km.description"),
     tracePDFLink: getTraceLink(externalLinks.edition2025Trace5km),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
-    body: t("racePage.scheduleLine", {
+    body: t2("racePage.scheduleLine", {
       startTime: "9h00",
       eventDate: eventDate,
     }),
@@ -145,7 +145,7 @@ const fiveKilometerRacePageData: RacePageData = {
   },
   rewardsSection: {
     ...rewardsSectionBaseData,
-    description: t("racePage.5km.rewards"),
+    description: t2("racePage.5km.rewards"),
     rewardsLink: rewardsSummaryLink,
   },
   registrationSection: registrationSectionBaseData,
@@ -161,19 +161,19 @@ const nineHundredSainghinRacePageData: RacePageData = {
   urlSlug: "900-m-sainghin-en-melantois",
   featuredImage: {
     image: nineHundredSainghinHero,
-    alt: getImageAltText(t("racePage.900mSainghin.title")),
+    alt: getImageAltText(t2("racePage.900mSainghin.title")),
   },
-  pageTitle: t("racePage.900mSainghin.title"),
+  pageTitle: t2("racePage.900mSainghin.title"),
   date: eventDate,
-  price: t("racePage.free"),
+  price: t2("racePage.free"),
   routeSection: {
     ...routeSectionBaseData,
-    description: t("racePage.900mSainghin.description"),
+    description: t2("racePage.900mSainghin.description"),
     tracePDFLink: getTraceLink(externalLinks.edition2025Trace900mSainghin),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
-    body: t("racePage.scheduleLine", {
+    body: t2("racePage.scheduleLine", {
       startTime: "9h45",
       eventDate: eventDate,
     }),
@@ -181,7 +181,7 @@ const nineHundredSainghinRacePageData: RacePageData = {
   },
   rewardsSection: {
     ...rewardsSectionBaseData,
-    description: t("racePage.rewardsForEveryone"),
+    description: t2("racePage.rewardsForEveryone"),
   },
   registrationSection: registrationSectionBaseData,
   bibSection: bibSectionBaseData,
@@ -196,19 +196,19 @@ const nineHundredPeronneRacePageData: RacePageData = {
   urlSlug: "900-m-peronne-en-melantois",
   featuredImage: {
     image: nineHundredPeronneHero,
-    alt: getImageAltText(t("racePage.900mPeronne.title")),
+    alt: getImageAltText(t2("racePage.900mPeronne.title")),
   },
-  pageTitle: t("racePage.900mPeronne.title"),
+  pageTitle: t2("racePage.900mPeronne.title"),
   date: eventDate,
-  price: t("racePage.free"),
+  price: t2("racePage.free"),
   routeSection: {
     ...routeSectionBaseData,
-    description: t("racePage.900mPeronne.description"),
+    description: t2("racePage.900mPeronne.description"),
     tracePDFLink: getTraceLink(externalLinks.edition2025Trace900mPeronne),
   },
   scheduleSection: {
     ...scheduleSectionBaseData,
-    body: t("racePage.scheduleLine", {
+    body: t2("racePage.scheduleLine", {
       startTime: "9h15",
       eventDate: eventDate,
     }),
@@ -216,7 +216,7 @@ const nineHundredPeronneRacePageData: RacePageData = {
   },
   rewardsSection: {
     ...rewardsSectionBaseData,
-    description: t("racePage.rewardsForEveryone"),
+    description: t2("racePage.rewardsForEveryone"),
   },
   registrationSection: registrationSectionBaseData,
   bibSection: bibSectionBaseData,
