@@ -1,29 +1,6 @@
-import { getTranslationForKey } from "./getTranslationForKey";
-import type { SupportedLanguages, TemplateVariables } from "./types";
-import { getInterpolatedTranslation } from "./getInterpolatedTranslation";
-import { getTranslations } from "./getTranslations";
 import frenchTranslations from "@data/translations/fr.json";
 
 import i18next from "i18next";
-
-export const createTranslator = (lang: SupportedLanguages) => {
-  let translations = getTranslations(lang);
-
-  return function t(key: string, variables?: TemplateVariables): string {
-    const translatedString = getInterpolatedTranslation(
-      getTranslationForKey(key, translations),
-      variables,
-    );
-
-    if (typeof translatedString !== "string") {
-      throw new Error(`Translation key not found: "${key}"`);
-    }
-
-    return translatedString;
-  };
-};
-
-export const t = createTranslator("fr");
 
 await i18next.init({
   lng: "fr",
@@ -37,11 +14,15 @@ await i18next.init({
 
 type TParameters = Parameters<typeof i18next.t>;
 
-export function t2(...args: TParameters): string {
+function tStrict(...args: TParameters): string {
   const result = i18next.t(...args);
   const key = args[0];
+
+  // it's okay to have unfound translations in dev mode, but for production build
   if (import.meta.env.PROD && result === key) {
     throw new Error(`Translation key not found: "${key}"`);
   }
   return result;
 }
+
+export const t2 = tStrict;
