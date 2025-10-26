@@ -25,4 +25,4 @@ function tStrict(...args: TParameters): string {
   return result;
 }
 
-export const t2 = tStrict;
+export const t = tStrict;

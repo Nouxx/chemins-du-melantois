@@ -11,59 +11,59 @@ import imgVolunteersManTakingAPicture from "@images/volunteers/man-taking-pictur
 import imgVolunteersInstallations from "@images/volunteers/finish-line-before-the-race.webp";
 import imgVolunteersPosing from "@images/volunteers/volunteers-and-participant-posing.webp";
 import VolunteerRoleGridCard from "@components/functional/volunteer/VolunteerRoleGridCard.astro";
-import { t2 } from "@lib/i18n";
+import { t } from "@lib/i18n";
 
 const MarshallRoleData = {
-  role: t2("volunteersPage.rolesSection.marshall"),
-  content: t2("volunteersPage.rolesSection.marshallDescription"),
+  role: t("volunteersPage.rolesSection.marshall"),
+  content: t("volunteersPage.rolesSection.marshallDescription"),
   roleImage: {
     image: imgVolunteersManCycling,
-    alt: t2("volunteersPage.rolesSection.marshallImageAlt"),
+    alt: t("volunteersPage.rolesSection.marshallImageAlt"),
   },
 };
 
 const AidStationCrewRoleData = {
-  role: t2("volunteersPage.rolesSection.aidStation"),
-  content: t2("volunteersPage.rolesSection.aidStationDescription"),
+  role: t("volunteersPage.rolesSection.aidStation"),
+  content: t("volunteersPage.rolesSection.aidStationDescription"),
   roleImage: {
     image: imgVolunteersFood,
-    alt: t2("volunteersPage.rolesSection.aidStationImageAlt"),
+    alt: t("volunteersPage.rolesSection.aidStationImageAlt"),
   },
 };
 
 const SetupCrewRoleData = {
-  role: t2("volunteersPage.rolesSection.setupCrew"),
-  content: t2("volunteersPage.rolesSection.setupCrewDescription"),
+  role: t("volunteersPage.rolesSection.setupCrew"),
+  content: t("volunteersPage.rolesSection.setupCrewDescription"),
   roleImage: {
     image: imgVolunteersInstallations,
-    alt: t2("volunteersPage.rolesSection.setupCrewImageAlt"),
+    alt: t("volunteersPage.rolesSection.setupCrewImageAlt"),
   },
 };
 
 const registrationCrewRoleData = {
-  role: t2("volunteersPage.rolesSection.registration"),
-  content: t2("volunteersPage.rolesSection.registrationDescription"),
+  role: t("volunteersPage.rolesSection.registration"),
+  content: t("volunteersPage.rolesSection.registrationDescription"),
   roleImage: {
     image: imgVolunteersRegistration,
-    alt: t2("volunteersPage.rolesSection.registrationImageAlt"),
+    alt: t("volunteersPage.rolesSection.registrationImageAlt"),
   },
 };
 
 const photographerRoleData = {
-  role: t2("volunteersPage.rolesSection.photographer"),
-  content: t2("volunteersPage.rolesSection.photographerDescription"),
+  role: t("volunteersPage.rolesSection.photographer"),
+  content: t("volunteersPage.rolesSection.photographerDescription"),
   roleImage: {
     image: imgVolunteersManTakingAPicture,
-    alt: t2("volunteersPage.rolesSection.photographerImageAlt"),
+    alt: t("volunteersPage.rolesSection.photographerImageAlt"),
   },
 };
 
 const andMuchMoreRoleData = {
-  role: t2("volunteersPage.rolesSection.muchMore"),
-  content: t2("volunteersPage.rolesSection.muchMoreDescription"),
+  role: t("volunteersPage.rolesSection.muchMore"),
+  content: t("volunteersPage.rolesSection.muchMoreDescription"),
   roleImage: {
     image: imgVolunteersPosing,
-    alt: t2("volunteersPage.rolesSection.muchMoreImageAlt"),
+    alt: t("volunteersPage.rolesSection.muchMoreImageAlt"),
   },
 };
 
@@ -80,10 +80,10 @@ const volunteerRolesData = [
 <Section>
   <Flex direction="col" gap={8}>
     <Flex direction="col" gap={4}>
-      <Heading size="medium">{t2("volunteersPage.rolesSection.title")}</Heading>
+      <Heading size="medium">{t("volunteersPage.rolesSection.title")}</Heading>
 
       <Text>
-        {t2("volunteersPage.rolesSection.description")}
+        {t("volunteersPage.rolesSection.description")}
       </Text>
     </Flex>
 

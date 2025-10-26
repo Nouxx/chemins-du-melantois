@@ -7,7 +7,7 @@ import HorizontalPageLayout from "@components/ui/atoms/HorizontalPageLayout.astr
 import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
 import { routes } from "@data/navigation/routes/routes";
 import { SiteMetadata } from "@data/site/metadata";
-import { t2 } from "@lib/i18n";
+import { t } from "@lib/i18n";
 ---
 
 <footer class="w-full bg-neutral-300">
@@ -18,33 +18,33 @@ import { t2 } from "@lib/i18n";
       </div>
 
       <FooterLinksColumn
-        title={t2("footer.quickLinks")}
+        title={t("footer.quickLinks")}
         links={[
           {
-            label: t2("footer.registrationForm"),
+            label: t("footer.registrationForm"),
             url: externalLinks.registrationForm,
           },
           {
-            label: t2("footer.registrantsList"),
+            label: t("footer.registrantsList"),
             url: externalLinks.registrantsList,
           },
           {
-            label: t2("footer.pps"),
+            label: t("footer.pps"),
             url: externalLinks.pps,
           },
         ]}
       />
 
       <FooterLinksColumn
-        title={t2("footer.contactUs")}
+        title={t("footer.contactUs")}
         links={[
           {
-            label: t2("footer.contactByEmail"),
+            label: t("footer.contactByEmail"),
             url: `mailto:${SiteMetadata.contactEmail}`,
             newTab: false,
           },
           {
-            label: t2("footer.becomeVolunteer"),
+            label: t("footer.becomeVolunteer"),
             url: routes.volunteer,
             newTab: false,
           },

@@ -9,24 +9,24 @@ import edition2023Hero from "@images/races/2023-edition-hero.webp";
 import edition2019Hero from "@images/races/2019-edition-hero.webp";
 import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
 import { z } from "zod";
-import { t2 } from "@lib/i18n";
+import { t } from "@lib/i18n";
 
-const resultsButtonPhrase = t2("resultsPage.results");
-const picturesButtonPhrase = t2("resultsPage.photos");
+const resultsButtonPhrase = t("resultsPage.results");
+const picturesButtonPhrase = t("resultsPage.photos");
 
 const edition2025Data: EventHighlightData = {
-  title: t2("resultsPage.yearlyEdition", { year: 2025 }),
-  subline: t2("resultsPage.2025edition.description"),
+  title: t("resultsPage.yearlyEdition", { year: 2025 }),
+  subline: t("resultsPage.2025edition.description"),
   featuredImage: {
     image: edition2025Hero,
-    alt: t2("resultsPage.2025edition.imageAlt"),
+    alt: t("resultsPage.2025edition.imageAlt"),
   },
   participantsLines: [
-    { participantsCount: 531, raceName: t2("resultsPage.10kmName") },
-    { participantsCount: 247, raceName: t2("resultsPage.5kmName") },
-    { participantsCount: 179, raceName: t2("resultsPage.900mSainghinName") },
-    { participantsCount: 70, raceName: t2("resultsPage.900mPeronneName") },
-    { participantsCount: 34, raceName: t2("resultsPage.RunAndBikeName") },
+    { participantsCount: 531, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 247, raceName: t("resultsPage.5kmName") },
+    { participantsCount: 179, raceName: t("resultsPage.900mSainghinName") },
+    { participantsCount: 70, raceName: t("resultsPage.900mPeronneName") },
+    { participantsCount: 34, raceName: t("resultsPage.RunAndBikeName") },
   ],
   resultsLink: {
     label: resultsButtonPhrase,
@@ -34,41 +34,41 @@ const edition2025Data: EventHighlightData = {
   },
   picturesLinks: [
     {
-      label: t2("resultsPage.startPictures"),
+      label: t("resultsPage.startPictures"),
       url: externalLinks.edition2025StartPhotos,
     },
     {
-      label: t2("resultsPage.10kPictures"),
+      label: t("resultsPage.10kPictures"),
       url: externalLinks.edition202510kPhotos,
     },
     {
-      label: t2("resultsPage.5kPictures"),
+      label: t("resultsPage.5kPictures"),
       url: externalLinks.edition20255kPhotos,
     },
     {
-      label: t2("resultsPage.900mSainghinPictures"),
+      label: t("resultsPage.900mSainghinPictures"),
       url: externalLinks.edition2025900mSainghinPhotos,
     },
     {
-      label: t2("resultsPage.PeronnePictures"),
+      label: t("resultsPage.PeronnePictures"),
       url: externalLinks.edition2025PeronnePhotos,
     },
   ],
 };
 
 const edition2024Data: EventHighlightData = {
-  title: t2("resultsPage.yearlyEdition", { year: 2024 }),
-  subline: t2("resultsPage.2024edition.description"),
+  title: t("resultsPage.yearlyEdition", { year: 2024 }),
+  subline: t("resultsPage.2024edition.description"),
   featuredImage: {
     image: edition2024Hero,
-    alt: t2("resultsPage.2024edition.imageAlt"),
+    alt: t("resultsPage.2024edition.imageAlt"),
   },
   participantsLines: [
-    { participantsCount: 349, raceName: t2("resultsPage.10kmName") },
-    { participantsCount: 162, raceName: t2("resultsPage.5kmName") },
-    { participantsCount: 35, raceName: t2("resultsPage.RunAndBikeName") },
-    { participantsCount: 190, raceName: t2("resultsPage.900mSainghinName") },
-    { participantsCount: 54, raceName: t2("resultsPage.900mPeronneName") },
+    { participantsCount: 349, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 162, raceName: t("resultsPage.5kmName") },
+    { participantsCount: 35, raceName: t("resultsPage.RunAndBikeName") },
+    { participantsCount: 190, raceName: t("resultsPage.900mSainghinName") },
+    { participantsCount: 54, raceName: t("resultsPage.900mPeronneName") },
   ],
   resultsLink: {
     label: resultsButtonPhrase,
@@ -83,18 +83,18 @@ const edition2024Data: EventHighlightData = {
 };
 
 const edition2023Data: EventHighlightData = {
-  title: t2("resultsPage.yearlyEdition", { year: 2023 }),
-  subline: t2("resultsPage.2023edition.description"),
+  title: t("resultsPage.yearlyEdition", { year: 2023 }),
+  subline: t("resultsPage.2023edition.description"),
   featuredImage: {
     image: edition2023Hero,
-    alt: t2("resultsPage.2023edition.imageAlt"),
+    alt: t("resultsPage.2023edition.imageAlt"),
   },
   participantsLines: [
-    { participantsCount: 261, raceName: t2("resultsPage.10kmName") },
-    { participantsCount: 105, raceName: t2("resultsPage.5kmName") },
-    { participantsCount: 14, raceName: t2("resultsPage.RunAndBikeName") },
-    { participantsCount: 201, raceName: t2("resultsPage.900mSainghinName") },
-    { participantsCount: 72, raceName: t2("resultsPage.900mPeronneName") },
+    { participantsCount: 261, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 105, raceName: t("resultsPage.5kmName") },
+    { participantsCount: 14, raceName: t("resultsPage.RunAndBikeName") },
+    { participantsCount: 201, raceName: t("resultsPage.900mSainghinName") },
+    { participantsCount: 72, raceName: t("resultsPage.900mPeronneName") },
   ],
   resultsLink: {
     label: resultsButtonPhrase,
@@ -109,18 +109,18 @@ const edition2023Data: EventHighlightData = {
 };
 
 const edition2022Data: EventHighlightData = {
-  title: t2("resultsPage.yearlyEdition", { year: 2022 }),
-  subline: t2("resultsPage.2022edition.description"),
+  title: t("resultsPage.yearlyEdition", { year: 2022 }),
+  subline: t("resultsPage.2022edition.description"),
   featuredImage: {
     image: edition2022Hero,
-    alt: t2("resultsPage.2022edition.imageAlt"),
+    alt: t("resultsPage.2022edition.imageAlt"),
   },
   participantsLines: [
-    { participantsCount: 311, raceName: t2("resultsPage.10kmName") },
-    { participantsCount: 78, raceName: t2("resultsPage.5kmName") },
-    { participantsCount: 14, raceName: t2("resultsPage.1dot5kmName") },
-    { participantsCount: 201, raceName: t2("resultsPage.900mSainghinName") },
-    { participantsCount: 73, raceName: t2("resultsPage.900mPeronneName") },
+    { participantsCount: 311, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 78, raceName: t("resultsPage.5kmName") },
+    { participantsCount: 14, raceName: t("resultsPage.1dot5kmName") },
+    { participantsCount: 201, raceName: t("resultsPage.900mSainghinName") },
+    { participantsCount: 73, raceName: t("resultsPage.900mPeronneName") },
   ],
   resultsLink: {
     label: resultsButtonPhrase,
@@ -129,18 +129,18 @@ const edition2022Data: EventHighlightData = {
 };
 
 const edition2019Data: EventHighlightData = {
-  title: t2("resultsPage.yearlyEdition", { year: 2019 }),
-  subline: t2("resultsPage.2019edition.description"),
+  title: t("resultsPage.yearlyEdition", { year: 2019 }),
+  subline: t("resultsPage.2019edition.description"),
   featuredImage: {
     image: edition2019Hero,
-    alt: t2("resultsPage.2019edition.imageAlt"),
+    alt: t("resultsPage.2019edition.imageAlt"),
   },
   participantsLines: [
-    { participantsCount: 418, raceName: t2("resultsPage.10kmName") },
-    { participantsCount: 82, raceName: t2("resultsPage.5kmName") },
-    { participantsCount: 16, raceName: t2("resultsPage.1dot5kmName") },
-    { participantsCount: 125, raceName: t2("resultsPage.900mSainghinName") },
-    { participantsCount: 20, raceName: t2("resultsPage.900mPeronneName") },
+    { participantsCount: 418, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 82, raceName: t("resultsPage.5kmName") },
+    { participantsCount: 16, raceName: t("resultsPage.1dot5kmName") },
+    { participantsCount: 125, raceName: t("resultsPage.900mSainghinName") },
+    { participantsCount: 20, raceName: t("resultsPage.900mPeronneName") },
   ],
   resultsLink: {
     label: resultsButtonPhrase,

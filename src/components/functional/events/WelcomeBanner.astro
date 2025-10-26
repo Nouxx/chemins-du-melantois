@@ -8,7 +8,7 @@ import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
 import { routes } from "@data/navigation/routes/routes";
 import LinkButton from "@components/ui/molecules/LinkButton.astro";
 import Translation from "@components/ui/atoms/Translation.astro";
-import { t2 } from "@lib/i18n";
+import { t } from "@lib/i18n";
 ---
 
 <LeftAndRightSection>
@@ -21,12 +21,12 @@ import { t2 } from "@lib/i18n";
     </Heading>
 
     <Text>
-      {t2("homepage.welcomeSection.message")}
+      {t("homepage.welcomeSection.message")}
     </Text>
 
     <Flex direction="row" gap={4} wrap="wrap">
       <LinkButton
-        label={t2("homepage.welcomeSection.link")}
+        label={t("homepage.welcomeSection.link")}
         url={routes.afterRace}
       />
     </Flex>
@@ -35,7 +35,7 @@ import { t2 } from "@lib/i18n";
   <ImageWrapper
     slot="right"
     image={heroImage}
-    imageAlt={t2("homepage.welcomeSection.imageAlt")}
+    imageAlt={t("homepage.welcomeSection.imageAlt")}
     sizes="(max-width: 640px) 100vw, (max-width: 1536px) 50vw, 438px"
     rounded
   />

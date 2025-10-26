@@ -6,7 +6,7 @@ import Heading from "@components/ui/atoms/Heading.astro";
 import Section from "@components/ui/atoms/Section.astro";
 import StatBig from "@components/ui/molecules/StatBig.astro";
 import StatSmall from "@components/ui/molecules/StatSmall.astro";
-import { t2 } from "@lib/i18n";
+import { t } from "@lib/i18n";
 
 const participantSinceStarted = 3200;
 const raceTypeAvailable = 5;
@@ -14,10 +14,10 @@ const raceTypeAvailable = 5;
 
 <Section>
   <Flex direction="col" gap={4}>
-    <Heading tag="h2">{t2("homepage.statisticsSection.heading")}</Heading>
+    <Heading tag="h2">{t("homepage.statisticsSection.heading")}</Heading>
 
     <Text className="mb-16 max-w-prose leading-relaxed">
-      {t2("homepage.statisticsSection.description")}
+      {t("homepage.statisticsSection.description")}
     </Text>
   </Flex>
 
@@ -25,7 +25,7 @@ const raceTypeAvailable = 5;
     <div class="lg:col-span-4">
       <StatBig
         title={String(participantSinceStarted)}
-        subTitle={t2("homepage.statisticsSection.participantSinceStarted", {
+        subTitle={t("homepage.statisticsSection.participantSinceStarted", {
           count: participantSinceStarted,
         })}
       />
@@ -36,18 +36,18 @@ const raceTypeAvailable = 5;
     >
       <Flex direction="row" gap={8} wrap="wrap" className="justify-between">
         <StatSmall
-          title={t2("homepage.statisticsSection.fourteenth")}
-          subTitle={t2("homepage.statisticsSection.eventSince2011")}
+          title={t("homepage.statisticsSection.fourteenth")}
+          subTitle={t("homepage.statisticsSection.eventSince2011")}
         />
         <StatSmall
           title={String(raceTypeAvailable)}
-          subTitle={t2("homepage.statisticsSection.raceTypeAvailable", {
+          subTitle={t("homepage.statisticsSection.raceTypeAvailable", {
             count: raceTypeAvailable,
           })}
         />
         <StatSmall
-          title={t2("homepage.statisticsSection.tenMinutes")}
-          subTitle={t2("homepage.statisticsSection.fromLilleInCar")}
+          title={t("homepage.statisticsSection.tenMinutes")}
+          subTitle={t("homepage.statisticsSection.fromLilleInCar")}
         />
       </Flex>
     </div>
