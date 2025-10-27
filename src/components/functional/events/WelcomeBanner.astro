@@ -14,7 +14,10 @@ import { t } from "@lib/i18n";
 <LeftAndRightSection>
   <Flex slot="left" direction="col" gap={8}>
     <Heading tag="h1">
-      <Translation i18nKey="homepage.welcomeSection.title" color="lightGreen" />
+      <Translation
+        i18nKey="homepage.welcomeSection.title"
+        slots={[{ type: "color" }]}
+      />
     </Heading>
 
     <Text>

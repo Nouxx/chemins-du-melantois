@@ -23,7 +23,10 @@ const {
   <Heading size="small" id={anchorId} tag="h2">{title}</Heading>
 
   <Text size="medium">
-    <Translation input={body} />
+    <Translation
+      input={body}
+      slots={[{ type: "strong" }, { type: "strong" }]}
+    />
   </Text>
 
   <Text size="medium">{meetingPointLine}</Text>

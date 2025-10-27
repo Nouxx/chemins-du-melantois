@@ -1,7 +1,7 @@
 {
   "homepage": {
     "welcomeSection": {
-      "title": "Bienvenue aux Chemins du <color>Mélantois</color>",
+      "title": "Bienvenue aux Chemins du <1>Mélantois</1>",
       "message": "L'édition 2025 des Chemins du Mélantois est terminée ! Rendez-vous l'année prochaine. Redécouvrez les moments forts ainsi que les résultats de cette dernière édition.",
       "link": "Résultats & photos",
       "imageAlt": "Coureurs au départ de la course des Chemins du Mélantois"
@@ -9,14 +9,14 @@
     "statisticsSection": {
       "heading": "En quelques chiffres",
       "description": "Cet évènement est organisé par l'association « Les chemins du Mélantois » sous l'impulsion des communes de Sainghin-en-Mélantois et Péronne-en-Mélantois, et est entièrement bénévole. Il a pour but de promouvoir la pratique du sport en milieu naturel, de faire découvrir le Mélantois et de récolter des fonds pour des associations locales.",
-      "statBigTitle": "3200",
-      "statBigSubtitle": "participants depuis sa création",
-      "statSmall1Title": "14ème",
-      "statSmall1Subtitle": "édition depuis 2011",
-      "statSmall2Title": "5",
-      "statSmall2Subtitle": "formats disponible",
-      "statSmall3Title": "10min",
-      "statSmall3Subtitle": "en voiture depuis Lille"
+      "participantSinceStarted_one": "participant depuis sa création",
+      "participantSinceStarted_other": "participants depuis sa création",
+      "fourteenth": "14ème",
+      "eventSince2011": "édition depuis 2011",
+      "raceTypeAvailable_one": "format disponible",
+      "raceTypeAvailable_other": "formats disponible",
+      "tenMinutes": "10min",
+      "fromLilleInCar": "en voiture depuis Lille"
     },
     "videoSection": {
       "title": "Retour en images sur l'édition 2024 !",
@@ -100,7 +100,7 @@
     "pricePerParticipant": "{{price}}€ par participant",
     "pricePerTeam": "{{price}}€ par équipe",
     "free": "Gratuit",
-    "scheduleLine": "La course a lieu le <strong>{{eventDate}}</strong> et le départ sera lancé à <strong>{{startTime}}</strong>.",
+    "scheduleLine": "La course a lieu le <1>{{eventDate}}</1> et le départ sera lancé à <2>{{startTime}}</2>.",
     "meetingPointLine": "Le point de rendez-vous est le suivant :",
     "routeSection": {
       "title": "Parcours",
@@ -119,12 +119,12 @@
       "anchorId": "inscription",
       "onlineRegistration": {
         "title": "En ligne",
-        "description": "Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00 via notre plateforme partenaire <italic><strong>Miles Republic</strong></italic>. Le paiement s'effectue également sur cette plateforme.",
+        "description": "Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00 via notre plateforme partenaire <1><2>Miles Republic</2></1>. Le paiement s'effectue également sur cette plateforme.",
         "linkLabel": "Lien vers l'inscription en ligne"
       },
       "onSiteRegistration": {
         "title": "Sur place",
-        "description": "Vous pouvez également vous inscrire à la Maison des Associations de Sainghin en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à venir muni de votre bulletin d'inscription rempli ainsi que tous les documents requis pour finaliser votre inscription (voir les <italic><link>Modalités d'inscriptions</link></italic> plus bas).",
+        "description": "Vous pouvez également vous inscrire à la Maison des Associations de Sainghin en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à venir muni de votre bulletin d'inscription rempli ainsi que tous les documents requis pour finaliser votre inscription (voir les <1><2>Modalités d'inscriptions</2></1> plus bas).",
         "linkLabel": "Lien vers l'inscription en ligne"
       }
     },

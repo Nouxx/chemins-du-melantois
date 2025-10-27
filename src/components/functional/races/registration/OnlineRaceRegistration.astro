@@ -19,7 +19,10 @@ const { title, description, additionalDescription, link } = Astro.props.data;
   </Heading>
 
   <Text size="medium">
-    <Translation input={description} />
+    <Translation
+      input={description}
+      slots={[{ type: "strong" }, { type: "italic" }]}
+    />
   </Text>
 
   {additionalDescription && <Text size="medium">{additionalDescription}</Text>}
