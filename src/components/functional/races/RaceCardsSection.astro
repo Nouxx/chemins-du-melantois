@@ -9,7 +9,7 @@ import { racesPageData } from "@data/races/races";
   <Grid gap={4} className="grid-cols-1 sm:grid-cols-3 md:gap-6 xl:gap-8">
     {
       racesPageData.map((racePageData, index) => {
-        const isSmall = index !== 1;
+        const isSmall = index % 2;
         return (
           <RaceCard
             racePageData={racePageData}
