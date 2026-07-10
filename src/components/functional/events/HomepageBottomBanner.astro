@@ -5,6 +5,7 @@ import LinkButton from "@components/ui/molecules/LinkButton.astro";
 import CTASection from "@components/ui/molecules/CTASection.astro";
 import { routes } from "@data/navigation/routes/routes";
 import { t } from "@lib/i18n";
+import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
 ---
 
 <CTASection>
@@ -15,6 +16,6 @@ import { t } from "@lib/i18n";
   <LinkButton
     slot="button"
     label={t("homepage.banner.label")}
-    url={routes.afterRace}
+    url={externalLinks.registration}
   />
 </CTASection>

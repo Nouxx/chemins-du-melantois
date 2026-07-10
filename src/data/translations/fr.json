@@ -2,8 +2,8 @@
   "homepage": {
     "welcomeSection": {
       "title": "Bienvenue aux Chemins du <1>Mélantois</1>",
-      "message": "L'édition 2025 des Chemins du Mélantois est terminée ! Rendez-vous l'année prochaine. Redécouvrez les moments forts ainsi que les résultats de cette dernière édition.",
-      "link": "Résultats & photos",
+      "message": "L'inscription à l'édition 2026 des Chemins du Mélantois est désormais ouverte ! Cette 15ème édition aura lieu le 20 septembre et sera dans la lignée de l'édition précédente.",
+      "link": "Inscription",
       "imageAlt": "Coureurs au départ de la course des Chemins du Mélantois"
     },
     "statisticsSection": {
@@ -23,8 +23,8 @@
       "imageAlt": "Vue aérienne de la course a coeur du village de Sainghin en Mélantois"
     },
     "racesOverview": {
-      "title": "Nos 5 courses",
-      "description": "Cette édition 2025 a proposé notre format habituel de 5 courses variées, parfait pour un événement familial où chacun peut venir et courir ensemble.",
+      "title": "Nos 4 courses",
+      "description": "L'édition 2026 propose 4 formats de courses du 10km au 900m, parfait pour un événement familial où chacun peut venir et courir ensemble.",
       "link": "Détails des courses",
       "races": {
         "pricePerParticipant": "{{price}}€ par participant",
@@ -41,6 +41,14 @@
         "run900m": {
           "title": "Courses à pied - 900 m",
           "body": "2 parcours de découverte familial, adapté pour les enfants et leurs familles souhaitant découvrir la course à pied à travers le village de Sainghin-en-Mélantois ou de Péronne-en-Mélantois."
+        },
+        "run900mSainghin": {
+          "title": "Courses à pied - 900 m",
+          "body": "Un parcours au départ de Sainghin-en-Mélantois, adapté pour les enfants et leurs familles souhaitant découvrir la course à pied à travers le village."
+        },
+        "run900mPeronne": {
+          "title": "Courses à pied - 900 m",
+          "body": "Un parcours au départ de Péronne-en-Mélantois, adapté pour les enfants et leurs familles souhaitant découvrir la course à pied à travers le village."
         },
         "runBike": {
           "title": "Run & Bike",
@@ -71,6 +79,10 @@
         {
           "question": "Où puis-je consulter mes résultats après la course ?",
           "answer": "Les résultats seront publiés sur notre site dans la rubrique « Après-course » et accessibles via notre site partenaire."
+        },
+        {
+          "question": "Qu'est devenu le Run & Bike ?",
+          "answer": "Le format n'a pas été reconduit pour des raisons logistiques. Si vous souhaitez revoir ce format, n'hésitez pas à nous le faire savoir !"
         }
       ]
     },
@@ -85,9 +97,9 @@
       }
     },
     "banner": {
-      "title": "Rendez-vous en 2026 !",
+      "title": "Les inscriptions sont ouvertes !",
       "message": "Venez vibrer à nouveau en 2026 sur des parcours conviviaux et 100 % nature !",
-      "label": "Résultats & Photos"
+      "label": "Je m'inscris"
     }
   },
   "racePage": {

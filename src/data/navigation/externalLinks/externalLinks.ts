@@ -2,7 +2,7 @@ export const externalLinks = {
   registration:
     "https://fr.milesrepublic.com/event/les-chemins-du-melantois-2692",
   registrantsList:
-    "https://fr.milesrepublic.com/registrants/7b132950-613a-41ab-a1aa-a09332abef18",
+    "https://fr.milesrepublic.com/registrants/2b1ba6be-0fb0-4d2c-85d3-1d2abdabec6d",
   sportsRegulations:
     "https://drive.google.com/file/d/1Vsg-6oMnoK4aV6WU4SKiGCQtKMf9U6YP/view",
   rewardsSummary:
