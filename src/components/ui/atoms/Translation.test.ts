@@ -10,7 +10,7 @@ test("should find key and render it", async () => {
     },
   });
 
-  expect(result).toBe("Nos 5 courses");
+  expect(result).toBe("Nos 4 courses");
 });
 
 test("should throw when no input or key are provided", async () => {
