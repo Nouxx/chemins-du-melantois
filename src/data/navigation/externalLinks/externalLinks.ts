@@ -4,16 +4,16 @@ export const externalLinks = {
   registrantsList:
     "https://fr.milesrepublic.com/registrants/2b1ba6be-0fb0-4d2c-85d3-1d2abdabec6d",
   sportsRegulations:
-    "https://drive.google.com/file/d/1Vsg-6oMnoK4aV6WU4SKiGCQtKMf9U6YP/view",
+    "https://drive.google.com/file/d/1gwgnXirME7OWkdDmJTAwBskgmnm-nuqW/view",
   rewardsSummary:
-    "https://drive.google.com/file/d/1O0emjGEev_PK5kp0InbYi97MUyXbU3Iy/view",
+    "https://drive.google.com/file/d/1Io57N7oBGV_5l38qThKO2Fl-yekvqEL6/view",
   pps: "https://pps.athle.fr",
   registrationForm:
     "https://drive.google.com/file/d/1jSWdNn1mdBcu7uIX36LZ2IO5DKhvHaNx/view",
   healthQuestionnaire:
     "https://drive.google.com/file/d/1Do0APrhF2uyEtuNfBvApSosbLSQaqN6h/view",
   parentalConsentForm:
-    "https://drive.google.com/file/d/1Dzo98Z8ux2bZa1uR2D8lDSd2tXnNp70B/view",
+    "https://drive.google.com/file/d/1vQw1AyxDfCw3TKKObZ-OWkAAX0Rc7OxJ/view",
   edition2025Trace900mPeronne:
     "https://drive.google.com/file/d/1k49m8EhDZEVyvSmPLekSd5AyeuZrK7T-/view",
   edition2025Trace900mSainghin:
