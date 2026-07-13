@@ -10,6 +10,11 @@ await i18next.init({
       translation: frenchTranslations,
     },
   },
+  interpolation: {
+    // Astro auto-escapes text expressions; disable i18next escaping to
+    // avoid double-escaping interpolated values (e.g. "Run & Bike" -> "Run &amp; Bike")
+    escapeValue: false,
+  },
 });
 
 type TParameters = Parameters<typeof i18next.t>;
