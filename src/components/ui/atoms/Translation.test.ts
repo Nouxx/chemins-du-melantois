@@ -1,5 +1,5 @@
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import { describe, expect, test } from "vitest";
+import { expect, test } from "vitest";
 import Translation from "./Translation.astro";
 
 test("should find key and render it", async () => {
@@ -10,7 +10,7 @@ test("should find key and render it", async () => {
     },
   });
 
-  expect(result).toBe("Nos 5 courses");
+  expect(result).toBe("Nos 4 courses");
 });
 
 test("should throw when no input or key are provided", async () => {
@@ -46,9 +46,7 @@ test("should throw when there is an additional closing tag", async () => {
         input: "This is a <1>super</1> <2>text</3>",
       },
     }),
-  ).rejects.toThrow(
-    "Opening tags (1,2) and closing tags (1,3) does not match",
-  );
+  ).rejects.toThrow("Opening tags (1,2) and closing tags (1,3) does not match");
 });
 
 test("should throw when there is an additional opening tag", async () => {

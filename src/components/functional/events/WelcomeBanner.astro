@@ -5,10 +5,10 @@ import heroImage from "@images/hero-image.webp";
 import LeftAndRightSection from "@components/ui/atoms/LeftAndRightSection.astro";
 import Flex from "@components/ui/atoms/Flex.astro";
 import ImageWrapper from "@components/ui/atoms/ImageWrapper.astro";
-import { routes } from "@data/navigation/routes/routes";
 import LinkButton from "@components/ui/molecules/LinkButton.astro";
 import Translation from "@components/ui/atoms/Translation.astro";
 import { t } from "@lib/i18n";
+import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
 ---
 
 <LeftAndRightSection>
@@ -27,7 +27,8 @@ import { t } from "@lib/i18n";
     <Flex direction="row" gap={4} wrap="wrap">
       <LinkButton
         label={t("homepage.welcomeSection.link")}
-        url={routes.afterRace}
+        newTab
+        url={externalLinks.registration}
       />
     </Flex>
   </Flex>

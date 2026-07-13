@@ -229,7 +229,7 @@ const nineHundredPeronneRacePageData: RacePageData = {
 
 export const racesPageData: RacePageData[] = [
   tenKilometerRacePageData,
-  runAndBikeRacePageData,
+  // runAndBikeRacePageData,
   fiveKilometerRacePageData,
   nineHundredSainghinRacePageData,
   nineHundredPeronneRacePageData,
