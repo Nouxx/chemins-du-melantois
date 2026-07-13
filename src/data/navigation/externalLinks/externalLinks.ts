@@ -9,7 +9,7 @@ export const externalLinks = {
     "https://drive.google.com/file/d/1Io57N7oBGV_5l38qThKO2Fl-yekvqEL6/view",
   pps: "https://pps.athle.fr",
   registrationForm:
-    "https://drive.google.com/file/d/1jSWdNn1mdBcu7uIX36LZ2IO5DKhvHaNx/view",
+    "https://drive.google.com/file/d/1zz-Aa30N9XOrTUmypOfiH3yqiEu9jnqo/view",
   healthQuestionnaire:
     "https://drive.google.com/file/d/1Do0APrhF2uyEtuNfBvApSosbLSQaqN6h/view",
   parentalConsentForm:
