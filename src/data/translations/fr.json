@@ -75,7 +75,7 @@
         },
         {
           "question": "Que contient le sac coureur remis avant le départ ?",
-          "answer": "Chaque participant reçoit un petit cadeau surprise au moment de la remise des dossards. Les enfants inscrits aux courses de 900 m repartent quant à eux avec une médaille."
+          "answer": "Chaque participant des 5 et 10 kms reçoit une médaille collector pour cette édition. Les enfants inscrits aux courses de 900 m repartent quant à eux avec une médaille."
         },
         {
           "question": "Où puis-je consulter mes résultats après la course ?",
@@ -144,10 +144,11 @@
     "bibSection": {
       "title": "Retrait des dossards",
       "anchorId": "retrait-des-dossards",
-      "description": "Les dossards sont à retirer en mairie de Sainghin, aux horaires suivants :",
+      "description": "Les retraits de dossard se font :",
       "pickupLines": [
-        "Samedi 19 septembre : de 14h00 à 17h00",
-        "Dimanche 20 septembre : de 7h00 à 8h30"
+        "Le Samedi de 14h à 17h à la maison des associations à Sainghin (toutes courses),",
+        "Le dimanche de 7h30 à 8h30 à la maison des associations à Sainghin (900m Sainghin, 5 et 10 km)",
+        "Le dimanche de 10h à 11h15 à la maire de Péronne (900 m Péronne). »"
       ]
     },
     "registrationDetailsSection": {
