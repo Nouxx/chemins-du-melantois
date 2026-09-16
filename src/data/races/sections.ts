@@ -1,6 +1,6 @@
 import { externalLinks } from "@data/navigation/externalLinks/externalLinks";
 import type { RacePageData } from "@data/races/schema";
-import { t } from "@lib/i18n";
+import { t, tArray } from "@lib/i18n";
 
 export const routeSectionBaseData = {
   title: t("racePage.routeSection.title"),
@@ -87,10 +87,7 @@ export const bibSectionBaseData: RacePageData["bibSection"] = {
   title: t("racePage.bibSection.title"),
   anchorId: t("racePage.bibSection.anchorId"),
   description: t("racePage.bibSection.description"),
-  pickupScheduleLines: [
-    t("racePage.bibSection.pickupLines.0"),
-    t("racePage.bibSection.pickupLines.1"),
-  ],
+  pickupScheduleLines: tArray("racePage.bibSection.pickupLines"),
 };
 
 export const registrationDetailsSectionBaseData = {

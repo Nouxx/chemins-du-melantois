@@ -30,4 +30,17 @@ function tStrict(...args: TParameters): string {
   return result;
 }
 
+function tArrayStrict(key: string): string[] {
+  const result = i18next.t(key, { returnObjects: true });
+
+  if (!Array.isArray(result)) {
+    if (import.meta.env.PROD) {
+      throw new Error(`Translation key is not an array: "${key}"`);
+    }
+    return [];
+  }
+  return result.map(String);
+}
+
 export const t = tStrict;
+export const tArray = tArrayStrict;
