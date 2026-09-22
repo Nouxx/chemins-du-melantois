@@ -2,7 +2,7 @@
   "homepage": {
     "welcomeSection": {
       "title": "Bienvenue aux Chemins du <1>Mélantois</1>",
-      "message": "L'inscription à l'édition 2026 des Chemins du Mélantois est désormais ouverte ! Cette 15ème édition aura lieu le 20 septembre et sera dans la lignée de l'édition précédente.",
+      "message": "Merci à toutes et à tous pour cette 15ème édition des Chemins du Mélantois, qui s'est déroulée le 20 septembre 2026 ! Malgré la pluie, vous étiez au rendez-vous : un grand bravo aux coureurs et un immense merci aux bénévoles. Rendez-vous l'année prochaine pour une nouvelle édition !",
       "link": "Inscription",
       "imageAlt": "Coureurs au départ de la course des Chemins du Mélantois"
     },
@@ -227,7 +227,12 @@
     "5kPictures": "Photos 5 km",
     "900mSainghinPictures": "Photos 900 m de Sainghin",
     "PeronnePictures": "Photos Péronne",
+    "startFinishPictures": "Photos départ/arrivée",
     "participantsLine": "{{count}} participants au {{raceName}}.",
+    "2026edition": {
+      "description": "Cette 15ème édition a eu lieu le 20 septembre 2026, sous la pluie. Elle a tout de même rassemblé 836 participants. Merci à tous les coureurs et bénévoles d'avoir bravé la météo !",
+      "imageAlt": "Coureurs souriants du 5 km sur un chemin mouillé, dont une participante poussant une poussette"
+    },
     "2025edition": {
       "description": "Cette édition a eu lieu le 21 septembre 2025, sous un ciel mitigé mais sec. Elle a rassemblé plus de 1000 participants (1061 exactement), soit un nouveau record consécutif.",
       "imageAlt": "Groupe de coureurs courant en forêt",
