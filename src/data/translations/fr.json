@@ -227,7 +227,12 @@
     "5kPictures": "Photos 5 km",
     "900mSainghinPictures": "Photos 900 m de Sainghin",
     "PeronnePictures": "Photos Péronne",
+    "startFinishPictures": "Photos départ/arrivée",
     "participantsLine": "{{count}} participants au {{raceName}}.",
+    "2026edition": {
+      "description": "Cette 15ème édition a eu lieu le 20 septembre 2026. Merci à tous les coureurs et bénévoles pour cette belle journée !",
+      "imageAlt": "Coureurs souriants du 5 km sur un chemin mouillé, dont une participante poussant une poussette"
+    },
     "2025edition": {
       "description": "Cette édition a eu lieu le 21 septembre 2025, sous un ciel mitigé mais sec. Elle a rassemblé plus de 1000 participants (1061 exactement), soit un nouveau record consécutif.",
       "imageAlt": "Groupe de coureurs courant en forêt",

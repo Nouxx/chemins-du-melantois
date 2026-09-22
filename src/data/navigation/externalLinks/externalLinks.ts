@@ -26,6 +26,12 @@ export const externalLinks = {
     "https://drive.google.com/file/d/1N4POCdKh9YlkTZTJHRrQBbUJv2enp1Ar/view",
   edition2025Maps:
     "https://www.google.fr/maps/d/u/0/edit?mid=1YDOG0-5eHR_vzE_yyXufJq-fc0YbTdA",
+  edition2026Results:
+    "https://sportchronometrage.fr/live/chemin-melantois-2026",
+  edition2026StartFinishPhotos: "https://photos.app.goo.gl/HEPFArB72Fpauduj8",
+  edition202610kPhotos: "https://photos.app.goo.gl/unKk54RL6BWDPrpX6",
+  edition20265kPhotos: "https://photos.app.goo.gl/De9cZgABQiqDnFtB6",
+  edition2026900mSainghinPhotos: "https://photos.app.goo.gl/KCTRdmtC9cHMrWQp8",
   edition2025Results:
     "https://sportchronometrage.fr/live/les-chemins-du-melantois-2025",
   edition2025StartPhotos: "https://photos.app.goo.gl/xurTKWxwnuYb2emq7",

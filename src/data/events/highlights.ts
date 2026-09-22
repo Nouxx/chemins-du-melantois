@@ -2,6 +2,7 @@ import {
   EventHighlightDataSchema,
   type EventHighlightData,
 } from "@data/events/schema";
+import edition2026Hero from "@images/races/2026-edition-hero.webp";
 import edition2025Hero from "@images/races/2025-edition-hero.webp";
 import edition2024Hero from "@images/races/2024-edition-hero.webp";
 import edition2022Hero from "@images/races/2022-edition-hero.webp";
@@ -13,6 +14,41 @@ import { t } from "@lib/i18n";
 
 const resultsButtonPhrase = t("resultsPage.results");
 const picturesButtonPhrase = t("resultsPage.photos");
+
+const edition2026Data: EventHighlightData = {
+  title: t("resultsPage.yearlyEdition", { year: 2026 }),
+  subline: t("resultsPage.2026edition.description"),
+  featuredImage: {
+    image: edition2026Hero,
+    alt: t("resultsPage.2026edition.imageAlt"),
+  },
+  participantsLines: [
+    { participantsCount: 376, raceName: t("resultsPage.10kmName") },
+    { participantsCount: 221, raceName: t("resultsPage.5kmName") },
+  ],
+  resultsLink: {
+    label: resultsButtonPhrase,
+    url: externalLinks.edition2026Results,
+  },
+  picturesLinks: [
+    {
+      label: t("resultsPage.startFinishPictures"),
+      url: externalLinks.edition2026StartFinishPhotos,
+    },
+    {
+      label: t("resultsPage.10kPictures"),
+      url: externalLinks.edition202610kPhotos,
+    },
+    {
+      label: t("resultsPage.5kPictures"),
+      url: externalLinks.edition20265kPhotos,
+    },
+    {
+      label: t("resultsPage.900mSainghinPictures"),
+      url: externalLinks.edition2026900mSainghinPhotos,
+    },
+  ],
+};
 
 const edition2025Data: EventHighlightData = {
   title: t("resultsPage.yearlyEdition", { year: 2025 }),
@@ -155,6 +191,7 @@ const edition2019Data: EventHighlightData = {
 };
 
 export const eventsHighlightsData = [
+  edition2026Data,
   edition2025Data,
   edition2024Data,
   edition2023Data,
