@@ -3,7 +3,7 @@
     "welcomeSection": {
       "title": "Bienvenue aux Chemins du <1>Mélantois</1>",
       "message": "Merci à toutes et à tous pour cette 15ème édition des Chemins du Mélantois, qui s'est déroulée le 20 septembre 2026 ! Malgré la pluie, vous étiez au rendez-vous : un grand bravo aux coureurs et un immense merci aux bénévoles. Rendez-vous l'année prochaine pour une nouvelle édition !",
-      "link": "Inscription",
+      "link": "Résultats & photos",
       "imageAlt": "Coureurs au départ de la course des Chemins du Mélantois"
     },
     "statisticsSection": {
@@ -25,7 +25,7 @@
     },
     "racesOverview": {
       "title": "Nos 4 courses",
-      "description": "L'édition 2026 propose 4 formats de courses du 10km au 900m, parfait pour un événement familial où chacun peut venir et courir ensemble.",
+      "description": "Cette édition 2026 a proposé 4 formats de courses du 10km au 900m, parfait pour un événement familial où chacun peut venir et courir ensemble.",
       "link": "Détails des courses",
       "races": {
         "pricePerParticipant": "{{price}}€ par participant",
@@ -79,7 +79,7 @@
         },
         {
           "question": "Où puis-je consulter mes résultats après la course ?",
-          "answer": "Les résultats seront publiés sur notre site dans la rubrique « Après-course » et accessibles via notre site partenaire."
+          "answer": "Les résultats sont disponibles sur notre site dans la rubrique « Après-courses » et via notre site partenaire."
         },
         {
           "question": "Qu'est devenu le Run & Bike ?",
@@ -98,9 +98,9 @@
       }
     },
     "banner": {
-      "title": "Les inscriptions sont ouvertes !",
-      "message": "Venez vibrer à nouveau en 2026 sur des parcours conviviaux et 100 % nature !",
-      "label": "Je m'inscris"
+      "title": "Rendez-vous en 2027 !",
+      "message": "Venez vibrer à nouveau en 2027 sur des parcours conviviaux et 100 % nature !",
+      "label": "Résultats & Photos"
     }
   },
   "racePage": {
@@ -113,7 +113,7 @@
     "pricePerParticipant": "{{price}}€ par participant",
     "pricePerTeam": "{{price}}€ par équipe",
     "free": "Gratuit",
-    "scheduleLine": "La course a lieu le <1>{{eventDate}}</1> et le départ sera lancé à <2>{{startTime}}</2>.",
+    "scheduleLine": "La course a eu lieu le <1>{{eventDate}}</1>, départ à <2>{{startTime}}</2>.",
     "meetingPointLine": "Le point de rendez-vous est le suivant :",
     "routeSection": {
       "title": "Parcours",
@@ -132,13 +132,13 @@
       "anchorId": "inscription",
       "onlineRegistration": {
         "title": "En ligne",
-        "description": "Les inscriptions en ligne sont ouvertes jusqu'au samedi 20 septembre à 12h00 via notre plateforme partenaire <1><2>Miles Republic</2></1>. Le paiement s'effectue également sur cette plateforme.",
+        "description": "Les inscriptions pour l'édition 2026 sont closes. Les inscriptions pour la prochaine édition ouvriront courant 2027 sur notre plateforme partenaire <1><2>Miles Republic</2></1>.",
         "linkLabel": "Lien vers l'inscription en ligne"
       },
       "onSiteRegistration": {
         "title": "Sur place",
-        "description": "Vous pouvez également vous inscrire à la Maison des Associations de Sainghin en Mélantois le samedi 20 septembre, de 14h00 à 17h00. Veillez à venir muni de votre bulletin d'inscription rempli ainsi que tous les documents requis pour finaliser votre inscription (voir les <1><2>Modalités d'inscriptions</2></1> plus bas).",
-        "linkLabel": "Lien vers l'inscription en ligne"
+        "description": "Des inscriptions sur place sont habituellement possibles la veille de la course. Les détails seront communiqués à l'ouverture des inscriptions 2027 (voir aussi les <1><2>Modalités d'inscriptions</2></1> plus bas).",
+        "linkLabel": "Bulletin d'inscription"
       }
     },
     "bibSection": {
@@ -321,7 +321,7 @@
     "quickLinks": "Liens rapides",
     "contactUs": "Nous contacter",
     "registrationForm": "Bulletin d'inscription",
-    "registrantsList": "Liste des inscrits",
+    "results2026": "Résultats 2026",
     "pps": "PPS",
     "contactByEmail": "Par email",
     "becomeVolunteer": "Devenir bénévole",
